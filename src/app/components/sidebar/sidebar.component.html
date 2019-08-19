@@ -1,0 +1,40 @@
+
+<div class="logo">
+    <!-- <a routerLink="/" class="simple-text logo-mini">
+      <div class="logo-img">
+          <img src="./assets/img/peace-logo.png"/>
+      </div>
+    </a> -->
+    <a routerLink="/" class="simple-text logo-normal">
+        SCHOOL ADMIN
+    </a>
+</div>
+<div class="sidebar-wrapper">
+    <ul class="nav">
+        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+            <a href="javascript:void(0)" *ngIf="menuItem.path == ''">
+                <i class="now-ui-icons {{menuItem.icon}}"></i>
+                <p>{{menuItem.title}}</p>
+            </a>
+            <a [routerLink]="[menuItem.path]" *ngIf="menuItem.path != ''">
+                <i class="now-ui-icons {{menuItem.icon}}"></i>
+                <p>{{menuItem.title}}</p>
+            </a>
+            <ul class="nav" *ngIf="menuItem.sub">
+                <li routerLinkActive="active" *ngFor="let subMenuItem of menuItem.sub" class="{{subMenuItem.class}} nav-item">
+                    <a [routerLink]="[subMenuItem.path]">
+                        <i class="now-ui-icons {{subMenuItem.icon}}"></i>
+                        <p>{{subMenuItem.title}}</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li routerLinkActive="active" class="nav-item">
+            <a href="javascript:void(0)">
+                <i class="now-ui-icons media-1_button-power"></i>
+                <p>Logout</p>
+            </a>
+        </li>
+    </ul>
+</div>

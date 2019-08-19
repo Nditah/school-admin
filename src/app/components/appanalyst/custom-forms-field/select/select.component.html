@@ -1,0 +1,28 @@
+<div
+class="list-group"
+[ngClass]="{active: openOptionList}"
+aaOutsideideClickable
+(aaOutsideClick)="onCloseOptionList()"
+>
+  <div class="option-search"
+  >
+    <input
+      type="text"
+      [placeholder]="placeholderValue"
+      (click)="onOpenOptionList()"
+      (input)="onSearch($event)"
+      [disabled]="appDisabled"
+      #search
+    >
+  </div>
+  <div class="options-group">
+    <div
+      *ngFor="let record of records"
+      class="option-item"
+      (click)="onOptionClick(record)"
+    >
+      <span>{{ getContent(record, bindLabel) }}</span>
+      <small>{{ getContent(record, bindSubLabel) }}</small>
+    </div>
+  </div>
+</div>

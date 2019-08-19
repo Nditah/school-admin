@@ -27,9 +27,23 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "src/assets/scss/now-ui-dashboard.scss",
+              "src/assets/scss/main-stylesheet.scss",
+              "src/assets/demo/demo.css",
+              "src/assets/css/loading.css",
+              "src/assets/css/loading-btn.css",
+              "src/assets/css/responsive.dataTables.min.css",
+              "src/assets/css/dataTables.bootstrap4.min.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.min.js",
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/datatables.net-responsive/js/dataTables.responsive.js",
+              "src/assets/js/dataTables.bootstrap4.min.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
@@ -84,9 +98,18 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.scss"
+              "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "src/assets/scss/now-ui-dashboard.scss",
+              "src/assets/demo/demo.css",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.min.js",
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/datatables.net-responsive/js/dataTables.responsive.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

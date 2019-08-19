@@ -1,0 +1,72 @@
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('../../../assets/fonts/poppins/Poppins-Regular.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../../../assets/fonts/poppins/Poppins-Bold.ttf');
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('../../../assets/fonts/poppins/Poppins-Medium.ttf')
+  /* src: url('../fonts/poppins/Poppins-Medium.ttf'); */
+}
+
+@font-face {
+  font-family: Montserrat-Bold;
+  src: url('../../../assets/fonts/poppins/Poppins-Bold.ttf')
+}
+
+.logo-normal{
+  font-size: 30px;
+  font-weight: 600;
+  font-family: Poppins-Bold;
+}
+
+.parent-nav {
+    height: 70px;
+    overflow: hidden;
+    margin-bottom: -10px;
+    transition-property: height;
+    transition-duration: 300ms;
+}
+
+.parent-nav:hover, .parent-nav.active {
+    height: auto;
+}
+
+.parent-nav::before {
+    content: "\25BA";
+    position: absolute;
+    right: 30px;
+    z-index: 2;
+    margin-top: 22px;
+    color: white;
+    font-size: large;
+    transition-property: all;
+    transition-duration: 300ms;
+    cursor: pointer;
+}
+
+.parent-nav:hover::before, .parent-nav.active::before {
+    transform: rotate(90deg);
+}
+
+.parent-nav .nav {
+    margin-top: -22px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    padding-top: 32px;
+}
+
+li.parent-nav.nav-item.active > a {
+    background-color: rgba(255,255,255,.4) !important;
+    box-shadow: none !important;
+    color: white !important;
+}
+
+.parent-nav.active > a i {
+    color: white !important;
+}

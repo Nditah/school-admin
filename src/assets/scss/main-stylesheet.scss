@@ -1,0 +1,217 @@
+@mixin notSmall {
+  @media (min-width: 769px)  {
+    @content;
+  }
+}
+
+@mixin small {
+  @media (max-width: 768px){
+    @content;
+  }
+}
+
+@mixin exSmall {
+  @media screen and (max-width: 640px) {
+    @content;
+  }
+}
+
+table{
+  @include small{
+  display: block;
+}
+  tr{
+      @include small{
+          display: block;
+      }
+      th, td{
+          @include small{
+              display: block;
+          }
+      }
+      td{
+          @include small{
+              border: 0;
+              border-bottom: 1px solid #dddddd;
+              position: relative;
+          }
+          &:before{
+              @include small{
+                  position: absolute;
+                  top: 6px;
+                  left: 6px;
+                  width: 45%;
+                  padding-right: 10px;
+                  white-space: nowrap;
+              }
+          }
+      }
+  }
+  thead{
+      @include small{
+          display: block;
+      }
+      tr{
+          /* Hide the table header */
+          @include small{
+              position: absolute;
+              top: -9999px;
+              left: -9999px;
+          }
+      }
+
+  }
+  tbody{
+      @include small{
+          display: block;
+      }
+      tr{
+          td{
+              word-break : break-word;
+            &:first-child:not(.fullwidth){
+              display: flex;
+              padding-left: initial !important;
+              justify-content: center;
+            }
+             &[data-title]{
+                  @include small{
+                      padding-left: 50% !important;
+                  }
+             }
+
+              &:first-child{
+                  @include small{
+                      background-color: #FF3636;
+                      color: #ffffff;
+                  }
+              }
+
+              &:nth-of-type(2):before {
+                  @include small{
+                      content: attr(data-title);
+                  }
+              }
+              &:nth-of-type(3):before {
+                  @include small{
+                      content: attr(data-title);
+                  }
+              }
+              &:nth-of-type(4):before {
+                  @include small{
+                      content: attr(data-title);
+                  }
+              }
+              &:nth-of-type(5):before {
+                  @include small{
+                      content: attr(data-title);
+                  }
+              }
+              &:nth-of-type(6):before {
+                  @include small{
+                      content: attr(data-title);
+                  }
+              }
+              &:nth-of-type(7):before {
+                  @include small{
+                      content: attr(data-title);
+                  }
+              }
+              &:nth-of-type(8):before {
+                  @include small{
+                      content: attr(data-title);
+                  }
+              }
+              &:nth-of-type(9):before {
+                  @include small{
+                      content: attr(data-title);
+                  }
+              }
+              &:nth-of-type(10):before {
+                  @include small{
+                      content: attr(data-title);
+                  }
+              }
+          }
+
+      }
+  }
+}
+
+.ng-dropdown-panel{
+  opacity: 1;
+  background: #ffffff;
+  padding: 10px;
+  box-shadow: 0px 0px 5px rgba(20, 20, 20, 0.5);
+  border-radius: 5px;
+  min-height: 100px;
+  .ng-dropdown-panel-items{
+    min-height: 100px;
+  }
+  .ng-option:not(:first-child){
+    padding-top: 5px
+  }
+}
+
+.dropdown {
+  .dropdown-menu:before{
+    display: none;
+  }
+}
+
+
+/**=================================
+    Utility
+==================================**/
+.mt-2em{
+  @include notSmall{
+    margin-top: 2em !important;
+  }
+}
+.pr-25-100em{
+  @include notSmall{
+    padding-right: 0.25em !important;
+  }
+}
+
+.pl-25-100em{
+  @include notSmall{
+    padding-left: 0.25em !important;
+  }
+}
+.p5px{
+  padding: 5px !important;
+}
+
+.flex-space-between{
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  justify-content: space-between;
+}
+
+.flex-space-between-v-center{
+  @extend .flex-space-between;
+  align-items: center;
+}
+
+body .hidden-sm{
+  @include small{
+    display: none !important;
+  }
+}
+
+.modal{
+  &.show{
+    display: block !important;
+    background-color: rgba(50, 50, 50, 0.7);
+  }
+  .p-10{
+    padding: 10px;
+  }
+  .m-20{
+    margin: 20px !important;
+  }
+}
+

@@ -1,0 +1,8 @@
+<div class="right-sidebar" [ngClass]="{'active': sidebar}" [ngStyle]="{zIndex: zIndex || 1030}">
+  <div class="inner-content">
+    <div class="close-btn" (click)="closeView()">
+      <span (click)="closeView()">&times;</span>
+    </div>
+    <ng-content></ng-content>
+  </div>
+</div>

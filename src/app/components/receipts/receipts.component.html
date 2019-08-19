@@ -1,0 +1,114 @@
+<div #invoicePrintArea class="card" *ngIf="show"
+     style='width: 100%; min-height: 1000px; height: 95vh; font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+     border: 0; display: flex; flex-direction: column; font-weight: 400;'>
+
+  <div style="flex: 3; display: flex; flex-direction: column; padding: 40px 80px; background-color: rgba(255,255,255,0.85);">
+    <div style="flex: 1">
+      <h1>
+        <img src="./../../../assets/img/peace-logo.png" width="100" style="margin-right: 10px; vertical-align: middle;" />
+        RECEIPT
+      </h1>
+    </div>
+    <div style="flex: 1; display: flex; flex-direction: row; justify-content: space-between">
+      <div style="flex: 2; text-align: left;">
+        <p>
+          <strong>Date Issued: </strong>
+          {{data.dateIssued | date}}
+        </p>
+        <p>
+          <strong>Vehicle: </strong>
+          {{data.vehicleNumber}}
+        </p>
+        <p>
+          <strong>Receipt No: </strong>
+          {{data.receiptRefNumber}}
+        </p>
+      </div>
+      <div style="flex: 1; text-align: right;">
+        <p>Peace Mass Transport</p>
+        <p>Peace Mass Address</p>
+        <p>Peace Mass Phone Number</p>
+      </div>
+    </div>
+    <h2 style="color: #888888; text-align: center;">Passenger Information</h2>
+    <div style="flex: 1; display: flex; flex-direction: row; justify-content: space-between">
+      <div style="flex: 1; text-align: right; padding: 10px;">
+        <p>
+          <strong>Name: </strong>
+        </p>
+        <p>
+          <strong>Gender: </strong>
+        </p>
+        <p>
+          <strong>Transiting from: </strong>
+        </p>
+        <p>
+          <strong>Transiting to: </strong>
+        </p>
+      </div>
+      <div style="flex: 1; text-align: left; padding: 10px;" >
+        <p>{{data.passengerName}}</p>
+        <p>{{data.passengerGender}}</p>
+        <p>{{getRoute(data.route, 'from')}}</p>
+        <p>{{getRoute(data.route, 'to')}}</p>
+      </div>
+    </div>
+    <div style="flex: 2; display: flex; align-items: center">
+      <table style="width: 100%; border: 0; border-collapse: collapse" border="0">
+        <thead>
+          <tr style="border-bottom: 5px double #888888; color: #555555; border-top: 1px solid #888888; text-align: left;">
+            <th style="padding: 10px 0;">ROUTE</th>
+            <th>SEATS</th>
+            <!-- <th>POSITIONS</th> -->
+            <!-- <th style="text-align: center;">FEE/SEAT</th> -->
+            <th style="text-align: right; width: 100px;">TOTAL PAYOUT</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="font-weight: bolder; text-align: left;">
+            <td style="padding: 20px 0;">{{data.route}}</td>
+            <td>{{data.seatQuantity}}</td>
+            <!-- <td>{{data.seatPosition}}</td> -->
+            <!-- <td style="text-align: center;">{{data.transportFee || 1200 | currency:'NGN':'₦'}}</td> -->
+            <td style="text-align: right;">{{data.transportFee | currency:'NGN':'₦'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div style="flex: 1; display: flex; flex-direction: column; padding: 40px 80px; background-color: rgba(255,255,255,0.85);">
+    <div style="flex: 3; display: flex; flex-direction: row; justify-content: flex-end;">
+      <table style="width: 30%; border: 0; border-collapse: collapse" border="0">
+        <tbody>
+        <!-- <tr style="font-weight: bold;">
+          <th style="padding: 10px; text-align: right;">TAX</th>
+          <td style="">{{data.tax || 0 | currency:'NGN':'₦'}}</td>
+        </tr> -->
+        <tr style="font-weight: bold;">
+          <th style="padding: 10px; text-align: right;">SUBTOTAL</th>
+          <td style="">{{data.transportFee | currency:'NGN':'₦'}}</td>
+        </tr>
+        <tr style="font-weight: bold; border-top: 1px solid #888888; font-size: x-large;">
+          <th style="padding: 10px; text-align: right;">TOTAL</th>
+          <td style="">{{data.transportFee | currency:'NGN':'₦'}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="flex: 1; font-size: large;">
+      <p><span style="font-size: xx-large; color: red;">♥</span> Thank you!</p>
+    </div>
+  </div>
+</div>
+
+<div #slipPrintArea class="card" *ngIf="false"
+     style='width: 100%; min-height: 1000px; height: 95vh; font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+     border: 0; display: flex; flex-direction: column; font-size: 3mm; font-weight: 400; justify-content: center; align-items: center;'>
+  <div style="width: 57mm; min-height: 100mm; border: 1px dashed gray; padding: 5mm 3mm; text-align: center;">
+    <img src="./../../../assets/img/peace-logo.png" height="50mm"
+         style="margin: 0 auto; display: block;" />
+    <p style="margin: 0mm auto">Peace Mass Transport</p>
+    <p style="margin: 0mm auto">Peace Mass Address</p>
+    <p style="margin: 0mm auto">Peace Mass Phone Number</p>
+  </div>
+</div>
