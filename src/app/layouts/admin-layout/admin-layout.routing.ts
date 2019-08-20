@@ -6,6 +6,7 @@ import { ExampleComponent } from '../../pages/example/example.component';
 import { ExampleAddComponent } from '../../pages/example/example-add/example-add.component';
 import { ExampleDetailComponent } from 'src/app/pages/example/example-detail/example-detail.component';
 import { ExamplEditComponent } from 'src/app/pages/example/example-edit/exampl-edit.component';
+import { AdmissionComponent } from '../../pages/admission/admission.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -16,4 +17,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'example/add' ,                 component: ExampleAddComponent,             canActivate: [AuthGuard] },
     { path: 'example/detail/:id' ,          component: ExampleDetailComponent,          canActivate: [AuthGuard] },
     { path: 'example/edit/:id' ,            component: ExamplEditComponent,             canActivate: [AuthGuard] },
+    { path: 'admission' ,                   component: AdmissionComponent,              canActivate: [AuthGuard] },
+
   ];
