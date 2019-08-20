@@ -10,6 +10,12 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard',             title: 'Dashboard',                   icon: 'design_app',                     class: '', sub: null },
     { path: '/example',               title: 'Example',                     icon: 'users_single-02',                class: '', sub: null },
+    { path: '/staff',                 title: 'Staff',                       icon: 'users_single-02',                class: '', sub: null },
+    { path: '/student',               title: 'Student',                     icon: 'users_single-02',                class: '', sub: null },
+    { path: '/parent',                title: 'Parent',                      icon: 'users_single-02',                class: '', sub: null },
+    { path: '/classe',                title: 'Class',                       icon: 'business_badge',                 class: '', sub: null },
+    { path: '/course',                title: 'Course',                      icon: 'shopping_delivery-fast',         class: '', sub: null },
+    { path: '/subject',               title: 'Subject',                     icon: 'business_bank',                  class: '', sub: null },
     // { path: '/daily-sales',           title: 'Daily Sales',                 icon: 'business_bank',                          class: '', sub: null },
     // { path: '/pml-billing',           title: 'PML Billing',                 icon: 'design-2_ruler-pencil',          class: '', sub: null  },
     // { path: '/pml-routing',           title: 'PML Routing',                 icon: 'loader_refresh',                 class: '', sub: null  },

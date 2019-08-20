@@ -21,6 +21,30 @@ import { ExampleComponent } from '../../pages/example/example.component';
 import { ExampleAddComponent } from 'src/app/pages/example/example-add/example-add.component';
 import { ExampleDetailComponent } from 'src/app/pages/example/example-detail/example-detail.component';
 import { ExamplEditComponent } from 'src/app/pages/example/example-edit/exampl-edit.component';
+import { StaffComponent } from 'src/app/pages/staff/staff.component';
+import { StaffAddComponent } from 'src/app/pages/staff/staff-add/staff-add.component';
+import { StaffEditComponent } from 'src/app/pages/staff/staff-edit/staff-edit.component';
+import { StaffDetailComponent } from 'src/app/pages/staff/staff-detail/staff-detail.component';
+import { StudentComponent } from 'src/app/pages/student/student.component';
+import { StudentAddComponent } from 'src/app/pages/student/student-add/student-add.component';
+import { StudentEditComponent } from 'src/app/pages/student/student-edit/student-edit.component';
+import { StudentDetailComponent } from 'src/app/pages/student/student-detail/student-detail.component';
+import { ParentComponent } from 'src/app/pages/parent/parent.component';
+import { ParentAddComponent } from 'src/app/pages/parent/parent-add/parent-add.component';
+import { ParentEditComponent } from 'src/app/pages/parent/parent-edit/parent-edit.component';
+import { ParentDetailComponent } from 'src/app/pages/parent/parent-detail/parent-detail.component';
+import { ClasseComponent } from 'src/app/pages/classe/classe.component';
+import { ClasseAddComponent } from 'src/app/pages/classe/classe-add/classe-add.component';
+import { ClasseEditComponent } from 'src/app/pages/classe/classe-edit/classe-edit.component';
+import { ClasseDetailComponent } from 'src/app/pages/classe/classe-detail/classe-detail.component';
+import { CourseComponent } from 'src/app/pages/course/course.component';
+import { CourseAddComponent } from 'src/app/pages/course/course-add/course-add.component';
+import { CourseEditComponent } from 'src/app/pages/course/course-edit/course-edit.component';
+import { CourseDetailComponent } from 'src/app/pages/course/course-detail/course-detail.component';
+import { SubjectComponent } from 'src/app/pages/subject/subject.component';
+import { SubjectAddComponent } from 'src/app/pages/subject/subject-add/subject-add.component';
+import { SubjectEditComponent } from 'src/app/pages/subject/subject-edit/subject-edit.component';
+import { SubjectDetailComponent } from 'src/app/pages/subject/subject-detail/subject-detail.component';
 
 @NgModule({
   imports: [
@@ -39,7 +63,13 @@ import { ExamplEditComponent } from 'src/app/pages/example/example-edit/exampl-e
   declarations: [
     DashboardComponent,
     AdvanceTableComponent,
-    ExampleComponent, ExampleAddComponent, ExampleDetailComponent, ExamplEditComponent
+    ExampleComponent, ExampleAddComponent, ExampleDetailComponent, ExamplEditComponent,
+    StaffComponent, StaffAddComponent, StaffEditComponent, StaffDetailComponent, 
+    StudentComponent, StudentAddComponent, StudentEditComponent, StudentDetailComponent,
+    ParentComponent, ParentAddComponent, ParentEditComponent, ParentDetailComponent,
+    ClasseComponent, ClasseAddComponent, ClasseEditComponent, ClasseDetailComponent,
+    CourseComponent, CourseAddComponent, CourseEditComponent, CourseDetailComponent,
+    SubjectComponent, SubjectAddComponent, SubjectEditComponent, SubjectDetailComponent,
   ]
 })
 
