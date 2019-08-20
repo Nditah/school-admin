@@ -8,20 +8,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { DataTablesModule } from 'angular-datatables';
 
+import { AppRoutingModule } from './app-routing.module';
 import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './pages/login/login.component';
 
 import { AuthService, ApiService, AuthGuard, EnvService, JwtInterceptor, ErrorInterceptor } from './services';
-import { AppRoutingModule } from './app-routing.module';
+
+import {
+  Admissions
+} from './providers';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AdminLayoutComponent,
-    LoginComponent,
-  ],
   imports: [
     BrowserAnimationsModule,
     FormsModule,
@@ -29,14 +28,19 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     ComponentsModule,
     RouterModule,
-    NgbModule,
     AppRoutingModule,
+    NgbModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
     DataTablesModule.forRoot(),
+  ],
+  declarations: [
+    AppComponent,
+    AdminLayoutComponent,
+    LoginComponent,
   ],
   providers: [
     AuthService,
@@ -46,6 +50,7 @@ import { AppRoutingModule } from './app-routing.module';
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
+    Admissions, 
   ],
   bootstrap: [AppComponent]
 })

@@ -21,6 +21,7 @@ import { ExampleComponent } from '../../pages/example/example.component';
 import { ExampleAddComponent } from 'src/app/pages/example/example-add/example-add.component';
 import { ExampleDetailComponent } from 'src/app/pages/example/example-detail/example-detail.component';
 import { ExamplEditComponent } from 'src/app/pages/example/example-edit/exampl-edit.component';
+import { AdmissionComponent } from 'src/app/pages/admission/admission.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { ExamplEditComponent } from 'src/app/pages/example/example-edit/exampl-e
   declarations: [
     DashboardComponent,
     AdvanceTableComponent,
-    ExampleComponent, ExampleAddComponent, ExampleDetailComponent, ExamplEditComponent
+    ExampleComponent, ExampleAddComponent, ExampleDetailComponent, ExamplEditComponent,
+    AdmissionComponent
   ]
 })
 
