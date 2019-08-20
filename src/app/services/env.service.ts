@@ -8,7 +8,7 @@ import { ConnectionService } from 'ng-connection-service';
 export class EnvService {
 
   API_URL: string;
-  CENTRAL_API = 'https://peacegroup-api.herokuapp.com/api';
+  CENTRAL_API = 'https://mis-api.herokuapp.com/api/v1';
   LOCAL_API = 'http://172.16.18.89/api';
   centralMode: true; // user control online mode
   isOnline = true;
