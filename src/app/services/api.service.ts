@@ -133,6 +133,141 @@ export class ApiService {
   }
 
   // /////////////////////////////////
+  // ----------STUDENT-------------//
+  // /////////////////////////////////
+
+  getStudent(path): Observable<any> {
+    const url = `${this.env.API_URL}/students${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postStudent(data): Observable<any> {
+    const url = `${this.env.API_URL}/student`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateStudent(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/student/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // /////////////////////////////////
+  // ----------PARENT-------------//
+  // /////////////////////////////////
+
+  getParent(path): Observable<any> {
+    const url = `${this.env.API_URL}/parents${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postParent(data): Observable<any> {
+    const url = `${this.env.API_URL}/parent`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateParent(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/parent/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // /////////////////////////////////
+  // ----------CLASSE-------------//
+  // /////////////////////////////////
+
+  getClasse(path): Observable<any> {
+    const url = `${this.env.API_URL}/classes${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postClasse(data): Observable<any> {
+    const url = `${this.env.API_URL}/classe`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateClasse(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/classe/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // /////////////////////////////////
+  // ----------COURSE-------------//
+  // /////////////////////////////////
+
+  getCourse(path): Observable<any> {
+    const url = `${this.env.API_URL}/courses${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postCourse(data): Observable<any> {
+    const url = `${this.env.API_URL}/course`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateCourse(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/course/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // /////////////////////////////////
+  // ----------SUBJECT-------------//
+  // /////////////////////////////////
+
+  getSubject(path): Observable<any> {
+    const url = `${this.env.API_URL}/subjects${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postSubject(data): Observable<any> {
+    const url = `${this.env.API_URL}/subject`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateSubject(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/subject/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // /////////////////////////////////
   // ----------TABLE-------------//
   // /////////////////////////////////
 

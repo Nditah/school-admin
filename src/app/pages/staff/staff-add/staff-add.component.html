@@ -1,3 +1,209 @@
-<p>
-  staff-add works!
-</p>
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group">
+            <!--            <button class="btn btn-primary"> <i class="now-ui-icons ui-2_settings-90"></i> Edit Record </button>-->
+            <button class="btn btn-info pull-right" (click)="goBack()"> <i class="now-ui-icons arrows-1_minimal-left"></i> Go Back </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> {{page_name}}</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="code" class="control-label required"> <strong> Title * </strong></label>
+                  <select formControlName="title" id="title" class="form-control">
+                    <option value="MR">MR</option>
+                    <option value="MRS">MRS</option>
+                    <option value="DR">DR</option>
+                    <option value="ENGR">ENGR</option>
+                    <option value="HON">HON</option>
+                    <option value="PROF">PROF</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="surname" class="control-label required"> <strong> Surname * </strong></label>
+                  <input type="text" class="form-control" formControlName="surname" id="surname" placeholder="Name" required>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="given_name" class="control-label required"> <strong> Other Names * </strong></label>
+                  <input type="text" class="form-control" formControlName="given_name" id="given_name" placeholder="Name" required>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="customer_id" class="control-label required"> <strong> Sender </strong></label>
+                  <!-- <ng-select class="form-control" id="customer_id" formControlName="sender_id" placeholder=""
+                             [items]="customerOptions"
+                             bindLabel="text"
+                             [virtualScroll]="true"
+                             bindValue="id">
+                  </ng-select> -->
+                </div>
+              </div>
+
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="customer_id" class="control-label required"> <strong> Recipient </strong></label>
+                  <!-- <ng-select class="form-control" id="recipient_id" formControlName="recipient_id" placeholder=""
+                             [items]="customerOptions"
+                             bindLabel="text"
+                             [virtualScroll]="true"
+                             bindValue="id">
+                  </ng-select> -->
+                </div>
+              </div>
+            </div>
+
+           <div class="row">
+             <div class="col-md-4 pr-1">
+               <div class="form-group">
+                 <label for="phone" class="control-label required"> <strong> Phone  </strong></label>
+                 <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="Recipient Type" required>
+               </div>
+             </div>
+
+             <div class="col-md-4 pr-1">
+              <div class="form-group">
+                <label for="phone_personal" class="control-label required"> <strong> Phone Personal * </strong></label>
+                <input type="text" class="form-control" formControlName="phone_personal" id="phone_personal" placeholder="Recipient Type" required>
+              </div>
+            </div>
+
+            <div class="col-md-4 pr-1">
+              <div class="form-group">
+                <label for="birth_date" class="control-label required"> <strong> Date of Birth* </strong></label>
+                <input type="date" class="form-control" formControlName="birth_date" id="birth_date" placeholder="Recipient Type" required>
+              </div>
+            </div>
+           </div>
+
+            <div class="row">
+             <div class="col-md-4 pr-1">
+               <div class="form-group">
+                 <label for="marital_status" class="control-label required"> <strong> Marital Status </strong></label>
+                 <input type="text" class="form-control" formControlName="marital_status" id="marital_status" placeholder="Marital Status" >
+               </div>
+             </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="email" class="control-label required"> <strong> E-mail </strong></label>
+                  <input type="email" class="form-control" formControlName="email" id="email" placeholder="E-mail" >
+                </div>
+              </div>
+              <!-- <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="mass" class="control-label required"> <strong> Mass  </strong></label>
+                  <input type="text" class="form-control" formControlName="mass" id="mass" placeholder="Mass">
+                </div>
+              </div> -->
+            </div>
+
+
+            <div class="row">
+
+            </div>
+
+            <div class="row">
+
+            </div>
+
+            <div class="row">
+
+
+
+            </div>
+
+            <div class="row">
+<!--              <div class="col-md-4 pr-1">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="" class="control-label required"> <strong> Terminal Store * </strong></label>-->
+<!--                  <ng-select class="form-control" id="terminal_store" formControlName="terminal_store" placeholder=""-->
+<!--                             [items]="terminalOptions"-->
+<!--                             bindLabel="text"-->
+<!--                             [virtualScroll]="true"-->
+<!--                             bindValue="id">-->
+<!--                  </ng-select>-->
+<!--                </div>-->
+<!--              </div>-->
+            </div>
+
+            <div class="row">
+
+<!--              <div class="col-md-4 pr-1">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="" class="control-label required"> <strong> Cost Estimate * </strong></label>-->
+<!--                  <input type="text" class="form-control" formControlName="cost_estimate" id="cost_estimate" placeholder="cost_estimate" required>-->
+<!--                </div>-->
+<!--              </div>-->
+            </div>
+
+
+            <div class="row">
+<!--              <div class="col-md-4 pr-1">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="" class="control-label required"> <strong>  Recipient Confirmation </strong></label>-->
+<!--                  <input type="text" class="form-control" formControlName="recipient_confirm" id="recipient_confirm" placeholder="Recipient Confirm">-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="col-md-4 pr-1">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="" class="control-label required"> <strong> Recipient Confirmation Date </strong></label>-->
+<!--                  <input type="text" class="form-control" formControlName="recipient_confirm_date" id="recipient_confirm_date" placeholder="Recipient Confirmation Date">-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="col-md-4 pr-1">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="" class="control-label required"> <strong> Recipient Confirmation Remark </strong></label>-->
+<!--                  <input type="text" class="form-control" formControlName="recipient_confirm_remark" id="recipient_confirm_remark" placeholder="Recipient Confirmation Remark">-->
+<!--                </div>-->
+<!--              </div>-->
+            </div>
+
+            <div class="row">
+
+<!--              <div class="col-md-4 pr-1">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="delivery_status" class="control-label required"> <strong> Delivery Status</strong></label>-->
+<!--                  <select formControlName="delivery_status" id="delivery_status" class="form-control">-->
+<!--                    <option value="PENDING">PENDING</option>-->
+<!--                    <option value="STORED">STORED</option>-->
+<!--                    <option value="TRANSIT">TRANSIT</option>-->
+<!--                    <option value="DELIVERED">DELIVERED</option>-->
+<!--                    <option value="DISCHARGED">DISCHARGED</option>-->
+<!--                  </select>-->
+<!--                </div>-->
+<!--              </div>-->
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12 text-center">
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="loading">Submit
+                  <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
