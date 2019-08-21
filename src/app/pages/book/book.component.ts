@@ -2,26 +2,26 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Attendance, ApiResponse } from '../../models';
-import { Attendances } from '../../providers';
+import { Book, ApiResponse } from '../../models';
+import { Books } from '../../providers';
 
 
 @Component({
-  selector: 'app-attendance',
-  templateUrl: './attendance.component.html',
-  styleUrls: ['./attendance.component.scss']
+  selector: 'app-book',
+  templateUrl: './book.component.html',
+  styleUrls: ['./book.component.scss']
 })
-export class AttendanceComponent implements OnInit {
+export class BookComponent implements OnInit {
 
   searchForm: FormGroup;
-  currentRecords: Array<Attendance> = [];
+  currentRecords: Array<Book> = [];
   loading = false;
 
   constructor(private router: Router,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
-    public attendances: Attendances) {
-      this.currentRecords = this.attendances.query();
+    public books: Books) {
+      this.currentRecords = this.books.query();
       this.searchForm = this.formBuilder.group({
         searchString: ['', Validators.required],
       });
@@ -36,9 +36,9 @@ export class AttendanceComponent implements OnInit {
     async search(data) {
       const queryString = `?q=${data.searchString}`; // queryString
       console.log(data);
-      this.attendances.recordRetrieve(queryString).then((res: ApiResponse) => {
+      this.books.recordRetrieve(queryString).then((res: ApiResponse) => {
         if (res.success) {
-          this.currentRecords = this.attendances.query();
+          this.currentRecords = this.books.query();
           this.showNotification(`${res.payload.length} record(s) found!`);
         }
       }).catch(err => {
@@ -47,16 +47,16 @@ export class AttendanceComponent implements OnInit {
     }
 
     goToAdd(): void {
-      this.router.navigate(['attendance/add']);
+      this.router.navigate(['book/add']);
     }
 
     goToDetail(record: any): void {
-      this.router.navigate([`attendance/detail/${record.id}`]);
+      this.router.navigate([`book/detail/${record.id}`]);
       return;
     }
 
     goToEdit(record: any): void {
-      this.router.navigate([`attendance/edit/${record.id}`]);
+      this.router.navigate([`book/edit/${record.id}`]);
     }
 
     removeRecord(record) {

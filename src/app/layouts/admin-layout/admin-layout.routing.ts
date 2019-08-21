@@ -34,6 +34,7 @@ import { AdmissionComponent } from '../../pages/admission/admission.component';
 import { FeesPaymentComponent } from 'src/app/pages/fees-payment/fees-payment.component';
 import { FeesTypeComponent } from 'src/app/pages/fees-type/fees-type.component';
 import { AttendanceComponent } from 'src/app/pages/attendance/attendance.component';
+import { BookComponent } from 'src/app/pages/book/book.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -89,5 +90,7 @@ export const AdminLayoutRoutes: Routes = [
 { path: 'feestype' ,                          component: FeesTypeComponent,                  canActivate: [AuthGuard] },
 // Attendance
 { path: 'attendance' ,                          component: AttendanceComponent,                  canActivate: [AuthGuard] },
-   
+  // Book
+{ path: 'book' ,                             component: BookComponent,                  canActivate: [AuthGuard] },
+  
   ];
