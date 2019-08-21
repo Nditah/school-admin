@@ -1,35 +1,35 @@
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Staff, ApiResponse } from '../../models';
+import { Subject, ApiResponse } from '../../models';
 import { ApiService } from '../../services';
 
 
 @Injectable()
-export class Staffs {
+export class Subjects {
 
-  staffs: Staff[] = [];
+  subjects: Subject[] = [];
 
   constructor(private apiService: ApiService) {
-    const staffs = []; // Initial Values
-    for (const staff of staffs) {
-      this.staffs.push(new Staff(staff));
+    const subjects = []; // Initial Values
+    for (const subject of subjects) {
+      this.subjects.push(new Subject(subject));
     }
     this.recordRetrieve();
   }
 
   query(params?: any) {
     if (!params) {
-      return this.staffs;
+      return this.subjects;
     }
-    return this.staffs.filter((staff) => {
+    return this.subjects.filter((subject) => {
       for (const key in params) {
           if (params.hasOwnProperty(key)) {
-            const field = staff[key];
+            const field = subject[key];
             if (typeof field === 'string' && field.toLowerCase().indexOf(params[key].toLowerCase()) >= 0) {
-              return staff;
+              return subject;
             } else if (field === params[key]) {
-              return staff;
+              return subject;
             }
           }
       }
@@ -37,17 +37,17 @@ export class Staffs {
     });
   }
 
-  add(staff: Staff) {
-    this.staffs.push(staff);
+  add(subject: Subject) {
+    this.subjects.push(subject);
   }
 
-  delete(staff: Staff) {
-    this.staffs.splice(this.staffs.indexOf(staff), 1);
+  delete(subject: Subject) {
+    this.subjects.splice(this.subjects.indexOf(subject), 1);
   }
 
   // CRUD Service
   async recordRetrieve(queryString = ''): Promise<ApiResponse> {
-    const proRes = this.apiService.getStaff(queryString).pipe(
+    const proRes = this.apiService.getSubject(queryString).pipe(
     map((res: ApiResponse) => {
       console.log(res);
       if (res.success && res.payload.length > 0) {
@@ -63,7 +63,7 @@ export class Staffs {
   }
 
   async recordCreate(data): Promise<ApiResponse> {
-    const proRes = this.apiService.postStaff(data).pipe(
+    const proRes = this.apiService.postSubject(data).pipe(
     map((res: ApiResponse) => {
         if (res.success && res.payload) {
           console.log('recordCreate() successful');
@@ -75,11 +75,11 @@ export class Staffs {
     return await proRes.toPromise();
   }
 
-  async recordUpdate(staff: Staff, payload): Promise<ApiResponse> {
-    const proRes = this.apiService.updateStaff(staff.id, payload).pipe(
+  async recordUpdate(subject: Subject, payload): Promise<ApiResponse> {
+    const proRes = this.apiService.updateSubject(subject.id, payload).pipe(
     map((res: ApiResponse) => {
         if (res.success) {
-          this.delete(staff);
+          this.delete(subject);
         } else {
           throwError(res.message);
         }
@@ -87,5 +87,4 @@ export class Staffs {
       }));
     return await proRes.toPromise();
   }
-
 }
