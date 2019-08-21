@@ -21,8 +21,8 @@ export class ApiService {
   depth = 0;
 
   constructor(private http: HttpClient,
-    private env: EnvService,
-    private router: Router) { }
+              private env: EnvService,
+              private router: Router) { }
 
   // private handleError(error: HttpErrorResponse) {
   //   if (error.error instanceof ErrorEvent) {
@@ -51,7 +51,7 @@ export class ApiService {
         `body was: ${error.error}`);
     }
     // return an observable with a user-facing error message
-    //throwError(error);
+    // throwError(error);
     console.log('Something bad happened; please try again later.');
     return throwError(error);
   }
@@ -114,6 +114,22 @@ export class ApiService {
     return this.http.get(url, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
+  }
+
+  postStaff(data): Observable<any> {
+    const url = `${this.env.API_URL}/staff`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateStaff(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/staff/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
   }
 
   // /////////////////////////////////
