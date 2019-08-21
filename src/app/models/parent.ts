@@ -1,4 +1,5 @@
 import { Staff } from './staff';
+import { Student } from './student';
 
 export class Parent {
     id: string;
@@ -16,7 +17,7 @@ export class Parent {
     password: string;
     profession: string;
     employment_status: boolean;
-    students_name: Array<object>;
+    students_name: Array<Student>;
     created_by: Staff;
     updated_by: Staff;
 
@@ -31,23 +32,21 @@ export class Parent {
 
 export interface Parent {
     id: string;
+    title: string;
     surname: string;
     given_name: string;
     gender: string;
     birth_date: Date;
+    marital_status: string;
     address: string;
     state: any; // State
     county: any; // County
     email: string;
     phone: string;
     password: string;
-    blood_group: string;
-    classe: any; // Classe
-    level: string;
-    subsidiary: string;
-    hostel: any; // Hostel
-    photo: string;
-    students_name: Array<object>;
+    profession: string;
+    employment_status: boolean;
+    students_name: Array<Student>;
     created_by: Staff;
     updated_by: Staff;
 }
