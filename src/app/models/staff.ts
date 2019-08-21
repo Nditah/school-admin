@@ -9,8 +9,8 @@ export class Staff {
     phone: string;
     phone_personal: string;
     address: string;
-    state: string; // State
-    county: string; // County
+    state: any; // State
+    county: any; // County
     email: string;
     staff_type: string;
     classe: string; // Classe
@@ -39,11 +39,11 @@ export class Staff {
     utility_allowance: number;
     welfare_allowance: number;
     pension: number;
-    bank_name: string; // Bank
+    bank_name: any; // Bank
     bank_account_number: number;
     bank_account_name: string;
     rank: string;
-    office: string; // Office
+    office: any; // Office
     role: string;
     subsidiary: string;
     remark: string;
@@ -55,6 +55,7 @@ export class Staff {
     disengaged_by: Staff;
     disengaged_date: Date;
     created_by: Staff;
+    updated_by: Staff;
 
     constructor(fields: any) {
         // Quick and dirty extend/assign fields to this model

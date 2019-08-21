@@ -64,7 +64,7 @@ import { SubjectDetailComponent } from 'src/app/pages/subject/subject-detail/sub
     DashboardComponent,
     AdvanceTableComponent,
     ExampleComponent, ExampleAddComponent, ExampleDetailComponent, ExamplEditComponent,
-    StaffComponent, StaffAddComponent, StaffEditComponent, StaffDetailComponent, 
+    StaffComponent, StaffAddComponent, StaffEditComponent, StaffDetailComponent,
     StudentComponent, StudentAddComponent, StudentEditComponent, StudentDetailComponent,
     ParentComponent, ParentAddComponent, ParentEditComponent, ParentDetailComponent,
     ClasseComponent, ClasseAddComponent, ClasseEditComponent, ClasseDetailComponent,
