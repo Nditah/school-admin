@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { Staff, ApiResponse } from 'src/app/models';
-import { Staffs } from 'src/app/providers';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Staff, ApiResponse } from '../../models';
+import { Staffs } from '../../providers';
 
 @Component({
   selector: 'app-staff',
@@ -13,54 +13,25 @@ import { ToastrService } from 'ngx-toastr';
 export class StaffComponent implements OnInit {
 
   searchForm: FormGroup;
-  currentRecords: Array<Staff> = [];
+  currentRecords: Array<Staff>;
   loading = false;
+  page_name = 'List of Staff';
 
   constructor(private router: Router,
-              private formBuilder: FormBuilder,
               private toastr: ToastrService,
-              public staffs: Staffs) { }
+              public staffs: Staffs) {
+      this.currentRecords = this.staffs.query();
+    }
 
   ngOnInit() {
   }
 
-  async search(data) {
-    const queryString = `?q=${data.searchString}`; // queryString
-    console.log(data);
-    this.staffs.recordRetrieve(queryString).then((res: ApiResponse) => {
-      if (res.success) {
-        this.currentRecords = this.staffs.query();
-        this.showNotification(`${res.payload.length} record(s) found!`);
-      }
-    }).catch(err => {
-      this.showNotification(err.message);
-    });
-  }
-
-  goToAdd(): void {
-    this.router.navigate(['staff/add']);
-  }
-
-  goToDetail(record: any): void {
-    this.router.navigate([`staff/detail/${record.id}`]);
-    return;
-  }
-
-  goToEdit(record: any): void {
-    this.router.navigate([`staff/edit/${record.id}`]);
-  }
-
-  removeRecord(record) {
+  goToEdit(record: Staff) {
     console.log(record.id);
   }
 
-  showNotification(message) {
-    this.toastr.show(`<span class="now-ui-icons ui-1_bell-53"></span> <b>${message}</b>`, '', {
-        timeOut: 8000,
-        closeButton: true,
-        enableHtml: true,
-        toastClass: 'alert alert-primary alert-with-icon',
-      });
-    }
+  goToDetail(record: Staff) {
+    console.log('trying to view :' + record.id);
+  }
 
 }
