@@ -1,4 +1,4 @@
-// import { Staff } from './staff';
+import { Staff } from './staff';
 
 export class Calendar {
     id: string;
@@ -6,8 +6,8 @@ export class Calendar {
     end_date: Date;
     title: string;
     notification: string;
-    created_by: object;
-    updated_by: object;
+    created_by: Staff;
+    updated_by: Staff;
 
     constructor(fields: any) {
         // Quick and dirty extend/assign fields to this model
@@ -25,6 +25,6 @@ export interface Calendar {
     end_date: Date;
     title: string;
     notification: string;
-    created_by: object;
-    updated_by: object;
+    created_by: Staff;
+    updated_by: Staff;
 }

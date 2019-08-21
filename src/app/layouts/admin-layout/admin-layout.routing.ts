@@ -31,6 +31,8 @@ import { SubjectAddComponent } from '../../pages/subject/subject-add/subject-add
 import { SubjectDetailComponent } from '../../pages/subject/subject-detail/subject-detail.component';
 import { SubjectEditComponent } from '../../pages/subject/subject-edit/subject-edit.component';
 import { AdmissionComponent } from '../../pages/admission/admission.component';
+import { FeesPaymentComponent } from 'src/app/pages/fees-payment/fees-payment.component';
+import { FeesTypeComponent } from 'src/app/pages/fees-type/fees-type.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -80,5 +82,9 @@ export const AdminLayoutRoutes: Routes = [
 
 
     { path: 'admission' ,                   component: AdmissionComponent,              canActivate: [AuthGuard] },
-
+// Fees Payment
+{ path: 'feespayment' ,                       component: FeesPaymentComponent,                  canActivate: [AuthGuard] },
+ // Fees Type
+{ path: 'feestype' ,                          component: FeesTypeComponent,                  canActivate: [AuthGuard] },
+   
   ];
