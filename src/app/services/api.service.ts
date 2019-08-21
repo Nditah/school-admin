@@ -486,34 +486,34 @@ export class ApiService {
   }
 
   // /////////////////////////////////
-  // ----------SHIPMENT-------------//
+  // ----------ADMISSION-------------//
   // /////////////////////////////////
 
-  getPmlShipment(path): Observable<any> {
-    const url = `${this.env.API_URL}/pml-shipments${path}`;
+  getAdmission(path): Observable<any> {
+    const url = `${this.env.API_URL}/admissions${path}`;
     return this.http.get(url, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
 
-  postPmlShipment(data): Observable<any> {
-    const url = `${this.env.API_URL}/pml-shipments`;
+  postAdmission(data): Observable<any> {
+    const url = `${this.env.API_URL}/admissions`;
     const payload = this.cleanObject(data);
     return this.http.post(url, payload, httpOptions).pipe(
         catchError(this.handleError)
       );
   }
 
-  updatePmlShipment(id: string, data): Observable<any> {
-    const url = `${this.env.API_URL}/pml-shipments/${id}`;
+  updateAdmission(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/admissions/${id}`;
     const payload = this.cleanObject(data);
     return this.http.put(url, payload, httpOptions).pipe(
         catchError(this.handleError)
       );
   }
 
-  deletePmlShipment(id: string, data = null): Observable<any> {
-    const url = `${this.env.API_URL}/pml-shipments/${id}`;
+  deleteAdmission(id: string, data = null): Observable<any> {
+    const url = `${this.env.API_URL}/admissions/${id}`;
     return this.http.patch(url, data, httpOptions).pipe(
       catchError(this.handleError)
     );

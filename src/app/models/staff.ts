@@ -79,8 +79,8 @@ export interface Staff {
     phone: string;
     phone_personal: string;
     address: string;
-    state: string; // State
-    county: string; // County
+    state: any; // State
+    county: any; // County
     email: string;
     staff_type: string;
     classe: string; // Classe
@@ -109,11 +109,11 @@ export interface Staff {
     utility_allowance: number;
     welfare_allowance: number;
     pension: number;
-    bank_name: string; // Bank
+    bank_name: any; // Bank
     bank_account_number: number;
     bank_account_name: string;
     rank: string;
-    office: string; // Office
+    office: any; // Office
     role: string;
     subsidiary: string;
     remark: string;

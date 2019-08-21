@@ -45,6 +45,13 @@ import { SubjectComponent } from 'src/app/pages/subject/subject.component';
 import { SubjectAddComponent } from 'src/app/pages/subject/subject-add/subject-add.component';
 import { SubjectEditComponent } from 'src/app/pages/subject/subject-edit/subject-edit.component';
 import { SubjectDetailComponent } from 'src/app/pages/subject/subject-detail/subject-detail.component';
+import { AdmissionComponent } from 'src/app/pages/admission/admission.component';
+import { ClassRoomComponent } from 'src/app/pages/class-room/class-room.component';
+import { HostelComponent } from 'src/app/pages/hostel/hostel.component';
+import { NotificationComponent } from 'src/app/pages/notification/notification.component';
+import { SettingComponent } from 'src/app/pages/setting/setting.component';
+import { SmsComponent } from 'src/app/pages/sms/sms.component';
+import { OfficeComponent } from 'src/app/pages/office/office.component';
 
 @NgModule({
   imports: [
@@ -70,6 +77,22 @@ import { SubjectDetailComponent } from 'src/app/pages/subject/subject-detail/sub
     ClasseComponent, ClasseAddComponent, ClasseEditComponent, ClasseDetailComponent,
     CourseComponent, CourseAddComponent, CourseEditComponent, CourseDetailComponent,
     SubjectComponent, SubjectAddComponent, SubjectEditComponent, SubjectDetailComponent,
+
+    ExampleComponent, ExampleAddComponent, ExampleDetailComponent, ExamplEditComponent,
+
+    AdmissionComponent,
+
+    OfficeComponent,
+
+    ClassRoomComponent,
+
+    HostelComponent,
+
+    NotificationComponent,
+
+    SettingComponent,
+
+    SmsComponent
   ]
 })
 
