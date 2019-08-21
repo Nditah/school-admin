@@ -23,3 +23,4 @@ export * from './admission';
 export * from './timetable';
 export * from './fees-payment';
 export * from './fees-type';
+export * from './hostel';
