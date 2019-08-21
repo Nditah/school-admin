@@ -17,8 +17,9 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthService, ApiService, AuthGuard, EnvService, JwtInterceptor, ErrorInterceptor } from './services';
 
 import {
-  Admissions
+  Admissions, Staffs
 } from './providers';
+import { Students } from './providers/students/students';
 
 @NgModule({
   imports: [
@@ -50,7 +51,10 @@ import {
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    Admissions, 
+    Admissions,
+    Staffs,
+    Students,
+
   ],
   bootstrap: [AppComponent]
 })
