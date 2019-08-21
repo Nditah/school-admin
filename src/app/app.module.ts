@@ -17,7 +17,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthService, ApiService, AuthGuard, EnvService, JwtInterceptor, ErrorInterceptor } from './services';
 
 import {
-  Admissions, FeesPayments, FeesTypes, Attendances
+  Admissions, FeesPayments, FeesTypes, Attendances, Books
 } from './providers';
 
 @NgModule({
@@ -50,7 +50,7 @@ import {
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    Admissions, FeesPayments, FeesTypes,Attendances
+    Admissions, FeesPayments, FeesTypes,Attendances, Books
   ],
   bootstrap: [AppComponent]
 })

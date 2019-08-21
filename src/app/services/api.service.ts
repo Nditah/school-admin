@@ -107,6 +107,32 @@ export class ApiService {
       );
   }
 
+ // /////////////////////////////////
+  // ----------Book-------------//
+  // /////////////////////////////////
+
+  getBook(path): Observable<any> {
+    const url = `${this.env.API_URL}/books${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postBook(data): Observable<any> {
+    const url = `${this.env.API_URL}/books`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateBook(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/books/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
 
   // /////////////////////////////////
   // ----------LOCATIONS-------------//

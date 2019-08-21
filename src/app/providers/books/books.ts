@@ -1,35 +1,35 @@
 import { Injectable } from '@angular/core';
 import { Subject, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Admission, ApiResponse } from '../../models';
+import { Book, ApiResponse } from '../../models';
 import { ApiService } from '../../services';
 
 
 @Injectable()
-export class Admissions {
+export class Books {
 
-  admissions: Admission[] = [];
+  books: Book[] = [];
 
   constructor(private apiService: ApiService) {
-    const admissions = []; // Initial Values
-    for (const admission of admissions) {
-      this.admissions.push(new Admission(admission));
+    const books = []; // Initial Values
+    for (const book of books) {
+      this.books.push(new Book(book));
     }
     this.recordRetrieve();
   }
 
   query(params?: any) {
     if (!params) {
-      return this.admissions;
+      return this.books;
     }
-    return this.admissions.filter((admission) => {
+    return this.books.filter((book) => {
       for (const key in params) {
           if (params.hasOwnProperty(key)) {
-            const field = admission[key];
+            const field = book[key];
             if (typeof field === 'string' && field.toLowerCase().indexOf(params[key].toLowerCase()) >= 0) {
-              return admission;
+              return book;
             } else if (field === params[key]) {
-              return admission;
+              return book;
             }
           }
       }
@@ -37,18 +37,18 @@ export class Admissions {
     });
   }
 
-  add(admission: Admission) {
-    this.admissions.push(admission);
+  add(book: Book) {
+    this.books.push(book);
   }
 
-  delete(admission: Admission) {
-    const index = this.admissions.findIndex(Admission => Admission.id === admission.id);
-    this.admissions.splice(index, 1);
+  delete(book: Book) {
+    const index = this.books.findIndex(Book => Book.id === book.id);
+    this.books.splice(index, 1);
   }
 
   // CRUD Service
   async recordRetrieve(queryString = ''): Promise<ApiResponse> {
-    const proRes = this.apiService.getAdmission(queryString).pipe(
+    const proRes = this.apiService.getBook(queryString).pipe(
     map((res: ApiResponse) => {
       console.log(res);
         if (res.success && res.payload.length > 0) {
@@ -64,11 +64,11 @@ export class Admissions {
   }
 
   async recordCreate(data): Promise<ApiResponse> {
-    const proRes = this.apiService.postAdmission(data).pipe(
+    const proRes = this.apiService.postBook(data).pipe(
     map((res: ApiResponse) => {
         if (res.success && res.payload) {
-          const admission = res.payload;
-          this.add(admission);
+          const book = res.payload;
+          this.add(book);
         } else {
           throwError(res.message);
         }
@@ -77,13 +77,13 @@ export class Admissions {
       return await proRes.toPromise();
   }
 
-  async recordUpdate(admission: Admission, payload): Promise<ApiResponse> {
-    const proRes = this.apiService.updateAdmission(admission.id, payload).pipe(
+  async recordUpdate(book: Book, payload): Promise<ApiResponse> {
+    const proRes = this.apiService.updateBook(book.id, payload).pipe(
     map((res: ApiResponse) => {
         if (res.success) {
-          this.delete(admission);
-          const newAdmission = res.payload;
-          this.add(newAdmission);
+          this.delete(book);
+          const newBook = res.payload;
+          this.add(newBook);
         } else {
           throwError(res.message);
         }
