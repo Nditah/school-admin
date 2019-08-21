@@ -110,7 +110,7 @@ export class ApiService {
   // /////////////////////////////////
 
   getStaff(path): Observable<any> {
-    const url = `${this.env.API_URL}/staffs${path}`;
+    const url = `${this.env.API_URL}/staff${path}`;
     return this.http.get(url, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
