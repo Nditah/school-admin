@@ -1,3 +1,6 @@
+import { Classe } from './classe';
+import { Subject } from './subject';
+
 export class Staff {
     id: string;
     title: string;
@@ -13,8 +16,8 @@ export class Staff {
     county: any; // County
     email: string;
     staff_type: string;
-    classe: string; // Classe
-    subject: string; // Subject
+    classe: Classe; // Classe
+    subject: Subject; // Subject
     password: string;
     kin: string;
     kin_phone: string;
@@ -83,8 +86,8 @@ export interface Staff {
     county: any; // County
     email: string;
     staff_type: string;
-    classe: string; // Classe
-    subject: string; // Subject
+    classe: Classe; // Classe
+    subject: Subject; // Subject
     password: string;
     kin: string;
     kin_phone: string;
@@ -125,4 +128,5 @@ export interface Staff {
     disengaged_by: Staff;
     disengaged_date: Date;
     created_by: Staff;
+    updated_by: Staff;
 }

@@ -1,4 +1,5 @@
 import { Staff } from './staff';
+import { Classe } from './classe';
 
 export class Student {
     id: string;
@@ -13,7 +14,7 @@ export class Student {
     phone: string;
     password: string;
     blood_group: string;
-    classe: any; // Classe
+    classe: Classe;
     level: string;
     subsidiary: string;
     hostel: any; // Hostel
@@ -44,7 +45,7 @@ export interface Student {
     phone: string;
     password: string;
     blood_group: string;
-    classe: any; // Classe
+    classe: Classe;
     level: string;
     subsidiary: string;
     hostel: any; // Hostel
