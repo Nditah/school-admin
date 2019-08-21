@@ -22,6 +22,12 @@ import { ExampleAddComponent } from 'src/app/pages/example/example-add/example-a
 import { ExampleDetailComponent } from 'src/app/pages/example/example-detail/example-detail.component';
 import { ExamplEditComponent } from 'src/app/pages/example/example-edit/exampl-edit.component';
 import { AdmissionComponent } from 'src/app/pages/admission/admission.component';
+import { ClassRoomComponent } from 'src/app/pages/class-room/class-room.component';
+import { HostelComponent } from 'src/app/pages/hostel/hostel.component';
+import { NotificationComponent } from 'src/app/pages/notification/notification.component';
+import { SettingComponent } from 'src/app/pages/setting/setting.component';
+import { SmsComponent } from 'src/app/pages/sms/sms.component';
+import { OfficeComponent } from 'src/app/pages/office/office.component';
 
 @NgModule({
   imports: [
@@ -40,8 +46,22 @@ import { AdmissionComponent } from 'src/app/pages/admission/admission.component'
   declarations: [
     DashboardComponent,
     AdvanceTableComponent,
+
     ExampleComponent, ExampleAddComponent, ExampleDetailComponent, ExamplEditComponent,
-    AdmissionComponent
+
+    AdmissionComponent,
+
+    OfficeComponent,
+
+    ClassRoomComponent,
+
+    HostelComponent,
+
+    NotificationComponent,
+
+    SettingComponent,
+
+    SmsComponent
   ]
 })
 
