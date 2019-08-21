@@ -54,6 +54,7 @@ import { SmsComponent } from 'src/app/pages/sms/sms.component';
 import { OfficeComponent } from 'src/app/pages/office/office.component';
 import { FeesPaymentComponent } from 'src/app/pages/fees-payment/fees-payment.component';
 import { FeesTypeComponent } from 'src/app/pages/fees-type/fees-type.component';
+import { AttendanceComponent } from 'src/app/pages/attendance/attendance.component';
 
 @NgModule({
   imports: [
@@ -87,6 +88,7 @@ import { FeesTypeComponent } from 'src/app/pages/fees-type/fees-type.component';
     FeesPaymentComponent,
 
     FeesTypeComponent,
+    AttendanceComponent,
 
     OfficeComponent,
 

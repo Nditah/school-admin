@@ -81,6 +81,34 @@ export class ApiService {
   }
 
   // /////////////////////////////////
+  // ---------- Attendance -------------//
+  // /////////////////////////////////
+
+  getAttendance(path): Observable<any> {
+    const url = `${this.env.API_URL}/attendances${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postAttendance(data): Observable<any> {
+    const url = `${this.env.API_URL}/attendances`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateAttendance(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/attendances/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+
+  // /////////////////////////////////
   // ----------LOCATIONS-------------//
   // /////////////////////////////////
 
