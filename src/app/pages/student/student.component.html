@@ -1,3 +1,77 @@
-<p>
-  student works!
-</p>
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group">
+            <button class="btn btn-primary" routerLink="/student/add">
+              <i class="now-ui-icons ui-1_simple-add"></i> Add New
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">{{page_name}}</h4>
+        </div>
+        <div class="card-body">
+
+          <!-- <app-advance-table *ngIf="currentRecords.length > 0"> -->
+          <app-advance-table *ngIf="currentRecords.length > 0">
+            <thead class="text-primary">
+            <tr>
+              <th class="text-left">SN</th>
+              <th>Name</th>
+              <th>Class</th>
+              <th>Gender</th>
+              <th>Subsidiary</th>
+              <th class="text-right">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  *ngFor="let record of currentRecords; let i = index">
+              <td>{{ i + 1 }}</td>
+                  <td>{{ record.surname }} {{ record.given_name }}</td>
+                  <td>{{ record.classe }}</td>
+                  <td>{{ record.gender }}</td>
+                  <td>{{ record.subsidiary }}</td>
+              <td class="td-actions text-right">
+                <div class="btn-group btn-group-sm">
+                  <button type="button" class="btn btn-primary btn-sm btn-simple">
+                    <i class="now-ui-icons loader_gear"></i>
+                  </button>
+                  <div ngbDropdown class="dropdown btn-group" placement="bottom-right">
+                    <button class="btn btn-primary btn-sm dropdown-toggle-split" ngbDropdownToggle></button>
+                    <div ngbDropdownMenu>
+                      <!-- <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="goToDetail(record)"> -->
+                      <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="goToDetail()">
+                        <i class="now-ui-icons tech_tv"></i> View Detail
+                      </a>
+                      <!-- <a class="dropdown-item text-info" href="javascript:void(0)" (click)="goToEdit(record)"> -->
+                      <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="goToEdit(record)">
+                        <i class="now-ui-icons ui-2_settings-90"></i> Edit Record
+                      </a>
+                      <!-- <a class="dropdown-item text-danger" href="javascript:void(0)" (click)="removeRecord(record)"> -->
+                      <a class="dropdown-item text-primary" href="javascript:void(0)">
+                        <i class="now-ui-icons ui-1_simple-remove"></i> Remove
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </app-advance-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
