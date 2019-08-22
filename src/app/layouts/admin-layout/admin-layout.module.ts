@@ -54,6 +54,10 @@ import { NotificationComponent } from 'src/app/pages/notification/notification.c
 import { SettingComponent } from 'src/app/pages/setting/setting.component';
 import { SmsComponent } from 'src/app/pages/sms/sms.component';
 import { OfficeComponent } from 'src/app/pages/office/office.component';
+import { FeesPaymentComponent } from 'src/app/pages/fees-payment/fees-payment.component';
+import { FeesTypeComponent } from 'src/app/pages/fees-type/fees-type.component';
+import { AttendanceComponent } from 'src/app/pages/attendance/attendance.component';
+import { BookComponent } from 'src/app/pages/book/book.component';
 
 @NgModule({
   imports: [
@@ -83,6 +87,14 @@ import { OfficeComponent } from 'src/app/pages/office/office.component';
     ExampleComponent, ExampleAddComponent, ExampleDetailComponent, ExamplEditComponent,
 
     AdmissionComponent, AdmissionAddComponent, AdmissionDetailComponent, AdmissionEditComponent,
+
+    FeesPaymentComponent,
+
+    FeesTypeComponent,
+
+    BookComponent,
+
+    AttendanceComponent,
 
     OfficeComponent,
 

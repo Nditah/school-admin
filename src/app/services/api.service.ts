@@ -81,6 +81,60 @@ export class ApiService {
   }
 
   // /////////////////////////////////
+  // ---------- Attendance -------------//
+  // /////////////////////////////////
+
+  getAttendance(path): Observable<any> {
+    const url = `${this.env.API_URL}/attendances${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postAttendance(data): Observable<any> {
+    const url = `${this.env.API_URL}/attendances`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateAttendance(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/attendances/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+ // /////////////////////////////////
+  // ----------Book-------------//
+  // /////////////////////////////////
+
+  getBook(path): Observable<any> {
+    const url = `${this.env.API_URL}/books${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postBook(data): Observable<any> {
+    const url = `${this.env.API_URL}/books`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateBook(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/books/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // /////////////////////////////////
   // ----------LOCATIONS-------------//
   // /////////////////////////////////
 
@@ -339,7 +393,58 @@ export class ApiService {
         catchError(this.handleError)
       );
   }
+ // /////////////////////////////////
+  // ----------FEES PAYMENT-------------//
+  // /////////////////////////////////
 
+  getFeesPayment(path): Observable<any> {
+    const url = `${this.env.API_URL}/fees_payments${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postFeesPayment(data): Observable<any> {
+    const url = `${this.env.API_URL}/fees_payments`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateFeesPayment(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/fees_payments/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+// /////////////////////////////////
+  // ----------FEES TYPE-------------//
+  // /////////////////////////////////
+
+  getFeesType(path): Observable<any> {
+    const url = `${this.env.API_URL}/fees_types${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postFeesType(data): Observable<any> {
+    const url = `${this.env.API_URL}/fees_types`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateFeesType(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/fees_types/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
 
   // /////////////////////////////////
   // ----------RATING-------------//

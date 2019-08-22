@@ -88,5 +88,4 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'admission/detail/:id' ,          component: AdmissionDetailComponent,          canActivate: [AuthGuard] },
     { path: 'admission/edit/:id' ,            component: AdmissionEditComponent,            canActivate: [AuthGuard] },
 
-
   ];
