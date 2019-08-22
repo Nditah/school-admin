@@ -18,6 +18,7 @@ export class MarksheetAddComponent implements OnInit {
   courseOptions: Array<SelectOption>;
   staffOptions: Array<SelectOption>;
   marksheetOptions: Array<SelectOption>;
+  assessmentsittingOptions: Array<SelectOption>;
   studentOptions: Array<SelectOption>;
 
   constructor(private formBuilder: FormBuilder,

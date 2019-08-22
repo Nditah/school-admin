@@ -59,6 +59,9 @@ import { FeesTypeComponent } from 'src/app/pages/fees-type/fees-type.component';
 import { AttendanceComponent } from 'src/app/pages/attendance/attendance.component';
 import { BookComponent } from 'src/app/pages/book/book.component';
 import { MarksheetComponent } from 'src/app/pages/marksheet/marksheet.component';
+import { MarksheetAddComponent } from 'src/app/pages/marksheet/marksheet-add/marksheet-add.component';
+import { MarksheetDetailComponent } from 'src/app/pages/marksheet/marksheet-detail/marksheet-detail.component';
+import { MarksheetEditComponent } from 'src/app/pages/marksheet/marksheet-edit/marksheet-edit.component';
 
 @NgModule({
   imports: [
@@ -97,7 +100,7 @@ import { MarksheetComponent } from 'src/app/pages/marksheet/marksheet.component'
 
     AttendanceComponent,
 
-    MarksheetComponent,
+    MarksheetComponent, MarksheetAddComponent, MarksheetDetailComponent, MarksheetEditComponent,
 
     OfficeComponent,
 
