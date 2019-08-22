@@ -26,7 +26,7 @@
               <div class="col-md-4 pr-1">
                 <div class="form-group">
                   <label for="passport" class="control-label required"> <strong> Passport * </strong></label>
-                  <input type="file" class="form-control" formControlName="passport" id="passport" required>
+                  <input type="file" class="form-control" formControlName="passport" id="passport">
                 </div>
               </div>
               <div class="col-md-4 pr-1">
@@ -41,9 +41,9 @@
                     <input type="text" class="form-control" formControlName="given_name" id="given_name" placeholder="Given Names" required>
                   </div>
                 </div>
-              <!-- <div class="col-md-4 pr-1">
+              <div class="col-md-4 pr-1">
                 <div class="form-group">
-                  <label for="county_id" class="control-label required"> <strong> LGA </strong></label>
+                  <label for="county_id" class="control-label"> <strong> LGA </strong></label>
                   <ng-select class="form-control" id="county_id" formControlName="county_id" placeholder=""
                              [items]="countyOptions"
                              bindLabel="text"
@@ -55,7 +55,7 @@
 
               <div class="col-md-4 pr-1">
                 <div class="form-group">
-                  <label for="state_id" class="control-label required"> <strong> State </strong></label>
+                  <label for="state_id" class="control-label"> <strong> State </strong></label>
                   <ng-select class="form-control" id="state_id" formControlName="state_id" placeholder=""
                              [items]="stateOptions"
                              bindLabel="text"
@@ -63,7 +63,7 @@
                              bindValue="id">
                   </ng-select>
                 </div>
-              </div> -->
+              </div>
               <div class="col-md-4 pr-1">
                 <div class="form-group">
                   <label for="birth_date" class="control-label required"> <strong> Date of Birth </strong></label>
@@ -108,11 +108,11 @@
 
             <div class="row">
               
-              <!-- <div class="col-md-4 pr-1">
+              <div class="col-md-4 pr-1">
                 <div class="form-group">
-                  <label for="last_class" class="control-label required"> <strong> Last Class </strong></label>
+                  <label for="last_class" class="control-label"> <strong> Last Class </strong></label>
                   <ng-select class="form-control" id="last_class" formControlName="last_class" placeholder=""
-                             [items]="courseOptions"
+                             [items]="classeOptions"
                              bindLabel="text"
                              [virtualScroll]="true"
                              bindValue="id">
@@ -121,15 +121,15 @@
               </div>
               <div class="col-md-4 pr-1">
                 <div class="form-group">
-                  <label for="intending_class" class="control-label required"> <strong> Intending Class </strong></label>
+                  <label for="intending_class" class="control-label"> <strong> Intending Class </strong></label>
                   <ng-select class="form-control" id="intending_class" formControlName="intending_class" placeholder=""
-                             [items]="courseOptions"
+                             [items]="classeOptions"
                              bindLabel="text"
                              [virtualScroll]="true"
                              bindValue="id">
                   </ng-select>
                 </div>
-              </div> -->
+              </div>
               <div class="col-md-4 pr-1">
                 <div class="form-group">
                   <label for="home_address" class="control-label required"> <strong> Home Address </strong></label>
