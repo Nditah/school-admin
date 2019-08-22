@@ -1,0 +1,42 @@
+<div class="panel-header panel-header-sm">
+  </div>
+  <div class="main-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-group">
+              <button class="btn btn-default" routerLink="/marksheet/edit/{{record.id}}"> <i class="now-ui-icons ui-2_settings-90"></i> Edit Record </button>
+              <button class="btn btn-danger pull-right" (click)="goBack()"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Marksheet Detail</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary"><th>Property</th><th>Value</th></thead>
+                  <tbody>
+                  <tr><th>Type</th><td>{{ record.type || '' }}</td></tr>
+                  <tr><th>Course</th><td>{{ record.course || '' }}</td></tr>
+                  <tr><th>Student </th><td>{{ record.student.surname + ' ' + record.student.given_name || '' }}</td></tr>
+                  <tr><th>Score</th><td>{{ record.score || '' }}</td></tr>
+                  <tr><th>Assessment Sitting</th><td>{{ record.assessment_sitting|| '' }}</td></tr>
+                  <!-- <tr><th>Intending Class</th><td>{{ record.intending_class.name || '' }}</td></tr>
+                  <tr><th>Date of Birth</th><td>{{ record.birth_date || '' }}</td></tr>
+                  <tr><th>Religion</th><td>{{ record.religion || '' }}</td></tr> -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
