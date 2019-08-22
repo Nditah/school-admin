@@ -49,9 +49,10 @@ export class SubjectComponent implements OnInit {
 
   async onSubmit() {
     const payload = this.addForm.value;
+    payload.updated_by = '5d5c16cfc665e70017fd3d2d';
     console.log(payload);
     try {
-      const results = await this.staffs.recordCreate(payload);
+      const results = await this.subjects.recordCreate(payload);
       if (results.success) {
         this.showNotification('This subject has been added');
         this.currentRecords =  this.subjects.query();
