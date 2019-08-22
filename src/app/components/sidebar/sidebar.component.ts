@@ -10,6 +10,8 @@ declare interface RouteInfo {
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard',             title: 'Dashboard',                   icon: 'design_app',                     class: '', sub: null },
     { path: '/example',               title: 'Example',                     icon: 'users_single-02',                class: '', sub: null },
+    { path: '/attendance',            title: 'Attendance',                  icon: 'users_single-02',                class: '', sub: null },
+    { path: '/book',                  title: 'Book',                        icon: 'users_single-02',                class: '', sub: null },
     { path: '/staff',                 title: 'Staff',                       icon: 'users_single-02',                class: '', sub: null },
     { path: '/student',               title: 'Student',                     icon: 'users_single-02',                class: '', sub: null },
     { path: '/parent',                title: 'Parent',                      icon: 'users_single-02',                class: '', sub: null },
@@ -17,7 +19,9 @@ export const ROUTES: RouteInfo[] = [
     { path: '/course',                title: 'Course',                      icon: 'shopping_delivery-fast',         class: '', sub: null },
     { path: '/subject',               title: 'Subject',                     icon: 'business_bank',                  class: '', sub: null },
     { path: '/admission',             title: 'Admission',                   icon: 'business_bank',                  class: '', sub: null },
-
+    { path: '/feespayment',           title: 'Fees Payment',                icon: 'business_bank',                  class: '', sub: null },
+    { path: '/feestype',              title: 'Fees Type',                   icon: 'business_bank',                  class: '', sub: null },
+   
     // { path: '/daily-sales',           title: 'Daily Sales',                 icon: 'business_bank',                          class: '', sub: null },
     // { path: '/pml-billing',           title: 'PML Billing',                 icon: 'design-2_ruler-pencil',          class: '', sub: null  },
     // { path: '/pml-routing',           title: 'PML Routing',                 icon: 'loader_refresh',                 class: '', sub: null  },

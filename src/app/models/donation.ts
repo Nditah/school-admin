@@ -1,4 +1,4 @@
-// import { Staff } from './staff';
+import { Staff } from './staff';
 
 export class Donation {
     id: string;
@@ -8,8 +8,8 @@ export class Donation {
     phone: string;
     amount: number;
     description: string;
-    created_by: object;
-    updated_by: object;
+    created_by: Staff;
+    updated_by: Staff;
 
     constructor(fields: any) {
         // Quick and dirty extend/assign fields to this model
@@ -29,6 +29,6 @@ export interface Donation {
     phone: string;
     amount: number;
     description: string;
-    created_by: object;
-    updated_by: object;
+    created_by: Staff;
+    updated_by: Staff;
 }

@@ -1,18 +1,19 @@
-// import { Staff } from './staff';
-// import { Student } from './student';
+import { Staff } from './staff';
+import { Student } from './student';
+import { FeesType } from './fees-type';
 
 export class FeesPayment {
     id: string;
-    fees_type_id: object;
-    student_id: object;
+    fees_type_id: FeesType;
+    student_id: Student;
     payment_method: string;
     amount: number;
     deposition: string;
     pay_date:Date;
     remark: string;
     status: string;
-    created_by: object;
-    updated_by: object;
+    created_by: Staff;
+    updated_by: Staff;
 
     constructor(fields: any) {
         // Quick and dirty extend/assign fields to this model
@@ -26,14 +27,14 @@ export class FeesPayment {
 
 export interface FeesPayment {
     id: string;
-    fees_type_id: object;
-    student_id: object;
+    fees_type_id: FeesType;
+    student_id: Student;
     payment_method: string;
     amount: number;
     deposition: string;
     pay_date:Date;
     remark: string;
     status: string;
-    created_by: object;
-    updated_by: object;
+    created_by: Staff;
+    updated_by: Staff;
 }

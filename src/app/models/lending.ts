@@ -1,16 +1,18 @@
-// import { Staff } from './staff';
-// import { Student } from './student';
+import { Staff } from './staff';
+import { Student } from './student';
+import { Classe } from './classe';
+import { Book } from './book';
 
 export class Lending {
     id: string;
     user_type:  string;
-    staff_id: object;
-    student_id: object;
+    staff_id: Staff;
+    student_id: Student;
     request_date: Date;
-    classe_id: object;
-    book_id: object;
+    classe_id: Classe;
+    book_id: Book;
     issued_date: Date;
-    issued_by:  object;
+    issued_by:  Staff;
     issuer_remark: string;
     request_status: string;
     lending_status: string;
@@ -18,10 +20,10 @@ export class Lending {
     expected_returned_date: Date;
     actual_returned_date: Date;
     collected_date: Date;
-    collected_by: object;
+    collected_by: Staff;
     collected_remark: string;
-    created_by: object;
-    updated_by: object;
+    created_by: Staff;
+    updated_by: Staff;
 
     constructor(fields: any) {
         // Quick and dirty extend/assign fields to this model
@@ -36,13 +38,13 @@ export class Lending {
 export interface Lending {
     id: string;
     user_type:  string;
-    staff_id: object;
-    student_id: object;
+    staff_id: Staff;
+    student_id: Student;
     request_date: Date;
-    classe_id: object;
-    book_id: object;
+    classe_id: Classe;
+    book_id: Book;
     issued_date: Date;
-    issued_by:  object;
+    issued_by:  Staff;
     issuer_remark: string;
     request_status: string;
     lending_status: string;
@@ -50,8 +52,8 @@ export interface Lending {
     expected_returned_date: Date;
     actual_returned_date: Date;
     collected_date: Date;
-    collected_by: object;
+    collected_by: Staff;
     collected_remark: string;
-    created_by: object;
-    updated_by: object;
+    created_by: Staff;
+    updated_by: Staff;
 }
