@@ -35,6 +35,15 @@
                 <textarea formControlName="description" id="description" cols="10" rows="5" class="form-control"></textarea>
               </div>
               <div class="col-md-12">
+                  <label for=""><strong>Subsidiary</strong></label>
+                  <select formControlName="subsidiary" id="subsidiary" class="form-control">
+                    <option value="CRECHE">CRECHE</option>
+                    <option value="NURSERY">NURSERY</option>
+                    <option value="PRIMARY">PRIMARY</option>
+                    <option value="SECONDARY">SECONDARY</option>
+                  </select>
+                </div>
+              <div class="col-md-12">
                 <label for=""><strong>Head Of Department</strong></label>
                 <appanalyst-select
                     [items]="staffOptions"
@@ -48,8 +57,8 @@
             </div>
             <div class="row">
               <div class="col-md-12">
-                <button [disabled]="addForm.invalid" class="btn btn-primary btn-block">
-                  Submit
+                <button [disabled]="addForm.invalid || loading" class="btn btn-primary btn-block">
+                  Submit <span *ngIf="loading" class="ld ld-ball ld-bounce"> </span>
                 </button>
               </div>
             </div>
@@ -70,7 +79,7 @@
             <tr>
               <th class="text-left">SN</th>
               <th>Name</th>
-              <th>Description</th>
+              <th>Code</th>
               <th>Hod</th>
               <th class="text-right">Action</th>
             </tr>
@@ -79,7 +88,7 @@
             <tr  *ngFor="let record of currentRecords; let i = index">
               <td>{{ i + 1 }}</td>
                   <td>{{record.name}}</td>
-                  <td>{{ record.description }}</td>
+                  <td>{{ record.code }}</td>
                   <td>{{ record.hod.surname || '-' }}</td>
               <td class="td-actions text-right">
                 <div class="btn-group btn-group-sm">
