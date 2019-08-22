@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Subject, Staff, SelectOption } from '../../models';
 import { Subjects, Staffs } from '../../providers';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
+// import { ToastrService } from 'ngx-toastr';
 import { isEqual } from 'src/app/helpers';
+import { NotificationService } from '../../services';
 
 @Component({
   selector: 'app-subject',
@@ -21,7 +22,7 @@ export class SubjectComponent implements OnInit {
   staffOptions: SelectOption[];
 
   constructor(private subjects: Subjects,
-              private toastr: ToastrService,
+              private notify: NotificationService,
               private _fb: FormBuilder,
               private staffs: Staffs) {
                 this.currentRecords = this.subjects.query();
@@ -43,23 +44,27 @@ export class SubjectComponent implements OnInit {
     this.addForm = this._fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
-      hod: ['']
+      hod: [''],
+      subsidiary: ['', Validators.required]
     });
   }
 
   async onSubmit() {
     const payload = this.addForm.value;
+    const codeName = payload.name.length > 7 ? payload.name.substring(0, 4) : payload.name.substring(0, 3);
+    const codeSubsidiary = payload.subsidiary.substring(0, 3);
+    payload.code = codeName.toUpperCase() + codeSubsidiary;
     console.log(payload);
     try {
-      const results = await this.staffs.recordCreate(payload);
+      const results = await this.subjects.recordCreate(payload);
       if (results.success) {
-        this.showNotification('This subject has been added');
+        this.notify.showNotification('This subject has been added', 'success');
         this.currentRecords =  this.subjects.query();
       } else {
-        this.showNotification(results.message);
+        this.notify.showNotification(results.message, 'danger');
       }
     } catch (error) {
-      this.showNotification(error.error.message);
+      this.notify.showNotification(error, 'danger');
     }
   }
 
@@ -75,14 +80,5 @@ export class SubjectComponent implements OnInit {
       }
     ));
     console.log(this.staffOptions);
-  }
-
-  showNotification(message) {
-  this.toastr.show(`<span class="fa ui-1_bell-53"></span> <b>${message}</b>`, '', {
-      timeOut: 8000,
-      closeButton: true,
-      enableHtml: true,
-      toastClass: 'alert alert-primary alert-with-icon',
-    });
   }
 }

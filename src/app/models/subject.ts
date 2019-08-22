@@ -4,9 +4,11 @@ import { Course } from './course';
 export class Subject {
     id: string;
     name: string;
-    course: Course;
-    teacher: Staff;
+    code: string;
+    courses: Array<Course>;
     hod: Staff;
+    subsidiary: string;
+    category: object;
     description: string;
     created_by: Staff;
     updated_by: Staff;
@@ -24,9 +26,11 @@ export class Subject {
 export interface Subject {
     id: string;
     name: string;
-    course: Course;
-    teacher: Staff;
+    code: string;
+    courses: Array<Course>;
     hod: Staff;
+    subsidiary: string;
+    category: object;
     description: string;
     created_by: Staff;
     updated_by: Staff;

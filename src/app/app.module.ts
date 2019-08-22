@@ -14,7 +14,7 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './pages/login/login.component';
 
-import { AuthService, ApiService, AuthGuard, EnvService, JwtInterceptor, ErrorInterceptor } from './services';
+import { AuthService, ApiService, AuthGuard, EnvService, JwtInterceptor, ErrorInterceptor, NotificationService } from './services';
 
 import {
   Admissions, Staffs, Counties, States, Students, Subjects, Classes,
@@ -41,13 +41,13 @@ import {
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-    
   ],
   providers: [
     AuthService,
     ApiService,
     AuthGuard,
     EnvService,
+    NotificationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
