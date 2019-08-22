@@ -15,6 +15,7 @@ export class StaffComponent implements OnInit {
   searchForm: FormGroup;
   currentRecords: Array<Staff>;
   loading = false;
+  activeSidebar = false;
   page_name = 'List of Staff';
 
   constructor(private router: Router,
@@ -26,12 +27,30 @@ export class StaffComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToEdit(record: Staff) {
-    console.log(record.id);
+  async search(data) {
+    const queryString = `?q=${data.searchString}`; // queryString
+    console.log(data);
   }
 
-  goToDetail(record: Staff) {
-    console.log('trying to view :' + record.id);
+  closeSidebar($event) {
+    this.activeSidebar = $event;
+  }
+
+  goToAdd(): void {
+    this.router.navigate(['staff/add']);
+  }
+
+  goToDetail(record: any): void {
+    this.router.navigate([`staff/detail/${record.id}`]);
+    return;
+  }
+
+  goToEdit(record: any): void {
+    this.router.navigate([`staff/edit/${record.id}`]);
+  }
+
+  removeRecord(record) {
+    console.log(record.id);
   }
 
 }
