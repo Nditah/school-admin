@@ -2,6 +2,7 @@ import { Staff } from './staff';
 import { Course } from './course';
 
 export class Subject {
+    id: string;
     name: string;
     course: Course;
     teacher: Staff;
@@ -21,6 +22,7 @@ export class Subject {
 }
 
 export interface Subject {
+    id: string;
     name: string;
     course: Course;
     teacher: Staff;

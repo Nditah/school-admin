@@ -31,10 +31,10 @@ import { SubjectAddComponent } from '../../pages/subject/subject-add/subject-add
 import { SubjectDetailComponent } from '../../pages/subject/subject-detail/subject-detail.component';
 import { SubjectEditComponent } from '../../pages/subject/subject-edit/subject-edit.component';
 import { AdmissionComponent } from '../../pages/admission/admission.component';
-import { FeesPaymentComponent } from 'src/app/pages/fees-payment/fees-payment.component';
-import { FeesTypeComponent } from 'src/app/pages/fees-type/fees-type.component';
-import { AttendanceComponent } from 'src/app/pages/attendance/attendance.component';
-import { BookComponent } from 'src/app/pages/book/book.component';
+import { AdmissionAddComponent } from '../../pages/admission/admission-add/admission-add.component';
+import { AdmissionDetailComponent } from '../../pages/admission/admission-detail/admission-detail.component';
+import { AdmissionEditComponent } from '../../pages/admission/admission-edit/admission-edit.component';
+
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -82,15 +82,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'subject/detail/:id' ,          component: SubjectDetailComponent,          canActivate: [AuthGuard] },
     { path: 'subject/edit/:id' ,            component: SubjectEditComponent,            canActivate: [AuthGuard] },
 
+    // Admission
+    { path: 'admission' ,                     component: AdmissionComponent,                canActivate: [AuthGuard] },
+    { path: 'admission/add' ,                 component: AdmissionAddComponent,             canActivate: [AuthGuard] },
+    { path: 'admission/detail/:id' ,          component: AdmissionDetailComponent,          canActivate: [AuthGuard] },
+    { path: 'admission/edit/:id' ,            component: AdmissionEditComponent,            canActivate: [AuthGuard] },
 
-    { path: 'admission' ,                   component: AdmissionComponent,              canActivate: [AuthGuard] },
-// Fees Payment
-{ path: 'feespayment' ,                       component: FeesPaymentComponent,                  canActivate: [AuthGuard] },
- // Fees Type
-{ path: 'feestype' ,                          component: FeesTypeComponent,                  canActivate: [AuthGuard] },
-// Attendance
-{ path: 'attendance' ,                          component: AttendanceComponent,                  canActivate: [AuthGuard] },
-  // Book
-{ path: 'book' ,                             component: BookComponent,                  canActivate: [AuthGuard] },
-  
   ];

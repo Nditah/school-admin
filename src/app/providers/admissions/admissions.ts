@@ -42,7 +42,7 @@ export class Admissions {
   }
 
   delete(admission: Admission) {
-    const index = this.admissions.findIndex(Admission => Admission.id === admission.id);
+    const index = this.admissions.findIndex(admission => admission.id === admission.id);
     this.admissions.splice(index, 1);
   }
 

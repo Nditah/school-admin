@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClassRoomComponent } from './class-room.component';
+import { AdmissionAddComponent } from './admission-add.component';
 
-describe('ClassRoomComponent', () => {
-  let component: ClassRoomComponent;
-  let fixture: ComponentFixture<ClassRoomComponent>;
+describe('AdmissionAddComponent', () => {
+  let component: AdmissionAddComponent;
+  let fixture: ComponentFixture<AdmissionAddComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ClassRoomComponent ]
+      declarations: [ AdmissionAddComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ClassRoomComponent);
+    fixture = TestBed.createComponent(AdmissionAddComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
