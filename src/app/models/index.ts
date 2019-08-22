@@ -25,3 +25,4 @@ export * from './timetable';
 export * from './fees-payment';
 export * from './fees-type';
 export * from './state';
+export * from './hostel';

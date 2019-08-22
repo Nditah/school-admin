@@ -46,7 +46,9 @@ import { SubjectAddComponent } from 'src/app/pages/subject/subject-add/subject-a
 import { SubjectEditComponent } from 'src/app/pages/subject/subject-edit/subject-edit.component';
 import { SubjectDetailComponent } from 'src/app/pages/subject/subject-detail/subject-detail.component';
 import { AdmissionComponent } from 'src/app/pages/admission/admission.component';
-import { ClassRoomComponent } from 'src/app/pages/class-room/class-room.component';
+import { AdmissionAddComponent } from 'src/app/pages/admission/admission-add/admission-add.component';
+import { AdmissionDetailComponent } from 'src/app/pages/admission/admission-detail/admission-detail.component';
+import { AdmissionEditComponent } from 'src/app/pages/admission/admission-edit/admission-edit.component';
 import { HostelComponent } from 'src/app/pages/hostel/hostel.component';
 import { NotificationComponent } from 'src/app/pages/notification/notification.component';
 import { SettingComponent } from 'src/app/pages/setting/setting.component';
@@ -80,11 +82,9 @@ import { OfficeComponent } from 'src/app/pages/office/office.component';
 
     ExampleComponent, ExampleAddComponent, ExampleDetailComponent, ExamplEditComponent,
 
-    AdmissionComponent,
+    AdmissionComponent, AdmissionAddComponent, AdmissionDetailComponent, AdmissionEditComponent,
 
     OfficeComponent,
-
-    ClassRoomComponent,
 
     HostelComponent,
 

@@ -44,7 +44,7 @@
     "datatables.net": "^1.10.19",
     "datatables.net-dt": "^1.10.19",
     "datatables.net-responsive": "^2.2.3",
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "font-awesome": "4.7.0",
     "format-currency": "^1.0.0",
     "hammerjs": "2.0.8",
