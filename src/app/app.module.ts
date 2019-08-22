@@ -41,6 +41,7 @@ import {
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
+    
   ],
   providers: [
     AuthService,

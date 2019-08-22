@@ -47,16 +47,16 @@ export class AdmissionComponent implements OnInit {
     }
 
     goToAdd(): void {
-      this.router.navigate(['bank-register/add']);
+      this.router.navigate(['admission/add']);
     }
 
     goToDetail(record: any): void {
-      this.router.navigate([`bank-register/detail/${record.id}`]);
+      this.router.navigate([`admission/detail/${record.id}`]);
       return;
     }
 
     goToEdit(record: any): void {
-      this.router.navigate([`bank-register/edit/${record.id}`]);
+      this.router.navigate([`admission/edit/${record.id}`]);
     }
 
     removeRecord(record) {
