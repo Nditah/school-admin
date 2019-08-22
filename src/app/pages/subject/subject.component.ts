@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject, Staff, SelectOption } from '../../models';
+import { Subject, Staff, SelectOption, ApiResponse } from '../../models';
 import { Subjects, Staffs } from '../../providers';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 // import { ToastrService } from 'ngx-toastr';
@@ -21,7 +21,7 @@ export class SubjectComponent implements OnInit {
   prevStaffRecords: Array<Staff>;
   staffOptions: SelectOption[];
 
-  constructor(private subjects: Subjects,
+  constructor(public subjects: Subjects,
               private notify: NotificationService,
               private _fb: FormBuilder,
               private staffs: Staffs) {
@@ -51,15 +51,27 @@ export class SubjectComponent implements OnInit {
 
   async onSubmit() {
     const payload = this.addForm.value;
-    const codeName = payload.name.length > 7 ? payload.name.substring(0, 4) : payload.name.substring(0, 3);
-    const codeSubsidiary = payload.subsidiary.substring(0, 3);
-    payload.code = codeName.toUpperCase() + codeSubsidiary;
+    let codeName;
+    if (payload.name.split(' ').length > 1) {
+      const splitted = payload.name.split(' ');
+      codeName = splitted[0].substring(0,2).toUpperCase() + splitted[1].substring(0,2).toUpperCase();
+    } else {
+      codeName = payload.name.length > 7 ? payload.name.substring(0, 4).toUpperCase() : payload.name.substring(0, 3).toUpperCase();
+    }
+    const codeSubsidiary = payload.subsidiary.substring(0, 3).toUpperCase();
+    payload.code = codeName + codeSubsidiary;
     console.log(payload);
     try {
       const results = await this.subjects.recordCreate(payload);
       if (results.success) {
+        this.addForm.reset();
+        this.subjects.recordRetrieve().then((data: ApiResponse) => {
+          if (data.success) {
+            this.currentRecords = data.payload;
+          }
+        });
+        // this.currentRecords = this.subjects.query();
         this.notify.showNotification('This subject has been added', 'success');
-        this.currentRecords =  this.subjects.query();
       } else {
         this.notify.showNotification(results.message, 'danger');
       }
@@ -70,6 +82,29 @@ export class SubjectComponent implements OnInit {
 
   openSidebar() {
 
+  }
+
+  onChange(event: any, name: string) {
+    let codeName;
+    if (name.split(' ').length > 1) {
+      const splitted = name.split(' ');
+      codeName = splitted[0].substring(0,2).toUpperCase() + splitted[1].substring(0,2).toUpperCase();
+    } else {
+      codeName = name.length > 7 ? name.substring(0, 4).toUpperCase() : name.substring(0, 3).toUpperCase();
+    }
+    const codeSubsidiary = event.target.value.substring(0, 3);
+    const code = codeName + codeSubsidiary;
+    console.log('?code=' + code);
+    this.subjects.recordRetrieve('?code=' + code).then((data: ApiResponse) => {
+      if (data.success) {
+        if (data.payload.length > 0) {
+          // tslint:disable-next-line: max-line-length
+          this.notify.showNotification('A course with the code ' + code + ' already exist you may change the course name to resolve this conflict', 'info');
+        } else {
+          this.notify.showNotification('The generated course code is ' + code , 'success');
+        }
+      }
+    });
   }
 
   getStaffOptions() {

@@ -28,7 +28,7 @@
             <div class="row">
               <div class="col-md-12">
                 <label for=""><strong>Name: </strong></label>
-                <input type="text" formControlName="name" id="name" class="form-control" style="border-radius: 0px">
+                <input type="text" formControlName="name" id="name" class="form-control" #na style="border-radius: 0px">
               </div>
               <div class="col-md-12">
                 <label for=""><strong>Description</strong></label>
@@ -36,7 +36,7 @@
               </div>
               <div class="col-md-12">
                   <label for=""><strong>Subsidiary</strong></label>
-                  <select formControlName="subsidiary" id="subsidiary" class="form-control">
+                  <select formControlName="subsidiary" id="subsidiary" class="form-control" (change)="onChange($event, na.value)">
                     <option value="CRECHE">CRECHE</option>
                     <option value="NURSERY">NURSERY</option>
                     <option value="PRIMARY">PRIMARY</option>
@@ -80,16 +80,16 @@
               <th class="text-left">SN</th>
               <th>Name</th>
               <th>Code</th>
-              <th>Hod</th>
+              <th>Subsidiary</th>
               <th class="text-right">Action</th>
             </tr>
             </thead>
             <tbody>
             <tr  *ngFor="let record of currentRecords; let i = index">
               <td>{{ i + 1 }}</td>
-                  <td>{{record.name}}</td>
+                  <td>{{record.name.toUpperCase()}}</td>
                   <td>{{ record.code }}</td>
-                  <td>{{ record.hod.surname || '-' }}</td>
+                  <td>{{ record.subsidiary || '-' }}</td>
               <td class="td-actions text-right">
                 <div class="btn-group btn-group-sm">
                   <button type="button" class="btn btn-primary btn-sm btn-simple">
