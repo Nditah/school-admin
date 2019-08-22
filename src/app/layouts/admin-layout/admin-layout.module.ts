@@ -58,6 +58,10 @@ import { FeesPaymentComponent } from 'src/app/pages/fees-payment/fees-payment.co
 import { FeesTypeComponent } from 'src/app/pages/fees-type/fees-type.component';
 import { AttendanceComponent } from 'src/app/pages/attendance/attendance.component';
 import { BookComponent } from 'src/app/pages/book/book.component';
+import { MarksheetComponent } from 'src/app/pages/marksheet/marksheet.component';
+import { MarksheetAddComponent } from 'src/app/pages/marksheet/marksheet-add/marksheet-add.component';
+import { MarksheetDetailComponent } from 'src/app/pages/marksheet/marksheet-detail/marksheet-detail.component';
+import { MarksheetEditComponent } from 'src/app/pages/marksheet/marksheet-edit/marksheet-edit.component';
 import { SmsDetailComponent } from 'src/app/pages/sms/sms-detail/sms-detail.component';
 import { SmsEditComponent } from 'src/app/pages/sms/sms-edit/sms-edit.component';
 import { SmsAddComponent } from 'src/app/pages/sms/sms-add/sms-add.component';
@@ -104,6 +108,9 @@ import { OfficeEditComponent } from 'src/app/pages/office/office-edit/office-edi
 
     AttendanceComponent,
 
+    MarksheetComponent, MarksheetAddComponent, MarksheetDetailComponent, MarksheetEditComponent,
+
+    OfficeComponent,
     OfficeComponent, OfficeAddComponent, OfficeDetailComponent, OfficeEditComponent,
 
     HostelComponent,

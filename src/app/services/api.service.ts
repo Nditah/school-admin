@@ -159,6 +159,35 @@ export class ApiService {
       catchError(this.handleError));
   }
 
+  
+ // /////////////////////////////////
+  // ----------Mark Sheet-------------//
+  // /////////////////////////////////
+
+  getMarksheet(path): Observable<any> {
+    const url = `${this.env.API_URL}/marksheets${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postMarksheet(data): Observable<any> {
+    const url = `${this.env.API_URL}/marksheets`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateMarksheet(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/marksheets/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+
   // /////////////////////////////////
   // ----------STAFF-------------//
   // /////////////////////////////////
