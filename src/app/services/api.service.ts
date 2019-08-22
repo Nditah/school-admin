@@ -164,14 +164,14 @@ export class ApiService {
   // /////////////////////////////////
 
   getStaff(path): Observable<any> {
-    const url = `${this.env.API_URL}/staffs${path}`;
+    const url = `${this.env.API_URL}/staff${path}`;
     return this.http.get(url, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
 
   postStaff(data): Observable<any> {
-    const url = `${this.env.API_URL}/staffs`;
+    const url = `${this.env.API_URL}/staff`;
     const payload = this.cleanObject(data);
     return this.http.post(url, payload, httpOptions).pipe(
         catchError(this.handleError)
@@ -179,7 +179,7 @@ export class ApiService {
   }
 
   updateStaff(id: string, data): Observable<any> {
-    const url = `${this.env.API_URL}/staffs/${id}`;
+    const url = `${this.env.API_URL}/staff/${id}`;
     const payload = this.cleanObject(data);
     return this.http.put(url, payload, httpOptions).pipe(
         catchError(this.handleError)
