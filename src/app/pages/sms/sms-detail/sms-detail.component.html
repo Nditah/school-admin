@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+
+    <header class="row title">
+        <div class="col-xs-12 text-center">
+          <h2 class="main-title">SMS Details</h2>
+          <hr class="line">
+
+        </div>
+      </header>
+
+      <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-condensed table-responsive-sm">
+                <thead class="text-primary">
+                <tr style = "font-weight: bolder">
+                  <th>PROPERTY</th>
+                  <th>VALUE</th>
+                </tr>
+                </thead>
+                <tbody>
+                  <tr><th>Direction</th><td>{{ record.direction }}</td></tr>
+                  <tr><th>Recipient</th><td>{{ record.recipient }}</td></tr>
+                  <tr><th>Line</th><td>{{ record.sender }}</td></tr>
+                  <tr><th>Sender</th><td>{{ record.created_by?.id || "" }}</td></tr>
+                  <tr><th>Message</th><td rowspan=3>{{ record.message }}</td></tr>
+                  </tbody>
+
+            </table>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
