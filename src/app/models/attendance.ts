@@ -1,14 +1,14 @@
-// import { Staff } from './staff';
-// import { Student } from './student';
+import { Staff } from './staff';
+import { Student } from './student';
 // import { Office } from './office';
-// import { Classe } from './classe';
+import { Classe } from './classe';
 
 export class Attendance {
     id: string;
     access_token: string;
-    // staff_id: Staff;
-    // student_id: Student;
-    // classe_id: Classe;
+    staff_id: Staff;
+    student_id: Student;
+    classe_id: Classe;
     // office_id: Office;
     attendance_status: string;
     subsidiary: string;
@@ -28,9 +28,9 @@ export class Attendance {
 export interface Attendance {
     id: string;
     access_token: string;
-    // staff_id: Staff;
-    // student_id: Student;
-    // classe_id: Classe;
+    staff_id: Staff;
+    student_id: Student;
+    classe_id: Classe;
     // office_id: Office;
     attendance_status: string;
     subsidiary: string;
