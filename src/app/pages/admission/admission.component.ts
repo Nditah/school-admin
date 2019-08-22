@@ -18,9 +18,9 @@ export class AdmissionComponent implements OnInit {
   loading = false;
 
   constructor(private router: Router,
-    private formBuilder: FormBuilder,
-    private toastr: ToastrService,
-    public admissions: Admissions) {
+              private formBuilder: FormBuilder,
+              private toastr: ToastrService,
+              public admissions: Admissions) {
       this.currentRecords = this.admissions.query();
       this.searchForm = this.formBuilder.group({
         searchString: ['', Validators.required],

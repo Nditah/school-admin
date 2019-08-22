@@ -30,8 +30,7 @@
               <th class="text-left">SN</th>
               <th>Name</th>
               <th>Phone</th>
-              <th>State</th>
-              <th>Class</th>
+              <th>Gender</th>
               <th>Salary</th>
               <th class="text-right">Action</th>
             </tr>
@@ -41,8 +40,7 @@
               <td>{{ i + 1 }}</td>
                   <td>{{record.title}}. {{ record.surname }} {{ record.given_name }}</td>
                   <td>{{ record.phone }}</td>
-                  <td>{{ record.state }}</td>
-                  <td>{{ record.class || 'None' }}</td>
+                  <td>{{ record.gender }}</td>
                   <td>{{ record.basic_salary }}</td>
               <td class="td-actions text-right">
                 <div class="btn-group btn-group-sm">

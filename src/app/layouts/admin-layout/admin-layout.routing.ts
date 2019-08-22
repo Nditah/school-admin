@@ -34,6 +34,14 @@ import { AdmissionComponent } from '../../pages/admission/admission.component';
 import { AdmissionAddComponent } from '../../pages/admission/admission-add/admission-add.component';
 import { AdmissionDetailComponent } from '../../pages/admission/admission-detail/admission-detail.component';
 import { AdmissionEditComponent } from '../../pages/admission/admission-edit/admission-edit.component';
+import { FeesPaymentComponent } from 'src/app/pages/fees-payment/fees-payment.component';
+import { FeesTypeComponent } from 'src/app/pages/fees-type/fees-type.component';
+import { BookComponent } from 'src/app/pages/book/book.component';
+import { MarksheetComponent } from 'src/app/pages/marksheet/marksheet.component';
+import { AttendanceComponent } from 'src/app/pages/attendance/attendance.component';
+import { MarksheetAddComponent } from 'src/app/pages/marksheet/marksheet-add/marksheet-add.component';
+import { MarksheetEditComponent } from 'src/app/pages/marksheet/marksheet-edit/marksheet-edit.component';
+import { MarksheetDetailComponent } from 'src/app/pages/marksheet/marksheet-detail/marksheet-detail.component';
 
 
 
@@ -87,5 +95,23 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'admission/add' ,                 component: AdmissionAddComponent,             canActivate: [AuthGuard] },
     { path: 'admission/detail/:id' ,          component: AdmissionDetailComponent,          canActivate: [AuthGuard] },
     { path: 'admission/edit/:id' ,            component: AdmissionEditComponent,            canActivate: [AuthGuard] },
+   
+    // Fees payment
+    { path: 'feespayment' ,                     component: FeesPaymentComponent,                canActivate: [AuthGuard] },
+    
+    //Fees type
+    { path: 'feestype' ,                        component: FeesTypeComponent,             canActivate: [AuthGuard] },
+    
+    //Book
+    { path: 'book' ,                          component: BookComponent,          canActivate: [AuthGuard] },
+    
+    //Marksheet
+    { path: 'marksheet' ,                    component: MarksheetComponent,            canActivate: [AuthGuard] },
+    { path: 'marksheet/add' ,                 component: MarksheetAddComponent,             canActivate: [AuthGuard] },
+    { path: 'marksheet/detail/:id' ,          component: MarksheetDetailComponent,          canActivate: [AuthGuard] },
+    { path: 'marksheet/edit/:id' ,            component: MarksheetEditComponent,            canActivate: [AuthGuard] },
+   
+    //Attendance
+    { path: 'attendance' ,                    component: AttendanceComponent,            canActivate: [AuthGuard] },
 
   ];
