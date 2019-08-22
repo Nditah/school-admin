@@ -13,3 +13,7 @@ export { FeesTypes } from './fees-types/fees-types';
 export { Books } from './books/books';
 export { Attendances } from './attendances/attendances';
 export { Marksheets } from './marksheets/marksheets';
+export { Notifications } from './notifications/notifications';
+export { Offices } from './offices/offices';
+export { Settings } from './settings/settings';
+export { Smss } from './smss/smss';

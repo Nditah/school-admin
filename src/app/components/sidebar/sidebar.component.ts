@@ -48,6 +48,16 @@ export const ROUTES: RouteInfo[] = [
     // { path: '/user-profile',          title: 'User Profile',                icon: 'users_circle-08',                class: '',  sub: null },
     // { path: '/setting',               title: 'Settings',                    icon: 'ui-1_settings-gear-63',          class: '',  sub: null },
     // { path: '/sync',                  title: 'Synchronize',                 icon: 'loader_refresh',                 class: '',  sub: null },
+    { path: '',                       title: 'Hostel',                      icon: 'location_pin',                   class: 'parent-nav',
+    sub: [
+      { path: '/city',                title: 'Hostel ',                      icon: 'location_map-big',               class: '' },
+      { path: '/state',               title: 'Hostel Allocation',            icon: 'location_compass-05',            class: '' },
+      { path: '/county',              title: 'Hostel Bedspace',              icon: 'location_world',                 class: '' },
+      { path: '/county',              title: 'Hostel Room',                  icon: 'location_world',                 class: '' },
+    ]},
+    { path: '/sms',                   title: 'SMS',                         icon: 'users_single-02',                  class: '', sub: null },
+    { path: '/Office',                title: 'Office',                       icon: 'business_bank',                  class: '', sub: null },
+    { path: '/setting',               title: 'Setting',                     icon: 'business_bank',                  class: '', sub: null },
 ];
 
 @Component({

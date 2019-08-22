@@ -1,0 +1,30 @@
+<div class="panel-header panel-header-sm">
+  </div>
+  <div class="main-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Setting Detail</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary"><th>Property</th><th>Value</th></thead>
+                  <tbody>
+                  <tr><th>Name</th><td>{{ record?.name || '' }}</td></tr>
+                  <tr><th>Access</th><td>{{ record?.access || '' }}</td></tr>
+                  <tr><th>Value</th><td>{{ record?.value || '' }}</td></tr>
+                  <tr><th>Category</th><td>{{ record?.category || '' }}</td></tr>
+                  <tr><th>Description</th><td>{{ record?.description || '' }}</td></tr>
+                  <tr><th>Created</th><td>{{ record?.created_at | date }} {{ record.created_by?.surname }}</td></tr>
+                  <tr><th>Updated</th><td>{{ record?.updated_at | date }} {{ record.updated_by?.surname }}</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

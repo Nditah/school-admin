@@ -26,3 +26,7 @@ export * from './fees-payment';
 export * from './fees-type';
 export * from './state';
 export * from './hostel';
+export * from './notification';
+export * from './office';
+export * from './setting';
+export * from './sms';

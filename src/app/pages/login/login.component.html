@@ -35,7 +35,7 @@
         </small>
 
         <div class="container-login100-form-btn">
-          <button class="login100-form-btn" [disabled]="!this.loginForm.valid">
+          <button class="login100-form-btn" [disabled]="!this.loginForm.valid || loading">
             Login <span *ngIf="loading" class="ld ld-ball ld-bounce"> </span>
           </button>
         </div>
