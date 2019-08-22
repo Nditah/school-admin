@@ -63,7 +63,7 @@ export class FeesPayments {
   }
 
   async recordCreate(data): Promise<ApiResponse> {
-    const proRes = this.apiService.postStaff(data).pipe(
+    const proRes = this.apiService.postFeesPayment(data).pipe(
     map((res: ApiResponse) => {
         if (res.success && res.payload) {
           console.log('recordCreate() successful');

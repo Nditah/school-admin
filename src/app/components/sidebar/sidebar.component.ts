@@ -21,7 +21,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/admission',             title: 'Admission',                   icon: 'business_bank',                  class: '', sub: null },
     { path: '/feespayment',           title: 'Fees Payment',                icon: 'business_bank',                  class: '', sub: null },
     { path: '/feestype',              title: 'Fees Type',                   icon: 'business_bank',                  class: '', sub: null },
-   
+    { path: '/marksheet',             title: 'Marksheet',                   icon: 'users_single-02',                class: '', sub: null },
+
     // { path: '/daily-sales',           title: 'Daily Sales',                 icon: 'business_bank',                          class: '', sub: null },
     // { path: '/pml-billing',           title: 'PML Billing',                 icon: 'design-2_ruler-pencil',          class: '', sub: null  },
     // { path: '/pml-routing',           title: 'PML Routing',                 icon: 'loader_refresh',                 class: '', sub: null  },

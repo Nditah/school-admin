@@ -1,16 +1,18 @@
-// import { Staff } from './staff';
-// import { Student } from './student';
+import { Staff } from './staff';
+import { Student } from './student';
+import { Course } from './course';
 
 export class Marksheet {
     id: string;
-    subject_id: object;
-    student_id: object;
-    teacher_id: object;
-    ca_id: object;
-    exam_id: object;
-    classe_id: object;
-    created_by: object;
-    updated_by: object;
+    type:  string; //enum: ["PAPER", "CBT"], required: true },
+    course: Course;
+    student: Student;
+    score: number;
+    assessment_sitting: object;
+    deleted: boolean;
+    deleted_at: Date;
+    created_by: Staff;
+    updated_by: Staff;
 
     constructor(fields: any) {
         // Quick and dirty extend/assign fields to this model
@@ -24,12 +26,13 @@ export class Marksheet {
 
 export interface Marksheet {
     id: string;
-    subject_id: object;
-    student_id: object;
-    teacher_id: object;
-    ca_id: object;
-    exam_id: object;
-    classe_id: object;
-    created_by: object;
-    updated_by: object;
+    type:  string; //enum: ["PAPER", "CBT"], required: true },
+    course: Course;
+    student: Student;
+    score: number;
+    assessment_sitting: object;
+    deleted: boolean;
+    deleted_at: Date;
+    created_by: Staff;
+    updated_by: Staff;
 }
