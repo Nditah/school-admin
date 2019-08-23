@@ -42,20 +42,19 @@ import {
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-  
-    
+
+
   ],
   providers: [
     AuthService,
     ApiService,
     AuthGuard,
     EnvService,
-    ,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    Admissions, Staffs, Counties, States, Students, Subjects, Marksheets
-    , Staffs, Counties, States, Students, Subjects, , Offices,Smss,Notifications,Settings
+    Admissions, Staffs, Counties, States, Students, Subjects, Marksheets,
+    Staffs, Counties, States, Students, Subjects, Offices, Smss, Notifications, Settings
   ],
   bootstrap: [AppComponent]
 })
