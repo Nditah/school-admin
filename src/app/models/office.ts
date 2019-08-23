@@ -13,6 +13,7 @@ export class Office {
     office_above: Office;
     head: Staff;
     assistant: Staff;
+    description: string;
     created_by?: Staff;
     created_at?: Date;
     updated_by?: Staff;
@@ -33,6 +34,8 @@ export interface Office {
     id: string;
     name: string;
     code: string;
+    email: string;
+    phone: string;
     functions: string;
     hierarchy: number;
     subsidiary: string;
