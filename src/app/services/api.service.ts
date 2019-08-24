@@ -609,4 +609,31 @@ export class ApiService {
         catchError(this.handleError)
       );
   }
+
+   // /////////////////////////////////
+  // ----------HOSTEL-------------//
+  // /////////////////////////////////
+
+  getHostel(path): Observable<any> {
+    const url = `${this.env.API_URL}/hostels${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postHostel(data): Observable<any> {
+    const url = `${this.env.API_URL}/hostels`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateHostel(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/hostels/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
 }

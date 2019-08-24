@@ -43,7 +43,7 @@ import { MarksheetAddComponent } from 'src/app/pages/marksheet/marksheet-add/mar
 import { MarksheetEditComponent } from 'src/app/pages/marksheet/marksheet-edit/marksheet-edit.component';
 import { MarksheetDetailComponent } from 'src/app/pages/marksheet/marksheet-detail/marksheet-detail.component';
 
-
+import { HostelComponent } from 'src/app/pages/hostel/hostel.component';
 
 export const AdminLayoutRoutes: Routes = [
     // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -113,5 +113,8 @@ export const AdminLayoutRoutes: Routes = [
    
     //Attendance
     { path: 'attendance' ,                    component: AttendanceComponent,            canActivate: [AuthGuard] },
+
+    //Hostel
+    { path: 'hostel' ,                    component: HostelComponent,            canActivate: [AuthGuard] },
 
   ];
