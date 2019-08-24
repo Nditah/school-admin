@@ -69,6 +69,9 @@ import { SettingDetailComponent } from 'src/app/pages/setting/setting-detail/set
 import { OfficeAddComponent } from 'src/app/pages/office/office-add/office-add.component';
 import { OfficeDetailComponent } from 'src/app/pages/office/office-detail/office-detail.component';
 import { OfficeEditComponent } from 'src/app/pages/office/office-edit/office-edit.component';
+import { AttendanceAddComponent } from 'src/app/pages/attendance/attendance-add/attendance-add.component';
+import { AttendanceDetailComponent } from 'src/app/pages/attendance/attendance-detail/attendance-detail.component';
+import { AttendanceEditComponent } from 'src/app/pages/attendance/attendance-edit/attendance-edit.component';
 
 
 @NgModule({
@@ -106,7 +109,7 @@ import { OfficeEditComponent } from 'src/app/pages/office/office-edit/office-edi
 
     BookComponent,
 
-    AttendanceComponent,
+    AttendanceComponent, AttendanceAddComponent, AttendanceDetailComponent, AttendanceEditComponent,
 
     MarksheetComponent, MarksheetAddComponent, MarksheetDetailComponent, MarksheetEditComponent,
 

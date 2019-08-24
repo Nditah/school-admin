@@ -42,6 +42,9 @@ import { AttendanceComponent } from 'src/app/pages/attendance/attendance.compone
 import { MarksheetAddComponent } from 'src/app/pages/marksheet/marksheet-add/marksheet-add.component';
 import { MarksheetEditComponent } from 'src/app/pages/marksheet/marksheet-edit/marksheet-edit.component';
 import { MarksheetDetailComponent } from 'src/app/pages/marksheet/marksheet-detail/marksheet-detail.component';
+import { AttendanceAddComponent } from 'src/app/pages/attendance/attendance-add/attendance-add.component';
+import { AttendanceDetailComponent } from 'src/app/pages/attendance/attendance-detail/attendance-detail.component';
+import { AttendanceEditComponent } from 'src/app/pages/attendance/attendance-edit/attendance-edit.component';
 
 import { HostelComponent } from 'src/app/pages/hostel/hostel.component';
 
@@ -113,6 +116,10 @@ export const AdminLayoutRoutes: Routes = [
    
     //Attendance
     { path: 'attendance' ,                    component: AttendanceComponent,            canActivate: [AuthGuard] },
+    { path: 'attendance/add' ,                 component: AttendanceAddComponent,             canActivate: [AuthGuard] },
+    { path: 'attendance/detail/:id' ,          component: AttendanceDetailComponent,          canActivate: [AuthGuard] },
+    { path: 'attendance/edit/:id' ,            component: AttendanceEditComponent,            canActivate: [AuthGuard] },
+   
 
     //Hostel
     { path: 'hostel' ,                    component: HostelComponent,            canActivate: [AuthGuard] },

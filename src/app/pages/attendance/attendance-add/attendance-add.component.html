@@ -1,0 +1,114 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group">
+            <!--            <button class="btn btn-primary"> <i class="now-ui-icons ui-2_settings-90"></i> Edit Record </button>-->
+            <button class="btn btn-info pull-right" (click)="goBack()"> <i class="now-ui-icons arrows-1_minimal-left"></i> Go Back </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Add New Record</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+          <div class="row">
+            <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="type" class="control-label required"> <strong>Type * </strong></label>
+                  <select formControlName="type" id="type" class="form-control">
+                    <option value="">CHOOSE AN OPTION</option>
+                    <option value="STAFF">STAFF</option>
+                    <option value="STUDENT">STUDENT</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="office" class="control-label"> <strong> Office </strong></label>
+                  <ng-select class="form-control" id="office" formControlName="office" placeholder=""
+                             [items]="officeOptions"
+                             bindLabel="text"
+                             [virtualScroll]="true"
+                             bindValue="id">
+                  </ng-select>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="staff" class="control-label"> <strong> Staff </strong></label>
+                  <ng-select class="form-control" id="staff" formControlName="staff" placeholder=""
+                             [items]="staffOptions"
+                             bindLabel="text"
+                             [virtualScroll]="true"
+                             bindValue="id">
+                  </ng-select>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                  <div class="form-group">
+                    <label for="class" class="control-label"> <strong> Class </strong></label>
+                    <ng-select class="form-control" id="class" formControlName="class" placeholder=""
+                               [items]="classeOptions"
+                               bindLabel="text"
+                               [virtualScroll]="true"
+                               bindValue="id">
+                    </ng-select>
+                  </div>
+                </div>
+              
+                <div class="col-md-4 pr-1">
+                    <div class="form-group">
+                      <label for="student" class="control-label"> <strong> Student </strong></label>
+                      <ng-select class="form-control" id="student" formControlName="student" placeholder=""
+                                 [items]="studentOptions"
+                                 bindLabel="text"
+                                 [virtualScroll]="true"
+                                 bindValue="id">
+                      </ng-select>
+                    </div>
+                  </div>
+                  <div class="col-md-4 pr-1">
+                    <div class="form-group">
+                      <label for="subsidiary" class="control-label"> <strong> Subsidiary </strong></label>
+                      <select formControlName="subsidiary" id="subsidiary" class="form-control">
+                        <option value="">CHOOSE AN OPTION</option>
+                        <option value="STAFF">STAFF</option>
+                        <option value="STUDENT">STUDENT</option>
+                      </select>
+                    </div>
+                  </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="arrival_time" class="control-label required"> <strong> Arrival Time</strong></label>
+                  <input type="datetime" class="form-control" formControlName="arrival_time" id="arrival_time">
+                </div>
+              </div>
+              
+            </div>
+             
+            
+
+                <div class="row">
+              <div class="col-sm-12 text-center">
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="loading">Submit
+                  <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
