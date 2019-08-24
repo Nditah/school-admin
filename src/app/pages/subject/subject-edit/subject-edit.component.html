@@ -1,3 +1,43 @@
-<p>
-  subject-edit works!
-</p>
+<div class="card">
+    <div class="card-body">
+      <form action="" [formGroup]="editForm" (submit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-12">
+            <label for=""><strong>Name: </strong></label>
+            <input type="text" formControlName="name" id="name" class="form-control" #na style="border-radius: 0px">
+          </div>
+          <div class="col-md-12">
+            <label for=""><strong>Description</strong></label>
+            <textarea formControlName="description" id="description" cols="10" rows="5" class="form-control"></textarea>
+          </div>
+          <div class="col-md-12">
+              <label for=""><strong>Subsidiary</strong></label>
+              <select formControlName="subsidiary" id="subsidiary" class="form-control" (change)="onChange($event, na.value)">
+                <option value="CRECHE">CRECHE</option>
+                <option value="NURSERY">NURSERY</option>
+                <option value="PRIMARY">PRIMARY</option>
+                <option value="SECONDARY">SECONDARY</option>
+              </select>
+            </div>
+          <div class="col-md-12">
+            <label for=""><strong>Head Of Department</strong></label>
+            <appanalyst-select
+                [items]="staffOptions"
+                formControlName="hod"
+                bindValue="id"
+                bindLabel="text"
+                placeholder="Select HOD"
+              >
+              </appanalyst-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <button [disabled]="editForm.invalid || loading" class="btn btn-primary btn-block">
+              Submit <span *ngIf="loading" class="fa fa-gear spin"> </span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

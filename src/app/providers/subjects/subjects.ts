@@ -79,6 +79,7 @@ export class Subjects {
     const proRes = this.apiService.updateSubject(subject.id, payload).pipe(
     map((res: ApiResponse) => {
         if (res.success) {
+          console.log('recordUpdate() successful');
           this.delete(subject);
         } else {
           throwError(res.message);

@@ -20,6 +20,11 @@ export class SubjectComponent implements OnInit {
   staffRecords: Array<Staff>;
   prevStaffRecords: Array<Staff>;
   staffOptions: SelectOption[];
+  sidebarView: string;
+  sidebarContent: string;
+  activeSidebar = false;
+  sidebarHeading: string;
+  currentRecord: Subject;
 
   constructor(public subjects: Subjects,
               private notify: NotificationService,
@@ -80,8 +85,26 @@ export class SubjectComponent implements OnInit {
     }
   }
 
-  openSidebar() {
+  /**
+   *
+   * @param activePanel page to switch to in sidebar
+   * @param status if active panel is form choose if you're adding or editing else add view
+   * @param record the record to be editted or view
+   */
+  openSidebar(activePanel: string, status: string, record: Subject | null) {
+    this.sidebarView = activePanel;
+    this.sidebarContent = status;
+    this.activeSidebar = true;
+    this.sidebarHeading = `${status.replace(/^[a-zA-Z]/, (c) => c.toUpperCase())} Subject`;
+    this.currentRecord = record;
+    console.log(this.currentRecord);
+  }
 
+  /**
+   * @description "Handle close right sidebar"
+   */
+  closeSidebar($event) {
+    this.activeSidebar = $event;
   }
 
   onChange(event: any, name: string) {
@@ -115,5 +138,14 @@ export class SubjectComponent implements OnInit {
       }
     ));
     console.log(this.staffOptions);
+  }
+
+  async returnResponse(event: any) {
+    console.log(event);
+    this.notify.showNotification(event.message, event.status);
+    const results = await this.subjects.recordRetrieve();
+    if (results.success) {
+      this.currentRecords = results.payload;
+    }
   }
 }
