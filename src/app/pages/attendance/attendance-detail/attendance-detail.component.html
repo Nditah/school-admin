@@ -17,24 +17,17 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Admission Detail</h4>
+            <h4 class="card-title">Attendance Detail</h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table">
                 <thead class=" text-primary"><th>Property</th><th>Value</th></thead>
                   <tbody>
-                  <tr><th>Surname</th><td>{{ record.surname || '' }}</td></tr>
-                  <tr><th>Given Name</th><td>{{ record.given_name || '' }}</td></tr>
-                  <tr><th>State </th><td>{{ record.state_id.name || '' }}</td></tr>
-                  <tr><th>LGA</th><td>{{ record.county_id.name || '' }}</td></tr>
-                  <tr><th>Last Classs</th><td>{{ record.last_class.level || '' }}</td></tr>
-                  <tr><th>Intending Class</th><td>{{ record.intending_class.level || '' }}</td></tr>
-                  <tr><th>Date of Birth</th><td>{{ record.birth_date | date }}</td></tr>
-                  <tr><th>Religion</th><td>{{ record.religion || '' }}</td></tr>
-                  <tr><th>Home Town</th><td>{{ record.home_town || '' }}</td></tr>
-                  <tr><th>Mother</th><td>{{ record.mother_name || '' }}</td></tr>
-                  <tr><th>Father</th><td>{{ record.father_name || '' }}</td></tr>
+                  <tr><th>Staff Name</th><td>{{ record.staff.surname + " " + record.staff.given_name }}</td></tr>
+                  <tr><th>Office </th><td>{{ record.office.name || '' }}</td></tr>
+                  <tr><th>Student Name</th><td>{{ record.student.surname + " " + record.student.given_name }}</td></tr>
+                  <tr><th>Classs</th><td>{{ record.classe.level}}</td></tr>
                 </tbody>
               </table>
             </div>
