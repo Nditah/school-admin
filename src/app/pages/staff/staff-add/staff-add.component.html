@@ -39,160 +39,237 @@
               <div class="col-md-4 pr-1">
                 <div class="form-group">
                   <label for="surname" class="control-label required"> <strong> Surname * </strong></label>
-                  <input type="text" class="form-control" formControlName="surname" id="surname" placeholder="Name" required>
+                  <input type="text" class="form-control" formControlName="surname" id="surname" placeholder="Surname" required>
                 </div>
               </div>
               <div class="col-md-4 pr-1">
                 <div class="form-group">
                   <label for="given_name" class="control-label required"> <strong> Other Names * </strong></label>
-                  <input type="text" class="form-control" formControlName="given_name" id="given_name" placeholder="Name" required>
+                  <input type="text" class="form-control" formControlName="given_name" id="given_name" placeholder="Given Name" required>
                 </div>
               </div>
               <div class="col-md-4 pr-1">
                 <div class="form-group">
-                  <label for="customer_id" class="control-label required"> <strong> Sender </strong></label>
-                  <!-- <ng-select class="form-control" id="customer_id" formControlName="sender_id" placeholder=""
-                             [items]="customerOptions"
-                             bindLabel="text"
-                             [virtualScroll]="true"
-                             bindValue="id">
-                  </ng-select> -->
+                  <label for="gender" class="control-label required"> <strong> Gender </strong></label>
+                  <select formControlName="gender" id="gender" class="form-control">
+                    <option value="MALE">MALE</option>
+                    <option value="FEMALE">FEMALE</option>
+                  </select>
                 </div>
               </div>
 
               <div class="col-md-4 pr-1">
                 <div class="form-group">
-                  <label for="customer_id" class="control-label required"> <strong> Recipient </strong></label>
-                  <!-- <ng-select class="form-control" id="recipient_id" formControlName="recipient_id" placeholder=""
-                             [items]="customerOptions"
-                             bindLabel="text"
-                             [virtualScroll]="true"
-                             bindValue="id">
-                  </ng-select> -->
+                  <label for="birth_date" class="control-label required"> <strong> Date of Birth* </strong></label>
+                  <input type="date" class="form-control" formControlName="birth_date" id="birth_date" placeholder="Date" required>
                 </div>
               </div>
+              <div class="form-group col-sm-4">
+                  <label for="marital_status" class="control-label required"><strong>Marital Status </strong> </label>
+                  <!-- <div class="col-md-9 col-form-label"> -->
+                  <select id="marital_status" name="marital_status" class="form-control" formControlName="marital_status">
+                    <option value="MARRIED">MARRIED</option>
+                    <option value="SINGLE">SINGLE</option>
+                    <option value="DIVORCED">DIVORCED</option>
+                    <option value="SEPARATED">SEPARATED</option>
+                    <option value="WIDOWED">WIDOWED</option>
+                    <option value="UNKNOWN">UNKNOWN</option>
+                  </select>
+                  <!-- </div> -->
+                </div>
             </div>
 
-           <div class="row">
-             <div class="col-md-4 pr-1">
-               <div class="form-group">
-                 <label for="phone" class="control-label required"> <strong> Phone  </strong></label>
-                 <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="Recipient Type" required>
-               </div>
-             </div>
-
-             <div class="col-md-4 pr-1">
-              <div class="form-group">
-                <label for="phone_personal" class="control-label required"> <strong> Phone Personal * </strong></label>
-                <input type="text" class="form-control" formControlName="phone_personal" id="phone_personal" placeholder="Recipient Type" required>
-              </div>
-            </div>
-
+          <div class="row">
+            
             <div class="col-md-4 pr-1">
               <div class="form-group">
-                <label for="birth_date" class="control-label required"> <strong> Date of Birth* </strong></label>
-                <input type="date" class="form-control" formControlName="birth_date" id="birth_date" placeholder="Recipient Type" required>
+                <label for="phone" class="control-label required"> <strong> Phone (office)  </strong></label>
+                <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="Phone (office)" >
               </div>
             </div>
+            <div class="col-md-4 pr-1">
+              <div class="form-group">
+                <label for="phone_personal" class="control-label required"> <strong> Phone (Personal)  </strong></label>
+                <input type="text" class="form-control" formControlName="phone_personal" id="phone_personal" placeholder="Phone (Personal)" required>
+              </div>
+            </div>
+            <div class="col-md-4 pr-1">
+              <div class="form-group">
+                <label for="email" class="control-label required"> <strong> Email  </strong></label>
+                <input type="email" class="form-control" formControlName="email" id="email" placeholder="you@example.com" required>
+              </div>
+            </div>
+          </div>
+          
+
+           <div class="row">
+
+             <div class="col-md-12 pr-1">
+              <div class="form-group">
+                <label for="address" class="control-label required"> <strong> Address </strong></label>
+                <textarea type="text" class="form-control" formControlName="address" id="address" placeholder="Address" required>
+                </textarea>  
+              </div>
+            </div>
+
            </div>
 
             <div class="row">
              <div class="col-md-4 pr-1">
                <div class="form-group">
-                 <label for="marital_status" class="control-label required"> <strong> Marital Status </strong></label>
-                 <input type="text" class="form-control" formControlName="marital_status" id="marital_status" placeholder="Marital Status" >
+                 <label for="state" class="control-label required"> <strong> State </strong></label>
+                 <ng-select class="form-control" id="state" formControlName="state" placeholder=""
+                           [items]="stateOptions"
+                           bindLabel="text"
+                           [virtualScroll]="true"
+                           bindValue="id">
+                </ng-select>
                </div>
              </div>
-              <div class="col-md-4 pr-1">
-                <div class="form-group">
-                  <label for="email" class="control-label required"> <strong> E-mail </strong></label>
-                  <input type="email" class="form-control" formControlName="email" id="email" placeholder="E-mail" >
-                </div>
+             <div class="col-md-4 pr-1">
+              <div class="form-group">
+                <label for="county" class="control-label required"> <strong> Local Government Area </strong></label>
+                <ng-select class="form-control" id="county" formControlName="county" placeholder=""
+                          [items]="countyOptions"
+                          bindLabel="text"
+                          [virtualScroll]="true"
+                          bindValue="id">
+               </ng-select>
               </div>
-              <!-- <div class="col-md-4 pr-1">
-                <div class="form-group">
-                  <label for="mass" class="control-label required"> <strong> Mass  </strong></label>
-                  <input type="text" class="form-control" formControlName="mass" id="mass" placeholder="Mass">
-                </div>
-              </div> -->
+            </div>
+            <div class="col-md-4 pr-1">
+              <div class="form-group">
+                <label for="staff_type" class="control-label required"> <strong> Staff Type </strong></label>
+                <select formControlName="staff_type" id="staff_type" class="form-control">
+                  <option value="TEACHING">TEACHING</option>
+                  <option value="NONTEACHING">NON-TEACHING</option>
+                </select>
+              </div>
+            </div>
+              
             </div>
 
 
             <div class="row">
+                <div class="col-md-4 pr-1">
+                    <div class="form-group">
+                      <label for="password" class="control-label required"> <strong> Password </strong></label>
+                      <input type="password" class="form-control" formControlName="password" id="password" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4 pr-1">
+                      <div class="form-group">
+                        <label for="kin" class="control-label required"> <strong> Next of Kin </strong></label>
+                        <input type="text" class="form-control" formControlName="kin" id="kin" placeholder="Next of Kin" required>
+                      </div>
+                    </div>
+                    <div class="col-md-4 pr-1">
+                        <div class="form-group">
+                          <label for="kin_phone" class="control-label required"> <strong> Next of Kin's Phone Number </strong></label>
+                          <input type="text" class="form-control" formControlName="kin_phone" id="kin_phone" placeholder="Next of Kin's Phone number" required>
+                        </div>
+                      </div>
 
             </div>
 
             <div class="row">
 
+                <div class="col-md-12 pr-1">
+                 <div class="form-group">
+                   <label for="address" class="control-label required"> <strong> Next of Kin's address </strong></label>
+                   <textarea type="text" class="form-control" formControlName="kin_address" id="kin_address" placeholder="Next of Kin's address" required>
+                   </textarea>  
+                 </div>
+               </div>
+   
+              </div>
+
+            <div class="row">
+                <div class="col-md-4 pr-1">
+                    <div class="form-group">
+                      <label for="guarantor1" class="control-label required"> <strong> Guarantor's name </strong></label>
+                      <input type="text" class="form-control" formControlName="guarantor1" id="guarantor1" placeholder="Name of Guarantor" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4 pr-1">
+                      <div class="form-group">
+                        <label for="guarantor1_phone" class="control-label required"> <strong> Guarantor's Phone Number </strong></label>
+                        <input type="text" class="form-control" formControlName="guarantor1_phone" id="guarantor1_phone" placeholder="Phone number of Guarantor" required>
+                      </div>
+                    </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-md-12 pr-1">
+                 <div class="form-group">
+                   <label for="guarantor1_address" class="control-label required"> <strong> Guarantor's address </strong></label>
+                   <textarea type="text" class="form-control" formControlName="guarantor1_address" id="guarantor1_address" placeholder="Guarantor's address" required>
+                   </textarea>  
+                 </div>
+               </div>
+   
+              </div>
+
+            <div class="row">
+                <div class="col-md-4 pr-1">
+                    <div class="form-group">
+                      <label for="qualification" class="control-label required"> <strong> Qualification </strong></label>
+                      <input type="text" class="form-control" formControlName="qualification" id="qualification" placeholder="Qualification" required>
+                    </div>
+                  </div>
+                  <div class="col-md-4 pr-1">
+                      <div class="form-group">
+                        <label for="employment_status" class="control-label required"> <strong> Employment Status </strong></label>
+                          <select formControlName="employment_status" id="employment_status" class="form-control">
+                              <option value="PENDING">PENDING</option>
+                              <option value="VERIFIED">VERIFIED</option>
+                              <option value="APPROVED">APPROVED</option>
+                              <option value="ON_DUTY">ON DUTY</option>
+                              <option value="ON_LEAVE">ON LEAVE</option>
+                              <option value="ON_PROBATION">ON PROBATION</option>
+                              <option value="ON_SUSPENSION">ON SUSPENSION</option>
+                              <option value="ON_RETIREMENT">ON RETIREMENT</option>
+                              <option value="DISENGAGED">DISENGAGED</option>
+                              <option value="ON_RETIREMENT">UNKNOWN</option>
+                            </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4 pr-1">
+                        <div class="form-group">
+                          <label for="basic_salary" class="control-label required"> <strong> Basic Salary </strong></label>
+                          <input type="number" class="form-control" formControlName="basic_salary" id="basic_salary" placeholder="" required>
+                        </div>
+                      </div>
             </div>
 
             <div class="row">
-
-
-
+                <div class="col-md-4 pr-1">
+                    <div class="form-group">
+                      <label for="office" class="control-label required"> <strong> Position </strong></label>
+                      <input type="text" class="form-control" formControlName="office" id="office" placeholder="Position" >
+                    </div>
+                  </div>
+                  <div class="col-md-4 pr-1">
+                      <div class="form-group">
+                        <label for="subsidiary" class="control-label required"> <strong> Subsidiary </strong></label>
+                        <select formControlName="subsidiary" id="subsidiary" class="form-control">
+                            <option value="SECONDARY">SECONDARY</option>
+                            <option value="PRIMARY">PRIMARY</option>
+                            <option value="NURSERY">NURSERY</option>
+                            <option value="CRECHE">CRECHE</option>
+                            <option value="DAYCARE">DAYCARE</option>
+                          </select>
+                      </div>
+                    </div>
+                    <div class="col-md-4 pr-1">
+                        <div class="form-group">
+                          <label for="photo" class="control-label required"> <strong> Passport </strong></label>
+                          <input type="file" class="form-control" formControlName="photo" id="photo">
+                        </div>
+                      </div>
             </div>
 
-            <div class="row">
-<!--              <div class="col-md-4 pr-1">-->
-<!--                <div class="form-group">-->
-<!--                  <label for="" class="control-label required"> <strong> Terminal Store * </strong></label>-->
-<!--                  <ng-select class="form-control" id="terminal_store" formControlName="terminal_store" placeholder=""-->
-<!--                             [items]="terminalOptions"-->
-<!--                             bindLabel="text"-->
-<!--                             [virtualScroll]="true"-->
-<!--                             bindValue="id">-->
-<!--                  </ng-select>-->
-<!--                </div>-->
-<!--              </div>-->
-            </div>
-
-            <div class="row">
-
-<!--              <div class="col-md-4 pr-1">-->
-<!--                <div class="form-group">-->
-<!--                  <label for="" class="control-label required"> <strong> Cost Estimate * </strong></label>-->
-<!--                  <input type="text" class="form-control" formControlName="cost_estimate" id="cost_estimate" placeholder="cost_estimate" required>-->
-<!--                </div>-->
-<!--              </div>-->
-            </div>
-
-
-            <div class="row">
-<!--              <div class="col-md-4 pr-1">-->
-<!--                <div class="form-group">-->
-<!--                  <label for="" class="control-label required"> <strong>  Recipient Confirmation </strong></label>-->
-<!--                  <input type="text" class="form-control" formControlName="recipient_confirm" id="recipient_confirm" placeholder="Recipient Confirm">-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-md-4 pr-1">-->
-<!--                <div class="form-group">-->
-<!--                  <label for="" class="control-label required"> <strong> Recipient Confirmation Date </strong></label>-->
-<!--                  <input type="text" class="form-control" formControlName="recipient_confirm_date" id="recipient_confirm_date" placeholder="Recipient Confirmation Date">-->
-<!--                </div>-->
-<!--              </div>-->
-<!--              <div class="col-md-4 pr-1">-->
-<!--                <div class="form-group">-->
-<!--                  <label for="" class="control-label required"> <strong> Recipient Confirmation Remark </strong></label>-->
-<!--                  <input type="text" class="form-control" formControlName="recipient_confirm_remark" id="recipient_confirm_remark" placeholder="Recipient Confirmation Remark">-->
-<!--                </div>-->
-<!--              </div>-->
-            </div>
-
-            <div class="row">
-
-<!--              <div class="col-md-4 pr-1">-->
-<!--                <div class="form-group">-->
-<!--                  <label for="delivery_status" class="control-label required"> <strong> Delivery Status</strong></label>-->
-<!--                  <select formControlName="delivery_status" id="delivery_status" class="form-control">-->
-<!--                    <option value="PENDING">PENDING</option>-->
-<!--                    <option value="STORED">STORED</option>-->
-<!--                    <option value="TRANSIT">TRANSIT</option>-->
-<!--                    <option value="DELIVERED">DELIVERED</option>-->
-<!--                    <option value="DISCHARGED">DISCHARGED</option>-->
-<!--                  </select>-->
-<!--                </div>-->
-<!--              </div>-->
-            </div>
 
             <div class="row">
               <div class="col-sm-12 text-center">
