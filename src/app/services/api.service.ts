@@ -159,6 +159,35 @@ export class ApiService {
       catchError(this.handleError));
   }
 
+  
+ // /////////////////////////////////
+  // ----------Mark Sheet-------------//
+  // /////////////////////////////////
+
+  getMarksheet(path): Observable<any> {
+    const url = `${this.env.API_URL}/marksheets${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postMarksheet(data): Observable<any> {
+    const url = `${this.env.API_URL}/marksheets`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateMarksheet(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/marksheets/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+
   // /////////////////////////////////
   // ----------STAFF-------------//
   // /////////////////////////////////
@@ -475,6 +504,107 @@ export class ApiService {
 
   deleteRating(id: string): Observable<{}> {
     const url = `${this.env.API_URL}/ratings/${id}`;
+    return this.http.delete(url, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // /////////////////////////////////
+  // ----------NOTIFICATION-------------//
+  // /////////////////////////////////
+
+  getNotification(path): Observable<any> {
+    const url = `${this.env.API_URL}/notifications${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postNotification(data): Observable<any> {
+    const url = `${this.env.API_URL}/notifications`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateNotification(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/otifications/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  deleteNotification(id: string): Observable<{}> {
+    const url = `${this.env.API_URL}/notifications/${id}`;
+    return this.http.delete(url, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // /////////////////////////////////
+  // ----------OFFICE-------------//
+  // /////////////////////////////////
+
+  getOffice(path): Observable<any> {
+    const url = `${this.env.API_URL}/offices${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postOffice(data): Observable<any> {
+    const url = `${this.env.API_URL}/offices`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateOffice(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/offices/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  deleteOffice(id: string): Observable<{}> {
+    const url = `${this.env.API_URL}/offices/${id}`;
+    return this.http.delete(url, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+  // /////////////////////////////////
+  // ----------SMS-------------//
+  // /////////////////////////////////
+
+  getSms(path): Observable<any> {
+    const url = `${this.env.API_URL}/smss${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postSms(data): Observable<any> {
+    const url = `${this.env.API_URL}/smss`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateSms(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/smss/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  deleteSms(id: string): Observable<{}> {
+    const url = `${this.env.API_URL}/smss/${id}`;
     return this.http.delete(url, httpOptions).pipe(
         catchError(this.handleError)
       );

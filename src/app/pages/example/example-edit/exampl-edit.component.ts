@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SelectOption, ApiResponse } from '../../../models';
+import { deepPropsExist } from 'src/app/helpers';
 @Component({
   selector: 'app-example-edit',
   templateUrl: './example-edit.component.html',
@@ -10,6 +11,7 @@ import { SelectOption, ApiResponse } from '../../../models';
 })
 export class ExamplEditComponent implements OnInit {
   editForm: FormGroup;
+  record: any;
   loading = false;
   customer: SelectOption;
   terminal: SelectOption;
@@ -64,6 +66,12 @@ export class ExamplEditComponent implements OnInit {
       payment_method: ['']
     });
   }
+
+  // setForm() {
+  //   this.editForm.patchValue({
+  //     name: deepPropsExist(this.record, 'name') ? this.record.name : '',
+  //   });
+  // }
   // ======== set Values for the form here ========== //
   // setForm() {
   //   this.editForm.get('name').setValue(this.record.name || '');
