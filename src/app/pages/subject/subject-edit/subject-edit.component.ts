@@ -19,6 +19,7 @@ export class SubjectEditComponent implements OnInit {
   prevRecords: Subject | null;
   staffOptions: Array<SelectOption>;
   editForm: FormGroup;
+  loading = false;
 
   constructor(public _fb: FormBuilder,
               private subjects: Subjects,) {
