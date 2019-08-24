@@ -1,5 +1,5 @@
 {
-  "name": "pmt-terminal-admin",
+  "name": "school-admin",
   "version": "1.1.0",
   "license": "MIT",
   "scripts": {
@@ -7,7 +7,7 @@
     "dev": "ng serve",
     "start": "node server.js",
     "build": "ng build --prod",
-    "postbuild": "npx cap sync electron && npx cap sync android",
+    "electron": "npx cap sync electron && npx cap sync android",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

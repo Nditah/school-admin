@@ -42,19 +42,19 @@ import { NotificationService } from './services/notification.service';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-  
-    
+
+
   ],
   providers: [
     AuthService,
     ApiService,
     AuthGuard,
     EnvService,
-    NotificationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    Admissions, Staffs, Counties, States, Students, Subjects, Classes, Offices,Smss,Notifications,Settings, Marksheets
+    Admissions, Staffs, Counties, States, Students, Subjects, Marksheets,
+    Staffs, Counties, States, Students, Subjects, Offices, Smss, Notifications, Settings
   ],
   bootstrap: [AppComponent]
 })
