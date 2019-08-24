@@ -14,12 +14,12 @@ import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './pages/login/login.component';
 
-import { AuthService, ApiService, AuthGuard, EnvService, JwtInterceptor, ErrorInterceptor,  } from './services';
+import { AuthService, ApiService, AuthGuard, EnvService, JwtInterceptor, ErrorInterceptor } from './services';
 
 import {
-  Admissions, Staffs, Counties, States, Students, Subjects, Marksheets
-  , Offices, Smss, Notifications, Settings,
+  Admissions, Staffs, Counties, States, Students, Subjects, Classes, Offices, Smss, Notifications, Settings, Marksheets
 } from './providers';
+import { NotificationService } from './services/notification.service';
 
 @NgModule({
   imports: [
@@ -50,12 +50,11 @@ import {
     ApiService,
     AuthGuard,
     EnvService,
-    ,
+    NotificationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    Admissions, Staffs, Counties, States, Students, Subjects, Marksheets
-    , Staffs, Counties, States, Students, Subjects, , Offices,Smss,Notifications,Settings
+    Admissions, Staffs, Counties, States, Students, Subjects, Classes, Offices,Smss,Notifications,Settings, Marksheets
   ],
   bootstrap: [AppComponent]
 })
