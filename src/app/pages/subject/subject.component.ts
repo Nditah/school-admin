@@ -54,7 +54,7 @@ export class SubjectComponent implements OnInit {
     let codeName;
     if (payload.name.split(' ').length > 1) {
       const splitted = payload.name.split(' ');
-      codeName = splitted[0].substring(0,2).toUpperCase() + splitted[1].substring(0,2).toUpperCase();
+      codeName = splitted[0].substring(0, 2).toUpperCase() + splitted[1].substring(0, 2).toUpperCase();
     } else {
       codeName = payload.name.length > 7 ? payload.name.substring(0, 4).toUpperCase() : payload.name.substring(0, 3).toUpperCase();
     }
@@ -88,7 +88,7 @@ export class SubjectComponent implements OnInit {
     let codeName;
     if (name.split(' ').length > 1) {
       const splitted = name.split(' ');
-      codeName = splitted[0].substring(0,2).toUpperCase() + splitted[1].substring(0,2).toUpperCase();
+      codeName = splitted[0].substring(0, 2).toUpperCase() + splitted[1].substring(0, 2).toUpperCase();
     } else {
       codeName = name.length > 7 ? name.substring(0, 4).toUpperCase() : name.substring(0, 3).toUpperCase();
     }
