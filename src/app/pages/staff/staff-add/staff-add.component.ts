@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { States, Counties } from '../../../providers';
-import { State, County } from '../../../models';
+import { States, Counties, Staffs } from '../../../providers';
+import { State, County, ApiResponse } from '../../../models';
 import { SelectOption } from 'src/app/models';
+import { Router } from '@angular/router';
+import { NotificationService } from '../../../services';
 
 @Component({
   selector: 'app-staff-add',
@@ -20,6 +22,9 @@ export class StaffAddComponent implements OnInit {
   countyOptions: SelectOption;
 
   constructor(private _fb: FormBuilder,
+              private router: Router,
+              private notify: NotificationService,
+              private staffs: Staffs,
               private states: States,
               private counties: Counties) {
                 this.stateRecords = this.states.query();
@@ -85,8 +90,63 @@ export class StaffAddComponent implements OnInit {
     });
   }
 
-  async onSubmit() {
+  getStates() {
+    this.states.recordRetrieve().then(data => {
+      if (data.success) {
+        this.stateOptions = data.payload.map(item => ({id: item.id, text: item.name}));
+        console.log('List of states  ================ \n' + JSON.stringify(this.stateOptions) );
+      } else {
+        // this.showNotification('Could not retrieve admissions');
+        console.log(data.message);
+      }
+    });
+  }
 
+  getCounties() {
+    this.counties.recordRetrieve().then(data => {
+      if (data.success) {
+        this.countyOptions = data.payload.map(item => ({id: item.id, text: item.name}));
+        console.log('List of counties  ================ \n' + JSON.stringify(this.countyOptions) );
+      } else {
+        // this.showNotification('Could not retrieve admissions');
+        console.log(data.message);
+      }
+    });
+  }
+
+  async onSubmit() {
+    this.loading = true;
+    const payload = this.addForm.value;
+    console.log(payload);
+    if (this.addForm.invalid) {
+      console.log('Invalid form! Please fill all the required* inputs.');
+      // this.showNotification('Invalid form! Please fill all the required* inputs.');
+      this.loading = false;
+      return;
+    }
+    try {
+      console.log(payload);
+      this.staffs.recordCreate(payload).then((res: ApiResponse) => {
+          console.log(res);
+          if (res.success) {
+            this.notify.showNotification(res.message, 'success');
+            this.goToDetail(res.payload);
+        } else {
+          console.log(res.message);
+          this.notify.showNotification(res.message, 'warning');
+        }
+      },  (err) => console.log(err.message)
+      );
+    } catch (error) {
+      this.notify.showNotification(error.message, 'danger');
+    }
+    this.loading = false;
+    return;
+  }
+
+  goToDetail(record: any): void {
+    this.router.navigate([`staff/detail/${record.id}`]);
+    return;
   }
 
   goBack() {

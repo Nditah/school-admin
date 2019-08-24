@@ -39,13 +39,13 @@
               <div class="col-md-4 pr-1">
                 <div class="form-group">
                   <label for="surname" class="control-label required"> <strong> Surname * </strong></label>
-                  <input type="text" class="form-control" formControlName="surname" id="surname" placeholder="Name" required>
+                  <input type="text" class="form-control" formControlName="surname" id="surname" placeholder="Surname" required>
                 </div>
               </div>
               <div class="col-md-4 pr-1">
                 <div class="form-group">
                   <label for="given_name" class="control-label required"> <strong> Other Names * </strong></label>
-                  <input type="text" class="form-control" formControlName="given_name" id="given_name" placeholder="Name" required>
+                  <input type="text" class="form-control" formControlName="given_name" id="given_name" placeholder="Given Name" required>
                 </div>
               </div>
               <div class="col-md-4 pr-1">
@@ -65,13 +65,13 @@
                 </div>
               </div>
               <div class="form-group col-sm-4">
-                  <label for="marital_status" class="control-label required"><strong> Status </strong> </label>
+                  <label for="marital_status" class="control-label required"><strong>Marital Status </strong> </label>
                   <!-- <div class="col-md-9 col-form-label"> -->
                   <select id="marital_status" name="marital_status" class="form-control" formControlName="marital_status">
                     <option value="MARRIED">MARRIED</option>
-                    <option value="SINGLE">MARRIED</option>
+                    <option value="SINGLE">SINGLE</option>
                     <option value="DIVORCED">DIVORCED</option>
-                    <option value="SEPERATED">SEPERATED</option>
+                    <option value="SEPARATED">SEPARATED</option>
                     <option value="WIDOWED">WIDOWED</option>
                     <option value="UNKNOWN">UNKNOWN</option>
                   </select>
@@ -84,7 +84,7 @@
             <div class="col-md-4 pr-1">
               <div class="form-group">
                 <label for="phone" class="control-label required"> <strong> Phone (office)  </strong></label>
-                <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="Phone (Personal)" required>
+                <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="Phone (office)" >
               </div>
             </div>
             <div class="col-md-4 pr-1">
@@ -119,7 +119,7 @@
                <div class="form-group">
                  <label for="state" class="control-label required"> <strong> State </strong></label>
                  <ng-select class="form-control" id="state" formControlName="state" placeholder=""
-                           [items]="State"
+                           [items]="stateOptions"
                            bindLabel="text"
                            [virtualScroll]="true"
                            bindValue="id">
@@ -130,7 +130,7 @@
               <div class="form-group">
                 <label for="county" class="control-label required"> <strong> Local Government Area </strong></label>
                 <ng-select class="form-control" id="county" formControlName="county" placeholder=""
-                          [items]="County"
+                          [items]="countyOptions"
                           bindLabel="text"
                           [virtualScroll]="true"
                           bindValue="id">
@@ -194,7 +194,7 @@
                   <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label for="guarantor1_phone" class="control-label required"> <strong> Guarantor's Phone Number </strong></label>
-                        <input type="text" class="form-control" formControlName="guarantor1_phone" id="guarantor1_phone" placeholder="Name of Guarantor" required>
+                        <input type="text" class="form-control" formControlName="guarantor1_phone" id="guarantor1_phone" placeholder="Phone number of Guarantor" required>
                       </div>
                     </div>
 
@@ -247,7 +247,7 @@
                 <div class="col-md-4 pr-1">
                     <div class="form-group">
                       <label for="office" class="control-label required"> <strong> Position </strong></label>
-                      <input type="text" class="form-control" formControlName="office" id="office" placeholder="Position" required>
+                      <input type="text" class="form-control" formControlName="office" id="office" placeholder="Position" >
                     </div>
                   </div>
                   <div class="col-md-4 pr-1">
@@ -265,7 +265,7 @@
                     <div class="col-md-4 pr-1">
                         <div class="form-group">
                           <label for="photo" class="control-label required"> <strong> Passport </strong></label>
-                          <input type="file" class="form-control" formControlName="photo" id="photo" required>
+                          <input type="file" class="form-control" formControlName="photo" id="photo">
                         </div>
                       </div>
             </div>

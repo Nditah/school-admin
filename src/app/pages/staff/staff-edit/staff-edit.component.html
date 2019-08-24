@@ -119,7 +119,7 @@
                  <div class="form-group">
                    <label for="state" class="control-label required"> <strong> State </strong></label>
                    <ng-select class="form-control" id="state" formControlName="state" placeholder=""
-                             [items]="State"
+                             [items]="stateOptions"
                              bindLabel="text"
                              [virtualScroll]="true"
                              bindValue="id">
@@ -130,7 +130,7 @@
                 <div class="form-group">
                   <label for="county" class="control-label required"> <strong> Local Government Area </strong></label>
                   <ng-select class="form-control" id="county" formControlName="county" placeholder=""
-                            [items]="County"
+                            [items]="countyOptions"
                             bindLabel="text"
                             [virtualScroll]="true"
                             bindValue="id">
