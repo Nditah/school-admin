@@ -1,35 +1,35 @@
 import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Subject, ApiResponse } from '../../models';
+import { Hostel, ApiResponse } from '../../models';
 import { ApiService } from '../../services';
 
 
 @Injectable()
-export class Subjects {
+export class Hostels {
 
-  subjects: Subject[] = [];
+  hostels: Hostel[] = [];
 
   constructor(private apiService: ApiService) {
-    const subjects = []; // Initial Values
-    for (const subject of subjects) {
-      this.subjects.push(new Subject(subject));
+    const hostels = []; // Initial Values
+    for (const hostel of hostels) {
+      this.hostels.push(new Hostel(hostel));
     }
     this.recordRetrieve();
   }
 
   query(params?: any) {
     if (!params) {
-      return this.subjects;
+      return this.hostels;
     }
-    return this.subjects.filter((subject) => {
+    return this.hostels.filter((hostel) => {
       for (const key in params) {
           if (params.hasOwnProperty(key)) {
-            const field = subject[key];
+            const field = hostel[key];
             if (typeof field === 'string' && field.toLowerCase().indexOf(params[key].toLowerCase()) >= 0) {
-              return subject;
+              return hostel;
             } else if (field === params[key]) {
-              return subject;
+              return hostel;
             }
           }
       }
@@ -37,17 +37,17 @@ export class Subjects {
     });
   }
 
-  add(subject: Subject) {
-    this.subjects.push(subject);
+  add(hostel: Hostel) {
+    this.hostels.push(hostel);
   }
 
-  delete(subject: Subject) {
-    this.subjects.splice(this.subjects.indexOf(subject), 1);
+  delete(hostel: Hostel) {
+    this.hostels.splice(this.hostels.indexOf(hostel), 1);
   }
 
   // CRUD Service
   async recordRetrieve(queryString = ''): Promise<ApiResponse> {
-    const proRes = this.apiService.getSubject(queryString).pipe(
+    const proRes = this.apiService.getHostel(queryString).pipe(
     map((res: ApiResponse) => {
       console.log(res);
       if (res.success && res.payload.length > 0) {
@@ -63,7 +63,7 @@ export class Subjects {
   }
 
   async recordCreate(data): Promise<ApiResponse> {
-    const proRes = this.apiService.postSubject(data).pipe(
+    const proRes = this.apiService.postHostel(data).pipe(
     map((res: ApiResponse) => {
         if (res.success && res.payload) {
           console.log('recordCreate() successful');
@@ -75,12 +75,11 @@ export class Subjects {
     return await proRes.toPromise();
   }
 
-  async recordUpdate(subject: Subject, payload): Promise<ApiResponse> {
-    const proRes = this.apiService.updateSubject(subject.id, payload).pipe(
+  async recordUpdate(hostel: Hostel, payload): Promise<ApiResponse> {
+    const proRes = this.apiService.updateHostel(hostel.id, payload).pipe(
     map((res: ApiResponse) => {
         if (res.success) {
-          console.log('recordUpdate() successful');
-          this.delete(subject);
+          this.delete(hostel);
         } else {
           throwError(res.message);
         }

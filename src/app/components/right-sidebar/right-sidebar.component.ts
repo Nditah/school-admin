@@ -8,6 +8,7 @@ import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angu
 export class RightSidebarComponent implements OnInit, OnChanges {
  @Input() activeSidebar: boolean;
  @Input() zIndex: number;
+ @Input() heading: string;
  @Output() closeSidebar = new EventEmitter<boolean>();
  sidebar: boolean;
 

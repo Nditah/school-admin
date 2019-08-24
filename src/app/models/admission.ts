@@ -19,6 +19,7 @@ export class Admission {
     father_name: string;
     mother_name: string;
     home_address: string;
+    home_town: string;
     phone: string;
     created_by?: Staff;
     updated_by?: Staff;

@@ -17,9 +17,9 @@ export class ExamplEditComponent implements OnInit {
   terminal: SelectOption;
   // record: PmlShipment;
   constructor(private formBuilder: FormBuilder,
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private toastr: ToastrService) {
+              private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private toastr: ToastrService) {
     // get current billing id
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     // const record = this.pmlShipments.query({id})[0];

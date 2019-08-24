@@ -46,7 +46,7 @@ import { AttendanceAddComponent } from 'src/app/pages/attendance/attendance-add/
 import { AttendanceDetailComponent } from 'src/app/pages/attendance/attendance-detail/attendance-detail.component';
 import { AttendanceEditComponent } from 'src/app/pages/attendance/attendance-edit/attendance-edit.component';
 
-
+import { HostelComponent } from 'src/app/pages/hostel/hostel.component';
 
 export const AdminLayoutRoutes: Routes = [
     // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -120,4 +120,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'attendance/detail/:id' ,          component: AttendanceDetailComponent,          canActivate: [AuthGuard] },
     { path: 'attendance/edit/:id' ,            component: AttendanceEditComponent,            canActivate: [AuthGuard] },
    
+
+    //Hostel
+    { path: 'hostel' ,                    component: HostelComponent,            canActivate: [AuthGuard] },
+
   ];

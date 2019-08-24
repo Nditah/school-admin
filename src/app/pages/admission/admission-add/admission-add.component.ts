@@ -22,10 +22,10 @@ export class AdmissionAddComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private activatedRoute: ActivatedRoute,
-              private admissions: Admissions, 
+              private admissions: Admissions,
               private classes: Classes,
-              private states : States,
-              private counties : Counties,
+              private states: States,
+              private counties: Counties,
               private toastr: ToastrService,
                ) {
       this.createForm();

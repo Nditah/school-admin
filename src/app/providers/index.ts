@@ -17,3 +17,4 @@ export { Notifications } from './notifications/notifications';
 export { Offices } from './offices/offices';
 export { Settings } from './settings/settings';
 export { Smss } from './smss/smss';
+export { Hostels } from './hostels/hostels';

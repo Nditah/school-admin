@@ -23,10 +23,10 @@ export class AdmissionEditComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private activatedRoute: ActivatedRoute,
-              private admissions: Admissions, 
+              private admissions: Admissions,
               private classes: Classes,
-              private states : States,
-              private counties : Counties,
+              private states: States,
+              private counties: Counties,
               private toastr: ToastrService,
                ) {
 
@@ -86,7 +86,7 @@ export class AdmissionEditComponent implements OnInit {
     this.editForm.get('home_address').setValue(this.record.home_address || '');
     this.editForm.get('phone').setValue(this.record.phone || '');
     }
-    
+
 
   // ====================  All Methods to load external links for Object IDs  ======================= //
   // get admissions for the select box
@@ -126,7 +126,7 @@ export class AdmissionEditComponent implements OnInit {
     });
   }
 
-  
+
 showNotification(message) {
   this.toastr.show(`<span class="fa ui-1_bell-53"></span> <b>${message}</b>`, '', {
   timeOut: 8000,
@@ -135,17 +135,17 @@ showNotification(message) {
   toastClass: 'alert alert-primary alert-with-icon',
   });
   }
-  
+
   // Navigation
   goToDetail(record: any): void {
   this.router.navigate([`admission/detail/${record.id}`]);
   return;
   }
-  
+
   goBack() {
   window.history.back();
   }
-  
+
   onSubmit() {
   return;
   }
