@@ -18,7 +18,7 @@ import { AuthService, ApiService, AuthGuard, EnvService, JwtInterceptor, ErrorIn
 
 import {
   Admissions, Staffs, Counties, States, Students, Subjects, Marksheets
-  , Offices, Smss, Notifications, Settings, Classes,
+  , Offices, Smss, Notifications, Settings, Classes, Courses,
 } from './providers';
 
 @NgModule({
@@ -54,7 +54,8 @@ import {
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     Admissions, Staffs, Counties, States, Students, Subjects, Marksheets,
-    Staffs, Counties, States, Students, Subjects, Offices, Smss, Notifications, Settings, Classes
+    Staffs, Counties, States, Students, Subjects, Offices, Smss, Notifications, Settings, Classes,
+    Courses,
   ],
   bootstrap: [AppComponent]
 })
