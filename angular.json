@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "schoolAdmin": {
+    "school-admin": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/schoolAdmin",
+            "outputPath": "dist/school-admin",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -76,18 +76,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "schoolAdmin:build"
+            "browserTarget": "school-admin:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "schoolAdmin:build:production"
+              "browserTarget": "school-admin:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "schoolAdmin:build"
+            "browserTarget": "school-admin:build"
           }
         },
         "test": {
@@ -130,7 +130,7 @@
         }
       }
     },
-    "schoolAdmin-e2e": {
+    "school-admin-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -139,11 +139,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "schoolAdmin:serve"
+            "devServerTarget": "school-admin:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "schoolAdmin:serve:production"
+              "devServerTarget": "school-admin:serve:production"
             }
           }
         },
@@ -159,5 +159,5 @@
       }
     }
   },
-  "defaultProject": "schoolAdmin"
+  "defaultProject": "school-admin"
 }
