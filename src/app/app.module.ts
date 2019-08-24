@@ -17,7 +17,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthService, ApiService, AuthGuard, EnvService, JwtInterceptor, ErrorInterceptor } from './services';
 
 import {
-  Admissions, Staffs, Counties, States, Students, Subjects, Classes, Offices, Smss, Notifications, Settings, Marksheets
+  Admissions, Staffs, Counties, States, Students, Subjects, Classes, Offices, Smss, Notifications,
+   Settings, Marksheets, Courses
 } from './providers';
 import { NotificationService } from './services/notification.service';
 
@@ -53,7 +54,7 @@ import { NotificationService } from './services/notification.service';
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    Admissions, Staffs, Counties, States, Students, Subjects, Marksheets,
+    Admissions, Staffs, Counties, States, Students, Subjects, Marksheets, Courses,
     Staffs, Counties, States, Students, Subjects, Offices, Smss, Notifications, Settings
   ],
   bootstrap: [AppComponent]
