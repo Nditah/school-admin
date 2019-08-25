@@ -30,3 +30,5 @@ export * from './notification';
 export * from './office';
 export * from './setting';
 export * from './sms';
+export * from './fee';
+

@@ -72,6 +72,10 @@ import { OfficeEditComponent } from 'src/app/pages/office/office-edit/office-edi
 import { AttendanceAddComponent } from 'src/app/pages/attendance/attendance-add/attendance-add.component';
 import { AttendanceDetailComponent } from 'src/app/pages/attendance/attendance-detail/attendance-detail.component';
 import { AttendanceEditComponent } from 'src/app/pages/attendance/attendance-edit/attendance-edit.component';
+import { HostelEditComponent } from '../../pages/hostel/hostel-edit/hostel-edit.component';
+import { HostelDetailComponent } from '../../pages/hostel/hostel-detail/hostel-detail.component';
+import { HostelAddComponent } from '../../pages/hostel/hostel-add/hostel-add.component';
+import { FeeComponent } from '../../pages/fee/fee.component';
 
 
 @NgModule({
@@ -116,13 +120,14 @@ import { AttendanceEditComponent } from 'src/app/pages/attendance/attendance-edi
     OfficeComponent,
     OfficeComponent, OfficeAddComponent, OfficeDetailComponent, OfficeEditComponent,
 
-    HostelComponent,
+    HostelComponent, HostelEditComponent, HostelDetailComponent, HostelAddComponent,
 
     NotificationComponent,
 
     SettingComponent, SettingDetailComponent,
 
-    SmsComponent, SmsAddComponent, SmsDetailComponent, SmsEditComponent
+    SmsComponent, SmsAddComponent, SmsDetailComponent, SmsEditComponent,
+    FeeComponent
   ]
 })
 

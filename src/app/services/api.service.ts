@@ -476,6 +476,33 @@ export class ApiService {
   }
 
   // /////////////////////////////////
+  // ----------FEES-------------//
+  // /////////////////////////////////
+
+  getFee(path): Observable<any> {
+    const url = `${this.env.API_URL}/fees${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postFee(data): Observable<any> {
+    const url = `${this.env.API_URL}/fees`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateFee(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/fees/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // /////////////////////////////////
   // ----------RATING-------------//
   // /////////////////////////////////
 

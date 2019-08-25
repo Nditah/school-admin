@@ -46,7 +46,13 @@ import { AttendanceAddComponent } from 'src/app/pages/attendance/attendance-add/
 import { AttendanceDetailComponent } from 'src/app/pages/attendance/attendance-detail/attendance-detail.component';
 import { AttendanceEditComponent } from 'src/app/pages/attendance/attendance-edit/attendance-edit.component';
 
-import { HostelComponent } from 'src/app/pages/hostel/hostel.component';
+import { HostelComponent } from '../../pages/hostel/hostel.component';
+import { HostelAddComponent } from '../../pages/hostel/hostel-add/hostel-add.component';
+import { HostelEditComponent } from '../../pages/hostel/hostel-edit/hostel-edit.component';
+import { HostelDetailComponent } from '../../pages/hostel/hostel-detail/hostel-detail.component';
+
+import { FeeComponent } from '../../pages/fee/fee.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -123,5 +129,11 @@ export const AdminLayoutRoutes: Routes = [
 
     //Hostel
     { path: 'hostel' ,                    component: HostelComponent,            canActivate: [AuthGuard] },
+    { path: 'hostel/add' ,                 component: HostelAddComponent,             canActivate: [AuthGuard] },
+    { path: 'hostel/detail/:id' ,          component: HostelDetailComponent,          canActivate: [AuthGuard] },
+    { path: 'hostel/edit/:id' ,            component: HostelEditComponent,            canActivate: [AuthGuard] },
 
+    // Fees
+    { path: 'fee' ,                    component: FeeComponent,            canActivate: [AuthGuard] },
+   
   ];
