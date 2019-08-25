@@ -24,7 +24,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/marksheet',             title: 'Marksheet',                   icon: 'users_single-02',                class: '', sub: null },
     { path: '',                       title: 'Hostel',                      icon: 'location_pin',                   class: 'parent-nav',
     sub: [
-      { path: '/hostel',                title: 'Hostel ',                      icon: 'location_map-big',               class: '' },
+      { path: '/hostel',                title: 'Hostel',                      icon: 'location_map-big',               class: '' },
       { path: '/hostel-allocation',     title: 'Hostel Allocation',            icon: 'location_compass-05',            class: '' },
       { path: '/bedspace',              title: 'Hostel Bedspace',              icon: 'location_world',                 class: '' },
       { path: '/hostel-room',           title: 'Hostel Room',                  icon: 'location_world',                 class: '' },
