@@ -93,11 +93,25 @@ export class CourseComponent implements OnInit {
     }
     // const codeSubsidiary = payload.subsidiary.substring(0, 3).toUpperCase();
     payload.code = codeName + payload.level + '0' + payload.term;
+    console.log(this.addForm.value.term);
+    delete payload.term;
+    if (this.addForm.value.term === 1) {
+      payload.term = 'FIRST';
+    } else if (this.addForm.value.term === 2) {
+      payload.term = 'SECOND';
+    } else {
+      payload.term = 'THIRD';
+    }
+    payload.coefficient = 1;
     console.log(payload);
     try {
       const result = await this.courses.recordCreate(payload);
       if (result.success) {
         this.notify.showNotification('This course has been created with course code ' + payload.code, 'success');
+        const retRecords =  await this.courses.recordRetrieve();
+        if (retRecords.success) {
+          this.currentRecords = retRecords.payload;
+        }
       } else {
         this.notify.showNotification(result.message, 'danger');
       }
