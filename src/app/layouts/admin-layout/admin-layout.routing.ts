@@ -51,6 +51,11 @@ import { HostelAddComponent } from '../../pages/hostel/hostel-add/hostel-add.com
 import { HostelEditComponent } from '../../pages/hostel/hostel-edit/hostel-edit.component';
 import { HostelDetailComponent } from '../../pages/hostel/hostel-detail/hostel-detail.component';
 
+import { HostelAllocationComponent } from '../../pages/hostel-allocation/hostel-allocation.component';
+import { HostelAllocationAddComponent } from '../../pages/hostel-allocation/hostel-allocation-add/hostel-allocation-add.component';
+import { HostelAllocationEditComponent } from '../../pages/hostel-allocation/hostel-allocation-edit/hostel-allocation-edit.component';
+import { HostelAllocationDetailComponent } from '../../pages/hostel-allocation/hostel-allocation-detail/hostel-allocation-detail.component';
+
 import { FeeComponent } from '../../pages/fee/fee.component';
 
 
@@ -128,10 +133,17 @@ export const AdminLayoutRoutes: Routes = [
    
 
     //Hostel
-    { path: 'hostel' ,                    component: HostelComponent,            canActivate: [AuthGuard] },
+    { path: 'hostel' ,                    component: HostelComponent,                 canActivate: [AuthGuard] },
     { path: 'hostel/add' ,                 component: HostelAddComponent,             canActivate: [AuthGuard] },
     { path: 'hostel/detail/:id' ,          component: HostelDetailComponent,          canActivate: [AuthGuard] },
     { path: 'hostel/edit/:id' ,            component: HostelEditComponent,            canActivate: [AuthGuard] },
+
+    // Hostel Allocation
+    { path: 'hostel-allocation' ,                     component: HostelAllocationComponent,                canActivate: [AuthGuard] },
+    { path: 'hostel-allocation/add' ,                 component: HostelAllocationAddComponent,             canActivate: [AuthGuard] },
+    { path: 'hostel-allocation/detail/:id' ,          component: HostelAllocationDetailComponent,          canActivate: [AuthGuard] },
+    { path: 'hostel-allocation/edit/:id' ,            component: HostelAllocationEditComponent,            canActivate: [AuthGuard] },
+
 
     // Fees
     { path: 'fee' ,                    component: FeeComponent,            canActivate: [AuthGuard] },

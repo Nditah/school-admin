@@ -719,7 +719,7 @@ export class ApiService {
   }
 
        // /////////////////////////////////
-  // ----------HOSTEL-ALLOCATION-------------//
+  // ----------HOSTEL-BEDSPACE-------------//
   // /////////////////////////////////
 
   getHostelBedspace(path): Observable<any> {
