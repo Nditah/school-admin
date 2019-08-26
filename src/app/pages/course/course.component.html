@@ -144,18 +144,18 @@
   </div>
 </div>
 
-<!-- <app-right-sidebar [heading]="sidebarHeading" [zIndex]="1030" [activeSidebar]="activeSidebar" (closeSidebar)="closeSidebar($event)">
+<app-right-sidebar [heading]="sidebarHeading" [zIndex]="1030" [activeSidebar]="activeSidebar" (closeSidebar)="closeSidebar($event)">
   <div [ngSwitch]="sidebarView">
     <div *ngSwitchCase="'form'">
-      <app-subject-edit
+      <app-course-edit
       [record]="currentRecord"
       [formType]="sidebarContent"
-      [staffRecords]="staffRecords"
+      [subjectRecords]="subjectRecords"
       (returnResponse)="returnResponse($event)">
-      </app-subject-edit>
+      </app-course-edit>
     </div>
     <div *ngSwitchCase="'view'">
-      <app-subject-detail [record]="currentRecord"></app-subject-detail>
+      <app-course-detail [record]="currentRecord"></app-course-detail>
     </div>
   </div>
-</app-right-sidebar> -->
+</app-right-sidebar>
