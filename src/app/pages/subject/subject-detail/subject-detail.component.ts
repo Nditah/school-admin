@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Subject } from '../../../models';
 
 @Component({
   selector: 'app-subject-detail',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./subject-detail.component.scss']
 })
 export class SubjectDetailComponent implements OnInit {
-  @Input() record: string;
+  @Input() record: Subject;
 
   constructor() {
     console.log(this.record);
