@@ -227,7 +227,7 @@ export class ApiService {
   }
 
   postStudent(data): Observable<any> {
-    const url = `${this.env.API_URL}/student`;
+    const url = `${this.env.API_URL}/students`;
     const payload = this.cleanObject(data);
     return this.http.post(url, payload, httpOptions).pipe(
         catchError(this.handleError)
@@ -235,7 +235,7 @@ export class ApiService {
   }
 
   updateStudent(id: string, data): Observable<any> {
-    const url = `${this.env.API_URL}/student/${id}`;
+    const url = `${this.env.API_URL}/students/${id}`;
     const payload = this.cleanObject(data);
     return this.http.put(url, payload, httpOptions).pipe(
         catchError(this.handleError)
