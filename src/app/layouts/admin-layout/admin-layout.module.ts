@@ -76,6 +76,9 @@ import { HostelEditComponent } from '../../pages/hostel/hostel-edit/hostel-edit.
 import { HostelDetailComponent } from '../../pages/hostel/hostel-detail/hostel-detail.component';
 import { HostelAddComponent } from '../../pages/hostel/hostel-add/hostel-add.component';
 import { FeeComponent } from '../../pages/fee/fee.component';
+import { FeeAddComponent } from 'src/app/pages/fee/fee-add/fee-add.component';
+import { FeeEditComponent } from '../../pages/fee/fee-edit/fee-edit.component';
+import { FeeDetailComponent } from '../../pages/fee/fee-detail/fee-detail.component';
 import { HostelAllocationAddComponent } from 'src/app/pages/hostel-allocation/hostel-allocation-add/hostel-allocation-add.component';
 import { HostelAllocationDetailComponent } from 'src/app/pages/hostel-allocation/hostel-allocation-detail/hostel-allocation-detail.component';
 import { HostelAllocationComponent } from 'src/app/pages/hostel-allocation/hostel-allocation.component';
@@ -131,7 +134,7 @@ import { HostelAllocationEditComponent } from 'src/app/pages/hostel-allocation/h
     SettingComponent, SettingDetailComponent,
 
     SmsComponent, SmsAddComponent, SmsDetailComponent, SmsEditComponent,
-    FeeComponent,
+    FeeComponent, FeeAddComponent, FeeEditComponent, FeeDetailComponent,
     HostelAllocationComponent, HostelAllocationAddComponent, HostelAllocationDetailComponent, HostelAllocationEditComponent
   ]
 })
