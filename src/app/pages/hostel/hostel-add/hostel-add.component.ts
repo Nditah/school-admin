@@ -61,7 +61,7 @@ export class HostelAddComponent implements OnInit {
   getFees() {
     this.fees.recordRetrieve().then(data => {
       if (data.success) {
-        this.feeOptions = data.payload.map(item => ({id: item.id, text: item.name}));
+        this.feeOptions = data.payload.map(item => ({id: item.id, text: item.amount}));
         console.log('List of fees  ================ \n' + JSON.stringify(this.feeOptions) );
       } else {
         this.showNotification('Could not retrieve fees');

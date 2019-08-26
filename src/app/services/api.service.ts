@@ -663,4 +663,85 @@ export class ApiService {
         catchError(this.handleError)
       );
   }
+
+   // /////////////////////////////////
+  // ----------HOSTEL-Room-------------//
+  // /////////////////////////////////
+
+  getHostelRoom(path): Observable<any> {
+    const url = `${this.env.API_URL}/hostel-rooms${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postHostelRoom(data): Observable<any> {
+    const url = `${this.env.API_URL}/hostel-rooms`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateHostelRoom(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/hostel-rooms/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+     // /////////////////////////////////
+  // ----------HOSTEL-ALLOCATION-------------//
+  // /////////////////////////////////
+
+  getHostelAllocation(path): Observable<any> {
+    const url = `${this.env.API_URL}/hostel-allocations${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postHostelAllocation(data): Observable<any> {
+    const url = `${this.env.API_URL}/hostel-allocations`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateHostelAllocation(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/hostel-allocations/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+       // /////////////////////////////////
+  // ----------HOSTEL-ALLOCATION-------------//
+  // /////////////////////////////////
+
+  getHostelBedspace(path): Observable<any> {
+    const url = `${this.env.API_URL}/hostel-bedspaces${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postHostelBedspace(data): Observable<any> {
+    const url = `${this.env.API_URL}/hostel-bedspaces`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateHostelBedspace(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/hostel-bedspaces/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
 }

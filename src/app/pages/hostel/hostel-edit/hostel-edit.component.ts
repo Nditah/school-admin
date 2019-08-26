@@ -29,12 +29,11 @@ export class HostelEditComponent implements OnInit {
               private counties: Counties) {
                 this.feeRecords = this.fees.query();
                 this.countyRecords = this.counties.query();
-                this.setForm();
               }
 
   ngOnInit() {
     this.createForm();
-
+    this.setForm();
   }
   createForm() {
     this.editForm = this._fb.group({
@@ -53,7 +52,7 @@ export class HostelEditComponent implements OnInit {
       hall: deepPropsExist(this.record, 'hall') ? this.record.hall : '',
       block: deepPropsExist(this.record, 'block') ? this.record.block : '',
       hostel_fees: deepPropsExist(this.record, 'hostel_fees') ? this.record.hostel_fees : '',
-      hostel_rooms: deepPropsExist(this.record, 'hostel_rooms') ? this.record.hostel_rooms : '',
+   //   hostel_rooms: deepPropsExist(this.record, 'hostel_rooms') ? this.record.hostel_rooms : '',
       description: deepPropsExist(this.record, 'description') ? this.record.description : '',
       status: deepPropsExist(this.record, 'status') ? this.record.status : '',
 

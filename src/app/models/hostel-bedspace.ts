@@ -1,12 +1,10 @@
-import { Fee } from './fee';
-import { HostelRoom } from './hostel-room';
+import { Student } from './student';
 
-export class Hostel {
+export class HostelBedspace {
     id: string;
-    hall: string;
-    block: string;
-    hostel_fees: Fee;
-    hostel_rooms: HostelRoom;
+    room: string;
+    code: string;
+    occupant: Student;
     description: string;
     status: string; // "AVAILABLE", "OCCUPIED"
     created_by: object;
@@ -22,12 +20,11 @@ export class Hostel {
 
 }
 
-export interface Hostel {
+export interface HostelBedspace {
     id: string;
-    hall: string;
-    block: string;
-    hostel_fees: Fee;
-    hostel_rooms: HostelRoom;
+    room: string;
+    code: string;
+    occupant: Student;
     description: string;
     status: string; // "AVAILABLE", "OCCUPIED"
     created_by: object;
