@@ -1,5 +1,8 @@
 import { Staff } from './staff';
 import { Classe } from './classe';
+import { State } from './state';
+import { County } from './county';
+import { Hostel } from './hostel';
 
 export class Student {
     id: string;
@@ -8,8 +11,8 @@ export class Student {
     gender: string;
     birth_date: Date;
     address: string;
-    state: any; // State
-    county: any; // County
+    state: State;
+    county: County;
     email: string;
     phone: string;
     password: string;
@@ -17,7 +20,7 @@ export class Student {
     classe: Classe;
     level: string;
     subsidiary: string;
-    hostel: any; // Hostel
+    hostel: Hostel;
     photo: string;
     parents: Array<object>;
     created_by: Staff;
@@ -39,8 +42,8 @@ export interface Student {
     gender: string;
     birth_date: Date;
     address: string;
-    state: any; // State
-    county: any; // County
+    state: State;
+    county: County;
     email: string;
     phone: string;
     password: string;
@@ -48,7 +51,7 @@ export interface Student {
     classe: Classe;
     level: string;
     subsidiary: string;
-    hostel: any; // Hostel
+    hostel: Hostel;
     photo: string;
     parents: Array<object>;
     created_by: Staff;

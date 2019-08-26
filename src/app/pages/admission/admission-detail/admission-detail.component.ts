@@ -13,14 +13,14 @@ export class AdmissionDetailComponent implements OnInit {
   record: Admission;
 
   constructor( private router: Router,
-    private activatedRoute: ActivatedRoute,
-    public Admissions: Admissions,
-    private classes: Classes) {
+               private activatedRoute: ActivatedRoute,
+               public admissions: Admissions,
+               private classes: Classes) {
     }
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.Admissions.recordRetrieve(`?_id=${id}`).then((res: ApiResponse) => {
+    this.admissions.recordRetrieve(`?_id=${id}`).then((res: ApiResponse) => {
       if (res.success) {
         const record = res.payload[0];
         this.record = record;

@@ -11,7 +11,7 @@ export class ExampleDetailComponent implements OnInit {
   // record: PmlShipment;
 
   constructor( private router: Router,
-              private activatedRoute: ActivatedRoute,
+               private activatedRoute: ActivatedRoute,
     ) {
     }
 
