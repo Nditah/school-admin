@@ -52,7 +52,9 @@ import { HostelEditComponent } from '../../pages/hostel/hostel-edit/hostel-edit.
 import { HostelDetailComponent } from '../../pages/hostel/hostel-detail/hostel-detail.component';
 
 import { FeeComponent } from '../../pages/fee/fee.component';
-
+import { FeeAddComponent } from 'src/app/pages/fee/fee-add/fee-add.component';
+import { FeeEditComponent } from '../../pages/fee/fee-edit/fee-edit.component';
+import { FeeDetailComponent } from '../../pages/fee/fee-detail/fee-detail.component';
 
 export const AdminLayoutRoutes: Routes = [
     // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -134,6 +136,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'hostel/edit/:id' ,            component: HostelEditComponent,            canActivate: [AuthGuard] },
 
     // Fees
-    { path: 'fee' ,                    component: FeeComponent,            canActivate: [AuthGuard] },
-   
+    { path: 'fee' ,                     component: FeeComponent,            canActivate: [AuthGuard] },
+    { path: 'fee/add',                  component: FeeAddComponent,         canActivate: [AuthGuard] },
+    { path: 'fee/detail/:id' ,          component: FeeDetailComponent,          canActivate: [AuthGuard] },
+    { path: 'fee/edit/:id' ,            component: FeeEditComponent,            canActivate: [AuthGuard] },
   ];
