@@ -28,20 +28,28 @@
                 <div class="row">
                   <div class="col-md-12">
                     <label for=""><strong>Title: </strong></label>
-                    <input type="text" formControlName="title" id="title" class="form-control" #na style="border-radius: 0px">
+                    <input type="text" formControlName="title" id="title" class="form-control" #na style="border-radius: 0px" >
                   </div>
                   <div class="col-md-12">
-                      <label for=""><strong>Level: </strong></label>
-                      <select formControlName="level" id="level" class="form-control">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                      </select>
-                    </div>
+                    <label for=""><strong>Level: </strong></label>
+                    <select formControlName="level" id="level" class="form-control" #lev>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                    </select>
+                  </div>
+                  <div class="col-md-12">
+                    <label for=""><strong>Term: </strong></label>
+                    <select formControlName="term" id="term" class="form-control" #ter> <!--(change)="generateCourseCode(na.value, lev.value, ter.value)"-->
+                      <option value="1">1st</option>
+                      <option value="2">2nd</option>
+                      <option value="3">3rd</option>
+                    </select>
+                  </div>
                   <div class="col-md-12">
                     <label for=""><strong>Description</strong></label>
                     <textarea formControlName="description" id="description" cols="10" rows="5" class="form-control"></textarea>
