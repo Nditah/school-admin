@@ -76,6 +76,10 @@ import { HostelEditComponent } from '../../pages/hostel/hostel-edit/hostel-edit.
 import { HostelDetailComponent } from '../../pages/hostel/hostel-detail/hostel-detail.component';
 import { HostelAddComponent } from '../../pages/hostel/hostel-add/hostel-add.component';
 import { FeeComponent } from '../../pages/fee/fee.component';
+import { HostelAllocationAddComponent } from 'src/app/pages/hostel-allocation/hostel-allocation-add/hostel-allocation-add.component';
+import { HostelAllocationDetailComponent } from 'src/app/pages/hostel-allocation/hostel-allocation-detail/hostel-allocation-detail.component';
+import { HostelAllocationComponent } from 'src/app/pages/hostel-allocation/hostel-allocation.component';
+import { HostelAllocationEditComponent } from 'src/app/pages/hostel-allocation/hostel-allocation-edit/hostel-allocation-edit.component';
 
 
 @NgModule({
@@ -127,7 +131,8 @@ import { FeeComponent } from '../../pages/fee/fee.component';
     SettingComponent, SettingDetailComponent,
 
     SmsComponent, SmsAddComponent, SmsDetailComponent, SmsEditComponent,
-    FeeComponent
+    FeeComponent,
+    HostelAllocationComponent, HostelAllocationAddComponent, HostelAllocationDetailComponent, HostelAllocationEditComponent
   ]
 })
 
