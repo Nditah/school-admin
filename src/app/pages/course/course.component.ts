@@ -18,6 +18,11 @@ export class CourseComponent implements OnInit {
   subjectRecords: Array<Subject>;
   prevSubjectRecords: Array<Subject>;
   subjectOptions: SelectOption[];
+  currentRecord: Course;
+  sidebarHeading: string;
+  sidebarContent: string;
+  sidebarView: string;
+  activeSidebar = false;
   loading = false;
   addForm: FormGroup;
 
@@ -61,6 +66,28 @@ export class CourseComponent implements OnInit {
       id: options.id,
       text: options.name.toUpperCase() + ' ' + options.subsidiary
     }));
+  }
+
+  /**
+   *
+   * @param activePanel page to switch to in sidebar
+   * @param status if active panel is form choose if you're adding or editing else add view
+   * @param record the record to be editted or view
+   */
+  openSidebar(activePanel: string, status: string, record: Course | null) {
+    this.sidebarView = activePanel;
+    this.sidebarContent = status;
+    this.activeSidebar = true;
+    this.sidebarHeading = `${status.replace(/^[a-zA-Z]/, (c) => c.toUpperCase())} Course`;
+    this.currentRecord = record;
+    console.log(this.currentRecord);
+  }
+
+  /**
+   * @description "Handle close right sidebar"
+   */
+  closeSidebar($event) {
+    this.activeSidebar = $event;
   }
 
   // generateCourseCode(courseTitle = null, courseLevel = null, courseTerm = null) {
@@ -117,7 +144,7 @@ export class CourseComponent implements OnInit {
       }
     } catch ( error ) {
       this.notify.showNotification(error, 'danger');
-    }finally {
+    } finally {
       this.loading = false;
     }
   }
