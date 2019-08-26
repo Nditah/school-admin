@@ -6,9 +6,8 @@ export class Notification {
     status: string;
     user_type?: string;
     staff_id?: Object;
-    driver_id?: Object;
-    customer_id?: Object;
-    partner_id?: Object;
+    student_id?: Object;
+    parent_id?: Object;
     message?: string;
     notification_status?: string;
     created_by?: Staff;
@@ -32,9 +31,8 @@ export interface Notification {
     status: string;
     user_type?: string;
     staff_id?: Object;
-    driver_id?: Object;
-    customer_id?: Object;
-    partner_id?: Object;
+    student_id?: Object;
+    parent_id?: Object;
     message?: string;
     notification_status?: string;
     created_by?: Staff;

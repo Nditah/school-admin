@@ -99,11 +99,11 @@
                     <button class="btn btn-primary btn-sm dropdown-toggle-split" ngbDropdownToggle></button>
                     <div ngbDropdownMenu>
                       <!-- <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="goToDetail(record)"> -->
-                      <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="goToDetail()">
+                      <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="openSidebar('view', 'view', record)">
                         <i class="now-ui-icons tech_tv"></i> View Detail
                       </a>
                       <!-- <a class="dropdown-item text-info" href="javascript:void(0)" (click)="goToEdit(record)"> -->
-                      <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="goToEdit(record)">
+                      <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="openSidebar('form', 'edit', record)">
                         <i class="now-ui-icons ui-2_settings-90"></i> Edit Record
                       </a>
                       <!-- <a class="dropdown-item text-danger" href="javascript:void(0)" (click)="removeRecord(record)"> -->
@@ -122,3 +122,19 @@
     </div>
   </div>
 </div>
+
+<app-right-sidebar [heading]="sidebarHeading" [zIndex]="1030" [activeSidebar]="activeSidebar" (closeSidebar)="closeSidebar($event)">
+  <div [ngSwitch]="sidebarView">
+    <div *ngSwitchCase="'form'">
+      <app-subject-edit
+      [record]="currentRecord"
+      [formType]="sidebarContent"
+      [staffRecords]="staffRecords"
+      (returnResponse)="returnResponse($event)">
+      </app-subject-edit>
+    </div>
+    <div *ngSwitchCase="'view'">
+      <app-subject-detail [record]="currentRecord"></app-subject-detail>
+    </div>
+  </div>
+</app-right-sidebar>

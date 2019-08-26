@@ -1,9 +1,12 @@
+import { Fee } from './fee';
+import { HostelRoom } from './hostel-room';
+
 export class Hostel {
     id: string;
     hall: string;
     block: string;
-    hostel_fees: Object;
-    hostel_rooms: Object;
+    hostel_fees: Fee;
+    hostel_rooms: HostelRoom;
     description: string;
     status: string; // "AVAILABLE", "OCCUPIED"
     created_by: object;
@@ -23,8 +26,8 @@ export interface Hostel {
     id: string;
     hall: string;
     block: string;
-    hostel_fees: Object;
-    hostel_rooms: Object;
+    hostel_fees: Fee;
+    hostel_rooms: HostelRoom;
     description: string;
     status: string; // "AVAILABLE", "OCCUPIED"
     created_by: object;

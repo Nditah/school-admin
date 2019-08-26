@@ -30,3 +30,8 @@ export * from './notification';
 export * from './office';
 export * from './setting';
 export * from './sms';
+export * from './fee';
+export * from './hostel-bedspace';
+export * from './hostel-room';
+export * from './hostel-allocation';
+

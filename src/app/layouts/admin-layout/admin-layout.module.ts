@@ -69,6 +69,17 @@ import { SettingDetailComponent } from 'src/app/pages/setting/setting-detail/set
 import { OfficeAddComponent } from 'src/app/pages/office/office-add/office-add.component';
 import { OfficeDetailComponent } from 'src/app/pages/office/office-detail/office-detail.component';
 import { OfficeEditComponent } from 'src/app/pages/office/office-edit/office-edit.component';
+import { AttendanceAddComponent } from 'src/app/pages/attendance/attendance-add/attendance-add.component';
+import { AttendanceDetailComponent } from 'src/app/pages/attendance/attendance-detail/attendance-detail.component';
+import { AttendanceEditComponent } from 'src/app/pages/attendance/attendance-edit/attendance-edit.component';
+import { HostelEditComponent } from '../../pages/hostel/hostel-edit/hostel-edit.component';
+import { HostelDetailComponent } from '../../pages/hostel/hostel-detail/hostel-detail.component';
+import { HostelAddComponent } from '../../pages/hostel/hostel-add/hostel-add.component';
+import { FeeComponent } from '../../pages/fee/fee.component';
+import { HostelAllocationAddComponent } from 'src/app/pages/hostel-allocation/hostel-allocation-add/hostel-allocation-add.component';
+import { HostelAllocationDetailComponent } from 'src/app/pages/hostel-allocation/hostel-allocation-detail/hostel-allocation-detail.component';
+import { HostelAllocationComponent } from 'src/app/pages/hostel-allocation/hostel-allocation.component';
+import { HostelAllocationEditComponent } from 'src/app/pages/hostel-allocation/hostel-allocation-edit/hostel-allocation-edit.component';
 
 
 @NgModule({
@@ -106,20 +117,22 @@ import { OfficeEditComponent } from 'src/app/pages/office/office-edit/office-edi
 
     BookComponent,
 
-    AttendanceComponent,
+    AttendanceComponent, AttendanceAddComponent, AttendanceDetailComponent, AttendanceEditComponent,
 
     MarksheetComponent, MarksheetAddComponent, MarksheetDetailComponent, MarksheetEditComponent,
 
     OfficeComponent,
     OfficeComponent, OfficeAddComponent, OfficeDetailComponent, OfficeEditComponent,
 
-    HostelComponent,
+    HostelComponent, HostelEditComponent, HostelDetailComponent, HostelAddComponent,
 
     NotificationComponent,
 
     SettingComponent, SettingDetailComponent,
 
-    SmsComponent, SmsAddComponent, SmsDetailComponent, SmsEditComponent
+    SmsComponent, SmsAddComponent, SmsDetailComponent, SmsEditComponent,
+    FeeComponent,
+    HostelAllocationComponent, HostelAllocationAddComponent, HostelAllocationDetailComponent, HostelAllocationEditComponent
   ]
 })
 

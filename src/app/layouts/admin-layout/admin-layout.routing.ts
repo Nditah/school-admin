@@ -42,7 +42,21 @@ import { AttendanceComponent } from 'src/app/pages/attendance/attendance.compone
 import { MarksheetAddComponent } from 'src/app/pages/marksheet/marksheet-add/marksheet-add.component';
 import { MarksheetEditComponent } from 'src/app/pages/marksheet/marksheet-edit/marksheet-edit.component';
 import { MarksheetDetailComponent } from 'src/app/pages/marksheet/marksheet-detail/marksheet-detail.component';
+import { AttendanceAddComponent } from 'src/app/pages/attendance/attendance-add/attendance-add.component';
+import { AttendanceDetailComponent } from 'src/app/pages/attendance/attendance-detail/attendance-detail.component';
+import { AttendanceEditComponent } from 'src/app/pages/attendance/attendance-edit/attendance-edit.component';
 
+import { HostelComponent } from '../../pages/hostel/hostel.component';
+import { HostelAddComponent } from '../../pages/hostel/hostel-add/hostel-add.component';
+import { HostelEditComponent } from '../../pages/hostel/hostel-edit/hostel-edit.component';
+import { HostelDetailComponent } from '../../pages/hostel/hostel-detail/hostel-detail.component';
+
+import { HostelAllocationComponent } from '../../pages/hostel-allocation/hostel-allocation.component';
+import { HostelAllocationAddComponent } from '../../pages/hostel-allocation/hostel-allocation-add/hostel-allocation-add.component';
+import { HostelAllocationEditComponent } from '../../pages/hostel-allocation/hostel-allocation-edit/hostel-allocation-edit.component';
+import { HostelAllocationDetailComponent } from '../../pages/hostel-allocation/hostel-allocation-detail/hostel-allocation-detail.component';
+
+import { FeeComponent } from '../../pages/fee/fee.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -113,5 +127,25 @@ export const AdminLayoutRoutes: Routes = [
    
     //Attendance
     { path: 'attendance' ,                    component: AttendanceComponent,            canActivate: [AuthGuard] },
+    { path: 'attendance/add' ,                 component: AttendanceAddComponent,             canActivate: [AuthGuard] },
+    { path: 'attendance/detail/:id' ,          component: AttendanceDetailComponent,          canActivate: [AuthGuard] },
+    { path: 'attendance/edit/:id' ,            component: AttendanceEditComponent,            canActivate: [AuthGuard] },
+   
 
+    //Hostel
+    { path: 'hostel' ,                    component: HostelComponent,                 canActivate: [AuthGuard] },
+    { path: 'hostel/add' ,                 component: HostelAddComponent,             canActivate: [AuthGuard] },
+    { path: 'hostel/detail/:id' ,          component: HostelDetailComponent,          canActivate: [AuthGuard] },
+    { path: 'hostel/edit/:id' ,            component: HostelEditComponent,            canActivate: [AuthGuard] },
+
+    // Hostel Allocation
+    { path: 'hostel-allocation' ,                     component: HostelAllocationComponent,                canActivate: [AuthGuard] },
+    { path: 'hostel-allocation/add' ,                 component: HostelAllocationAddComponent,             canActivate: [AuthGuard] },
+    { path: 'hostel-allocation/detail/:id' ,          component: HostelAllocationDetailComponent,          canActivate: [AuthGuard] },
+    { path: 'hostel-allocation/edit/:id' ,            component: HostelAllocationEditComponent,            canActivate: [AuthGuard] },
+
+
+    // Fees
+    { path: 'fee' ,                    component: FeeComponent,            canActivate: [AuthGuard] },
+   
   ];

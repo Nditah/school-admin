@@ -17,3 +17,8 @@ export { Notifications } from './notifications/notifications';
 export { Offices } from './offices/offices';
 export { Settings } from './settings/settings';
 export { Smss } from './smss/smss';
+export { Hostels } from './hostels/hostels';
+export { Fees } from './fees/fees';
+export { HostelRooms } from './hostel-rooms/hostel-rooms';
+export { HostelAllocations } from './hostel-allocations/hostel-allocations';
+export { HostelBedspaces } from './hostel-bedspaces/hostel-bedspaces';

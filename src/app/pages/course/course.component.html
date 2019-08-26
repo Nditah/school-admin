@@ -1,3 +1,161 @@
-<p>
-  course works!
-</p>
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group">
+            <button class="btn btn-primary" routerLink="/staff/add">
+              <i class="now-ui-icons ui-1_simple-add"></i> Add New Course
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+      <div class="col-md-4">
+          <div class="card">
+            <div class="card-header bg-primary">
+              <h4 class="card-title text-center">
+                Add a Course
+              </h4>
+            </div>
+            <div class="card-body">
+              <form action="" [formGroup]="addForm" (submit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for=""><strong>Title: </strong></label>
+                    <input type="text" formControlName="title" id="title" class="form-control" #na style="border-radius: 0px" >
+                  </div>
+                  <div class="col-md-12">
+                    <label for=""><strong>Level: </strong></label>
+                    <select formControlName="level" id="level" class="form-control" #lev>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                    </select>
+                  </div>
+                  <div class="col-md-12">
+                    <label for=""><strong>Term: </strong></label>
+                    <select formControlName="term" id="term" class="form-control" #ter> <!--(change)="generateCourseCode(na.value, lev.value, ter.value)"-->
+                      <option value="1">1st</option>
+                      <option value="2">2nd</option>
+                      <option value="3">3rd</option>
+                    </select>
+                  </div>
+                  <div class="col-md-12">
+                    <label for=""><strong>Description</strong></label>
+                    <textarea formControlName="description" id="description" cols="10" rows="5" class="form-control"></textarea>
+                  </div>
+                  <div class="col-md-12">
+                    <label for=""><strong>Type</strong></label>
+                    <select formControlName="type" id="type" class="form-control" > <!--(change)="onChange($event, na.value)"-->
+                      <option value="">CHOOSE SUBJECT TYPE</option>
+                      <option value="ELECTIVE">ELECTIVE</option>
+                      <option value="COMPULSORY">COMPULSORY</option>
+                    </select>
+                  </div>
+                  <div class="col-md-12">
+                    <label for=""><strong>Subject</strong></label>
+                    <appanalyst-select
+                        [items]="subjectOptions"
+                        formControlName="subject"
+                        bindValue="id"
+                        bindLabel="text"
+                        placeholder="Select Subject"
+                      >
+                      </appanalyst-select>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <button [disabled]="addForm.invalid || loading" class="btn btn-primary btn-block">
+                      Submit <span *ngIf="loading" class="fa fa-gear spin"> </span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">{{page_name}}</h4>
+        </div>
+        <div class="card-body">
+
+          <!-- <app-advance-table *ngIf="currentRecords.length > 0"> -->
+          <app-advance-table *ngIf="currentRecords.length > 0">
+            <thead class="text-primary">
+            <tr>
+              <th class="text-left">SN</th>
+              <th>Title</th>
+              <th>Code</th>
+              <th>Level</th>
+              <th>Classes</th>
+              <th class="text-right">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  *ngFor="let record of currentRecords; let i = index">
+              <td>{{ i + 1 }}</td>
+                  <td>{{record.title.toUpperCase()}}</td>
+                  <td>{{ record.code }}</td>
+                  <td>{{ record.level }}</td>
+                  <td></td>
+              <td class="td-actions text-right">
+                <div class="btn-group btn-group-sm">
+                  <button type="button" class="btn btn-primary btn-sm btn-simple">
+                    <i class="now-ui-icons loader_gear"></i>
+                  </button>
+                  <div ngbDropdown class="dropdown btn-group" placement="bottom-right">
+                    <button class="btn btn-primary btn-sm dropdown-toggle-split" ngbDropdownToggle></button>
+                    <div ngbDropdownMenu>
+                      <!-- <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="goToDetail(record)"> -->
+                      <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="openSidebar('view', 'edit', record)">
+                        <i class="now-ui-icons tech_tv"></i> View Detail
+                      </a>
+                      <!-- <a class="dropdown-item text-info" href="javascript:void(0)" (click)="goToEdit(record)"> -->
+                      <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="openSidebar('form', 'edit', record)">
+                        <i class="now-ui-icons ui-2_settings-90"></i> Edit Record
+                      </a>
+                      <!-- <a class="dropdown-item text-danger" href="javascript:void(0)" (click)="removeRecord(record)"> -->
+                      <a class="dropdown-item text-primary" href="javascript:void(0)">
+                        <i class="now-ui-icons ui-1_simple-remove"></i> Remove
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </app-advance-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <app-right-sidebar [heading]="sidebarHeading" [zIndex]="1030" [activeSidebar]="activeSidebar" (closeSidebar)="closeSidebar($event)">
+  <div [ngSwitch]="sidebarView">
+    <div *ngSwitchCase="'form'">
+      <app-subject-edit
+      [record]="currentRecord"
+      [formType]="sidebarContent"
+      [staffRecords]="staffRecords"
+      (returnResponse)="returnResponse($event)">
+      </app-subject-edit>
+    </div>
+    <div *ngSwitchCase="'view'">
+      <app-subject-detail [record]="currentRecord"></app-subject-detail>
+    </div>
+  </div>
+</app-right-sidebar> -->
