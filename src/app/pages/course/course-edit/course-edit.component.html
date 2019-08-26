@@ -1,3 +1,62 @@
-<p>
-  course-edit works!
-</p>
+<div class="card">
+    <div class="card-body">
+        <form action="" [formGroup]="editForm" (submit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-12">
+                <label for=""><strong>Title: </strong></label>
+                <input type="text" formControlName="title" id="title" class="form-control" #na style="border-radius: 0px" >
+              </div>
+              <div class="col-md-12">
+                <label for=""><strong>Level: </strong></label>
+                <select formControlName="level" id="level" class="form-control" #lev>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                </select>
+              </div>
+              <div class="col-md-12">
+                <label for=""><strong>Term: </strong></label>
+                <select formControlName="term" id="term" class="form-control" #ter> <!--(change)="generateCourseCode(na.value, lev.value, ter.value)"-->
+                  <option value="1">1st</option>
+                  <option value="2">2nd</option>
+                  <option value="3">3rd</option>
+                </select>
+              </div>
+              <div class="col-md-12">
+                <label for=""><strong>Description</strong></label>
+                <textarea formControlName="description" id="description" cols="10" rows="5" class="form-control"></textarea>
+              </div>
+              <div class="col-md-12">
+                <label for=""><strong>Type</strong></label>
+                <select formControlName="type" id="type" class="form-control" > <!--(change)="onChange($event, na.value)"-->
+                  <option value="">CHOOSE SUBJECT TYPE</option>
+                  <option value="ELECTIVE">ELECTIVE</option>
+                  <option value="COMPULSORY">COMPULSORY</option>
+                </select>
+              </div>
+              <div class="col-md-12">
+                <label for=""><strong>Subject</strong></label>
+                <appanalyst-select
+                    [items]="subjectOptions"
+                    formControlName="subject"
+                    bindValue="id"
+                    bindLabel="text"
+                    placeholder="Select Subject"
+                  >
+                  </appanalyst-select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <button [disabled]="editForm.invalid || loading" class="btn btn-primary btn-block">
+                  Submit <span *ngIf="loading" class="fa fa-gear spin"> </span>
+                </button>
+              </div>
+            </div>
+          </form>
+    </div>
+  </div>

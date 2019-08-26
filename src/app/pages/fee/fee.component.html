@@ -6,7 +6,7 @@
       <div class="card">
         <div class="card-body">
           <div class="form-group">
-            <button class="btn btn-primary" routerLink="/example/add">
+            <button class="btn btn-primary" routerLink="/fee/add">
               <i class="now-ui-icons ui-1_simple-add"></i> Add New
             </button>
           </div>
@@ -19,7 +19,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Fees Type Records</h4>
+          <h4 class="card-title">Fees Records</h4>
         </div>
         <div class="card-body">
 
@@ -31,8 +31,7 @@
               <th>Type</th>
               <th>Class</th>
               <th>Amount</th>
-              <!-- <th>Birth Date</th>
-              <th>Date</th> -->
+              <th>Description</th>
               <th class="text-right">Action</th>
             </tr>
             </thead>
@@ -42,8 +41,7 @@
                   <td>{{ record.type }}</td>
                   <td>{{ record.classe }}</td>
                   <td>{{ record.amount }}</td>
-                  <!-- <td>{{ record.payment_method}}</td>
-                  <td>{{ record.pay_date | date }}</td>  -->
+                  <td>{{ record.description}}</td>
               <td class="td-actions text-right">
                 <div class="btn-group btn-group-sm">
                   <button type="button" class="btn btn-primary btn-sm btn-simple">
