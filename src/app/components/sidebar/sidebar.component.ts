@@ -21,6 +21,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/admission',             title: 'Admission',                   icon: 'business_bank',                  class: '', sub: null },
     { path: '/feespayment',           title: 'Fees Payment',                icon: 'business_bank',                  class: '', sub: null },
     { path: '/feestype',              title: 'Fees Type',                   icon: 'business_bank',                  class: '', sub: null },
+    { path: '/fee',                   title: 'Fees',                        icon: 'business_bank',                  class: '', sub: null },
     { path: '/marksheet',             title: 'Marksheet',                   icon: 'users_single-02',                class: '', sub: null },
     { path: '',                       title: 'Hostel',                      icon: 'location_pin',                   class: 'parent-nav',
     sub: [
