@@ -159,7 +159,7 @@ export class ApiService {
       catchError(this.handleError));
   }
 
-  
+
  // /////////////////////////////////
   // ----------Mark Sheet-------------//
   // /////////////////////////////////
@@ -254,7 +254,7 @@ export class ApiService {
   }
 
   postParent(data): Observable<any> {
-    const url = `${this.env.API_URL}/parent`;
+    const url = `${this.env.API_URL}/parents`;
     const payload = this.cleanObject(data);
     return this.http.post(url, payload, httpOptions).pipe(
         catchError(this.handleError)
@@ -262,7 +262,7 @@ export class ApiService {
   }
 
   updateParent(id: string, data): Observable<any> {
-    const url = `${this.env.API_URL}/parent/${id}`;
+    const url = `${this.env.API_URL}/parents/${id}`;
     const payload = this.cleanObject(data);
     return this.http.put(url, payload, httpOptions).pipe(
         catchError(this.handleError)
@@ -281,7 +281,7 @@ export class ApiService {
   }
 
   postClasse(data): Observable<any> {
-    const url = `${this.env.API_URL}/classe`;
+    const url = `${this.env.API_URL}/classes`;
     const payload = this.cleanObject(data);
     return this.http.post(url, payload, httpOptions).pipe(
         catchError(this.handleError)
@@ -289,7 +289,7 @@ export class ApiService {
   }
 
   updateClasse(id: string, data): Observable<any> {
-    const url = `${this.env.API_URL}/classe/${id}`;
+    const url = `${this.env.API_URL}/classes/${id}`;
     const payload = this.cleanObject(data);
     return this.http.put(url, payload, httpOptions).pipe(
         catchError(this.handleError)
@@ -308,7 +308,7 @@ export class ApiService {
   }
 
   postCourse(data): Observable<any> {
-    const url = `${this.env.API_URL}/course`;
+    const url = `${this.env.API_URL}/courses`;
     const payload = this.cleanObject(data);
     return this.http.post(url, payload, httpOptions).pipe(
         catchError(this.handleError)
@@ -316,7 +316,7 @@ export class ApiService {
   }
 
   updateCourse(id: string, data): Observable<any> {
-    const url = `${this.env.API_URL}/course/${id}`;
+    const url = `${this.env.API_URL}/courses/${id}`;
     const payload = this.cleanObject(data);
     return this.http.put(url, payload, httpOptions).pipe(
         catchError(this.handleError)
