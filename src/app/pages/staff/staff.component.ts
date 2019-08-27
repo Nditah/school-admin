@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Staff, ApiResponse } from '../../models';
 import { Staffs } from '../../providers';
+import { NotificationService } from '../../services';
 
 @Component({
   selector: 'app-staff',
@@ -19,17 +20,29 @@ export class StaffComponent implements OnInit {
   page_name = 'List of Staff';
 
   constructor(private router: Router,
-              private toastr: ToastrService,
+              private notify: NotificationService,
+              private formBuilder: FormBuilder,
               public staffs: Staffs) {
       this.currentRecords = this.staffs.query();
+      this.searchForm = this.formBuilder.group({
+        searchString: ['', Validators.required],
+      });
     }
 
   ngOnInit() {
   }
 
-  async search(data) {
+  async search(data)  {
     const queryString = `?q=${data.searchString}`; // queryString
     console.log(data);
+    this.staffs.recordRetrieve(queryString).then((res: ApiResponse) => {
+      if (res.success) {
+        this.currentRecords = this.staffs.query();
+        this.notify.showNotification(`${res.payload.length} record(s) found!`);
+      }
+    }).catch(err => {
+      this.notify.showNotification(err.message);
+    });
   }
 
   closeSidebar($event) {
