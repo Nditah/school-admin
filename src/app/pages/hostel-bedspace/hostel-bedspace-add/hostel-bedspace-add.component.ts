@@ -2,33 +2,34 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Hostels, Fees, Counties, States } from '../../../providers';
-import {ApiResponse, SelectOption, Hostel, Course, Staff, County } from '../../../models';
+import { HostelBedspaces, HostelRooms, Students } from '../../../providers';
+import { ApiResponse, SelectOption, HostelBedspace } from '../../../models';
 
 @Component({
-  selector: 'app-hostel-add',
-  templateUrl: './hostel-add.component.html',
-  styleUrls: ['./hostel-add.component.scss']
+  selector: 'app-hostel-bedspace-add',
+  templateUrl: './hostel-bedspace-add.component.html',
+  styleUrls: ['./hostel-bedspace-add.component.scss']
 })
-export class HostelAddComponent implements OnInit {
+export class HostelBedspaceAddComponent implements OnInit {
 
   @Input() currentForm: string;
   addForm: FormGroup;
   loading = false;
-  feeOptions: Array<SelectOption>;
-  stateOptions: Array<SelectOption>;
+  studentOptions: Array<SelectOption>;
+  hostelRoomOptions: Array<SelectOption>;
+
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private activatedRoute: ActivatedRoute,
-              private hostels: Hostels,
-              private fees: Fees,
-              private states: States,
+              private hostelBedspaces: HostelBedspaces,
+              private students: Students,
+              private hostelRooms : HostelRooms,
               private toastr: ToastrService,
                ) {
       this.createForm();
-      this.getStates();
-      this.getFees();
+      this.getStudents();
+      this.getHostelRooms();
   }
 
   ngOnInit() {
@@ -36,35 +37,34 @@ export class HostelAddComponent implements OnInit {
 
   createForm() {
     this.addForm = this.formBuilder.group({
-              block: [''],
-              hall: ['', Validators.required],
-              hostel_fees: [''],
+              room: [''],
+              code: [''],
+              occupant: [''],
               description: [''],
-              status: [''],
     });
   }
 
   // ====================  All Methods to load external links for Object IDs  ======================= //
-  // get hostels for the select box
-  getStates() {
-    this.hostels.recordRetrieve().then(data => {
+  // get hostelBedspaces for the select box
+  getStudents() {
+    this.students.recordRetrieve().then(data => {
       if (data.success) {
-        this.stateOptions = data.payload.map(item => ({id: item.id, text: item.name}));
-        console.log('List of hostels  ================ \n' + JSON.stringify(this.stateOptions) );
+        this.studentOptions = data.payload.map(item => ({id: item.id, text: item.surname + ' ' + item.given_name}));
+        console.log('List of hostelBedspaces  ================ \n' + JSON.stringify(this.studentOptions) );
       } else {
-        this.showNotification('Could not retrieve hostels');
+        this.showNotification('Could not retrieve hostelBedspaces');
         console.log(data.message);
       }
     });
   }
 
-  getFees() {
-    this.fees.recordRetrieve().then(data => {
+  getHostelRooms() {
+    this.hostelRooms.recordRetrieve().then(data => {
       if (data.success) {
-        this.feeOptions = data.payload.map(item => ({id: item.id, text: item.amount}));
-        console.log('List of fees  ================ \n' + JSON.stringify(this.feeOptions) );
+        this.hostelRoomOptions = data.payload.map(item => ({id: item.id, text: item.code}));
+        console.log('List of feesPayments  ================ \n' + JSON.stringify(this.hostelRoomOptions) );
       } else {
-        this.showNotification('Could not retrieve fees');
+        this.showNotification('Could not retrieve feesPayments');
         console.log(data.message);
       }
     });
@@ -81,7 +81,7 @@ export class HostelAddComponent implements OnInit {
     }
     try {
       console.log(payload);
-      this.hostels.recordCreate(payload).then((res: ApiResponse) => {
+      this.hostelBedspaces.recordCreate(payload).then((res: ApiResponse) => {
           console.log(res);
         if (res.success) {
           this.goToDetail(res.payload);
@@ -97,12 +97,12 @@ export class HostelAddComponent implements OnInit {
   }
 
   goToDetail(record: any): void {
-    this.router.navigate([`hostel/detail/${record.id}`]);
+    this.router.navigate([`hostel-bedspace/detail/${record.id}`]);
     return;
   }
 
   goToEdit(record: any): void {
-    this.router.navigate([`hostel/edit/${record.id}`]);
+    this.router.navigate([`hostel-bedspace/edit/${record.id}`]);
     return;
   }
 

@@ -52,7 +52,7 @@ export class HostelAllocationAddComponent implements OnInit {
   getStudents() {
     this.students.recordRetrieve().then(data => {
       if (data.success) {
-        this.studentOptions = data.payload.map(item => ({id: item.id, text: item.surname + ' ' + item.other_name}));
+        this.studentOptions = data.payload.map(item => ({id: item.id, text: item.surname + ' ' + item.given_name}));
         console.log('List of hostelAllocations  ================ \n' + JSON.stringify(this.studentOptions) );
       } else {
         this.showNotification('Could not retrieve hostelAllocations');
@@ -75,7 +75,7 @@ export class HostelAllocationAddComponent implements OnInit {
   getHostelBedspaces() {
     this.hostelBedspaces.recordRetrieve().then(data => {
       if (data.success) {
-        this.hostelBedspaceOptions = data.payload.map(item => ({id: item.id, text: item.amount}));
+        this.hostelBedspaceOptions = data.payload.map(item => ({id: item.id, text: item.code}));
         console.log('List of feesPayments  ================ \n' + JSON.stringify(this.hostelBedspaceOptions) );
       } else {
         this.showNotification('Could not retrieve feesPayments');

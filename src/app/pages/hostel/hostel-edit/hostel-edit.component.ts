@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SelectOption, ApiResponse, Fee, County, Hostel } from '../../../models';
 import { Fees, Counties, Hostels } from '../../../providers';
-import { deepPropsExist } from '../../../helpers';
+import { deepPropsExist, isEqual } from '../../../helpers';
 
 @Component({
   selector: 'app-hostel-edit',
@@ -13,31 +13,59 @@ import { deepPropsExist } from '../../../helpers';
 })
 export class HostelEditComponent implements OnInit {
 
-  page_name = 'Edit Hostel';
-  loading = false;
-  editForm: FormGroup;
-  record: Hostel;
-  hostels: Hostels;
-  feeRecords: Array<Fee>;
-  feeOptions: SelectOption;
+  @Input() record: Hostel | null;
+  @Input() formType: string;
+  @Input() feeRecords: Array<Fee>;
+  @Output() returnResponse: EventEmitter<any> = new EventEmitter();
+  prevStaffRecords: Array<Fee>;
+  prevRecords: Hostel | null;
+  feeOptions: Array<SelectOption>;
   countyRecords: Array<County>;
   countyOptions: SelectOption;
-  router: Router;
+  editForm: FormGroup;
+  loading = false;
+  router : Router;
 
   constructor(private _fb: FormBuilder,
-              private fees: Fees,
-              private counties: Counties) {
-                this.feeRecords = this.fees.query();
-                this.countyRecords = this.counties.query();
+              private hostels: Hostels,
+              ) {
+                
               }
 
   ngOnInit() {
-    this.createForm();
-    this.setForm();
+    this.updateForm();
   }
-  createForm() {
+  ngDoCheck() {
+    if (!isEqual(this.record, this.prevRecords)) {
+      this.prevRecords = this.record;
+      this.setForm();
+    }
+  }
+  ngOnChanges() {
+    if(!isEqual(this.feeRecords, this.prevStaffRecords)) {
+      this.prevStaffRecords = [...this.feeRecords];
+      this.getFeeOptions();
+    }
+  }
+  async onSubmit() {
+    const payload  = this.editForm.value;
+    try {
+      const result = await this.hostels.recordUpdate(this.record, payload);
+      if (result.success) {
+        this.returnResponse.emit({message: 'This subject has been updated', status: 'success'});
+        // this.notify.showNotification('This subject has been updated', 'success');
+      } else {
+        this.returnResponse.emit({message: result.message, status: 'danger'});
+        // this.notify.showNotification(result.message, 'danger');
+      }
+    } catch (error) {
+      this.returnResponse.emit({message: error, status: 'danger'});
+      // this.notify.showNotification(error, 'danger');
+    }
+  }
+  updateForm() {
     this.editForm = this._fb.group({
-      block: [''],
+      block: ['', Validators.required],
       hall: [''],
       hostel_fees: [''],
       status: [''],
@@ -59,33 +87,17 @@ export class HostelEditComponent implements OnInit {
     });
   }
 
-  async onSubmit() {
-    this.loading = true;
-    const payload = this.editForm.value;
-    console.log(payload);
-    if (this.editForm.invalid) {
-      console.log('Invalid form! Please fill all the required* inputs.');
-      // this.showNotification('Invalid form! Please fill all the required* inputs.');
-      this.loading = false;
-      return;
-    }
-    try {
-      console.log(payload);
-      this.hostels.recordCreate(payload).then((res: ApiResponse) => {
-          console.log(res);
-          if (res.success) {
-          this.goToDetail(res.payload);
-        } else {
-          console.log(res.message);
-          // this.showNotification(res.message);
-        }
-      }, (err) => console.log(err.message));
-    } catch (error) {
-      // this.showNotification(error.message);
-    }
-    this.loading = false;
-    return;
+  getFeeOptions() {
+    this.feeOptions = this.feeRecords.map(options => (
+      {
+        id: options.id,
+        text: `${options.amount} ${options.type}`
+      }
+    ));
+    console.log(this.feeOptions);
   }
+
+
 
   goToDetail(record: any): void {
     this.router.navigate([`hostel/detail/${record.id}`]);
@@ -97,3 +109,4 @@ export class HostelEditComponent implements OnInit {
   }
 
 }
+

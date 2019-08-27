@@ -60,9 +60,9 @@ export class AdmissionAddComponent implements OnInit {
   // ====================  All Methods to load external links for Object IDs  ======================= //
   // get admissions for the select box
   getStates() {
-    this.admissions.recordRetrieve().then(data => {
+    this.states.recordRetrieve().then(data => {
       if (data.success) {
-        this.stateOptions = data.payload.map(item => ({id: item.id, text: item.surname + ' ' + item.other_name}));
+        this.stateOptions = data.payload.map(item => ({id: item.id, text: item.name}));
         console.log('List of admissions  ================ \n' + JSON.stringify(this.stateOptions) );
       } else {
         this.showNotification('Could not retrieve admissions');
@@ -72,9 +72,9 @@ export class AdmissionAddComponent implements OnInit {
   }
 
   getCounties() {
-    this.admissions.recordRetrieve().then(data => {
+    this.counties.recordRetrieve().then(data => {
       if (data.success) {
-        this.countyOptions = data.payload.map(item => ({id: item.id, text: item.surname + ' ' + item.other_name}));
+        this.countyOptions = data.payload.map(item => ({id: item.id, text: item.name }));
         console.log('List of admissions  ================ \n' + JSON.stringify(this.countyOptions) );
       } else {
         this.showNotification('Could not retrieve admissions');
