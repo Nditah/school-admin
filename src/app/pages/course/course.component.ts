@@ -24,12 +24,15 @@ export class CourseComponent implements OnInit {
   sidebarView: string;
   activeSidebar = false;
   loading = false;
+  loadingRecords = false;
   addForm: FormGroup;
 
   constructor(private _fb: FormBuilder,
               public courses: Courses,
               public subjects: Subjects,
               public notify: NotificationService,) {
+                // console.log(typeof this.currentRecord + ' from constructor');
+                // this.loadingRecords = true;
                 this.currentRecords = this.courses.query();
                 this.subjectRecords = this.subjects.query();
               }
@@ -39,7 +42,11 @@ export class CourseComponent implements OnInit {
   }
 
   ngDoCheck() {
+    if (typeof this.currentRecords == 'object' && this.currentRecords.length >= 0) {
+      this.loadingRecords = false;
+    }
     if (!isEqual(this.currentRecords, this.prevCurrentRecords)) {
+      // this.loadingRecords = false;
       this.prevCurrentRecords = [...this.currentRecords];
     }
 
