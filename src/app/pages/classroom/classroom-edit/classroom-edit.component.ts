@@ -84,7 +84,7 @@ export class ClassroomEditComponent implements OnInit {
     this.classeOptions = this.classeRecords.map(options => (
       {
         id: options.id,
-        text: `${options.form_teacher} ${options.level}`
+        text: `${options.master} ${options.level}`
       }
     ));
     console.log(this.classeOptions);
