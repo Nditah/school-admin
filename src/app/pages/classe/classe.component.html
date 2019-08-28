@@ -1,3 +1,165 @@
-<p>
-  classe works!
-</p>
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <!-- <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group">
+            <button class="btn btn-primary" routerLink="/staff/add">
+              <i class="now-ui-icons ui-1_simple-add"></i> Add New Course
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header bg-primary">
+          <h4 class="card-title text-center">
+            Add a Class
+          </h4>
+        </div>
+        <div class="card-body">
+          <form action="" [formGroup]="addForm" (submit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-12">
+                <label for=""><strong>Name: </strong></label>
+                <input type="text" formControlName="name" id="name" class="form-control" #na style="border-radius: 0px">
+              </div>
+              <div class="col-md-12">
+                <label for=""><strong>Code: </strong></label>
+                <input type="text" formControlName="code" id="code" class="form-control" #na style="border-radius: 0px">
+              </div>
+              <div class="col-md-12">
+                  <label for=""><strong>School</strong></label>
+                  <select formControlName="subsidiary" id="subsidiary" class="form-control" > <!-- (change)="onChange($event, na.value)" -->
+                    <option value="CRECHE">CRECHE</option> 
+                    <option value="NURSERY">NURSERY</option>
+                    <option value="PRIMARY">PRIMARY</option>
+                    <option value="SECONDARY">SECONDARY</option>
+                  </select>
+                </div>
+              <div class="col-md-12">
+                <label for=""><strong>Level: </strong></label>
+                <input type="text" formControlName="level" id="level" class="form-control" #na style="border-radius: 0px">
+              </div>
+              <div class="col-md-12">
+                <label for=""><strong>Form Teacher</strong></label>
+                <appanalyst-select
+                    [items]="staffOptions"
+                    formControlName="master"
+                    bindValue="id"
+                    bindLabel="text"
+                    placeholder="Select Teacher"
+                  >
+                  </appanalyst-select>
+              </div>
+              <div class="col-md-12">
+                <label for=""><strong>Prefect</strong></label>
+                <appanalyst-select
+                    [items]="studentOptions"
+                    formControlName="prefect"
+                    bindValue="id"
+                    bindLabel="text"
+                    placeholder="Select Prefect"
+                  >
+                  </appanalyst-select>
+              </div>
+              <div class="col-md-12">
+                <label for=""><strong>Classroom: </strong></label>
+                <input type="text" formControlName="classroom" id="classroom" class="form-control" #na style="border-radius: 0px">
+              </div>
+              <div class="col-md-12">
+                <label for=""><strong>Category: </strong></label>
+                <input type="text" formControlName="category" id="category" class="form-control" #na style="border-radius: 0px">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <button [disabled]="addForm.invalid || loading" class="btn btn-primary btn-block">
+                  Submit <span *ngIf="loading" class="fa fa-gear spin"> </span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">{{page_name}}</h4>
+        </div>
+        <div class="card-body">
+
+          <!-- <app-advance-table *ngIf="currentRecords.length > 0"> -->
+          <app-advance-table *ngIf="currentRecords.length > 0">
+            <thead class="text-primary">
+            <tr>
+              <th class="text-left">SN</th>
+              <th>Name</th>
+              <th>Code</th>
+              <th>School</th>
+              <th class="text-right">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr  *ngFor="let record of currentRecords; let i = index">
+              <td>{{ i + 1 }}</td>
+                  <td>{{record.name.toUpperCase()}}</td>
+                  <td>{{ record.code }}</td>
+                  <td>{{ record.subsidiary || '-' }}</td>
+              <td class="td-actions text-right">
+                <div class="btn-group btn-group-sm">
+                  <button type="button" class="btn btn-primary btn-sm btn-simple">
+                    <i class="now-ui-icons loader_gear"></i>
+                  </button>
+                  <div ngbDropdown class="dropdown btn-group" placement="bottom-right">
+                    <button class="btn btn-primary btn-sm dropdown-toggle-split" ngbDropdownToggle></button>
+                    <div ngbDropdownMenu>
+                      <!-- <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="goToDetail(record)"> -->
+                      <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="openSidebar('view', 'view', record)">
+                        <i class="now-ui-icons tech_tv"></i> View Detail
+                      </a>
+                      <!-- <a class="dropdown-item text-info" href="javascript:void(0)" (click)="goToEdit(record)"> -->
+                      <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="openSidebar('form', 'edit', record)">
+                        <i class="now-ui-icons ui-2_settings-90"></i> Edit Record
+                      </a>
+                      <!-- <a class="dropdown-item text-danger" href="javascript:void(0)" (click)="removeRecord(record)"> -->
+                      <a class="dropdown-item text-primary" href="javascript:void(0)">
+                        <i class="now-ui-icons ui-1_simple-remove"></i> Remove
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            </tbody>
+          </app-advance-table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-right-sidebar [heading]="sidebarHeading" [zIndex]="1030" [activeSidebar]="activeSidebar" (closeSidebar)="closeSidebar($event)">
+  <div [ngSwitch]="sidebarView">
+    <div *ngSwitchCase="'form'">
+      <app-classe-edit
+      [record]="currentRecord"
+      [formType]="sidebarContent"
+      [staffRecords]="staffRecords"
+      [studentRecords]= "studentRecords"
+      (returnResponse)="returnResponse($event)">
+      </app-classe-edit>
+    </div>
+    <div *ngSwitchCase="'view'">
+      <app-classe-detail [record]="currentRecord"></app-classe-detail>
+    </div>
+  </div>
+</app-right-sidebar>
+
