@@ -22,7 +22,7 @@ export class SubjectEditComponent implements OnInit {
   loading = false;
 
   constructor(public _fb: FormBuilder,
-              private subjects: Subjects,) {
+              private subjects: Subjects, ) {
    }
 
   ngOnInit() {
@@ -37,7 +37,7 @@ export class SubjectEditComponent implements OnInit {
   }
 
   ngOnChanges() {
-    if(!isEqual(this.staffRecords, this.prevStaffRecords)) {
+    if (!isEqual(this.staffRecords, this.prevStaffRecords)) {
       this.prevStaffRecords = [...this.staffRecords];
       this.getStaffOptions();
     }

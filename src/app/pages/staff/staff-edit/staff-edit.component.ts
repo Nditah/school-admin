@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SelectOption, ApiResponse, State, County, Staff } from '../../../models';
-import { States, Counties, Staffs } from 'src/app/providers';
-import { deepPropsExist } from 'src/app/helpers';
+import { States, Counties, Staffs } from '../../../providers';
+import { deepPropsExist } from '../../../helpers';
+import { NotificationService } from '../../../services';
 
 @Component({
   selector: 'app-staff-edit',
@@ -13,10 +14,12 @@ import { deepPropsExist } from 'src/app/helpers';
 })
 export class StaffEditComponent implements OnInit {
 
+  @Input() currentForm: string;
   page_name = 'Edit Staff';
   loading = false;
   editForm: FormGroup;
-  record: Staff;
+  @Input() formType: string;
+  @Input() record: Staff;
   staffs: Staffs;
   stateRecords: Array<State>;
   stateOptions: SelectOption;
@@ -25,15 +28,16 @@ export class StaffEditComponent implements OnInit {
   router: Router;
 
   constructor(private _fb: FormBuilder,
+              private notify: NotificationService,
               private states: States,
               private counties: Counties) {
                 this.stateRecords = this.states.query();
                 this.countyRecords = this.counties.query();
-                this.setForm();
               }
 
   ngOnInit() {
     this.createForm();
+    this.setForm();
 
   }
   createForm() {
@@ -130,7 +134,7 @@ export class StaffEditComponent implements OnInit {
     console.log(payload);
     if (this.editForm.invalid) {
       console.log('Invalid form! Please fill all the required* inputs.');
-      // this.showNotification('Invalid form! Please fill all the required* inputs.');
+      this.notify.showNotification('Invalid form! Please fill all the required* inputs.');
       this.loading = false;
       return;
     }
@@ -142,11 +146,11 @@ export class StaffEditComponent implements OnInit {
           this.goToDetail(res.payload);
         } else {
           console.log(res.message);
-          // this.showNotification(res.message);
+          this.notify.showNotification(res.message);
         }
       }, (err) => console.log(err.message));
     } catch (error) {
-      // this.showNotification(error.message);
+      this.notify.showNotification(error.message, 'danger');
     }
     this.loading = false;
     return;
