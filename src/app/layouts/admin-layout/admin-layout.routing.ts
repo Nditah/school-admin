@@ -71,6 +71,11 @@ import { HostelBedspaceAddComponent } from '../../pages/hostel-bedspace/hostel-b
 import { HostelBedspaceEditComponent } from '../../pages/hostel-bedspace/hostel-bedspace-edit/hostel-bedspace-edit.component';
 import { HostelBedspaceDetailComponent } from '../../pages/hostel-bedspace/hostel-bedspace-detail/hostel-bedspace-detail.component';
 
+import { ClassroomComponent } from 'src/app/pages/classroom/classroom.component';
+import { ClassroomAddComponent } from 'src/app/pages/classroom/classroom-add/classroom-add.component';
+import { ClassroomDetailComponent } from 'src/app/pages/classroom/classroom-detail/classroom-detail.component';
+import { ClassroomEditComponent } from 'src/app/pages/classroom/classroom-edit/classroom-edit.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -175,6 +180,12 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'hostel-bedspace/add' ,                 component: HostelBedspaceAddComponent,             canActivate: [AuthGuard] },
     { path: 'hostel-bedspace/detail/:id' ,          component: HostelBedspaceDetailComponent,          canActivate: [AuthGuard] },
     { path: 'hostel-bedspace/edit/:id' ,            component: HostelBedspaceEditComponent,            canActivate: [AuthGuard] },
+  
+    // Class Room
+    { path: 'classroom' ,                     component: ClassroomComponent,            canActivate: [AuthGuard] },
+    { path: 'classroom/add',                  component: ClassroomAddComponent,         canActivate: [AuthGuard] },
+    { path: 'classroom/detail/:id' ,          component: ClassroomDetailComponent,          canActivate: [AuthGuard] },
+    { path: 'classroom/edit/:id' ,            component: ClassroomEditComponent,            canActivate: [AuthGuard] },
 
    
   ];
