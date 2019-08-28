@@ -29,7 +29,7 @@ export class HostelEditComponent implements OnInit {
   constructor(private _fb: FormBuilder,
               private hostels: Hostels,
               ) {
-                
+
               }
 
   ngOnInit() {
@@ -71,7 +71,7 @@ export class HostelEditComponent implements OnInit {
       status: [''],
       description: [''],
       hostel_rooms: [''],
-      
+
     });
   }
 
