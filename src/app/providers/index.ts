@@ -22,3 +22,4 @@ export { Fees } from './fees/fees';
 export { HostelRooms } from './hostel-rooms/hostel-rooms';
 export { HostelAllocations } from './hostel-allocations/hostel-allocations';
 export { HostelBedspaces } from './hostel-bedspaces/hostel-bedspaces';
+export { Classrooms } from './classrooms/classrooms';

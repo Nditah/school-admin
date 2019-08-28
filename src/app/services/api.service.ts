@@ -744,4 +744,31 @@ export class ApiService {
         catchError(this.handleError)
       );
   }
+
+  // /////////////////////////////////
+  // ----------CLASS ROOM-------------//
+  // /////////////////////////////////
+
+  getClassroom(path): Observable<any> {
+    const url = `${this.env.API_URL}/class-rooms${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postClassroom(data): Observable<any> {
+    const url = `${this.env.API_URL}/class-rooms`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateClassroom(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/class-rooms/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
 }
