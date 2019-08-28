@@ -7,7 +7,7 @@
         <div class="card-body">
           <div class="form-group">
               <!-- <button class="btn btn-primary" routerLink="/staff/add"> -->
-            <button class="btn btn-primary" (click)="openSidebar('form','add', null)">
+            <button class="btn btn-primary" (click)="openSidebar('add','add', null)">
                   <i class="now-ui-icons ui-1_simple-add"></i> Add New Record
             </button>
            
@@ -78,7 +78,7 @@
 
 <app-right-sidebar [heading]="sidebarHeading" [zIndex]="1030" [activeSidebar]="activeSidebar" (closeSidebar)="closeSidebar($event)">
   <div [ngSwitch]="sidebarView">
-      <div *ngSwitchCase="'form'">
+      <div *ngSwitchCase="'add'">
           <app-office-add 
             [record]="currentRecord" 
             [formType]="sidebarContent"
