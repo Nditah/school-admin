@@ -1,10 +1,16 @@
 import { Staff } from './staff';
+import { Student } from './student';
 
 export class Classe {
     id: string;
+    name: string;
+    code: string;
     subsidiary: string;
     level: string;
-    form_teacher: Staff;
+    master: Staff;
+    prefect: Student;
+    classroom: any;
+    category: any;
     created_by: Staff;
     updated_by: Staff;
 
@@ -19,11 +25,15 @@ export class Classe {
 }
 
 export interface Classe {
- //   [prop: string]: any;
     id: string;
+    name: string;
+    code: string;
     subsidiary: string;
     level: string;
-    form_teacher: Staff;
+    master: Staff;
+    prefect: Student;
+    classroom: any;
+    category: any;
     created_by: Staff;
     updated_by: Staff;
     }

@@ -1,3 +1,27 @@
-<p>
-  classe-detail works!
-</p>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Class Detail</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary"><th>Property</th><th>Value</th></thead>
+                  <tbody>
+                    <tr><th>Name : </th><td>{{ record.name }}</td></tr>
+                    <tr><th>Code : </th><td>{{ record.code }}</td></tr>
+                    <tr><th>School : </th><td>{{ record.subsidiary }}</td></tr>
+                    <tr><th>Level : </th><td>{{ record.level }}</td></tr>
+                    <tr><th>Form Teacher : </th><td>{{ record.master.surname }} {{ record.master.given_name }}</td></tr>
+                    <tr><th>Prefect : </th><td>{{ record.prefect }}</td></tr>
+                    <tr><th>Classroom : </th><td>{{ record.classroom }}</td></tr>
+                    <tr><th>Category : </th><td>{{ record.category }}</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

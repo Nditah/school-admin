@@ -3,7 +3,7 @@ import { Subject, Staff, SelectOption, ApiResponse } from '../../models';
 import { Subjects, Staffs } from '../../providers';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 // import { ToastrService } from 'ngx-toastr';
-import { isEqual } from 'src/app/helpers';
+import { isEqual } from '../../helpers';
 import { NotificationService } from '../../services';
 
 @Component({
