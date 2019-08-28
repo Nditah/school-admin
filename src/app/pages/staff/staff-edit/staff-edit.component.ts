@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -15,6 +15,7 @@ import { NotificationService } from '../../../services';
 export class StaffEditComponent implements OnInit {
 
   @Input() currentForm: string;
+  @Output() returnResponse: EventEmitter<any> = new EventEmitter();
   page_name = 'Edit Staff';
   loading = false;
   editForm: FormGroup;
@@ -134,32 +135,50 @@ export class StaffEditComponent implements OnInit {
     });
   }
 
+  // async onSubmit() {
+  //   this.loading = true;
+  //   const payload = this.editForm.value;
+  //   console.log(payload);
+  //   if (this.editForm.invalid) {
+  //     console.log('Invalid form! Please fill all the required* inputs.');
+  //     this.notify.showNotification('Invalid form! Please fill all the required* inputs.');
+  //     this.loading = false;
+  //     return;
+  //   }
+  //   try {
+  //     console.log(payload);
+  //     this.staffs.recordUpdate(this.record, payload).then((res: ApiResponse) => {
+  //         console.log(res);
+  //         if (res.success) {
+  //         this.goToDetail(res.payload);
+  //       } else {
+  //         console.log(res.message);
+  //         this.notify.showNotification(res.message);
+  //       }
+  //     }, (err) => console.log(err.message));
+  //   } catch (error) {
+  //     this.notify.showNotification(error.message, 'danger');
+  //   }
+  //   this.loading = false;
+  //   return;
+  // }
+
   async onSubmit() {
-    this.loading = true;
-    const payload = this.editForm.value;
-    console.log(payload);
-    if (this.editForm.invalid) {
-      console.log('Invalid form! Please fill all the required* inputs.');
-      this.notify.showNotification('Invalid form! Please fill all the required* inputs.');
-      this.loading = false;
-      return;
-    }
+    const payload  = this.editForm.value;
     try {
-      console.log(payload);
-      this.staffs.recordCreate(payload).then((res: ApiResponse) => {
-          console.log(res);
-          if (res.success) {
-          this.goToDetail(res.payload);
-        } else {
-          console.log(res.message);
-          this.notify.showNotification(res.message);
-        }
-      }, (err) => console.log(err.message));
+      const result = await this.staffs.recordUpdate(this.record, payload);
+      if (result.success) {
+        this.returnResponse.emit({message: 'Record successfully updated', status: 'success'});
+        // this.notify.showNotification('This subject has been updated', 'success');
+      } else {
+        this.returnResponse.emit({message: result.message, status: 'danger'});
+        this.goToDetail(result.payload);
+        // this.notify.showNotification(result.message, 'danger');
+      }
     } catch (error) {
-      this.notify.showNotification(error.message, 'danger');
+      this.returnResponse.emit({message: error, status: 'danger'});
+      // this.notify.showNotification(error, 'danger');
     }
-    this.loading = false;
-    return;
   }
 
   goToDetail(record: any): void {
