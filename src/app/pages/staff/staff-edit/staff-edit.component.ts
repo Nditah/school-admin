@@ -18,9 +18,7 @@ export class StaffEditComponent implements OnInit {
   page_name = 'Edit Staff';
   loading = false;
   editForm: FormGroup;
-  @Input() formType: string;
-  @Input() record: Staff;
-  staffs: Staffs;
+  record: Staff;
   stateRecords: Array<State>;
   stateOptions: SelectOption;
   countyRecords: Array<County>;
@@ -30,7 +28,16 @@ export class StaffEditComponent implements OnInit {
   constructor(private _fb: FormBuilder,
               private notify: NotificationService,
               private states: States,
-              private counties: Counties) {
+              private activatedRoute: ActivatedRoute,
+              private counties: Counties,
+              private staffs: Staffs) {
+                const id = this.activatedRoute.snapshot.paramMap.get('id');
+                const record = this.staffs.query({id})[0];
+                if (!!record) {
+                  this.record = record;
+                } else {
+                  this.goBack();
+                }
                 this.stateRecords = this.states.query();
                 this.countyRecords = this.counties.query();
               }
@@ -38,7 +45,6 @@ export class StaffEditComponent implements OnInit {
   ngOnInit() {
     this.createForm();
     this.setForm();
-
   }
   createForm() {
     this.editForm = this._fb.group({

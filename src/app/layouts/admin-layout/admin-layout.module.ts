@@ -88,6 +88,10 @@ import { HostelRoomComponent } from 'src/app/pages/hostel-room/hostel-room.compo
 import { HostelRoomAddComponent } from 'src/app/pages/hostel-room/hostel-room-add/hostel-room-add.component';
 import { HostelRoomDetailComponent } from 'src/app/pages/hostel-room/hostel-room-detail/hostel-room-detail.component';
 import { HostelRoomEditComponent } from 'src/app/pages/hostel-room/hostel-room-edit/hostel-room-edit.component';
+import { HostelBedspaceComponent } from 'src/app/pages/hostel-bedspace/hostel-bedspace.component';
+import { HostelBedspaceAddComponent } from 'src/app/pages/hostel-bedspace/hostel-bedspace-add/hostel-bedspace-add.component';
+import { HostelBedspaceDetailComponent } from 'src/app/pages/hostel-bedspace/hostel-bedspace-detail/hostel-bedspace-detail.component';
+import { HostelBedspaceEditComponent } from 'src/app/pages/hostel-bedspace/hostel-bedspace-edit/hostel-bedspace-edit.component';
 
 
 @NgModule({
@@ -141,7 +145,8 @@ import { HostelRoomEditComponent } from 'src/app/pages/hostel-room/hostel-room-e
     SmsComponent, SmsAddComponent, SmsDetailComponent, SmsEditComponent,
     FeeComponent, FeeAddComponent, FeeEditComponent, FeeDetailComponent,
     HostelAllocationComponent, HostelAllocationAddComponent, HostelAllocationDetailComponent, HostelAllocationEditComponent,
-    HostelRoomComponent, HostelRoomAddComponent, HostelRoomDetailComponent, HostelRoomEditComponent
+    HostelRoomComponent, HostelRoomAddComponent, HostelRoomDetailComponent, HostelRoomEditComponent,
+    HostelBedspaceComponent, HostelBedspaceAddComponent, HostelBedspaceDetailComponent, HostelBedspaceEditComponent
   ]
 })
 

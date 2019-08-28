@@ -66,6 +66,11 @@ import { HostelRoomAddComponent } from '../../pages/hostel-room/hostel-room-add/
 import { HostelRoomEditComponent } from '../../pages/hostel-room/hostel-room-edit/hostel-room-edit.component';
 import { HostelRoomDetailComponent } from '../../pages/hostel-room/hostel-room-detail/hostel-room-detail.component';
 
+import { HostelBedspaceComponent } from '../../pages/hostel-bedspace/hostel-bedspace.component';
+import { HostelBedspaceAddComponent } from '../../pages/hostel-bedspace/hostel-bedspace-add/hostel-bedspace-add.component';
+import { HostelBedspaceEditComponent } from '../../pages/hostel-bedspace/hostel-bedspace-edit/hostel-bedspace-edit.component';
+import { HostelBedspaceDetailComponent } from '../../pages/hostel-bedspace/hostel-bedspace-detail/hostel-bedspace-detail.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -164,6 +169,12 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'hostel-room/add' ,                 component: HostelRoomAddComponent,             canActivate: [AuthGuard] },
     { path: 'hostel-room/detail/:id' ,          component: HostelRoomDetailComponent,          canActivate: [AuthGuard] },
     { path: 'hostel-room/edit/:id' ,            component: HostelRoomEditComponent,            canActivate: [AuthGuard] },
+
+    // Hostel Bedspaces
+    { path: 'hostel-bedspace' ,                     component: HostelBedspaceComponent,                canActivate: [AuthGuard] },
+    { path: 'hostel-bedspace/add' ,                 component: HostelBedspaceAddComponent,             canActivate: [AuthGuard] },
+    { path: 'hostel-bedspace/detail/:id' ,          component: HostelBedspaceDetailComponent,          canActivate: [AuthGuard] },
+    { path: 'hostel-bedspace/edit/:id' ,            component: HostelBedspaceEditComponent,            canActivate: [AuthGuard] },
 
    
   ];
