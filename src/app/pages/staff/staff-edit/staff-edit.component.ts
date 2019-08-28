@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { SelectOption, ApiResponse, State, County, Staff } from '../../../models';
-import { States, Counties, Staffs } from 'src/app/providers';
+import { States, Counties, Staffs } from '../../../providers';
 import { deepPropsExist } from 'src/app/helpers';
 
 @Component({
@@ -17,7 +17,6 @@ export class StaffEditComponent implements OnInit {
   loading = false;
   editForm: FormGroup;
   record: Staff;
-  staffs: Staffs;
   stateRecords: Array<State>;
   stateOptions: SelectOption;
   countyRecords: Array<County>;
@@ -26,15 +25,23 @@ export class StaffEditComponent implements OnInit {
 
   constructor(private _fb: FormBuilder,
               private states: States,
-              private counties: Counties) {
+              private activatedRoute: ActivatedRoute,
+              private counties: Counties,
+              private staffs: Staffs) {
+                const id = this.activatedRoute.snapshot.paramMap.get('id');
+                const record = this.staffs.query({id})[0];
+                if (!!record) {
+                  this.record = record;
+                } else {
+                  this.goBack();
+                }
                 this.stateRecords = this.states.query();
                 this.countyRecords = this.counties.query();
-                this.setForm();
               }
 
   ngOnInit() {
     this.createForm();
-
+    this.setForm();
   }
   createForm() {
     this.editForm = this._fb.group({

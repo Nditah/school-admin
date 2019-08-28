@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Staff, ApiResponse } from '../../models';
@@ -14,6 +14,7 @@ import { NotificationService } from '../../services';
 export class StaffComponent implements OnInit {
 
   searchForm: FormGroup;
+  record: Staff;
   currentRecords: Array<Staff>;
   loading = false;
   activeSidebar = false;
@@ -60,6 +61,10 @@ export class StaffComponent implements OnInit {
 
   goToEdit(record: any): void {
     this.router.navigate([`staff/edit/${record.id}`]);
+  }
+
+  goBack() {
+    window.history.back();
   }
 
   removeRecord(record) {
