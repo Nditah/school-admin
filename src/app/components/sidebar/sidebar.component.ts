@@ -12,6 +12,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/example',               title: 'Example',                     icon: 'users_single-02',                class: '', sub: null },
     { path: '/attendance',            title: 'Attendance',                  icon: 'users_single-02',                class: '', sub: null },
     { path: '/book',                  title: 'Book',                        icon: 'users_single-02',                class: '', sub: null },
+    { path: '/classroom',             title: 'Class Room',                  icon: 'business_bank',                class: '', sub: null },
     { path: '/staff',                 title: 'Staff',                       icon: 'users_single-02',                class: '', sub: null },
     { path: '/student',               title: 'Student',                     icon: 'users_single-02',                class: '', sub: null },
     { path: '/parent',                title: 'Parent',                      icon: 'users_single-02',                class: '', sub: null },
@@ -30,7 +31,7 @@ export const ROUTES: RouteInfo[] = [
       { path: '/hostel-room',           title: 'Hostel Room',                  icon: 'location_world',                 class: '' },
     ]},
     { path: '/sms',                   title: 'SMS',                         icon: 'users_single-02',                  class: '', sub: null },
-    { path: '/Office',                title: 'Office',                       icon: 'business_bank',                  class: '', sub: null },
+    { path: '/office',                title: 'Office',                       icon: 'business_bank',                  class: '', sub: null },
     { path: '/setting',               title: 'Setting',                     icon: 'business_bank',                  class: '', sub: null },
 ];
 

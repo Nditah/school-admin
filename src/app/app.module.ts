@@ -19,7 +19,7 @@ import { AuthService, ApiService, AuthGuard, EnvService, JwtInterceptor, ErrorIn
 import {
   Admissions, Staffs, Counties, States, Students, Subjects, Marksheets,
   Offices, Smss, Notifications, Settings, Classes, Courses,
-  Hostels, Attendances, Fees, HostelAllocations, HostelBedspaces, FeesPayments, HostelRooms, Parents,
+  Hostels, Attendances, Fees, HostelAllocations, HostelBedspaces, FeesPayments, HostelRooms, Parents, Classrooms,
 } from './providers';
 import { NotificationService } from './services/notification.service';
 
@@ -57,7 +57,7 @@ import { NotificationService } from './services/notification.service';
     { provide: LocationStrategy, useClass: HashLocationStrategy },
     Admissions, Staffs, Counties, States, Students, Subjects, Marksheets, Attendances,
     Staffs, Counties, States, Students, Subjects, Offices, Smss, Notifications, Settings, Classes, Hostels,
-    Courses, Fees, HostelAllocations, HostelBedspaces, FeesPayments, HostelRooms, Parents,
+    Courses, Fees, HostelAllocations, HostelBedspaces, FeesPayments, HostelRooms, Parents, Classrooms,
   ],
   bootstrap: [AppComponent]
 })

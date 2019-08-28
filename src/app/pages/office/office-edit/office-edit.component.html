@@ -1,3 +1,104 @@
-<p>
-  office-edit works!
-</p>
+<div class="card">
+    <div class="card-body">
+      <form action="" [formGroup]="editForm" (submit)="onSubmit()">
+
+
+        <div class="row">
+            
+            <div class="col-md-12">
+                <label for=""><strong>Name: </strong></label>
+                <input type="text" formControlName="name" id="name" class="form-control" #na style="border-radius: 0px">
+              </div>
+            <div class="col-md-12">
+                <label for=""><strong>Code: </strong></label>
+                <input type="text" class="form-control" formControlName="code" id="code" #na style="border-radius: 0px">
+            </div>
+            <div class="col-md-12">
+                <label for=""><strong>Email: </strong></label>
+                <input type="email" class="form-control" formControlName="email" id="email" #na style="border-radius: 0px">
+            </div>
+            <div class="col-md-12">
+                <label for=""><strong>Phone: </strong></label>
+                <input type="number" class="form-control" formControlName="phone" id="phone" #na style="border-radius: 0px">
+            </div>
+            <div class="col-md-12">
+                <label for=""><strong>Hierarchy: </strong></label>
+                <input type="text" class="form-control" formControlName="hierarchy" id="hierarchy" #na style="border-radius: 0px">
+            </div>
+      
+            <div class="col-md-12">
+                <label for=""><strong>Office Type: </strong></label>
+                <select formControlName="office_type" id="office_type" class="form-control">
+                  <option value="BOARD">BOARD</option>
+                  <option value="DEPARTMENT">DEPARTMENT</option>
+                  <option value="UNIT">UNIT</option>
+                </select>
+            </div>
+          </div>
+           
+              <div class="row">
+                  <div class="col-md-12">
+                      <label for=""><strong>Subsidiary</strong></label>
+                      <select formControlName="subsidiary" id="subsidiary" class="form-control"> 
+                        <option value="CRECHE">CRECHE</option>
+                        <option value="NURSERY">NURSERY</option>
+                        <option value="PRIMARY">PRIMARY</option>
+                        <option value="SECONDARY">SECONDARY</option>
+                      </select>
+                    </div>
+          
+              </div>
+          
+              <!-- <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <label for="head" class="control-label required"> <strong> Headed By *</strong></label>
+                    <appanalyst-select
+                            formControlName="head"
+                            placeholder="No Staff selected"
+                            [items]="staffOptions"
+                            bindValue="id"
+                            bindLabel="text"
+                            [valueSearchable]="false"
+                    ></appanalyst-select>
+                  </div>
+                </div>
+              </div>
+          
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <label for="assistant" class="control-label required"> <strong> Assistant *</strong></label>
+                    <appanalyst-select
+                            formControlName="assistant"
+                            placeholder="No Staff selected"
+                            [items]="staffOptions"
+                            bindValue="id"
+                            bindLabel="text"
+                            [valueSearchable]="false"
+                    ></appanalyst-select>
+                  </div>
+                </div>
+          
+                <div class="col-xs-12">
+                  <div class="form-group">
+                    <label for="assistant" class="control-label required"> <strong> Functions *</strong></label>
+                    <textarea formControlName="functions" id="functions" class="form-control" cols="30" rows="5">
+          
+                    </textarea>
+                  </div>
+                </div>
+          
+                
+              </div> -->
+        <div class="row">
+          <div class="col-md-12">
+            <button [disabled]="editForm.invalid || loading" class="btn btn-primary btn-block">
+              Submit <span *ngIf="loading" class="fa fa-gear spin"> </span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
