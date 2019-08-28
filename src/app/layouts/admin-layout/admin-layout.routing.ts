@@ -75,6 +75,10 @@ import { ClassroomComponent } from 'src/app/pages/classroom/classroom.component'
 import { ClassroomAddComponent } from 'src/app/pages/classroom/classroom-add/classroom-add.component';
 import { ClassroomDetailComponent } from 'src/app/pages/classroom/classroom-detail/classroom-detail.component';
 import { ClassroomEditComponent } from 'src/app/pages/classroom/classroom-edit/classroom-edit.component';
+import { OfficeComponent } from 'src/app/pages/office/office.component';
+import { OfficeAddComponent } from 'src/app/pages/office/office-add/office-add.component';
+import { OfficeDetailComponent } from 'src/app/pages/office/office-detail/office-detail.component';
+import { OfficeEditComponent } from 'src/app/pages/office/office-edit/office-edit.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -186,6 +190,12 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'classroom/add',                  component: ClassroomAddComponent,         canActivate: [AuthGuard] },
     { path: 'classroom/detail/:id' ,          component: ClassroomDetailComponent,          canActivate: [AuthGuard] },
     { path: 'classroom/edit/:id' ,            component: ClassroomEditComponent,            canActivate: [AuthGuard] },
+
+    // Office
+    { path: 'office' ,                     component: OfficeComponent,                canActivate: [AuthGuard] },
+    { path: 'office/add' ,                 component: OfficeAddComponent,             canActivate: [AuthGuard] },
+    { path: 'office/detail/:id' ,          component: OfficeDetailComponent,          canActivate: [AuthGuard] },
+    { path: 'office/edit/:id' ,            component: OfficeEditComponent,            canActivate: [AuthGuard] },
 
    
   ];

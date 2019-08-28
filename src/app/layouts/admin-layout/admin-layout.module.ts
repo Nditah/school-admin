@@ -137,7 +137,7 @@ import { ClassroomEditComponent } from 'src/app/pages/classroom/classroom-edit/c
 
     MarksheetComponent, MarksheetAddComponent, MarksheetDetailComponent, MarksheetEditComponent,
 
-    OfficeComponent,
+
     OfficeComponent, OfficeAddComponent, OfficeDetailComponent, OfficeEditComponent,
 
     HostelComponent, HostelEditComponent, HostelDetailComponent, HostelAddComponent,
@@ -151,7 +151,8 @@ import { ClassroomEditComponent } from 'src/app/pages/classroom/classroom-edit/c
     HostelAllocationComponent, HostelAllocationAddComponent, HostelAllocationDetailComponent, HostelAllocationEditComponent,
     HostelRoomComponent, HostelRoomAddComponent, HostelRoomDetailComponent, HostelRoomEditComponent,
     HostelBedspaceComponent, HostelBedspaceAddComponent, HostelBedspaceDetailComponent, HostelBedspaceEditComponent,
-    ClassroomComponent, ClassroomAddComponent, ClassroomDetailComponent, ClassroomEditComponent
+    ClassroomComponent, ClassroomAddComponent, ClassroomDetailComponent, ClassroomEditComponent,
+    
   ]
 })
 

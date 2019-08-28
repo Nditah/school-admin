@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Office } from '../../../models';
 
 @Component({
   selector: 'app-office-detail',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./office-detail.component.scss']
 })
 export class OfficeDetailComponent implements OnInit {
+  @Input() record: Office;
 
-  constructor() { }
+  constructor() {
+    console.log(this.record);
+  }
 
   ngOnInit() {
   }
