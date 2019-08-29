@@ -3,13 +3,13 @@
 // import { } from './';
 export class Report {
         id: string;
-        code: string;
         type: string;
-        name: string;
+        term: string;
+        cumulated: Array<T>;
         description: string;
         created_by: object;
         updated_by: object;
-        
+
     constructor(fields: any) {
         // tslint:disable-next-line: forin
             for (const f in fields) {
@@ -18,7 +18,7 @@ export class Report {
         }
     }
 
-    export interface Report {
+export interface Report {
         id: string;
         code: string;
         type: string;

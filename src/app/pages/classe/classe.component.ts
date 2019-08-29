@@ -14,7 +14,7 @@ export class ClasseComponent implements OnInit {
   searchForm: FormGroup;
   page_name = 'List of Classes';
   currentRecords: Array<Classe>;
-  loading: false;
+  loading = false;
   addForm: FormGroup;
   staffRecords: Array<Staff>;
   prevStaffRecords: Array<Staff>;
@@ -57,7 +57,6 @@ export class ClasseComponent implements OnInit {
   createForm() {
     this.addForm = this._fb.group({
       name: [''],
-      code: [''], // remove later
       subsidiary: [''],
       level: [''],
       master: [''],
@@ -68,6 +67,7 @@ export class ClasseComponent implements OnInit {
   }
 
   async onSubmit() {
+    this.loading = true;
     const payload = this.addForm.value;
     // let codeName;
     // if (payload.name.split(' ').length > 1) {
@@ -79,6 +79,35 @@ export class ClasseComponent implements OnInit {
     // const codeSubsidiary = payload.subsidiary.substring(0, 3).toUpperCase();
     // payload.code = codeName + codeSubsidiary;
     // console.log(payload);
+
+    let codeName;
+    // let codeSubNew;
+    // let codeLevelNew;
+    const codeSub = payload.subsidiary.substring(0, 3).toUpperCase();
+    const codeLevel = payload.level;
+    codeName = payload.name;
+    // if (codeSub === 'SECONDARY' && codeLevel <= 3) {
+    //     codeSubNew = 'JSS';
+    //   }
+        // switch (codeLevel) {
+        //   case 4:
+        //   codeLevelNew = 1;
+        //   break;
+        //   case 5:
+        //   codeLevelNew = 2;
+        //   break;
+        //   case 6:
+        //   codeLevelNew = 3;
+        //   break;
+        //   default:
+        //   // codeLevelNew = codeLevel;
+        //   break;
+        // }
+        // return codeLevelNew;
+
+
+    payload.code = codeSub + codeLevel + codeName;
+
     try {
       const results = await this.classes.recordCreate(payload);
       if (results.success) {
@@ -88,12 +117,14 @@ export class ClasseComponent implements OnInit {
             this.currentRecords = data.payload;
           }
         });
-        this.notify.showNotification('This class has been added', 'success');
+        this.notify.showNotification('This class has been created with class code ' + payload.code, 'success');
       } else {
         this.notify.showNotification(results.message, 'danger');
       }
     } catch (error) {
       this.notify.showNotification(error, 'danger');
+    } finally {
+      this.loading = false;
     }
   }
 
