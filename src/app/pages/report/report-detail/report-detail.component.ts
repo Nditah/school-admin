@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Report } from '../../../models';
 
 @Component({
   selector: 'app-report-detail',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input() record: Report;
+
+  constructor() {
+    console.log(this.record);
+  }
 
   ngOnInit() {
   }
