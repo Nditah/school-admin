@@ -1,3 +1,6 @@
+import { Student } from './student';
+import { Marksheet } from './marksheet';
+import { Staff } from './staff';
 
 // import { Staff } from './staff';
 // import { } from './';
@@ -5,10 +8,14 @@ export class Report {
         id: string;
         type: string;
         term: string;
-        cumulated: Array<T>;
-        description: string;
-        created_by: object;
-        updated_by: object;
+        cumulated: any;
+        student: Student;
+        marksheets: Array<Marksheet>;
+        evaluation: number;
+        total: number;
+        rank: number;
+        created_by: Staff;
+        updated_by: Staff;
 
     constructor(fields: any) {
         // tslint:disable-next-line: forin
@@ -19,11 +26,15 @@ export class Report {
     }
 
 export interface Report {
-        id: string;
-        code: string;
-        type: string;
-        name: string;
-        description: string;
-        created_by: object;
-        updated_by: object;
+    id: string;
+    type: string;
+    term: string;
+    cumulated: any;
+    student: Student;
+    marksheets: Array<Marksheet>;
+    evaluation: number;
+    total: number;
+    rank: number;
+    created_by: Staff;
+    updated_by: Staff;
     }

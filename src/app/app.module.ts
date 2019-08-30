@@ -44,8 +44,6 @@ import { NotificationService } from './services/notification.service';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-
-
   ],
   providers: [
     AuthService,

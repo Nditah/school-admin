@@ -34,17 +34,17 @@ import { AdmissionComponent } from '../../pages/admission/admission.component';
 import { AdmissionAddComponent } from '../../pages/admission/admission-add/admission-add.component';
 import { AdmissionDetailComponent } from '../../pages/admission/admission-detail/admission-detail.component';
 import { AdmissionEditComponent } from '../../pages/admission/admission-edit/admission-edit.component';
-import { FeesPaymentComponent } from 'src/app/pages/fees-payment/fees-payment.component';
-import { FeesTypeComponent } from 'src/app/pages/fees-type/fees-type.component';
-import { BookComponent } from 'src/app/pages/book/book.component';
-import { MarksheetComponent } from 'src/app/pages/marksheet/marksheet.component';
-import { AttendanceComponent } from 'src/app/pages/attendance/attendance.component';
-import { MarksheetAddComponent } from 'src/app/pages/marksheet/marksheet-add/marksheet-add.component';
-import { MarksheetEditComponent } from 'src/app/pages/marksheet/marksheet-edit/marksheet-edit.component';
-import { MarksheetDetailComponent } from 'src/app/pages/marksheet/marksheet-detail/marksheet-detail.component';
-import { AttendanceAddComponent } from 'src/app/pages/attendance/attendance-add/attendance-add.component';
-import { AttendanceDetailComponent } from 'src/app/pages/attendance/attendance-detail/attendance-detail.component';
-import { AttendanceEditComponent } from 'src/app/pages/attendance/attendance-edit/attendance-edit.component';
+import { FeesPaymentComponent } from '../../pages/fees-payment/fees-payment.component';
+import { FeesTypeComponent } from '../../pages/fees-type/fees-type.component';
+import { BookComponent } from '../../pages/book/book.component';
+import { MarksheetComponent } from '../../pages/marksheet/marksheet.component';
+import { AttendanceComponent } from '../../pages/attendance/attendance.component';
+import { MarksheetAddComponent } from '../../pages/marksheet/marksheet-add/marksheet-add.component';
+import { MarksheetEditComponent } from '../../pages/marksheet/marksheet-edit/marksheet-edit.component';
+import { MarksheetDetailComponent } from '../../pages/marksheet/marksheet-detail/marksheet-detail.component';
+import { AttendanceAddComponent } from '../../pages/attendance/attendance-add/attendance-add.component';
+import { AttendanceDetailComponent } from '../../pages/attendance/attendance-detail/attendance-detail.component';
+import { AttendanceEditComponent } from '../../pages/attendance/attendance-edit/attendance-edit.component';
 
 import { HostelComponent } from '../../pages/hostel/hostel.component';
 import { HostelAddComponent } from '../../pages/hostel/hostel-add/hostel-add.component';
@@ -57,7 +57,7 @@ import { HostelAllocationEditComponent } from '../../pages/hostel-allocation/hos
 import { HostelAllocationDetailComponent } from '../../pages/hostel-allocation/hostel-allocation-detail/hostel-allocation-detail.component';
 
 import { FeeComponent } from '../../pages/fee/fee.component';
-import { FeeAddComponent } from 'src/app/pages/fee/fee-add/fee-add.component';
+import { FeeAddComponent } from '../../pages/fee/fee-add/fee-add.component';
 import { FeeEditComponent } from '../../pages/fee/fee-edit/fee-edit.component';
 import { FeeDetailComponent } from '../../pages/fee/fee-detail/fee-detail.component';
 
@@ -71,14 +71,19 @@ import { HostelBedspaceAddComponent } from '../../pages/hostel-bedspace/hostel-b
 import { HostelBedspaceEditComponent } from '../../pages/hostel-bedspace/hostel-bedspace-edit/hostel-bedspace-edit.component';
 import { HostelBedspaceDetailComponent } from '../../pages/hostel-bedspace/hostel-bedspace-detail/hostel-bedspace-detail.component';
 
-import { ClassroomComponent } from 'src/app/pages/classroom/classroom.component';
-import { ClassroomAddComponent } from 'src/app/pages/classroom/classroom-add/classroom-add.component';
-import { ClassroomDetailComponent } from 'src/app/pages/classroom/classroom-detail/classroom-detail.component';
-import { ClassroomEditComponent } from 'src/app/pages/classroom/classroom-edit/classroom-edit.component';
-import { OfficeComponent } from 'src/app/pages/office/office.component';
-import { OfficeAddComponent } from 'src/app/pages/office/office-add/office-add.component';
-import { OfficeDetailComponent } from 'src/app/pages/office/office-detail/office-detail.component';
-import { OfficeEditComponent } from 'src/app/pages/office/office-edit/office-edit.component';
+import { ClassroomComponent } from '../../pages/classroom/classroom.component';
+import { ClassroomAddComponent } from '../../pages/classroom/classroom-add/classroom-add.component';
+import { ClassroomDetailComponent } from '../../pages/classroom/classroom-detail/classroom-detail.component';
+import { ClassroomEditComponent } from '../../pages/classroom/classroom-edit/classroom-edit.component';
+import { OfficeComponent } from '../../pages/office/office.component';
+import { OfficeAddComponent } from '../../pages/office/office-add/office-add.component';
+import { OfficeDetailComponent } from '../../pages/office/office-detail/office-detail.component';
+import { OfficeEditComponent } from '../../pages/office/office-edit/office-edit.component';
+import { ReportComponent } from '../../pages/report/report.component';
+// import { CanActivate } from '@angular/router/src/utils/preactivation';
+import { ReportAddComponent } from '../../pages/report/report-add/report-add.component';
+import { ReportDetailComponent } from '../../pages/report/report-detail/report-detail.component';
+import { ReportEditComponent } from '../../pages/report/report-edit/report-edit.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -131,30 +136,30 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'admission/add' ,                 component: AdmissionAddComponent,             canActivate: [AuthGuard] },
     { path: 'admission/detail/:id' ,          component: AdmissionDetailComponent,          canActivate: [AuthGuard] },
     { path: 'admission/edit/:id' ,            component: AdmissionEditComponent,            canActivate: [AuthGuard] },
-   
+
     // Fees payment
     { path: 'feespayment' ,                     component: FeesPaymentComponent,                canActivate: [AuthGuard] },
-    
-    //Fees type
+
+    // Fees type
     { path: 'feestype' ,                        component: FeesTypeComponent,             canActivate: [AuthGuard] },
-    
-    //Book
+
+    // Book
     { path: 'book' ,                          component: BookComponent,          canActivate: [AuthGuard] },
-    
-    //Marksheet
+
+    // Marksheet
     { path: 'marksheet' ,                    component: MarksheetComponent,            canActivate: [AuthGuard] },
     { path: 'marksheet/add' ,                 component: MarksheetAddComponent,             canActivate: [AuthGuard] },
     { path: 'marksheet/detail/:id' ,          component: MarksheetDetailComponent,          canActivate: [AuthGuard] },
     { path: 'marksheet/edit/:id' ,            component: MarksheetEditComponent,            canActivate: [AuthGuard] },
-   
-    //Attendance
+
+    // Attendance
     { path: 'attendance' ,                    component: AttendanceComponent,            canActivate: [AuthGuard] },
     { path: 'attendance/add' ,                 component: AttendanceAddComponent,             canActivate: [AuthGuard] },
     { path: 'attendance/detail/:id' ,          component: AttendanceDetailComponent,          canActivate: [AuthGuard] },
     { path: 'attendance/edit/:id' ,            component: AttendanceEditComponent,            canActivate: [AuthGuard] },
-   
 
-    //Hostel
+
+    // Hostel
     { path: 'hostel' ,                    component: HostelComponent,                 canActivate: [AuthGuard] },
     { path: 'hostel/add' ,                 component: HostelAddComponent,             canActivate: [AuthGuard] },
     { path: 'hostel/detail/:id' ,          component: HostelDetailComponent,          canActivate: [AuthGuard] },
@@ -165,7 +170,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'hostel-allocation/add' ,                 component: HostelAllocationAddComponent,             canActivate: [AuthGuard] },
     { path: 'hostel-allocation/detail/:id' ,          component: HostelAllocationDetailComponent,          canActivate: [AuthGuard] },
     { path: 'hostel-allocation/edit/:id' ,            component: HostelAllocationEditComponent,            canActivate: [AuthGuard] },
-
 
     // Fees
     { path: 'fee' ,                     component: FeeComponent,            canActivate: [AuthGuard] },
@@ -184,7 +188,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'hostel-bedspace/add' ,                 component: HostelBedspaceAddComponent,             canActivate: [AuthGuard] },
     { path: 'hostel-bedspace/detail/:id' ,          component: HostelBedspaceDetailComponent,          canActivate: [AuthGuard] },
     { path: 'hostel-bedspace/edit/:id' ,            component: HostelBedspaceEditComponent,            canActivate: [AuthGuard] },
-  
+
     // Class Room
     { path: 'classroom' ,                     component: ClassroomComponent,            canActivate: [AuthGuard] },
     { path: 'classroom/add',                  component: ClassroomAddComponent,         canActivate: [AuthGuard] },
@@ -197,5 +201,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'office/detail/:id' ,          component: OfficeDetailComponent,          canActivate: [AuthGuard] },
     { path: 'office/edit/:id' ,            component: OfficeEditComponent,            canActivate: [AuthGuard] },
 
-   
+    // Report
+    { path: 'report',                     component: ReportComponent,               canActivate: [AuthGuard] },
+    { path: 'report/add',                 component: ReportAddComponent,            canActivate: [AuthGuard] },
+    { path: 'report/detail/:id',          component: ReportDetailComponent,         canActivate: [AuthGuard] },
+    { path: 'report/edit/:id',            component: ReportEditComponent,           canActivate: [AuthGuard] },
+
   ];
