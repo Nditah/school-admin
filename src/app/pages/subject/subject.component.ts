@@ -15,7 +15,7 @@ export class SubjectComponent implements OnInit {
   searchForm: FormGroup;
   page_name = 'List of Subjects';
   currentRecords: Array<Subject>;
-  loading: false;
+  loading = false;
   addForm: FormGroup;
   staffRecords: Array<Staff>;
   prevStaffRecords: Array<Staff>;

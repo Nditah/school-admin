@@ -4,7 +4,7 @@ import { Course } from './course';
 
 export class Marksheet {
     id: string;
-    type:  string; //enum: ["PAPER", "CBT"], required: true },
+    type: string; // enum: ["PAPER", "CBT"], required: true },
     course: Course;
     student: Student;
     score: number;
@@ -26,7 +26,7 @@ export class Marksheet {
 
 export interface Marksheet {
     id: string;
-    type:  string; //enum: ["PAPER", "CBT"], required: true },
+    type: string; // enum: ["PAPER", "CBT"], required: true },
     course: Course;
     student: Student;
     score: number;

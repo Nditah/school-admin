@@ -32,7 +32,7 @@ export class ClasseComponent implements OnInit {
               private notify: NotificationService,
               private _fb: FormBuilder,
               private staffs: Staffs,
-              private students: Students) { 
+              private students: Students) {
                 this.currentRecords = this.classes.query();
                 this.staffRecords = this.staffs.query();
                 this.studentRecords = this.students.query();
