@@ -350,6 +350,33 @@ export class ApiService {
       );
   }
 
+   // /////////////////////////////////
+  // ----------REPORT-------------//
+  // /////////////////////////////////
+
+  getReport(path): Observable<any> {
+    const url = `${this.env.API_URL}/results${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postReport(data): Observable<any> {
+    const url = `${this.env.API_URL}/results`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateReport(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/results/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
   // /////////////////////////////////
   // ----------TABLE-------------//
   // /////////////////////////////////
