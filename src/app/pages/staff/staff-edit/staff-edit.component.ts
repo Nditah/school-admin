@@ -24,14 +24,14 @@ export class StaffEditComponent implements OnInit {
   stateOptions: SelectOption;
   countyRecords: Array<County>;
   countyOptions: SelectOption;
-  router: Router;
 
   constructor(private _fb: FormBuilder,
               private notify: NotificationService,
               private states: States,
               private activatedRoute: ActivatedRoute,
               private counties: Counties,
-              private staffs: Staffs) {
+              private staffs: Staffs,
+              private router: Router) {
                 const id = this.activatedRoute.snapshot.paramMap.get('id');
                 const record = this.staffs.query({id})[0];
                 if (!!record) {
@@ -168,16 +168,16 @@ export class StaffEditComponent implements OnInit {
     try {
       const result = await this.staffs.recordUpdate(this.record, payload);
       if (result.success) {
-        this.returnResponse.emit({message: 'Record successfully updated', status: 'success'});
-        // this.notify.showNotification('This subject has been updated', 'success');
-      } else {
-        this.returnResponse.emit({message: result.message, status: 'danger'});
+        // this.returnResponse.emit({message: 'Record successfully updated', status: 'success'});
+        this.notify.showNotification('This subject has been updated', 'success');
         this.goToDetail(result.payload);
-        // this.notify.showNotification(result.message, 'danger');
+      } else {
+        // this.returnResponse.emit({message: result.message, status: 'danger'});
+        this.notify.showNotification(result.message, 'danger');
       }
     } catch (error) {
-      this.returnResponse.emit({message: error, status: 'danger'});
-      // this.notify.showNotification(error, 'danger');
+      // this.returnResponse.emit({message: error, status: 'danger'});
+      this.notify.showNotification(error, 'danger');
     }
   }
 
