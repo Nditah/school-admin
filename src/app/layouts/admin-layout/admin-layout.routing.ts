@@ -84,6 +84,10 @@ import { ReportComponent } from '../../pages/report/report.component';
 import { ReportAddComponent } from '../../pages/report/report-add/report-add.component';
 import { ReportDetailComponent } from '../../pages/report/report-detail/report-detail.component';
 import { ReportEditComponent } from '../../pages/report/report-edit/report-edit.component';
+import { CurriculumComponent } from '../../pages/curriculum/curriculum.component';
+import { CurriculumAddComponent } from '../../pages/curriculum/curriculum-add/curriculum-add.component';
+import { CurriculumDetailComponent } from '../../pages/curriculum/curriculum-detail/curriculum-detail.component';
+import { CurriculumEditComponent } from '../../pages/curriculum/curriculum-edit/curriculum-edit.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -206,5 +210,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'report/add',                 component: ReportAddComponent,            canActivate: [AuthGuard] },
     { path: 'report/detail/:id',          component: ReportDetailComponent,         canActivate: [AuthGuard] },
     { path: 'report/edit/:id',            component: ReportEditComponent,           canActivate: [AuthGuard] },
+
+    // Curriculum
+    { path: 'curriculum',                     component: CurriculumComponent,               canActivate: [AuthGuard] },
+    { path: 'curriculum/add',                 component: CurriculumAddComponent,            canActivate: [AuthGuard] },
+    { path: 'curriculum/detail/:id',          component: CurriculumDetailComponent,         canActivate: [AuthGuard] },
+    { path: 'curriculum/edit/:id',            component: CurriculumEditComponent,           canActivate: [AuthGuard] },
 
   ];

@@ -22,9 +22,9 @@ export class NavbarComponent implements OnInit {
     status = 'OFFLINE';
 
     constructor(location: Location,
-      private element: ElementRef,
-      private router: Router,
-      private connection: ConnectionService) {
+                private element: ElementRef,
+                private router: Router,
+                private connection: ConnectionService) {
         this.location = location;
         this.sidebarVisible = false;
         this.connection.monitor().subscribe(isConnected => {
@@ -44,10 +44,10 @@ export class NavbarComponent implements OnInit {
       this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
       this.router.events.subscribe((event) => {
         this.sidebarClose();
-         this.$layer = document.getElementsByClassName('close-layer')[0];
-         if (this.$layer) {
+        this.$layer = document.getElementsByClassName('close-layer')[0];
+        if (this.$layer) {
             this.$layer.remove();
-           this.mobile_menu_visible = 0;
+            this.mobile_menu_visible = 0;
          }
      });
     }

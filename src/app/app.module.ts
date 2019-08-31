@@ -20,9 +20,8 @@ import {
   Admissions, Staffs, Counties, States, Students, Subjects, Marksheets,
   Offices, Smss, Notifications, Settings, Classes, Courses,
   Hostels, Attendances, Fees, HostelAllocations, HostelBedspaces,
-  FeesPayments, HostelRooms, Parents, Classrooms, Reports,
+  FeesPayments, HostelRooms, Parents, Classrooms, Reports, Curriculums,
 } from './providers';
-import { NotificationService } from './services/notification.service';
 
 @NgModule({
   imports: [
@@ -57,7 +56,7 @@ import { NotificationService } from './services/notification.service';
     Admissions, Staffs, Counties, States, Students, Subjects, Marksheets, Attendances,
     Staffs, Counties, States, Students, Subjects, Offices, Smss, Notifications, Settings, Classes, Hostels,
     Courses, Fees, HostelAllocations, HostelBedspaces, FeesPayments, HostelRooms, Parents, Classrooms,
-    Reports,
+    Reports, Curriculums,
   ],
   bootstrap: [AppComponent]
 })
