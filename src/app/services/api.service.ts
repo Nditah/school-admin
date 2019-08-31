@@ -382,14 +382,14 @@ export class ApiService {
  // /////////////////////////////////
 
  getCurriculum(path): Observable<any> {
-   const url = `${this.env.API_URL}/curriculum${path}`;
+   const url = `${this.env.API_URL}/curriculums${path}`;
    return this.http.get(url, httpOptions).pipe(
      map(this.extractData),
      catchError(this.handleError));
  }
 
  postCurriculum(data): Observable<any> {
-   const url = `${this.env.API_URL}/curriculum`;
+   const url = `${this.env.API_URL}/curriculums`;
    const payload = this.cleanObject(data);
    return this.http.post(url, payload, httpOptions).pipe(
        catchError(this.handleError)
@@ -397,7 +397,7 @@ export class ApiService {
  }
 
  updateCurriculum(id: string, data): Observable<any> {
-   const url = `${this.env.API_URL}/curriculum/${id}`;
+   const url = `${this.env.API_URL}/curriculums/${id}`;
    const payload = this.cleanObject(data);
    return this.http.put(url, payload, httpOptions).pipe(
        catchError(this.handleError)
