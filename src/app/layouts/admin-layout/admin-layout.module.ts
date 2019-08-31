@@ -99,6 +99,10 @@ import { ReportComponent } from '../../pages/report/report.component';
 import { ReportAddComponent } from '../../pages/report/report-add/report-add.component';
 import { ReportEditComponent } from '../../pages/report/report-edit/report-edit.component';
 import { ReportDetailComponent } from '../../pages/report/report-detail/report-detail.component';
+import { CurriculumComponent } from '../../pages/curriculum/curriculum.component';
+import { CurriculumAddComponent } from '../../pages/curriculum/curriculum-add/curriculum-add.component';
+import { CurriculumEditComponent } from '../../pages/curriculum/curriculum-edit/curriculum-edit.component';
+import { CurriculumDetailComponent } from '../../pages/curriculum/curriculum-detail/curriculum-detail.component';
 
 
 @NgModule({
@@ -156,6 +160,7 @@ import { ReportDetailComponent } from '../../pages/report/report-detail/report-d
     HostelBedspaceComponent, HostelBedspaceAddComponent, HostelBedspaceDetailComponent, HostelBedspaceEditComponent,
     ClassroomComponent, ClassroomAddComponent, ClassroomDetailComponent, ClassroomEditComponent,
     ReportComponent, ReportAddComponent, ReportEditComponent, ReportDetailComponent,
+    CurriculumComponent, CurriculumAddComponent, CurriculumEditComponent, CurriculumDetailComponent,
   ]
 })
 

@@ -88,7 +88,7 @@ export class DashboardComponent implements OnInit {
           data: [50, 150, 100, 190, 130, 90, 150, 160, 120, 140, 190, 95]
         }
       ];
-      this.lineBigDashboardChartColors = [
+    this.lineBigDashboardChartColors = [
        {
          backgroundColor: this.gradientFill,
          borderColor: this.chartColor,
@@ -280,7 +280,7 @@ export class DashboardComponent implements OnInit {
           data: [542, 480, 430, 550, 530, 453, 380, 434, 568, 610, 700, 630]
         }
       ];
-      this.lineChartColors = [
+    this.lineChartColors = [
        {
          borderColor: '#f96332',
          pointBorderColor: '#FFF',
@@ -316,7 +316,7 @@ export class DashboardComponent implements OnInit {
           data: [40, 500, 650, 700, 1200, 1250, 1300, 1900]
         }
       ];
-      this.lineChartWithNumbersAndGridColors = [
+    this.lineChartWithNumbersAndGridColors = [
        {
          borderColor: '#18ce0f',
          pointBorderColor: '#FFF',
