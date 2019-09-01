@@ -404,6 +404,33 @@ export class ApiService {
      );
  }
 
+ // /////////////////////////////////
+ // ----------TIMETABLE--------//
+ // /////////////////////////////////
+
+ getTimetable(path): Observable<any> {
+  const url = `${this.env.API_URL}/timetables${path}`;
+  return this.http.get(url, httpOptions).pipe(
+    map(this.extractData),
+    catchError(this.handleError));
+}
+
+postTimetable(data): Observable<any> {
+  const url = `${this.env.API_URL}/timetables`;
+  const payload = this.cleanObject(data);
+  return this.http.post(url, payload, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+}
+
+updateTimetable(id: string, data): Observable<any> {
+  const url = `${this.env.API_URL}/timetables/${id}`;
+  const payload = this.cleanObject(data);
+  return this.http.put(url, payload, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+}
+
   // /////////////////////////////////
   // ----------TABLE-------------//
   // /////////////////////////////////

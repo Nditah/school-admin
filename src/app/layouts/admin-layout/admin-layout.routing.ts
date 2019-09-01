@@ -80,7 +80,6 @@ import { OfficeAddComponent } from '../../pages/office/office-add/office-add.com
 import { OfficeDetailComponent } from '../../pages/office/office-detail/office-detail.component';
 import { OfficeEditComponent } from '../../pages/office/office-edit/office-edit.component';
 import { ReportComponent } from '../../pages/report/report.component';
-// import { CanActivate } from '@angular/router/src/utils/preactivation';
 import { ReportAddComponent } from '../../pages/report/report-add/report-add.component';
 import { ReportDetailComponent } from '../../pages/report/report-detail/report-detail.component';
 import { ReportEditComponent } from '../../pages/report/report-edit/report-edit.component';
@@ -88,6 +87,10 @@ import { CurriculumComponent } from '../../pages/curriculum/curriculum.component
 import { CurriculumAddComponent } from '../../pages/curriculum/curriculum-add/curriculum-add.component';
 import { CurriculumDetailComponent } from '../../pages/curriculum/curriculum-detail/curriculum-detail.component';
 import { CurriculumEditComponent } from '../../pages/curriculum/curriculum-edit/curriculum-edit.component';
+import { TimetableComponent } from '../../pages/timetable/timetable.component';
+import { TimetableAddComponent } from '../../pages/timetable/timetable-add/timetable-add.component';
+import { TimetableDetailComponent } from '../../pages/timetable/timetable-detail/timetable-detail.component';
+import { TimetableEditComponent } from '../../pages/timetable/timetable-edit/timetable-edit.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -216,5 +219,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'curriculum/add',                 component: CurriculumAddComponent,            canActivate: [AuthGuard] },
     { path: 'curriculum/detail/:id',          component: CurriculumDetailComponent,         canActivate: [AuthGuard] },
     { path: 'curriculum/edit/:id',            component: CurriculumEditComponent,           canActivate: [AuthGuard] },
+
+    // Timetable
+    { path: 'timetable',                     component: TimetableComponent,               canActivate: [AuthGuard] },
+    { path: 'timetable/add',                 component: TimetableAddComponent,            canActivate: [AuthGuard] },
+    { path: 'timetable/detail/:id',          component: TimetableDetailComponent,         canActivate: [AuthGuard] },
+    { path: 'timetable/edit/:id',            component: TimetableEditComponent,           canActivate: [AuthGuard] },
 
   ];

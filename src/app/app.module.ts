@@ -18,9 +18,9 @@ import { AuthService, ApiService, AuthGuard, EnvService, JwtInterceptor, ErrorIn
 
 import {
   Admissions, Staffs, Counties, States, Students, Subjects, Marksheets,
-  Offices, Smss, Notifications, Settings, Classes, Courses,
-  Hostels, Attendances, Fees, HostelAllocations, HostelBedspaces,
-  FeesPayments, HostelRooms, Parents, Classrooms, Reports, Curriculums,
+  Offices, Smss, Notifications, Settings, Classes, Courses, Hostels,
+  Attendances, Fees, HostelAllocations, HostelBedspaces, FeesPayments,
+  HostelRooms, Parents, Classrooms, Reports, Curriculums, Timetables,
 } from './providers';
 
 @NgModule({
@@ -56,7 +56,7 @@ import {
     Admissions, Staffs, Counties, States, Students, Subjects, Marksheets, Attendances,
     Staffs, Counties, States, Students, Subjects, Offices, Smss, Notifications, Settings, Classes, Hostels,
     Courses, Fees, HostelAllocations, HostelBedspaces, FeesPayments, HostelRooms, Parents, Classrooms,
-    Reports, Curriculums,
+    Reports, Curriculums, Timetables,
   ],
   bootstrap: [AppComponent]
 })

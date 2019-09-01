@@ -103,6 +103,10 @@ import { CurriculumComponent } from '../../pages/curriculum/curriculum.component
 import { CurriculumAddComponent } from '../../pages/curriculum/curriculum-add/curriculum-add.component';
 import { CurriculumEditComponent } from '../../pages/curriculum/curriculum-edit/curriculum-edit.component';
 import { CurriculumDetailComponent } from '../../pages/curriculum/curriculum-detail/curriculum-detail.component';
+import { TimetableComponent } from '../../pages/timetable/timetable.component';
+import { TimetableAddComponent } from '../../pages/timetable/timetable-add/timetable-add.component';
+import { TimetableEditComponent } from '../../pages/timetable/timetable-edit/timetable-edit.component';
+import { TimetableDetailComponent } from '../../pages/timetable/timetable-detail/timetable-detail.component';
 
 
 @NgModule({
@@ -129,8 +133,6 @@ import { CurriculumDetailComponent } from '../../pages/curriculum/curriculum-det
     ClasseComponent, ClasseAddComponent, ClasseEditComponent, ClasseDetailComponent,
     CourseComponent, CourseAddComponent, CourseEditComponent, CourseDetailComponent,
     SubjectComponent, SubjectAddComponent, SubjectEditComponent, SubjectDetailComponent,
-
-    ExampleComponent, ExampleAddComponent, ExampleDetailComponent, ExamplEditComponent,
 
     AdmissionComponent, AdmissionAddComponent, AdmissionDetailComponent, AdmissionEditComponent,
 
@@ -161,6 +163,7 @@ import { CurriculumDetailComponent } from '../../pages/curriculum/curriculum-det
     ClassroomComponent, ClassroomAddComponent, ClassroomDetailComponent, ClassroomEditComponent,
     ReportComponent, ReportAddComponent, ReportEditComponent, ReportDetailComponent,
     CurriculumComponent, CurriculumAddComponent, CurriculumEditComponent, CurriculumDetailComponent,
+    TimetableComponent, TimetableAddComponent, TimetableEditComponent, TimetableDetailComponent,
   ]
 })
 
