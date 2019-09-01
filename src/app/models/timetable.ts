@@ -1,18 +1,26 @@
+import { Classe } from './classe';
+import { Course } from './course';
+import { Classroom } from './classroom';
+import { Staff } from './staff';
 
 // import { Staff } from './staff';
 // import { } from './';
 export class Timetable {
     id: string;
-    name: string;
-    description: string;
-    datetime: Date;
+    type: string;
+    activity: string;
+    day: string;
+    from: Date;
+    to: Date;
     duration: number;
-    classe: object;
-    teacher_id: object;
-    subject_id: object;
-    created_by: object;
-    updated_by: object;
-    
+    classe: Classe;
+    course: Course;
+    classroom: Classroom;
+    subsidiary: string;
+    description: string;
+    created_by: Staff;
+    updated_by: Staff;
+
 constructor(fields: any) {
     // tslint:disable-next-line: forin
         for (const f in fields) {
@@ -23,13 +31,17 @@ constructor(fields: any) {
 
 export interface Timetable {
     id: string;
-    name: string;
-    description: string;
-    datetime: Date;
+    type: string;
+    activity: string;
+    day: string;
+    from: Date;
+    to: Date;
     duration: number;
-    classe: object;
-    teacher_id: object;
-    subject_id: object;
-    created_by: object;
-    updated_by: object;
+    classe: Classe;
+    course: Course;
+    classroom: Classroom;
+    subsidiary: string;
+    description: string;
+    created_by: Staff;
+    updated_by: Staff;
 }
