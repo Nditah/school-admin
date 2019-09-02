@@ -102,6 +102,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'example/detail/:id' ,          component: ExampleDetailComponent,          canActivate: [AuthGuard] },
     { path: 'example/edit/:id' ,            component: ExamplEditComponent,             canActivate: [AuthGuard] },
 
+    // book
+    { path: 'book',                         component: BookComponent,                   canActivate: [AuthGuard] },
+
     // Staff
     { path: 'staff' ,                       component: StaffComponent,                  canActivate: [AuthGuard] },
     { path: 'staff/add' ,                   component: StaffAddComponent,               canActivate: [AuthGuard] },

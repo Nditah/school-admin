@@ -20,7 +20,7 @@ import {
   Admissions, Staffs, Counties, States, Students, Subjects, Marksheets,
   Offices, Smss, Notifications, Settings, Classes, Courses, Hostels,
   Attendances, Fees, HostelAllocations, HostelBedspaces, FeesPayments,
-  HostelRooms, Parents, Classrooms, Reports, Curriculums, Timetables,
+  HostelRooms, Parents, Classrooms, Reports, Curriculums, Timetables, Books
 } from './providers';
 
 @NgModule({
@@ -53,10 +53,10 @@ import {
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    Admissions, Staffs, Counties, States, Students, Subjects, Marksheets, Attendances,
+    Admissions, Marksheets, Attendances,
     Staffs, Counties, States, Students, Subjects, Offices, Smss, Notifications, Settings, Classes, Hostels,
     Courses, Fees, HostelAllocations, HostelBedspaces, FeesPayments, HostelRooms, Parents, Classrooms,
-    Reports, Curriculums, Timetables,
+    Books, Reports, Curriculums, Timetables,
   ],
   bootstrap: [AppComponent]
 })
