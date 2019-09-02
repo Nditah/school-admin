@@ -107,6 +107,10 @@ import { TimetableComponent } from '../../pages/timetable/timetable.component';
 import { TimetableAddComponent } from '../../pages/timetable/timetable-add/timetable-add.component';
 import { TimetableEditComponent } from '../../pages/timetable/timetable-edit/timetable-edit.component';
 import { TimetableDetailComponent } from '../../pages/timetable/timetable-detail/timetable-detail.component';
+import { AssetComponent } from 'src/app/pages/asset/asset.component';
+import { AssetAddComponent } from 'src/app/pages/asset/asset-add/asset-add.component';
+import { AssetEditComponent } from 'src/app/pages/asset/asset-edit/asset-edit.component';
+import { AssetDetailComponent } from 'src/app/pages/asset/asset-detail/asset-detail.component';
 
 
 @NgModule({
@@ -163,7 +167,9 @@ import { TimetableDetailComponent } from '../../pages/timetable/timetable-detail
     ClassroomComponent, ClassroomAddComponent, ClassroomDetailComponent, ClassroomEditComponent,
     ReportComponent, ReportAddComponent, ReportEditComponent, ReportDetailComponent,
     CurriculumComponent, CurriculumAddComponent, CurriculumEditComponent, CurriculumDetailComponent,
-    TimetableComponent, TimetableAddComponent, TimetableEditComponent, TimetableDetailComponent,
+    TimetableComponent, TimetableAddComponent, TimetableEditComponent, TimetableDetailComponent, 
+    AssetComponent, AssetAddComponent, AssetEditComponent, AssetDetailComponent,
+    
   ]
 })
 

@@ -33,6 +33,7 @@ export const ROUTES: RouteInfo[] = [
       { path: '/hostel-room',           title: 'Hostel Room',                  icon: 'location_world',                 class: '' },
     ]},
     { path: '/sms',                   title: 'SMS',                         icon: 'users_single-02',                 class: '', sub: null },
+    { path: '/asset',                 title: 'Asset',                        icon: 'users_single-02',                 class: '', sub: null },
     { path: '/report',                title: 'Report',                      icon: 'business_bank',                 class: '',  sub: null },
     { path: '/office',                title: 'Office',                       icon: 'business_bank',                  class: '', sub: null },
     { path: '/setting',               title: 'Setting',                     icon: 'business_bank',                  class: '', sub: null },
