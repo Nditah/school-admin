@@ -18,11 +18,10 @@ import { AuthService, ApiService, AuthGuard, EnvService, JwtInterceptor, ErrorIn
 
 import {
   Admissions, Staffs, Counties, States, Students, Subjects, Marksheets,
-  Offices, Smss, Notifications, Settings, Classes, Courses,
-  Hostels, Attendances, Fees, HostelAllocations, HostelBedspaces,
-  FeesPayments, HostelRooms, Parents, Classrooms, Reports, Books,
+  Offices, Smss, Notifications, Settings, Classes, Courses, Hostels,
+  Attendances, Fees, HostelAllocations, HostelBedspaces, FeesPayments,
+  HostelRooms, Parents, Classrooms, Reports, Curriculums, Timetables, Books
 } from './providers';
-import { NotificationService } from './services/notification.service';
 
 @NgModule({
   imports: [
@@ -54,10 +53,10 @@ import { NotificationService } from './services/notification.service';
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: LocationStrategy, useClass: HashLocationStrategy },
-    Admissions, Staffs, Counties, States, Students, Subjects, Marksheets, Attendances,
+    Admissions, Marksheets, Attendances,
     Staffs, Counties, States, Students, Subjects, Offices, Smss, Notifications, Settings, Classes, Hostels,
     Courses, Fees, HostelAllocations, HostelBedspaces, FeesPayments, HostelRooms, Parents, Classrooms,
-    Reports, Books,
+    Books, Reports, Curriculums, Timetables,
   ],
   bootstrap: [AppComponent]
 })

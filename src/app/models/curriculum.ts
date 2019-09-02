@@ -1,14 +1,23 @@
 import { Staff } from './staff';
 // import { Scheme } from './scheme';
 import { Book } from './book';
+import { Course } from './course';
+import { Classe } from './classe';
+import { Subject } from './subject';
 
 export class Curriculum {
     id: string;
+    code: string;
+    title: string;
     description: string;
-    scheme_id: object;
-    book_id: Book;
-    materials: File;
-    staff_id: Staff;
+    duration: number;
+    term: string;
+    level: number;
+    subsidiary: string;
+    course: Course;
+    classes: Classe;
+    subject: Subject;
+    book: Book;
     created_by: Staff;
     updated_by: Staff;
 
@@ -24,11 +33,17 @@ export class Curriculum {
 
 export interface Curriculum {
     id: string;
+    code: string;
+    title: string;
     description: string;
-    scheme_id: object;
-    book_id: Book;
-    materials: File;
-    staff_id: Staff;
+    duration: number;
+    term: string;
+    level: number;
+    subsidiary: string;
+    course: Course;
+    classes: Classe;
+    subject: Subject;
+    book: Book;
     created_by: Staff;
     updated_by: Staff;
 }

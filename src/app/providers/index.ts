@@ -24,3 +24,5 @@ export { HostelAllocations } from './hostel-allocations/hostel-allocations';
 export { HostelBedspaces } from './hostel-bedspaces/hostel-bedspaces';
 export { Classrooms } from './classrooms/classrooms';
 export { Reports } from './reports/reports';
+export { Curriculums } from './curriculums/curriculums';
+export { Timetables } from './timetables/timetables';

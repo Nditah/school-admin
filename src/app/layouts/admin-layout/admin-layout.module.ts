@@ -99,6 +99,14 @@ import { ReportComponent } from '../../pages/report/report.component';
 import { ReportAddComponent } from '../../pages/report/report-add/report-add.component';
 import { ReportEditComponent } from '../../pages/report/report-edit/report-edit.component';
 import { ReportDetailComponent } from '../../pages/report/report-detail/report-detail.component';
+import { CurriculumComponent } from '../../pages/curriculum/curriculum.component';
+import { CurriculumAddComponent } from '../../pages/curriculum/curriculum-add/curriculum-add.component';
+import { CurriculumEditComponent } from '../../pages/curriculum/curriculum-edit/curriculum-edit.component';
+import { CurriculumDetailComponent } from '../../pages/curriculum/curriculum-detail/curriculum-detail.component';
+import { TimetableComponent } from '../../pages/timetable/timetable.component';
+import { TimetableAddComponent } from '../../pages/timetable/timetable-add/timetable-add.component';
+import { TimetableEditComponent } from '../../pages/timetable/timetable-edit/timetable-edit.component';
+import { TimetableDetailComponent } from '../../pages/timetable/timetable-detail/timetable-detail.component';
 
 
 @NgModule({
@@ -125,8 +133,6 @@ import { ReportDetailComponent } from '../../pages/report/report-detail/report-d
     ClasseComponent, ClasseAddComponent, ClasseEditComponent, ClasseDetailComponent,
     CourseComponent, CourseAddComponent, CourseEditComponent, CourseDetailComponent,
     SubjectComponent, SubjectAddComponent, SubjectEditComponent, SubjectDetailComponent,
-
-    ExampleComponent, ExampleAddComponent, ExampleDetailComponent, ExamplEditComponent,
 
     AdmissionComponent, AdmissionAddComponent, AdmissionDetailComponent, AdmissionEditComponent,
 
@@ -156,6 +162,8 @@ import { ReportDetailComponent } from '../../pages/report/report-detail/report-d
     HostelBedspaceComponent, HostelBedspaceAddComponent, HostelBedspaceDetailComponent, HostelBedspaceEditComponent,
     ClassroomComponent, ClassroomAddComponent, ClassroomDetailComponent, ClassroomEditComponent,
     ReportComponent, ReportAddComponent, ReportEditComponent, ReportDetailComponent,
+    CurriculumComponent, CurriculumAddComponent, CurriculumEditComponent, CurriculumDetailComponent,
+    TimetableComponent, TimetableAddComponent, TimetableEditComponent, TimetableDetailComponent,
   ]
 })
 
