@@ -91,6 +91,11 @@ import { TimetableComponent } from '../../pages/timetable/timetable.component';
 import { TimetableAddComponent } from '../../pages/timetable/timetable-add/timetable-add.component';
 import { TimetableDetailComponent } from '../../pages/timetable/timetable-detail/timetable-detail.component';
 import { TimetableEditComponent } from '../../pages/timetable/timetable-edit/timetable-edit.component';
+import { AssetComponent } from 'src/app/pages/asset/asset.component';
+import { AssetAddComponent } from 'src/app/pages/asset/asset-add/asset-add.component';
+import { AssetEditComponent } from 'src/app/pages/asset/asset-edit/asset-edit.component';
+import { AssetDetailComponent } from 'src/app/pages/asset/asset-detail/asset-detail.component';
+
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -228,5 +233,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'timetable/add',                 component: TimetableAddComponent,            canActivate: [AuthGuard] },
     { path: 'timetable/detail/:id',          component: TimetableDetailComponent,         canActivate: [AuthGuard] },
     { path: 'timetable/edit/:id',            component: TimetableEditComponent,           canActivate: [AuthGuard] },
+
+    // Assets
+    { path: 'asset',                     component: AssetComponent,               canActivate: [AuthGuard] },
+    { path: 'asset/add',                 component: AssetAddComponent,            canActivate: [AuthGuard] },
+    { path: 'asset/detail/:id',          component: AssetDetailComponent,         canActivate: [AuthGuard] },
+    { path: 'asset/edit/:id',            component: AssetEditComponent,           canActivate: [AuthGuard] },
 
   ];

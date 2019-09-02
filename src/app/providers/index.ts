@@ -26,3 +26,6 @@ export { Classrooms } from './classrooms/classrooms';
 export { Reports } from './reports/reports';
 export { Curriculums } from './curriculums/curriculums';
 export { Timetables } from './timetables/timetables';
+export { ImageAssets } from './image-assets/image-assets';
+export { Assets } from './assets/assets';
+export { Expenses } from './expenses/expenses';

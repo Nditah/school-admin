@@ -852,4 +852,84 @@ updateTimetable(id: string, data): Observable<any> {
         catchError(this.handleError)
       );
   }
+
+  // /////////////////////////////////
+  // ----------Image Asset-------------//
+  // /////////////////////////////////
+
+  getImageAsset(path): Observable<any> {
+    const url = `${this.env.API_URL}/image-assets${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postImageAsset(data): Observable<any> {
+    const url = `${this.env.API_URL}/image-assets`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateImageAsset(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/image-assets/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+  // /////////////////////////////////
+  // ----------Assets-------------//
+  // /////////////////////////////////
+
+  getAsset(path): Observable<any> {
+    const url = `${this.env.API_URL}/assets${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postAsset(data): Observable<any> {
+    const url = `${this.env.API_URL}/assets`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateAsset(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/assets/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // /////////////////////////////////
+  // ----------Expense-------------//
+  // /////////////////////////////////
+
+  getExpense(path): Observable<any> {
+    const url = `${this.env.API_URL}/expenses${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postExpense(data): Observable<any> {
+    const url = `${this.env.API_URL}/expenses`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateExpense(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/expenses/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
 }
