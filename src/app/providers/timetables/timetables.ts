@@ -47,7 +47,7 @@ export class Timetables {
 
   // CRUD Service
   async recordRetrieve(queryString = ''): Promise<ApiResponse> {
-    const proRes = this.apiService.getCourse(queryString).pipe(
+    const proRes = this.apiService.getTimetable(queryString).pipe(
     map((res: ApiResponse) => {
       console.log(res);
       if (res.success && res.payload.length > 0) {
@@ -63,7 +63,7 @@ export class Timetables {
   }
 
   async recordCreate(data): Promise<ApiResponse> {
-    const proRes = this.apiService.postCourse(data).pipe(
+    const proRes = this.apiService.postTimetable(data).pipe(
     map((res: ApiResponse) => {
         if (res.success && res.payload) {
           console.log('recordCreate() successful');
@@ -76,7 +76,7 @@ export class Timetables {
   }
 
   async recordUpdate(timetable: Timetable, payload): Promise<ApiResponse> {
-    const proRes = this.apiService.updateCourse(timetable.id, payload).pipe(
+    const proRes = this.apiService.updateTimetable(timetable.id, payload).pipe(
     map((res: ApiResponse) => {
         if (res.success) {
           this.delete(timetable);
