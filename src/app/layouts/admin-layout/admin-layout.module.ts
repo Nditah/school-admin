@@ -111,6 +111,10 @@ import { AssetComponent } from 'src/app/pages/asset/asset.component';
 import { AssetAddComponent } from 'src/app/pages/asset/asset-add/asset-add.component';
 import { AssetEditComponent } from 'src/app/pages/asset/asset-edit/asset-edit.component';
 import { AssetDetailComponent } from 'src/app/pages/asset/asset-detail/asset-detail.component';
+import { ExpenseComponent } from 'src/app/pages/expense/expense.component';
+import { ExpenseAddComponent } from 'src/app/pages/expense/expense-add/expense-add.component';
+import { ExpenseDetailComponent } from 'src/app/pages/expense/expense-detail/expense-detail.component';
+import { ExpenseEditComponent } from 'src/app/pages/expense/expense-edit/expense-edit.component';
 
 
 @NgModule({
@@ -169,6 +173,7 @@ import { AssetDetailComponent } from 'src/app/pages/asset/asset-detail/asset-det
     CurriculumComponent, CurriculumAddComponent, CurriculumEditComponent, CurriculumDetailComponent,
     TimetableComponent, TimetableAddComponent, TimetableEditComponent, TimetableDetailComponent, 
     AssetComponent, AssetAddComponent, AssetEditComponent, AssetDetailComponent,
+    ExpenseComponent, ExpenseAddComponent, ExpenseDetailComponent, ExpenseEditComponent,
     
   ]
 })
