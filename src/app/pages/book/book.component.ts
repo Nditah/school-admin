@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { Book, ApiResponse } from '../../models';
-import { Books } from '../../providers';
+import { Book, ApiResponse, Subject, SelectOption } from '../../models';
+import { Books, Subjects } from '../../providers';
+import { NotificationService } from '../../services';
+import { isEqual } from '../../helpers';
 
 
 @Component({
@@ -13,24 +15,39 @@ import { Books } from '../../providers';
 })
 export class BookComponent implements OnInit {
 
+  page_name = 'List of Books';
+  addForm: FormGroup;
   searchForm: FormGroup;
-  currentRecords: Array<Book> = [];
+  records: Array<Book>;
+  prevRecords: Array<Book>;
+  subjectRecords: Array<Subject>;
+  prevSubjectRecords: Array<Subject>;
+  subjectOptions: Array<SelectOption>;
   loading = false;
 
   constructor(private router: Router,
-    private formBuilder: FormBuilder,
-    private toastr: ToastrService,
-    public books: Books) {
-      this.currentRecords = this.books.query();
+              private formBuilder: FormBuilder,
+              private notify: NotificationService,
+              public books: Books,
+              public _fb: FormBuilder,
+              private subjects: Subjects) {
+      this.records = this.books.query();
+      this.subjectRecords = this.subjects.query();
       this.searchForm = this.formBuilder.group({
         searchString: ['', Validators.required],
       });
     }
 
     ngOnInit() {
+      this.createForm();
     }
 
-    getName = (para) => {
+    ngDoCheck() {
+      console.log('Checking.....');
+      if (!isEqual(this.subjectRecords, this.prevSubjectRecords)) {
+        this.prevSubjectRecords = [...this.subjectRecords];
+        this.generateSubjectOptions();
+      }
     }
 
     async search(data) {
@@ -38,37 +55,37 @@ export class BookComponent implements OnInit {
       console.log(data);
       this.books.recordRetrieve(queryString).then((res: ApiResponse) => {
         if (res.success) {
-          this.currentRecords = this.books.query();
-          this.showNotification(`${res.payload.length} record(s) found!`);
+          this.records = this.books.query();
+          this.notify.showNotification(`${res.payload.length} record(s) found!`);
         }
       }).catch(err => {
-        this.showNotification(err.message);
+        this.notify.showNotification(err.message);
       });
     }
 
-    goToAdd(): void {
-      this.router.navigate(['book/add']);
+    async onSubmit() {
+
     }
 
-    goToDetail(record: any): void {
-      this.router.navigate([`book/detail/${record.id}`]);
-      return;
+    createForm() {
+      this.addForm = this._fb.group({
+        title: ['', Validators.required],
+        subject: ['', Validators.required],
+        author: [''],
+        description: ['', Validators.required],
+        level: [''],
+        subsidiary: ['']
+      });
     }
 
-    goToEdit(record: any): void {
-      this.router.navigate([`book/edit/${record.id}`]);
+    generateSubjectOptions() {
+      this.subjectOptions = this.subjectRecords.map(options => ({
+        id: options.id,
+        text: options.name
+      }));
     }
 
     removeRecord(record) {
       console.log(record.id);
     }
-
-    showNotification(message) {
-      this.toastr.show(`<span class="now-ui-icons ui-1_bell-53"></span> <b>${message}</b>`, '', {
-          timeOut: 8000,
-          closeButton: true,
-          enableHtml: true,
-          toastClass: 'alert alert-primary alert-with-icon',
-        });
-      }
 }

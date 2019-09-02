@@ -36,4 +36,8 @@ export * from './hostel-room';
 export * from './hostel-allocation';
 export * from './classroom';
 export * from './curriculum';
+export * from './contact';
+export * from './asset';
+export * from './image-asset';
+export * from './expense';
 

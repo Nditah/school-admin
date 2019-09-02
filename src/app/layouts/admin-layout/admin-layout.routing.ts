@@ -91,6 +91,16 @@ import { TimetableComponent } from '../../pages/timetable/timetable.component';
 import { TimetableAddComponent } from '../../pages/timetable/timetable-add/timetable-add.component';
 import { TimetableDetailComponent } from '../../pages/timetable/timetable-detail/timetable-detail.component';
 import { TimetableEditComponent } from '../../pages/timetable/timetable-edit/timetable-edit.component';
+import { AssetComponent } from 'src/app/pages/asset/asset.component';
+import { AssetAddComponent } from 'src/app/pages/asset/asset-add/asset-add.component';
+import { AssetEditComponent } from 'src/app/pages/asset/asset-edit/asset-edit.component';
+import { AssetDetailComponent } from 'src/app/pages/asset/asset-detail/asset-detail.component';
+import { ExpenseComponent } from 'src/app/pages/expense/expense.component';
+import { ExpenseAddComponent } from 'src/app/pages/expense/expense-add/expense-add.component';
+import { ExpenseDetailComponent } from 'src/app/pages/expense/expense-detail/expense-detail.component';
+import { ExpenseEditComponent } from 'src/app/pages/expense/expense-edit/expense-edit.component';
+
+
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -101,6 +111,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'example/add' ,                 component: ExampleAddComponent,             canActivate: [AuthGuard] },
     { path: 'example/detail/:id' ,          component: ExampleDetailComponent,          canActivate: [AuthGuard] },
     { path: 'example/edit/:id' ,            component: ExamplEditComponent,             canActivate: [AuthGuard] },
+
+    // book
+    { path: 'book',                         component: BookComponent,                   canActivate: [AuthGuard] },
 
     // Staff
     { path: 'staff' ,                       component: StaffComponent,                  canActivate: [AuthGuard] },
@@ -225,5 +238,17 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'timetable/add',                 component: TimetableAddComponent,            canActivate: [AuthGuard] },
     { path: 'timetable/detail/:id',          component: TimetableDetailComponent,         canActivate: [AuthGuard] },
     { path: 'timetable/edit/:id',            component: TimetableEditComponent,           canActivate: [AuthGuard] },
+
+    // Assets
+    { path: 'asset',                     component: AssetComponent,               canActivate: [AuthGuard] },
+    { path: 'asset/add',                 component: AssetAddComponent,            canActivate: [AuthGuard] },
+    { path: 'asset/detail/:id',          component: AssetDetailComponent,         canActivate: [AuthGuard] },
+    { path: 'asset/edit/:id',            component: AssetEditComponent,           canActivate: [AuthGuard] },
+
+    // Expense
+    { path: 'expense',                     component: ExpenseComponent,               canActivate: [AuthGuard] },
+    { path: 'expense/add',                 component: ExpenseAddComponent,            canActivate: [AuthGuard] },
+    { path: 'expense/detail/:id',          component: ExpenseDetailComponent,         canActivate: [AuthGuard] },
+    { path: 'expense/edit/:id',            component: ExpenseEditComponent,           canActivate: [AuthGuard] },
 
   ];
