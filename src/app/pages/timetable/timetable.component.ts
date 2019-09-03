@@ -121,7 +121,7 @@ export class TimetableComponent implements OnInit {
     this.sidebarView = activePanel;
     this.sidebarContent = status;
     this.activeSidebar = true;
-    this.sidebarHeading = `${status.replace(/^[a-zA-Z]/, (c) => c.toUpperCase())} Class`;
+    this.sidebarHeading = `${status.replace(/^[a-zA-Z]/, (c) => c.toUpperCase())} Timetable`;
     this.currentRecord = record;
     console.log(this.currentRecord);
   }
