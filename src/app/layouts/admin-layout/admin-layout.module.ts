@@ -107,14 +107,19 @@ import { TimetableComponent } from '../../pages/timetable/timetable.component';
 import { TimetableAddComponent } from '../../pages/timetable/timetable-add/timetable-add.component';
 import { TimetableEditComponent } from '../../pages/timetable/timetable-edit/timetable-edit.component';
 import { TimetableDetailComponent } from '../../pages/timetable/timetable-detail/timetable-detail.component';
-import { AssetComponent } from 'src/app/pages/asset/asset.component';
-import { AssetAddComponent } from 'src/app/pages/asset/asset-add/asset-add.component';
-import { AssetEditComponent } from 'src/app/pages/asset/asset-edit/asset-edit.component';
-import { AssetDetailComponent } from 'src/app/pages/asset/asset-detail/asset-detail.component';
-import { ExpenseComponent } from 'src/app/pages/expense/expense.component';
-import { ExpenseAddComponent } from 'src/app/pages/expense/expense-add/expense-add.component';
-import { ExpenseDetailComponent } from 'src/app/pages/expense/expense-detail/expense-detail.component';
-import { ExpenseEditComponent } from 'src/app/pages/expense/expense-edit/expense-edit.component';
+import { AssetComponent } from '../../pages/asset/asset.component';
+import { AssetAddComponent } from '../../pages/asset/asset-add/asset-add.component';
+import { AssetEditComponent } from '../../pages/asset/asset-edit/asset-edit.component';
+import { AssetDetailComponent } from '../../pages/asset/asset-detail/asset-detail.component';
+import { ExpenseComponent } from '../../pages/expense/expense.component';
+import { ExpenseAddComponent } from '../../pages/expense/expense-add/expense-add.component';
+import { ExpenseDetailComponent } from '../../pages/expense/expense-detail/expense-detail.component';
+import { ExpenseEditComponent } from '../../pages/expense/expense-edit/expense-edit.component';
+import { PayrollComponent } from '../../pages/payroll/payroll.component';
+import { PayrollAddComponent } from '../../pages/payroll/payroll-add/payroll-add.component';
+import { PayrollEditComponent } from '../../pages/payroll/payroll-edit/payroll-edit.component';
+import { PayrollDetail } from '../../models';
+import { PayrollDetailComponent } from '../../pages/payroll/payroll-detail/payroll-detail.component';
 
 
 @NgModule({
@@ -171,10 +176,10 @@ import { ExpenseEditComponent } from 'src/app/pages/expense/expense-edit/expense
     ClassroomComponent, ClassroomAddComponent, ClassroomDetailComponent, ClassroomEditComponent,
     ReportComponent, ReportAddComponent, ReportEditComponent, ReportDetailComponent,
     CurriculumComponent, CurriculumAddComponent, CurriculumEditComponent, CurriculumDetailComponent,
-    TimetableComponent, TimetableAddComponent, TimetableEditComponent, TimetableDetailComponent, 
+    TimetableComponent, TimetableAddComponent, TimetableEditComponent, TimetableDetailComponent,
     AssetComponent, AssetAddComponent, AssetEditComponent, AssetDetailComponent,
     ExpenseComponent, ExpenseAddComponent, ExpenseDetailComponent, ExpenseEditComponent,
-    
+    PayrollComponent, PayrollAddComponent, PayrollEditComponent, PayrollDetailComponent,
   ]
 })
 

@@ -1,12 +1,12 @@
  import { Staff } from './staff';
-import { Classe } from './classe';
+ import { Classe } from './classe';
 
-export class Fee {
+ export class Fee {
     id: string;
     type: string;
-    classe:Classe;
+    classe: Classe;
     amount: number;
-    description:  string;
+    description: string;
     created_by: Staff;
     updated_by: Staff;
 
@@ -20,12 +20,12 @@ export class Fee {
 
 }
 
-export interface Fee {
+ export interface Fee {
     id: string;
     type: string;
-    classe:Classe;
+    classe: Classe;
     amount: number;
-    description:  string;
+    description: string;
     created_by: Staff;
     updated_by: Staff;
 }
