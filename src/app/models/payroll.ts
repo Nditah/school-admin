@@ -1,20 +1,20 @@
-// import { Staff } from './staff';
-// import { Voucher } from './voucher';
+import { PayrollDetail } from './payroll-detail';
+import { Staff } from './staff';
 
 export class Payroll {
     id: string;
-    period : Date;	
-    code :	string;
-    subsidiary : string; 	
-    voucher :	object; 	
-    payroll_detail_ids : Object; 	
-    total :	Number;	
-    pay_start :	Date; 	
-    remark : string;
-    created_by?: object;
-    created_at?: Date;
-    updated_by?: object;
-    updated_at?: Date;
+    period: Date;
+    code:	string;
+    subsidiary: string;
+    voucher:	any;
+    payroll_detail_ids: PayrollDetail;
+    total:	number;
+    pay_start:	Date;
+    remark: string;
+    created_by: Staff;
+    created_at: Date;
+    updated_by: Staff;
+    updated_at: Date;
 
     constructor(fields: any) {
         // Quick and dirty extend/assign fields to this model
@@ -27,19 +27,18 @@ export class Payroll {
 }
 
 export interface Payroll {
-    // [prop: string]: any;
     id: string;
-    period : Date;	
-    code :	string;
-    subsidiary : string; 	
-    voucher :	object; 	
-    payroll_detail_ids : Object; 	
-    total :	Number;	
-    pay_start :	Date; 	
-    remark : string;
-    created_by?: object;
-    created_at?: Date;
-    updated_by?: object;
-    updated_at?: Date;
+    period: Date;
+    code:	string;
+    subsidiary: string;
+    voucher:	any;
+    payroll_detail_ids: PayrollDetail;
+    total:	number;
+    pay_start:	Date;
+    remark: string;
+    created_by: Staff;
+    created_at: Date;
+    updated_by: Staff;
+    updated_at: Date;
 }
 
