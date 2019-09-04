@@ -6,7 +6,6 @@
       <div class="card">
         <div class="card-body">
           <div class="form-group">
-            <!--            <button class="btn btn-primary"> <i class="now-ui-icons ui-2_settings-90"></i> Edit Record </button>-->
             <button class="btn btn-info pull-right" (click)="goBack()"> <i class="now-ui-icons arrows-1_minimal-left"></i> Go Back </button>
           </div>
         </div>
@@ -32,8 +31,8 @@
             <div class="row">
               <div class="col-md-4 pr-1">
                 <div class="form-group">
-                  <label for="title" class="control-label required"> <strong> Title </strong></label>
-                  <select formControlName="title" id="title" class="form-control">
+                  <label for="title" class="control-label required"> <strong> Title * </strong></label>
+                  <select formControlName="title" id="title" class="form-control" required>
                     <option value="MR">MR</option>
                     <option value="MRS">MRS</option>
                     <option value="DR">DR</option>
@@ -76,7 +75,6 @@
             
               <div class="form-group col-sm-4">
                   <label for="marital_status" class="control-label required"><strong>Marital Status </strong> </label>
-                  <!-- <div class="col-md-9 col-form-label"> -->
                   <select id="marital_status" name="marital_status" class="form-control" formControlName="marital_status">
                     <option value="MARRIED">MARRIED</option>
                     <option value="SINGLE">SINGLE</option>
@@ -85,7 +83,6 @@
                     <option value="WIDOWED">WIDOWED</option>
                     <option value="UNKNOWN">UNKNOWN</option>
                   </select>
-                  <!-- </div> -->
                 </div>
               </div>
               
@@ -95,8 +92,8 @@
             
             <div class="col-md-4 pr-1">
               <div class="form-group">
-                <label for="phone" class="control-label required"> <strong> Phone (office)  </strong></label>
-                <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="Phone (office)" >
+                <label for="phone" class="control-label required"> <strong> Phone (office) *  </strong></label>
+                <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="Phone (office)" required>
               </div>
             </div>
             <div class="col-md-4 pr-1">
@@ -160,7 +157,8 @@
                 <label for="staff_type" class="control-label required"> <strong> Staff Type * </strong></label>
                 <select formControlName="staff_type" id="staff_type" class="form-control" required>
                   <option value="TEACHING">TEACHING</option>
-                  <option value="NONTEACHING">NON-TEACHING</option>
+                  <option value="NON-TEACHING">NON-TEACHING</option>
+                  <option value="UNKNOWN">UNKNOWN</option>
                 </select>
               </div>
             </div>
@@ -202,8 +200,14 @@
         <div class="row">
           <div class="col-md-4 pr-1">
               <div class="form-group">
-                <label for="office" class="control-label required"> <strong> Position </strong></label>
-                <input type="text" class="form-control" formControlName="office" id="office" placeholder="Position" >
+                <label for=""> <strong> Position * </strong></label>
+                <appanalyst-select
+                          [items]="officeOptions"
+                          formControlName="office"
+                          bindValue="id"
+                          bindLabel="text"
+                          placeholder="Select Office" required>
+                        </appanalyst-select>
               </div>
             </div>
             <div class="col-md-4 pr-1">

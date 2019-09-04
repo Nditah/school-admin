@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Student, ApiResponse } from '../../models';
 import { Students } from '../../providers';
+import { NotificationService } from 'src/app/services';
 
 @Component({
   selector: 'app-student',
@@ -13,23 +14,36 @@ import { Students } from '../../providers';
 export class StudentComponent implements OnInit {
 
   searchForm: FormGroup;
+  record: Student;
   currentRecords: Array<Student>;
   loading = false;
   activeSidebar = false;
   page_name = 'List of Students';
 
   constructor(private router: Router,
-              private toastr: ToastrService,
+              private notify: NotificationService,
+              private formBuilder: FormBuilder,
               public students: Students) {
                 this.currentRecords = this.students.query();
+                this.searchForm = this.formBuilder.group({
+                  searchString: ['', Validators.required],
+                });
                }
 
   ngOnInit() {
   }
 
-  async search(data) {
+  async search(data)  {
     const queryString = `?q=${data.searchString}`; // queryString
     console.log(data);
+    this.students.recordRetrieve(queryString).then((res: ApiResponse) => {
+      if (res.success) {
+        this.currentRecords = this.students.query();
+        this.notify.showNotification(`${res.payload.length} record(s) found!`);
+      }
+    }).catch(err => {
+      this.notify.showNotification(err.message);
+    });
   }
 
   closeSidebar($event) {
@@ -51,6 +65,10 @@ export class StudentComponent implements OnInit {
 
   removeRecord(record) {
     console.log(record.id);
+  }
+
+  goBack() {
+    window.history.back();
   }
 
 }
