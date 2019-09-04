@@ -14,7 +14,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/book',                  title: 'Book',                        icon: 'users_single-02',                class: '', sub: null },
     { path: '/classroom',             title: 'Class Room',                  icon: 'business_bank',                class: '', sub: null },
     { path: '/staff',                 title: 'Staff',                       icon: 'users_single-02',                class: '', sub: null },
-    { path: '/student',               title: 'Student',                     icon: 'users_single-02',                class: '', sub: null },
+    { path: '/student',               title: 'Student',                     icon: 'users_circle-08',                class: '', sub: null },
     { path: '/parent',                title: 'Parent',                      icon: 'users_single-02',                class: '', sub: null },
     { path: '/classe',                title: 'Class',                       icon: 'business_badge',                 class: '', sub: null },
     { path: '/course',                title: 'Course',                      icon: 'shopping_delivery-fast',         class: '', sub: null },
