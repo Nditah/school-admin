@@ -104,7 +104,10 @@ import { PayrollAddComponent } from '../../pages/payroll/payroll-add/payroll-add
 import { PayrollDetailComponent } from '../../pages/payroll/payroll-detail/payroll-detail.component';
 import { PayrollEditComponent } from '../../pages/payroll/payroll-edit/payroll-edit.component';
 
-
+import { AccountClassComponent } from 'src/app/pages/account-class/account-class.component';
+import { AccountClassAddComponent } from 'src/app/pages/account-class/account-class-add/account-class-add.component';
+import { AccountClassEditComponent } from 'src/app/pages/account-class/account-class-edit/account-class-edit.component';
+import { AccountClassDetailComponent } from 'src/app/pages/account-class/account-class-detail/account-class-detail.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -260,5 +263,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'payroll/add',                 component: PayrollAddComponent,            canActivate: [AuthGuard] },
     { path: 'payroll/detail/:id',          component: PayrollDetailComponent,         canActivate: [AuthGuard] },
     { path: 'payroll/edit/:id',            component: PayrollEditComponent,           canActivate: [AuthGuard] },
+
+    // Account Class
+    { path: 'account-class',                     component: AccountClassComponent,               canActivate: [AuthGuard] },
+    { path: 'account-class/add',                 component: AccountClassAddComponent,            canActivate: [AuthGuard] },
+    { path: 'account-class/detail/:id',          component: AccountClassDetailComponent,         canActivate: [AuthGuard] },
+    { path: 'account-class/edit/:id',            component: AccountClassEditComponent,           canActivate: [AuthGuard] },
 
   ];

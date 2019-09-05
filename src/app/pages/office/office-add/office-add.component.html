@@ -18,16 +18,25 @@
             </div>
             <div class="col-md-12">
                 <label for=""><strong>Phone: </strong></label>
-                <input type="number" class="form-control" formControlName="phone" id="phone" #na style="border-radius: 0px">
+                <input type="text" class="form-control" formControlName="phone" id="phone" #na style="border-radius: 0px">
             </div>
+            
             <div class="col-md-12">
-                <label for=""><strong>Hierarchy: </strong></label>
-                <input type="text" class="form-control" formControlName="hierarchy" id="hierarchy" #na style="border-radius: 0px">
+              <label for=""><strong>Hierarchy: </strong></label>
+              <select formControlName="hierarchy" id="hierarchy" class="form-control" #na style="border-radius: 0px" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
             </div>
       
             <div class="col-md-12">
                 <label for=""><strong>Office Type: </strong></label>
-                <select formControlName="office_type" id="office_type" class="form-control">
+                <select formControlName="office_type" id="office_type" class="form-control" #na style="border-radius: 0px">
                   <option value="BOARD">BOARD</option>
                   <option value="DEPARTMENT">DEPARTMENT</option>
                   <option value="UNIT">UNIT</option>
@@ -35,7 +44,7 @@
             </div>
             <div class="col-md-12">
                 <label for=""><strong>Subsidiary</strong></label>
-                <select formControlName="subsidiary" id="subsidiary" class="form-control"> 
+                <select formControlName="subsidiary" id="subsidiary" class="form-control" #na style="border-radius: 0px"> 
                   <option value="CRECHE">CRECHE</option>
                   <option value="NURSERY">NURSERY</option>
                   <option value="PRIMARY">PRIMARY</option>
@@ -44,8 +53,8 @@
               </div>
           </div>
            
-              <!-- <div class="row">
-                <div class="col-xs-12">
+              <div class="row">
+                <div class="col-md-12">
                   <div class="form-group">
                     <label for="head" class="control-label required"> <strong> Headed By *</strong></label>
                     <appanalyst-select
@@ -61,7 +70,7 @@
               </div>
           
               <div class="row">
-                <div class="col-xs-12">
+                <div class="col-md-12">
                   <div class="form-group">
                     <label for="assistant" class="control-label required"> <strong> Assistant *</strong></label>
                     <appanalyst-select
@@ -75,7 +84,7 @@
                   </div>
                 </div>
           
-                <div class="col-xs-12">
+                <div class="col-md-12">
                   <div class="form-group">
                     <label for="assistant" class="control-label required"> <strong> Functions *</strong></label>
                     <textarea formControlName="functions" id="functions" class="form-control" cols="30" rows="5">
@@ -85,7 +94,7 @@
                 </div>
           
                 
-              </div> -->
+              </div>
         <div class="row">
           <div class="col-md-12">
             <button [disabled]="addForm.invalid || loading" class="btn btn-primary btn-block">

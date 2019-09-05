@@ -40,4 +40,7 @@ export * from './contact';
 export * from './asset';
 export * from './image-asset';
 export * from './expense';
+export * from './account-class';
+export * from './account-heading';
+export * from './account-posting';
 

@@ -30,3 +30,6 @@ export { ImageAssets } from './image-assets/image-assets';
 export { Assets } from './assets/assets';
 export { Expenses } from './expenses/expenses';
 export { Payrolls } from './payrolls/payrolls';
+export { AccountHeadings } from './account-headings/account-headings';
+export { AccountClasses } from './account-classes/account-classes';
+export { AccountPostings } from './account-postings/account-postings';
