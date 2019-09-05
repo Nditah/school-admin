@@ -1,10 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import { SelectOption, ApiResponse, State, County, Staff } from '../../../models';
-import { States, Counties, Staffs } from '../../../providers';
-import { deepPropsExist } from '../../../helpers';
+import { SelectOption, State, County, Staff, Office } from '../../../models';
+import { States, Counties, Staffs, Offices } from '../../../providers';
+import { deepPropsExist, isEqual } from '../../../helpers';
 import { NotificationService } from '../../../services';
 
 @Component({
@@ -24,6 +23,9 @@ export class StaffEditComponent implements OnInit {
   stateOptions: SelectOption;
   countyRecords: Array<County>;
   countyOptions: SelectOption;
+  officeRecords: Array<Office>;
+  prevOfficeRecords: Array<Office>;
+  officeOptions: SelectOption[];
 
   constructor(private _fb: FormBuilder,
               private notify: NotificationService,
@@ -31,7 +33,8 @@ export class StaffEditComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private counties: Counties,
               private staffs: Staffs,
-              private router: Router) {
+              private router: Router,
+              private offices: Offices) {
                 const id = this.activatedRoute.snapshot.paramMap.get('id');
                 const record = this.staffs.query({id})[0];
                 if (!!record) {
@@ -41,6 +44,7 @@ export class StaffEditComponent implements OnInit {
                 }
                 this.stateRecords = this.states.query();
                 this.countyRecords = this.counties.query();
+                this.officeRecords = this.offices.query();
               }
 
   ngOnInit() {
@@ -135,50 +139,36 @@ export class StaffEditComponent implements OnInit {
     });
   }
 
-  // async onSubmit() {
-  //   this.loading = true;
-  //   const payload = this.editForm.value;
-  //   console.log(payload);
-  //   if (this.editForm.invalid) {
-  //     console.log('Invalid form! Please fill all the required* inputs.');
-  //     this.notify.showNotification('Invalid form! Please fill all the required* inputs.');
-  //     this.loading = false;
-  //     return;
-  //   }
-  //   try {
-  //     console.log(payload);
-  //     this.staffs.recordUpdate(this.record, payload).then((res: ApiResponse) => {
-  //         console.log(res);
-  //         if (res.success) {
-  //         this.goToDetail(res.payload);
-  //       } else {
-  //         console.log(res.message);
-  //         this.notify.showNotification(res.message);
-  //       }
-  //     }, (err) => console.log(err.message));
-  //   } catch (error) {
-  //     this.notify.showNotification(error.message, 'danger');
-  //   }
-  //   this.loading = false;
-  //   return;
-  // }
-
   async onSubmit() {
     const payload  = this.editForm.value;
     try {
       const result = await this.staffs.recordUpdate(this.record, payload);
       if (result.success) {
-        // this.returnResponse.emit({message: 'Record successfully updated', status: 'success'});
-        this.notify.showNotification('This subject has been updated', 'success');
+        this.notify.showNotification('This staff has been updated', 'success');
         this.goToDetail(result.payload);
       } else {
-        // this.returnResponse.emit({message: result.message, status: 'danger'});
         this.notify.showNotification(result.message, 'danger');
       }
     } catch (error) {
-      // this.returnResponse.emit({message: error, status: 'danger'});
       this.notify.showNotification(error, 'danger');
     }
+  }
+
+  ngDoCheck() {
+    if (!isEqual(this.officeRecords, this.prevOfficeRecords)) {
+      this.prevOfficeRecords = [...this.officeRecords];
+      this.getOfficeOptions();
+    }
+  }
+
+  getOfficeOptions() {
+    this.officeOptions = this.officeRecords.map(options => (
+      {
+        id: options.id,
+        text: options.name
+      }
+    ));
+    console.log(this.officeOptions);
   }
 
   goToDetail(record: any): void {

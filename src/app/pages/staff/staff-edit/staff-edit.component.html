@@ -142,7 +142,8 @@
                   <label for="staff_type" class="control-label required"> <strong> Staff Type </strong></label>
                   <select formControlName="staff_type" id="staff_type" class="form-control">
                     <option value="TEACHING">TEACHING</option>
-                    <option value="NONTEACHING">NON-TEACHING</option>
+                    <option value="NON-TEACHING">NON-TEACHING</option>
+                    <option value="UNKNOWN">UNKNOWN</option>
                   </select>
                 </div>
               </div>
@@ -244,12 +245,18 @@
               </div>
   
               <div class="row">
-                  <div class="col-md-4 pr-1">
-                      <div class="form-group">
-                        <label for="office" class="control-label required"> <strong> Position </strong></label>
-                        <input type="text" class="form-control" formControlName="office" id="office" placeholder="Position" >
-                      </div>
+                <div class="col-md-4 pr-1">
+                    <div class="form-group">
+                      <label for=""> <strong> Position </strong></label>
+                      <appanalyst-select
+                                [items]="officeOptions"
+                                formControlName="office"
+                                bindValue="id"
+                                bindLabel="text"
+                                placeholder="">
+                              </appanalyst-select>
                     </div>
+                  </div>
                     <div class="col-md-4 pr-1">
                         <div class="form-group">
                           <label for="subsidiary" class="control-label required"> <strong> Subsidiary </strong></label>

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { States, Counties, Staffs } from '../../../providers';
-import { State, County, ApiResponse } from '../../../models';
+import { States, Counties, Staffs, Offices } from '../../../providers';
+import { State, County, ApiResponse, Office } from '../../../models';
 import { SelectOption } from 'src/app/models';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../../services';
+import { isEqual } from '../../../helpers';
 
 @Component({
   selector: 'app-staff-add',
@@ -17,18 +18,23 @@ export class StaffAddComponent implements OnInit {
   loading = false;
   addForm: FormGroup;
   stateRecords: Array<State>;
-  stateOptions: SelectOption;
+  stateOptions: SelectOption[];
   countyRecords: Array<County>;
-  countyOptions: SelectOption;
+  countyOptions: SelectOption[];
+  officeRecords: Array<Office>;
+  prevOfficeRecords: Array<Office>;
+  officeOptions: SelectOption[];
 
   constructor(private _fb: FormBuilder,
               private router: Router,
               private notify: NotificationService,
               private staffs: Staffs,
               private states: States,
-              private counties: Counties) {
+              private counties: Counties,
+              private offices: Offices) {
                 this.stateRecords = this.states.query();
                 this.countyRecords = this.counties.query();
+                this.officeRecords = this.offices.query();
               }
 
   ngOnInit() {
@@ -108,10 +114,26 @@ export class StaffAddComponent implements OnInit {
         this.countyOptions = data.payload.map(item => ({id: item.id, text: item.name}));
         console.log('List of counties  ================ \n' + JSON.stringify(this.countyOptions) );
       } else {
-        // this.showNotification('Could not retrieve admissions');
         console.log(data.message);
       }
     });
+  }
+
+  ngDoCheck() {
+    if (!isEqual(this.officeRecords, this.prevOfficeRecords)) {
+      this.prevOfficeRecords = [...this.officeRecords];
+      this.getOfficeOptions();
+    }
+  }
+
+  getOfficeOptions() {
+    this.officeOptions = this.officeRecords.map(options => (
+      {
+        id: options.id,
+        text: options.name
+      }
+    ));
+    console.log(this.officeOptions);
   }
 
   async onSubmit() {
@@ -119,8 +141,8 @@ export class StaffAddComponent implements OnInit {
     const payload = this.addForm.value;
     console.log(payload);
     if (this.addForm.invalid) {
-      console.log('Invalid form! Please fill all the required* inputs.');
-      // this.showNotification('Invalid form! Please fill all the required* inputs.');
+      console.log('Invalid form! Please fill all the required * inputs.');
+      this.notify.showNotification('Invalid form! Please fill all the required * inputs', 'warning');
       this.loading = false;
       return;
     }

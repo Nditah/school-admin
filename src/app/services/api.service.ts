@@ -404,6 +404,33 @@ export class ApiService {
      );
  }
 
+// /////////////////////////////////
+ // ----------PAYROLL-------------//
+ // /////////////////////////////////
+
+ getPayroll(path): Observable<any> {
+  const url = `${this.env.API_URL}/payrolls${path}`;
+  return this.http.get(url, httpOptions).pipe(
+    map(this.extractData),
+    catchError(this.handleError));
+}
+
+postPayroll(data): Observable<any> {
+  const url = `${this.env.API_URL}/payrolls`;
+  const payload = this.cleanObject(data);
+  return this.http.post(url, payload, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+}
+
+updatePayroll(id: string, data): Observable<any> {
+  const url = `${this.env.API_URL}/payrolls/${id}`;
+  const payload = this.cleanObject(data);
+  return this.http.put(url, payload, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+}
+
  // /////////////////////////////////
  // ----------TIMETABLE--------//
  // /////////////////////////////////

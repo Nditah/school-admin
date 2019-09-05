@@ -20,7 +20,8 @@ import {
   Admissions, Staffs, Counties, States, Students, Subjects, Marksheets,
   Offices, Smss, Notifications, Settings, Classes, Courses, Hostels,
   Attendances, Fees, HostelAllocations, HostelBedspaces, FeesPayments,
-  HostelRooms, Parents, Classrooms, Reports, Curriculums, Timetables, Books, Expenses, ImageAssets, Assets
+  HostelRooms, Parents, Classrooms, Reports, Curriculums, Timetables,
+  Books, Expenses, ImageAssets, Assets, Payrolls
 } from './providers';
 
 @NgModule({
@@ -56,7 +57,7 @@ import {
     Admissions, Marksheets, Attendances,
     Staffs, Counties, States, Students, Subjects, Offices, Smss, Notifications, Settings, Classes, Hostels,
     Courses, Fees, HostelAllocations, HostelBedspaces, FeesPayments, HostelRooms, Parents, Classrooms,
-    Books, Reports, Curriculums, Timetables, Expenses, ImageAssets, Assets,
+    Books, Reports, Curriculums, Timetables, Expenses, ImageAssets, Assets, Payrolls,
   ],
   bootstrap: [AppComponent]
 })

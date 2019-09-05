@@ -29,3 +29,4 @@ export { Timetables } from './timetables/timetables';
 export { ImageAssets } from './image-assets/image-assets';
 export { Assets } from './assets/assets';
 export { Expenses } from './expenses/expenses';
+export { Payrolls } from './payrolls/payrolls';

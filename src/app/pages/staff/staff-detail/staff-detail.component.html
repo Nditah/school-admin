@@ -7,7 +7,7 @@
           <div class="card">
             <div class="card-body">
               <div class="form-group">
-                <button class="btn btn-default" routerLink="/staff/edit/"> <i class="now-ui-icons ui-2_settings-90"></i> Edit Record</button>
+                <button class="btn btn-default" (click)="goToEdit(record)"> <i class="now-ui-icons ui-2_settings-90"></i> Edit Record</button>
                 <button class="btn btn-primary pull-right" (click)="goBack()"> <i class="now-ui-icons arrows-1_minimal-left"></i> Go Back </button>
               </div>
             </div>
@@ -25,7 +25,7 @@
             <table class="table">
               <thead class=" text-primary"><th>Property</th><th>Value</th></thead>
                 <tbody>
-                <tr><th>Name</th><td>{{record.title}}. {{ record.surname }} {{ record.given_name }}</td></tr>
+                <tr><th>Name</th><td>{{ record.title }}. {{ record.surname }} {{ record.given_name }}</td></tr>
                 <tr><th>Gender</th><td>{{ record.gender || '' }}</td></tr>
                 <tr><th>Phone (office)</th><td>{{ record.phone || '' }}</td></tr>
                 <tr><th>Phone (Personal)</th><td>{{ record.phone_personal || '' }}</td></tr>
@@ -43,7 +43,7 @@
                 <tr><th>Qualification</th><td>{{ record.qualification || '' }}</td></tr>
                 <tr><th>Employment Status</th><td>{{ record.employment_status || '' }}</td></tr>
                 <tr><th>Basic Salary</th><td>{{ record.basic_salary || '' }}</td></tr>
-                <tr><th>Position</th><td>{{ record.office || '' }}</td></tr>
+                <tr><th>Position</th><td>{{ record.office.name || '' }}</td></tr>
                 <tr><th>School</th><td>{{ record.subsidiary || '' }}</td></tr>
               </tbody>
             </table>

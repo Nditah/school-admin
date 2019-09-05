@@ -1,35 +1,35 @@
 import { Injectable } from '@angular/core';
-import { throwError } from 'rxjs';
+import { Subject, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Timetable, ApiResponse } from '../../models';
+import { Payroll, ApiResponse } from '../../models';
 import { ApiService } from '../../services';
 
 
 @Injectable()
-export class Timetables {
+export class Payrolls {
 
-  timetables: Timetable[] = [];
+  payrolls: Payroll[] = [];
 
   constructor(private apiService: ApiService) {
-    const timetables = []; // Initial Values
-    for (const timetable of timetables) {
-      this.timetables.push(new Timetable(timetable));
+    const payrolls = []; // Initial Values
+    for (const payroll of payrolls) {
+      this.payrolls.push(new Payroll(payroll));
     }
     this.recordRetrieve();
   }
 
   query(params?: any) {
     if (!params) {
-      return this.timetables;
+      return this.payrolls;
     }
-    return this.timetables.filter((timetable) => {
+    return this.payrolls.filter((payroll) => {
       for (const key in params) {
           if (params.hasOwnProperty(key)) {
-            const field = timetable[key];
+            const field = payroll[key];
             if (typeof field === 'string' && field.toLowerCase().indexOf(params[key].toLowerCase()) >= 0) {
-              return timetable;
+              return payroll;
             } else if (field === params[key]) {
-              return timetable;
+              return payroll;
             }
           }
       }
@@ -37,17 +37,17 @@ export class Timetables {
     });
   }
 
-  add(timetable: Timetable) {
-    this.timetables.push(timetable);
+  add(payroll: Payroll) {
+    this.payrolls.push(payroll);
   }
 
-  delete(timetable: Timetable) {
-    this.timetables.splice(this.timetables.indexOf(timetable), 1);
+  delete(payroll: Payroll) {
+    this.payrolls.splice(this.payrolls.indexOf(payroll), 1);
   }
 
   // CRUD Service
   async recordRetrieve(queryString = ''): Promise<ApiResponse> {
-    const proRes = this.apiService.getTimetable(queryString).pipe(
+    const proRes = this.apiService.getPayroll(queryString).pipe(
     map((res: ApiResponse) => {
       console.log(res);
       if (res.success && res.payload.length > 0) {
@@ -63,7 +63,7 @@ export class Timetables {
   }
 
   async recordCreate(data): Promise<ApiResponse> {
-    const proRes = this.apiService.postTimetable(data).pipe(
+    const proRes = this.apiService.postPayroll(data).pipe(
     map((res: ApiResponse) => {
         if (res.success && res.payload) {
           console.log('recordCreate() successful');
@@ -75,11 +75,11 @@ export class Timetables {
     return await proRes.toPromise();
   }
 
-  async recordUpdate(timetable: Timetable, payload): Promise<ApiResponse> {
-    const proRes = this.apiService.updateTimetable(timetable.id, payload).pipe(
+  async recordUpdate(payroll: Payroll, payload): Promise<ApiResponse> {
+    const proRes = this.apiService.updatePayroll(payroll.id, payload).pipe(
     map((res: ApiResponse) => {
         if (res.success) {
-          this.delete(timetable);
+          this.delete(payroll);
         } else {
           throwError(res.message);
         }
@@ -87,4 +87,5 @@ export class Timetables {
       }));
     return await proRes.toPromise();
   }
+
 }

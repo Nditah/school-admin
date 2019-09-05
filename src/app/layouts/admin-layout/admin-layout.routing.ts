@@ -91,14 +91,18 @@ import { TimetableComponent } from '../../pages/timetable/timetable.component';
 import { TimetableAddComponent } from '../../pages/timetable/timetable-add/timetable-add.component';
 import { TimetableDetailComponent } from '../../pages/timetable/timetable-detail/timetable-detail.component';
 import { TimetableEditComponent } from '../../pages/timetable/timetable-edit/timetable-edit.component';
-import { AssetComponent } from 'src/app/pages/asset/asset.component';
-import { AssetAddComponent } from 'src/app/pages/asset/asset-add/asset-add.component';
-import { AssetEditComponent } from 'src/app/pages/asset/asset-edit/asset-edit.component';
-import { AssetDetailComponent } from 'src/app/pages/asset/asset-detail/asset-detail.component';
-import { ExpenseComponent } from 'src/app/pages/expense/expense.component';
-import { ExpenseAddComponent } from 'src/app/pages/expense/expense-add/expense-add.component';
-import { ExpenseDetailComponent } from 'src/app/pages/expense/expense-detail/expense-detail.component';
-import { ExpenseEditComponent } from 'src/app/pages/expense/expense-edit/expense-edit.component';
+import { AssetComponent } from '../../pages/asset/asset.component';
+import { AssetAddComponent } from '../../pages/asset/asset-add/asset-add.component';
+import { AssetEditComponent } from '../../pages/asset/asset-edit/asset-edit.component';
+import { AssetDetailComponent } from '../../pages/asset/asset-detail/asset-detail.component';
+import { ExpenseComponent } from '../../pages/expense/expense.component';
+import { ExpenseAddComponent } from '../../pages/expense/expense-add/expense-add.component';
+import { ExpenseDetailComponent } from '../../pages/expense/expense-detail/expense-detail.component';
+import { ExpenseEditComponent } from '../../pages/expense/expense-edit/expense-edit.component';
+import { PayrollComponent } from '../../pages/payroll/payroll.component';
+import { PayrollAddComponent } from '../../pages/payroll/payroll-add/payroll-add.component';
+import { PayrollDetailComponent } from '../../pages/payroll/payroll-detail/payroll-detail.component';
+import { PayrollEditComponent } from '../../pages/payroll/payroll-edit/payroll-edit.component';
 
 
 
@@ -250,5 +254,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'expense/add',                 component: ExpenseAddComponent,            canActivate: [AuthGuard] },
     { path: 'expense/detail/:id',          component: ExpenseDetailComponent,         canActivate: [AuthGuard] },
     { path: 'expense/edit/:id',            component: ExpenseEditComponent,           canActivate: [AuthGuard] },
+
+    // Payroll
+    { path: 'payroll',                     component: PayrollComponent,               canActivate: [AuthGuard] },
+    { path: 'payroll/add',                 component: PayrollAddComponent,            canActivate: [AuthGuard] },
+    { path: 'payroll/detail/:id',          component: PayrollDetailComponent,         canActivate: [AuthGuard] },
+    { path: 'payroll/edit/:id',            component: PayrollEditComponent,           canActivate: [AuthGuard] },
 
   ];
