@@ -2,69 +2,24 @@
 </div>
 <div class="main-content">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
       <div class="card">
-        <div class="card-header bg-primary">
-          <h4 class="card-title text-center">
-            Add a Classroom
-          </h4>
-        </div>
         <div class="card-body">
-          <form action="" [formGroup]="addForm" (submit)="onSubmit()">
-            <div class="row">
-              <div class="col-md-12">
-                <label for=""><strong>Name: </strong></label>
-                <input type="text" formControlName="name" id="name" class="form-control" #na style="border-radius: 0px">
-              </div>
-              <div class="col-md-12">
-                  <label for=""><strong>Block: </strong></label>
-                  <input type="text" formControlName="block" id="block" class="form-control" #na style="border-radius: 0px">
-                </div>
-                <div class="col-md-12">
-                  <label for=""><strong>Level: </strong></label>
-                  <select formControlName="level" id="level" class="form-control" #lev>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                  </select>
-                </div>
-              <div class="col-md-12">
-                  <label for=""><strong>Subsidiary</strong></label>
-                  <select formControlName="subsidiary" id="subsidiary" class="form-control" (change)="onChange($event, na.value)">
-                    <option value="CRECHE">CRECHE</option>
-                    <option value="NURSERY">NURSERY</option>
-                    <option value="PRIMARY">PRIMARY</option>
-                    <option value="SECONDARY">SECONDARY</option>
-                  </select>
-                </div>
-              <div class="col-md-12">
-                <label for=""><strong>Class:</strong></label>
-                <appanalyst-select
-                    [items]="classeOptions"
-                    formControlName="classe"
-                    bindValue="id"
-                    bindLabel="text"
-                    placeholder="Select Class"
-                  >
-                  </appanalyst-select>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <button [disabled]="addForm.invalid || loading" class="btn btn-primary btn-block">
-                  Submit <span *ngIf="loading" class="fa fa-gear spin"> </span>
-                </button>
-              </div>
-            </div>
-          </form>
+          <div class="form-group">
+              <!-- <button class="btn btn-primary" routerLink="/staff/add"> -->
+            <button class="btn btn-primary" (click)="openSidebar('add','add', null)">
+                  <i class="now-ui-icons ui-1_simple-add"></i> Add New Record
+            </button>
+           
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-8">
+  </div>
+
+  <div class="row">
+    
+    <div class="col-md-12">
       <div class="card">
         <div class="card-header">
           <h4 class="card-title">{{page_name}}</h4>
@@ -77,8 +32,8 @@
             <tr>
               <th class="text-left">SN</th>
               <th>Name</th>
-              <th>Level</th>
-              <th>School</th>
+              <th>Code</th>
+              <th>Subsidiary</th>
               <th class="text-right">Action</th>
             </tr>
             </thead>
@@ -86,7 +41,7 @@
             <tr  *ngFor="let record of currentRecords; let i = index">
               <td>{{ i + 1 }}</td>
                   <td>{{record.name.toUpperCase()}}</td>
-                  <td>{{ record.level }}</td>
+                  <td>{{ record.code }}</td>
                   <td>{{ record.subsidiary || '-' }}</td>
               <td class="td-actions text-right">
                 <div class="btn-group btn-group-sm">
@@ -123,16 +78,24 @@
 
 <app-right-sidebar [heading]="sidebarHeading" [zIndex]="1030" [activeSidebar]="activeSidebar" (closeSidebar)="closeSidebar($event)">
   <div [ngSwitch]="sidebarView">
+      <div *ngSwitchCase="'add'">
+          <app-office-add 
+            [record]="currentRecord" 
+            [formType]="sidebarContent"
+          ></app-office-add>
+        </div>
     <div *ngSwitchCase="'form'">
-      <app-classroom-edit
+      <app-office-edit
       [record]="currentRecord"
       [formType]="sidebarContent"
-      [classeRecords]="classeRecords"
+      [staffRecords]="staffRecords"
       (returnResponse)="returnResponse($event)">
-      </app-classroom-edit>
+      </app-office-edit>
     </div>
     <div *ngSwitchCase="'view'">
-      <app-classroom-detail [record]="currentRecord"></app-classroom-detail>
+      <app-office-detail [record]="currentRecord"></app-office-detail>
     </div>
   </div>
 </app-right-sidebar>
+
+

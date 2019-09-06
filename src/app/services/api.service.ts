@@ -959,4 +959,85 @@ updateTimetable(id: string, data): Observable<any> {
         catchError(this.handleError)
       );
   }
+
+  // /////////////////////////////////
+  // ----------Account Heading-------------//
+  // /////////////////////////////////
+
+  getAccountHeading(path): Observable<any> {
+    const url = `${this.env.API_URL}/account-headings${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postAccountHeading(data): Observable<any> {
+    const url = `${this.env.API_URL}/account-headings`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateAccountHeading(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/account-headings/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // /////////////////////////////////
+  // ----------Account CLass-------//
+  // /////////////////////////////////
+
+  getAccountClass(path): Observable<any> {
+    const url = `${this.env.API_URL}/account-classes${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postAccountClass(data): Observable<any> {
+    const url = `${this.env.API_URL}/account-classes`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateAccountClass(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/account-classes/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  // /////////////////////////////////
+  // ----------Account Posting-------------//
+  // /////////////////////////////////
+
+  getAccountPosting(path): Observable<any> {
+    const url = `${this.env.API_URL}/account-postings${path}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+  postAccountPosting(data): Observable<any> {
+    const url = `${this.env.API_URL}/account-postings`;
+    const payload = this.cleanObject(data);
+    return this.http.post(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  updateAccountPosting(id: string, data): Observable<any> {
+    const url = `${this.env.API_URL}/account-postings/${id}`;
+    const payload = this.cleanObject(data);
+    return this.http.put(url, payload, httpOptions).pipe(
+        catchError(this.handleError)
+      );
+  }
 }

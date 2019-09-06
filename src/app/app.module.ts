@@ -21,8 +21,9 @@ import {
   Offices, Smss, Notifications, Settings, Classes, Courses, Hostels,
   Attendances, Fees, HostelAllocations, HostelBedspaces, FeesPayments,
   HostelRooms, Parents, Classrooms, Reports, Curriculums, Timetables,
-  Books, Expenses, ImageAssets, Assets, Payrolls
+  Books, Expenses, ImageAssets, Assets, Payrolls, AccountClasses, AccountHeadings, AccountPostings
 } from './providers';
+import { AccountClass } from './models';
 
 @NgModule({
   imports: [
@@ -57,7 +58,8 @@ import {
     Admissions, Marksheets, Attendances,
     Staffs, Counties, States, Students, Subjects, Offices, Smss, Notifications, Settings, Classes, Hostels,
     Courses, Fees, HostelAllocations, HostelBedspaces, FeesPayments, HostelRooms, Parents, Classrooms,
-    Books, Reports, Curriculums, Timetables, Expenses, ImageAssets, Assets, Payrolls,
+    Books, Reports, Curriculums, Timetables, Expenses, ImageAssets, Assets, Payrolls, AccountClasses, AccountHeadings,
+    AccountPostings,
   ],
   bootstrap: [AppComponent]
 })

@@ -2,22 +2,22 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Offices, Staffs } from '../../../providers';
-import {ApiResponse, SelectOption, Office, Staff } from '../../../models';
+import { AccountClasses, Staffs } from '../../../providers';
+import {ApiResponse, SelectOption, AccountClass, Staff } from '../../../models';
 
 @Component({
-  selector: 'app-office-add',
-  templateUrl: './office-add.component.html',
-  styleUrls: ['./office-add.component.scss']
+  selector: 'app-account-class-add',
+  templateUrl: './account-class-add.component.html',
+  styleUrls: ['./account-class-add.component.scss']
 })
-export class OfficeAddComponent implements OnInit {
+export class AccountClassAddComponent implements OnInit {
 
   @Input() currentForm: string;
-  @Input() record: Office | null;
+  @Input() record: AccountClass | null;
   @Input() formType: string;
   @Input() staffRecords: Array<Staff>;
   prevStaffRecords: Array<Staff>;
-  prevRecords: Office | null;
+  prevRecords: AccountClass | null;
   staffOptions: Array<SelectOption>;
   loading = false;
   addForm: FormGroup;
@@ -26,7 +26,7 @@ export class OfficeAddComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private router: Router,
               private activatedRoute: ActivatedRoute,
-              private offices: Offices,
+              private accountClasses: AccountClasses,
               private staffs: Staffs,
               private toastr: ToastrService,
                ) {
@@ -45,7 +45,7 @@ export class OfficeAddComponent implements OnInit {
       phone: ['', Validators.required],
       functions: [''],
       hierarchy: [''],
-      office_type: [''],
+      accountClass_type: [''],
       subsidiary: [''],
       head: [''],
       assistant: [''],
@@ -53,7 +53,7 @@ export class OfficeAddComponent implements OnInit {
   }
 
   // ====================  All Methods to load external links for Object IDs  ======================= //
-  // get offices for the select box
+  // get accountClasses for the select box
   getStaffs() {
     this.staffs.recordRetrieve().then(data => {
       if (data.success) {
@@ -77,7 +77,7 @@ export class OfficeAddComponent implements OnInit {
     }
     try {
       console.log(payload);
-      this.offices.recordCreate(payload).then((res: ApiResponse) => {
+      this.accountClasses.recordCreate(payload).then((res: ApiResponse) => {
           console.log(res);
         if (res.success) {
         } else {
