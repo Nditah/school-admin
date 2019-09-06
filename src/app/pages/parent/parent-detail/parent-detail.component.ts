@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Parent, ApiResponse } from 'src/app/models';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Parents } from '../../../providers';
@@ -10,7 +10,7 @@ import { Parents } from '../../../providers';
 })
 export class ParentDetailComponent implements OnInit {
 
-  record: Parent;
+  @Input() record: Parent;
 
   constructor(private router: Router,
               private activatedRoute: ActivatedRoute,
