@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ToastrService } from 'ngx-toastr';
 import { Student, ApiResponse } from '../../models';
 import { Students } from '../../providers';
 import { NotificationService } from 'src/app/services';
@@ -50,16 +49,16 @@ export class StudentComponent implements OnInit {
     this.activeSidebar = $event;
   }
 
-  goToAdd(): void {
+  goToAdd() {
     this.router.navigate(['student/add']);
   }
 
-  goToDetail(record: any): void {
+  goToDetail(record) {
     this.router.navigate([`student/detail/${record.id}`]);
     return;
   }
 
-  goToEdit(record: any): void {
+  goToEdit(record) {
     this.router.navigate([`student/edit/${record.id}`]);
   }
 

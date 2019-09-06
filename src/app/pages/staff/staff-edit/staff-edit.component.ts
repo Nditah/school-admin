@@ -48,10 +48,10 @@ export class StaffEditComponent implements OnInit {
               }
 
   ngOnInit() {
-    this.createForm();
+    this.updateForm();
     this.setForm();
   }
-  createForm() {
+  updateForm() {
     this.editForm = this._fb.group({
       title: [''],
       surname: [''],
@@ -123,7 +123,6 @@ export class StaffEditComponent implements OnInit {
       staff_type: deepPropsExist(this.record, 'staff_type') ? this.record.staff_type : '',
       classe: deepPropsExist(this.record, 'classe') ? this.record.classe : '',
       subject: deepPropsExist(this.record, 'subject') ? this.record.subject : '',
-      password: deepPropsExist(this.record, 'password') ? this.record.password : '',
       kin: deepPropsExist(this.record, 'kin') ? this.record.kin : '',
       kin_phone: deepPropsExist(this.record, 'kin_phone') ? this.record.kin_phone : '',
       kin_address: deepPropsExist(this.record, 'kin_address') ? this.record.kin_address : '',
@@ -171,7 +170,7 @@ export class StaffEditComponent implements OnInit {
     console.log(this.officeOptions);
   }
 
-  goToDetail(record: any): void {
+  goToDetail(record) {
     this.router.navigate([`staff/detail/${record.id}`]);
     return;
   }

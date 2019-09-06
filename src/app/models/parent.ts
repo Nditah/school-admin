@@ -9,7 +9,6 @@ export class Parent {
     surname: string;
     given_name: string;
     gender: string;
-    birth_date: Date;
     marital_status: string;
     address: string;
     state: State;

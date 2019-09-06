@@ -25,7 +25,7 @@ export class ParentComponent implements OnInit {
               }
 
   ngOnInit() {
-    this.notify.showNotification('Showing records of Parents', 'info');
+    // this.notify.showNotification('Showing records of Parents', 'info');
   }
 
   async search(data) {
@@ -38,15 +38,15 @@ export class ParentComponent implements OnInit {
   }
 
   goToAdd() {
-    this.router.navigate(['parents/add']);
+    this.router.navigate(['parent/add']);
   }
 
   goToDetail(record) {
-    this.router.navigate([`parents/detail/${record.id}`]);
+    this.router.navigate([`parent/detail/${record.id}`]);
   }
 
   goToEdit(record) {
-    this.router.navigate([`parents/edit/${record.id}`]);
+    this.router.navigate([`parent/edit/${record.id}`]);
   }
   removeRecord(record) {
     // delete method
