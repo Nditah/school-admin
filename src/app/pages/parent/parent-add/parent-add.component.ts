@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 import { State, SelectOption, County, Student, ApiResponse } from '../../../models';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../../services';
-import { Staffs, States, Counties, Students, Parents } from '../../../providers';
+import { States, Counties, Students, Parents } from '../../../providers';
 import { isEqual } from 'src/app/helpers';
 
 @Component({
@@ -56,7 +56,7 @@ export class ParentAddComponent implements OnInit {
       password: [''],
       profession: [''],
       employment_status: [''],
-      students_name: ['']
+      students: ['']
     });
 
   }

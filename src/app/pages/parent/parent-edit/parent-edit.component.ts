@@ -65,7 +65,7 @@ export class ParentEditComponent implements OnInit {
     phone: [''],
     profession: [''],
     employment_status: [''],
-    students_name: ['']
+    students: ['']
   });
 }
 
@@ -83,7 +83,7 @@ setForm() {
     email: deepPropsExist(this.record, 'email') ? this.record.email : '',
     employment_status: deepPropsExist(this.record, 'employment_status') ? this.record.employment_status : '',
     profession: deepPropsExist(this.record, 'profession') ? this.record.profession : '',
-    students_name: deepPropsExist(this.record, 'students_name') ? this.record.students_name : '',
+    students: deepPropsExist(this.record, 'students') ? this.record.students : '',
   });
 }
 
