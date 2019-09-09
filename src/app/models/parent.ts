@@ -47,7 +47,7 @@ export interface Parent {
     password: string;
     profession: string;
     employment_status: string;
-    students_name: Array<Student>;
+    students: Array<Student>;
     created_by: Staff;
     updated_by: Staff;
 }
