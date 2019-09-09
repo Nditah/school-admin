@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Parent, ApiResponse } from 'src/app/models';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Parents } from '../../../providers';
 
 @Component({
   selector: 'app-parent-detail',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input() record: Parent;
+
+  constructor(private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private parents: Parents) { }
 
   ngOnInit() {
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.parents.recordRetrieve(`?_id=${id}`).then((res: ApiResponse) => {
+      if (res.success) {
+        const record = res.payload[0];
+        this.record = record;
+        console.log(record);
+      } else {
+        console.log(res.message);
+      }
+    });
+  }
+
+  goToEdit(record) {
+    this.router.navigate([`parent/edit/${record.id}`]);
+  }
+
+  goBack() {
+    window.history.back();
   }
 
 }

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { State, SelectOption, County, ApiResponse, Classe, Parent } from '../../../models';
+import { State, SelectOption, County, ApiResponse, Classe, Parent, Hostel } from '../../../models';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../../services';
-import { States, Counties, Students, Classes, Parents } from '../../../providers';
+import { States, Counties, Students, Classes, Parents, Hostels } from '../../../providers';
 
 @Component({
   selector: 'app-student-add',
@@ -23,6 +23,7 @@ export class StudentAddComponent implements OnInit {
   classeOptions: SelectOption;
   parentRecords: Array<Parent>;
   parentOptions: SelectOption;
+  hostelRecords: Array<Hostel>;
   hostelOptions: SelectOption;
 
   constructor(private _fb: FormBuilder,
@@ -30,12 +31,14 @@ export class StudentAddComponent implements OnInit {
               private notify: NotificationService,
               private students: Students,
               private parents: Parents,
+              private hostels: Hostels,
               private states: States,
               private counties: Counties,
               private classes: Classes) {
       this.stateRecords = this.states.query();
       this.countyRecords = this.counties.query();
       this.parentRecords = this.parents.query();
+      this.hostelRecords = this.hostels.query();
       this.classeRecords = this.classes.query();
     }
   ngOnInit() {
@@ -61,7 +64,6 @@ export class StudentAddComponent implements OnInit {
     hostel: [''],
     photo: [''],
     parents: [''],
-      is_document_complete: ['']
     });
   }
 
@@ -113,6 +115,18 @@ export class StudentAddComponent implements OnInit {
     });
   }
 
+  getHostel() {
+    this.hostels.recordRetrieve().then(data => {
+      if (data.success) {
+        this.hostelOptions = data.payload.map(item => ({id: item.id, text: item.block}));
+        console.log('List of hostels  ================ \n' + JSON.stringify(this.hostelOptions) );
+      } else {
+        console.log(data.message);
+        this.notify.showNotification(data.message, 'danger');
+      }
+    });
+  }
+
   async onSubmit() {
     this.loading = true;
     const payload = this.addForm.value;
@@ -120,7 +134,7 @@ export class StudentAddComponent implements OnInit {
     if (this.addForm.invalid) {
       this.notify.showNotification('Invalid form! Please fill all the required* inputs.', 'warning');
       console.log('Invalid form! Please fill all the required* inputs.');
-      // this.showNotification('Invalid form! Please fill all the required* inputs.');
+      this.notify.showNotification('Invalid form! Please fill all the required* inputs.', 'danger');
       this.loading = false;
       return;
     }
@@ -145,7 +159,7 @@ export class StudentAddComponent implements OnInit {
   }
 
   goToDetail(record: any): void {
-    this.router.navigate([`students/detail/${record.id}`]);
+    this.router.navigate([`student/detail/${record.id}`]);
     return;
   }
 

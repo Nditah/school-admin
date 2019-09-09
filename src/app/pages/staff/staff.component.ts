@@ -38,7 +38,8 @@ export class StaffComponent implements OnInit {
     this.staffs.recordRetrieve(queryString).then((res: ApiResponse) => {
       if (res.success) {
         this.currentRecords = this.staffs.query();
-        this.notify.showNotification(`${res.payload.length} record(s) found!`);
+        console.log(`${res.payload.length} record(s) found!`);
+        this.notify.showNotification('Showing records of Staff', 'info');
       }
     }).catch(err => {
       this.notify.showNotification(err.message);
@@ -49,16 +50,16 @@ export class StaffComponent implements OnInit {
     this.activeSidebar = $event;
   }
 
-  goToAdd(): void {
+  goToAdd() {
     this.router.navigate(['staff/add']);
   }
 
-  goToDetail(record: any): void {
+  goToDetail(record) {
     this.router.navigate([`staff/detail/${record.id}`]);
     return;
   }
 
-  goToEdit(record: any): void {
+  goToEdit(record) {
     this.router.navigate([`staff/edit/${record.id}`]);
   }
 

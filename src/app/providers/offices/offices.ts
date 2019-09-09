@@ -42,8 +42,9 @@ export class Offices {
   }
 
   delete(office: Office) {
-    const index = this.offices.findIndex(office => office.id === office.id);
-    this.offices.splice(index, 1);
+    // const index = this.offices.findIndex(office => office.id === office.id);
+    // this.offices.splice(index, 1);
+    this.offices.splice(this.offices.indexOf(office), 1);
   }
 
   // CRUD Service
@@ -51,16 +52,16 @@ export class Offices {
     const proRes = this.apiService.getOffice(queryString).pipe(
     map((res: ApiResponse) => {
       console.log(res);
-        if (res.success && res.payload.length > 0) {
+      if (res.success && res.payload.length > 0) {
           res.payload.forEach(element => {
             this.add(element);
           });
         } else {
           throwError(res.message);
         }
-        return res;
+      return res;
       }));
-      return await proRes.toPromise();
+    return await proRes.toPromise();
   }
 
   async recordCreate(data): Promise<ApiResponse> {
@@ -74,7 +75,7 @@ export class Offices {
         }
         return res;
       }));
-      return await proRes.toPromise();
+    return await proRes.toPromise();
   }
 
   async recordUpdate(office: Office, payload): Promise<ApiResponse> {
@@ -89,7 +90,7 @@ export class Offices {
         }
         return res;
       }));
-      return await proRes.toPromise();
+    return await proRes.toPromise();
   }
 
 }

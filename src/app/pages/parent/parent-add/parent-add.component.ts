@@ -4,6 +4,7 @@ import { State, SelectOption, County, Student, ApiResponse } from '../../../mode
 import { Router } from '@angular/router';
 import { NotificationService } from '../../../services';
 import { Staffs, States, Counties, Students, Parents } from '../../../providers';
+import { isEqual } from 'src/app/helpers';
 
 @Component({
   selector: 'app-parent-add',
@@ -20,7 +21,8 @@ export class ParentAddComponent implements OnInit {
   countyRecords: Array<County>;
   countyOptions: SelectOption;
   studentRecords: Array<Student>;
-  studentOptions: SelectOption;
+  prevStudentRecords: Array<Student>;
+  studentOptions: SelectOption[];
 
   constructor(private _fb: FormBuilder,
               private router: Router,
@@ -83,16 +85,23 @@ export class ParentAddComponent implements OnInit {
     });
   }
 
-  getStudents() {
-    this.students.recordRetrieve().then(data => {
-      if (data.success) {
-        this.studentOptions = data.payload.map(item => ({id: item.id, text: item.name}));
-        console.log('List of Students  ================ \n' + JSON.stringify(this.studentOptions) );
-      } else {
-        console.log(data.message);
-        this.notify.showNotification(data.message, 'danger');
-      }
-    });
+  ngDoCheck() {
+    if (!isEqual(this.studentRecords, this.prevStudentRecords)) {
+      this.prevStudentRecords = [...this.studentRecords];
+      this.getStudentOptions();
+    }
+  }
+
+  getStudentOptions() {
+
+        this.studentOptions = this.studentRecords.map(item => (
+          {
+            id: item.id,
+            text: `${item.surname} ${item.given_name}`
+          }));
+        console.log(this.studentOptions);
+
+
   }
 
   async onSubmit() {
@@ -127,7 +136,7 @@ export class ParentAddComponent implements OnInit {
   }
 
   goToDetail(record: any): void {
-    this.router.navigate([`parents/detail/${record.id}`]);
+    this.router.navigate([`parent/detail/${record.id}`]);
     return;
   }
 

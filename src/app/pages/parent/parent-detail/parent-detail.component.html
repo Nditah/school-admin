@@ -1,3 +1,46 @@
-<p>
-  parent-detail works!
-</p>
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="form-group">
+                <button class="btn btn-default" (click)="goToEdit(record)"> <i class="now-ui-icons ui-2_settings-90"></i> Edit Record</button>
+                <button class="btn btn-primary pull-right" (click)="goBack()"> <i class="now-ui-icons arrows-1_minimal-left"></i> Go Back </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Parent Detail</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary"><th>Property</th><th>Value</th></thead>
+                <tbody>
+                <tr><th>Name</th><td>{{ record.title }}. {{ record.surname }} {{ record.given_name }}</td></tr>
+                <tr><th>Gender</th><td>{{ record.gender || '' }}</td></tr>
+                <tr><th>Phone</th><td>{{ record.phone || '' }}</td></tr>
+                <tr><th>Marital Status</th><td>{{ record.marital_status || '' }}</td></tr>
+                <tr><th>Email</th><td>{{ record.email || '' }}</td></tr>
+                <tr><th>Address</th><td>{{ record.address || '' }}</td></tr>
+                <tr><th>State</th><td>{{ record.state || '' }}</td></tr>
+                <tr><th>County</th><td>{{ record.county || '' }}</td></tr>
+                <tr><th>Profession</th><td>{{ record.profession || '' }}</td></tr>
+                <tr><th>Employment Status</th><td>{{ record.employment_status || '' }}</td></tr>
+                <!-- <tr><th>Child(ren)</th><td>{{ record.students_name.surname || '' }} {{ record.students_name.given_name || '' }}</td></tr> -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
