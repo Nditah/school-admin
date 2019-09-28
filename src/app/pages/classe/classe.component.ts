@@ -69,41 +69,11 @@ export class ClasseComponent implements OnInit {
   async onSubmit() {
     this.loading = true;
     const payload = this.addForm.value;
-    // let codeName;
-    // if (payload.name.split(' ').length > 1) {
-    //   const splitted = payload.name.split(' ');
-    //   codeName = splitted[0].substring(0, 2).toUpperCase() + splitted[1].substring(0, 2).toUpperCase();
-    // } else {
-    //   codeName = payload.name.length > 7 ? payload.name.substring(0, 4).toUpperCase() : payload.name.substring(0, 3).toUpperCase();
-    // }
-    // const codeSubsidiary = payload.subsidiary.substring(0, 3).toUpperCase();
-    // payload.code = codeName + codeSubsidiary;
-    // console.log(payload);
 
     let codeName;
-    // let codeSubNew;
-    // let codeLevelNew;
     const codeSub = payload.subsidiary.substring(0, 3).toUpperCase();
     const codeLevel = payload.level;
     codeName = payload.name;
-    // if (codeSub === 'SECONDARY' && codeLevel <= 3) {
-    //     codeSubNew = 'JSS';
-    //   }
-        // switch (codeLevel) {
-        //   case 4:
-        //   codeLevelNew = 1;
-        //   break;
-        //   case 5:
-        //   codeLevelNew = 2;
-        //   break;
-        //   case 6:
-        //   codeLevelNew = 3;
-        //   break;
-        //   default:
-        //   // codeLevelNew = codeLevel;
-        //   break;
-        // }
-        // return codeLevelNew;
 
 
     payload.code = codeSub + codeLevel + codeName;

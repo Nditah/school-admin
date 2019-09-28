@@ -38,10 +38,10 @@ export class StaffAddComponent implements OnInit {
               }
 
   ngOnInit() {
-    this.updateForm();
+    this.createForm();
   }
 
-  updateForm() {
+  createForm() {
     this.addForm = this._fb.group({
       title: [''],
       surname: [''],

@@ -25,20 +25,20 @@
             <table class="table">
               <thead class=" text-primary"><th>Property</th><th>Value</th></thead>
                 <tbody>
+                <!-- <tr><th>Registration Number</th><td>{{ record.serial }}</td></tr> -->
                 <tr><th>Name</th><td>{{ record.surname }} {{ record.given_name }}</td></tr>
                 <tr><th>Gender</th><td>{{ record.gender || '' }}</td></tr>
                 <tr><th>Phone</th><td>{{ record.phone || '' }}</td></tr>
                 <tr><th>Email</th><td>{{ record.email || '' }}</td></tr>
-                <tr><th>Date of Birth</th><td>{{ record.birth_date || '' }}</td></tr>
+                <tr><th>Date of Birth</th><td>{{ record.birth_date | date }}</td></tr>
                 <tr><th>Address</th><td>{{ record.address || '' }}</td></tr>
                 <tr><th>State</th><td>{{ record.state || '' }}</td></tr>
                 <tr><th>County</th><td>{{ record.county || '' }}</td></tr>
-                <tr><th>Blood Group</th><td>{{ record.blood_group || '' }}</td></tr>
                 <tr><th>Class</th><td>{{ record.classe.code || '' }}</td></tr>
                 <tr><th>Level</th><td>{{ record.level || '' }}</td></tr>
                 <tr><th>School</th><td>{{ record.subsidiary || '' }}</td></tr>
-                <tr><th>Hostel</th><td>{{ record.hostel.hall || '' }}</td></tr>
-                <tr><th>Parents</th><td>{{ record.parents || '' }}</td></tr>
+                <tr><th>Hostel</th><td>{{ record.hostel.block || '' }}</td></tr>
+                <tr><th>Parents</th><td>{{ record.parents.surname }} {{ record.parents.given_name }}</td></tr>
               </tbody>
             </table>
           </div>

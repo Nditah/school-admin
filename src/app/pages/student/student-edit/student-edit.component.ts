@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { State, SelectOption, County, Classe, Parent, Hostel, Student } from '../../../models';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NotificationService } from 'src/app/services';
 import { Students, Parents, Hostels, States, Counties, Classes } from 'src/app/providers';
-import { deepPropsExist } from 'src/app/helpers';
+import { deepPropsExist, isEqual } from 'src/app/helpers';
 
 @Component({
   selector: 'app-student-edit',
@@ -13,20 +13,25 @@ import { deepPropsExist } from 'src/app/helpers';
 })
 export class StudentEditComponent implements OnInit {
 
+  @Input() currentForm: string;
+  @Output() returnResponse: EventEmitter<any> = new EventEmitter();
   page_name = 'Edit Student';
   loading = false;
   editForm: FormGroup;
   record: Student;
   stateRecords: Array<State>;
-  stateOptions: SelectOption;
+  stateOptions: SelectOption[];
   countyRecords: Array<County>;
-  countyOptions: SelectOption;
+  countyOptions: SelectOption[];
   classeRecords: Array<Classe>;
-  classeOptions: SelectOption;
+  prevClasseRecords: Array<Classe>;
+  classeOptions: SelectOption[];
   parentRecords: Array<Parent>;
-  parentOptions: SelectOption;
+  prevParentRecords: Array<Parent>;
+  parentOptions: SelectOption[];
   hostelRecords: Array<Hostel>;
-  hostelOptions: SelectOption;
+  prevHostelRecords: Array<Hostel>;
+  hostelOptions: SelectOption[];
 
   constructor(private _fb: FormBuilder,
               private router: Router,
@@ -68,7 +73,6 @@ export class StudentEditComponent implements OnInit {
     county: [''],
     email: [''],
     phone: [''],
-    blood_group: [''],
     classe: [''],
     level: [''],
     subsidiary: [''],
@@ -89,7 +93,6 @@ export class StudentEditComponent implements OnInit {
       state: deepPropsExist(this.record, 'state') ? this.record.state : '',
       county: deepPropsExist(this.record, 'county') ? this.record.county : '',
       email: deepPropsExist(this.record, 'email') ? this.record.email : '',
-      blood_group: deepPropsExist(this.record, 'blood_group') ? this.record.blood_group : '',
       classe: deepPropsExist(this.record, 'classe') ? this.record.classe : '',
       level: deepPropsExist(this.record, 'level') ? this.record.level : '',
       subsidiary: deepPropsExist(this.record, 'subsidiary') ? this.record.subsidiary : '',
@@ -111,6 +114,21 @@ export class StudentEditComponent implements OnInit {
       }
     } catch (error) {
       this.notify.showNotification(error, 'danger');
+    }
+  }
+
+  ngDoCheck() {
+    if (!isEqual(this.classeRecords, this.prevClasseRecords)) {
+      this.prevClasseRecords = [...this.classeRecords];
+      this.getClasses();
+    }
+    if (!isEqual(this.parentRecords, this.prevParentRecords)) {
+      this.prevParentRecords = [...this.parentRecords];
+      this.getParents();
+    }
+    if (!isEqual(this.hostelRecords, this.prevHostelRecords)) {
+      this.prevHostelRecords = [...this.hostelRecords];
+      this.getHostels();
     }
   }
 
@@ -139,39 +157,33 @@ export class StudentEditComponent implements OnInit {
   }
 
   getClasses() {
-    this.classes.recordRetrieve().then(data => {
-      if (data.success) {
-        this.classeOptions = data.payload.map(item => ({id: item.id, text: item.name}));
-        console.log('List of classes  ================ \n' + JSON.stringify(this.classeOptions) );
-      } else {
-        console.log(data.message);
-        this.notify.showNotification(data.message, 'danger');
+    this.classeOptions = this.classeRecords.map(options => (
+      {
+        id: options.id,
+        text: options.code
       }
-    });
+    ));
+    console.log(this.classeOptions);
   }
 
   getParents() {
-    this.parents.recordRetrieve().then(data => {
-      if (data.success) {
-        this.parentOptions = data.payload.map(item => ({id: item.id, text: item.name}));
-        console.log('List of parents  ================ \n' + JSON.stringify(this.parentOptions) );
-      } else {
-        console.log(data.message);
-        this.notify.showNotification(data.message, 'danger');
+    this.parentOptions = this.parentRecords.map(options => (
+      {
+        id: options.id,
+        text: `${options.given_name} ${options.surname}`
       }
-    });
+    ));
+    console.log(this.parentOptions);
   }
 
-  getHostel() {
-    this.hostels.recordRetrieve().then(data => {
-      if (data.success) {
-        this.hostelOptions = data.payload.map(item => ({id: item.id, text: item.block}));
-        console.log('List of hostels  ================ \n' + JSON.stringify(this.hostelOptions) );
-      } else {
-        console.log(data.message);
-        this.notify.showNotification(data.message, 'danger');
+  getHostels() {
+    this.hostelOptions = this.hostelRecords.map(options => (
+      {
+        id: options.id,
+        text: options.block
       }
-    });
+    ));
+    console.log(this.hostelOptions);
   }
 
   goToDetail(record) {

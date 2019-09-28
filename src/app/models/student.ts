@@ -3,6 +3,7 @@ import { Classe } from './classe';
 import { State } from './state';
 import { County } from './county';
 import { Hostel } from './hostel';
+import { Parent } from './parent';
 
 export class Student {
     id: string;
@@ -18,11 +19,14 @@ export class Student {
     password: string;
     blood_group: string;
     classe: Classe;
-    level: string;
+    level: number;
     subsidiary: string;
     hostel: Hostel;
     photo: string;
-    parents: Array<object>;
+    parents: Array<Parent>;
+    reg_no: string;
+    admission_year: Date;
+    serial_no: number;
     created_by: Staff;
     updated_by: Staff;
 
@@ -47,13 +51,16 @@ export interface Student {
     email: string;
     phone: string;
     password: string;
-    blood_group: string;
     classe: Classe;
-    level: string;
+    level: number;
     subsidiary: string;
     hostel: Hostel;
     photo: string;
-    parents: Array<object>;
+    parents: Array<Parent>;
+    reg_no: string;
+    admission_year: Date;
+    serial_no: number;
+    serial: number;
     created_by: Staff;
     updated_by: Staff;
 }
