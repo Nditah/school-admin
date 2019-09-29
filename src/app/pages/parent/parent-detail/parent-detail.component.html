@@ -35,7 +35,7 @@
                 <tr><th>County</th><td>{{ record.county || '' }}</td></tr>
                 <tr><th>Profession</th><td>{{ record.profession || '' }}</td></tr>
                 <tr><th>Employment Status</th><td>{{ record.employment_status || '' }}</td></tr>
-                <tr><th>Child(ren)</th><td>{{ record.students.surname || '' }} {{ record.students.given_name || '' }}</td></tr>
+                <tr><th>Child(ren)</th><td>{{ record.students || '' }}</td></tr>
               </tbody>
             </table>
           </div>
