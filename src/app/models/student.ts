@@ -17,12 +17,22 @@ export class Student {
     email: string;
     phone: string;
     password: string;
+<<<<<<< HEAD
+=======
+    blood_group: string;
+>>>>>>> 9a79d1740909a56341bdb775b098125f105bcd2a
     classe: Classe;
     level: number;
     subsidiary: string;
     hostel: Hostel;
     photo: string;
     parents: Array<Parent>;
+<<<<<<< HEAD
+=======
+    reg_no: string;
+    admission_year: Date;
+    serial_no: number;
+>>>>>>> 9a79d1740909a56341bdb775b098125f105bcd2a
     created_by: Staff;
     updated_by: Staff;
 
@@ -53,6 +63,13 @@ export interface Student {
     hostel: Hostel;
     photo: string;
     parents: Array<Parent>;
+<<<<<<< HEAD
+=======
+    reg_no: string;
+    admission_year: Date;
+    serial_no: number;
+    serial: number;
+>>>>>>> 9a79d1740909a56341bdb775b098125f105bcd2a
     created_by: Staff;
     updated_by: Staff;
 }

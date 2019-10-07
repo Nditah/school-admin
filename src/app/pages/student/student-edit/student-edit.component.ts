@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { State, SelectOption, County, Classe, Parent, Hostel, Student } from '../../../models';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -129,12 +129,10 @@ export class StudentEditComponent implements OnInit {
       this.prevClasseRecords = [...this.classeRecords];
       this.getClasses();
     }
-
     if (!isEqual(this.parentRecords, this.prevParentRecords)) {
       this.prevParentRecords = [...this.parentRecords];
       this.getParents();
     }
-
     if (!isEqual(this.hostelRecords, this.prevHostelRecords)) {
       this.prevHostelRecords = [...this.hostelRecords];
       this.getHostels();
