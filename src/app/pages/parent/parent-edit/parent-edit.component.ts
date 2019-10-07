@@ -49,6 +49,7 @@ export class ParentEditComponent implements OnInit {
 
   ngOnInit() {
     this.updateForm();
+    this.setForm();
   }
 
   updateForm() {

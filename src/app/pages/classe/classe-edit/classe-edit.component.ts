@@ -70,7 +70,6 @@ export class ClasseEditComponent implements OnInit {
   updateForm() {
     this.editForm = this._fb.group({
       name: [''],
-      code: [''], // remove later
       subsidiary: [''],
       level: [''],
       master: [''],
@@ -83,7 +82,6 @@ export class ClasseEditComponent implements OnInit {
   setForm() {
     this.editForm.patchValue({
       name: deepPropsExist(this.record, 'name') ? this.record.name : '',
-      code: deepPropsExist(this.record, 'code') ? this.record.code : '',
       subsidiary: deepPropsExist(this.record, 'subsidiary') ? this.record.subsidiary : '',
       level: deepPropsExist(this.record, 'level') ? this.record.level : '',
       master: deepPropsExist(this.record, 'master', 'id') ? this.record.master.id : '',

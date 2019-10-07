@@ -121,8 +121,8 @@ export class SubjectComponent implements OnInit {
     this.subjects.recordRetrieve('?code=' + code).then((data: ApiResponse) => {
       if (data.success) {
         if (data.payload.length > 0) {
-          // tslint:disable-next-line: max-line-length
-          this.notify.showNotification('A course with the code ' + code + ' already exist you may change the course name to resolve this conflict', 'info');
+          this.notify.showNotification('A course with the code ' 
+          + code + ' already exist you may change the course name to resolve this conflict', 'info');
         } else {
           this.notify.showNotification('The generated course code is ' + code , 'success');
         }

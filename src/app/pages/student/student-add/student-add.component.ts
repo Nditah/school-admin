@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { State, SelectOption, County, ApiResponse, Classe, Parent, Hostel } from '../../../models';
+import { State, SelectOption, County, ApiResponse, Classe, Parent, Hostel, Student } from '../../../models';
 import { Router } from '@angular/router';
 import { NotificationService } from '../../../services';
 import { States, Counties, Students, Classes, Parents, Hostels } from '../../../providers';
+import { isEqual } from '../../../helpers';
 
 @Component({
   selector: 'app-student-add',
@@ -13,6 +14,7 @@ import { States, Counties, Students, Classes, Parents, Hostels } from '../../../
 export class StudentAddComponent implements OnInit {
 
   page_name = 'Add new Student';
+  currentRecords: Array<Student>;
   loading = false;
   addForm: FormGroup;
   stateRecords: Array<State>;
@@ -20,11 +22,14 @@ export class StudentAddComponent implements OnInit {
   countyRecords: Array<County>;
   countyOptions: SelectOption;
   classeRecords: Array<Classe>;
-  classeOptions: SelectOption;
+  prevClasseRecords: Array<Classe>;
+  classeOptions: SelectOption[];
   parentRecords: Array<Parent>;
-  parentOptions: SelectOption;
+  prevParentRecords: Array<Parent>;
+  parentOptions: SelectOption[];
   hostelRecords: Array<Hostel>;
-  hostelOptions: SelectOption;
+  prevHostelRecords: Array<Hostel>;
+  hostelOptions: SelectOption[];
 
   constructor(private _fb: FormBuilder,
               private router: Router,
@@ -35,6 +40,7 @@ export class StudentAddComponent implements OnInit {
               private states: States,
               private counties: Counties,
               private classes: Classes) {
+      this.currentRecords = this.students.query();
       this.stateRecords = this.states.query();
       this.countyRecords = this.counties.query();
       this.parentRecords = this.parents.query();
@@ -57,7 +63,6 @@ export class StudentAddComponent implements OnInit {
     email: [''],
     phone: [''],
     password: [''],
-    blood_group: [''],
     classe: [''],
     level: [''],
     subsidiary: [''],
@@ -65,6 +70,23 @@ export class StudentAddComponent implements OnInit {
     photo: [''],
     parents: [''],
     });
+  }
+
+  ngDoCheck() {
+    if (!isEqual(this.classeRecords, this.prevClasseRecords)) {
+      this.prevClasseRecords = [...this.classeRecords];
+      this.getClasses();
+    }
+
+    if (!isEqual(this.parentRecords, this.prevParentRecords)) {
+      this.prevParentRecords = [...this.parentRecords];
+      this.getParents();
+    }
+
+    if (!isEqual(this.hostelRecords, this.prevHostelRecords)) {
+      this.prevHostelRecords = [...this.hostelRecords];
+      this.getHostels();
+    }
   }
 
   getStates() {
@@ -92,39 +114,33 @@ export class StudentAddComponent implements OnInit {
   }
 
   getClasses() {
-    this.classes.recordRetrieve().then(data => {
-      if (data.success) {
-        this.classeOptions = data.payload.map(item => ({id: item.id, text: item.name}));
-        console.log('List of classes  ================ \n' + JSON.stringify(this.classeOptions) );
-      } else {
-        console.log(data.message);
-        this.notify.showNotification(data.message, 'danger');
+    this.classeOptions = this.classeRecords.map(options => (
+      {
+        id: options.id,
+        text: options.code
       }
-    });
+    ));
+    console.log(this.classeOptions);
   }
 
   getParents() {
-    this.parents.recordRetrieve().then(data => {
-      if (data.success) {
-        this.parentOptions = data.payload.map(item => ({id: item.id, text: item.name}));
-        console.log('List of parents  ================ \n' + JSON.stringify(this.parentOptions) );
-      } else {
-        console.log(data.message);
-        this.notify.showNotification(data.message, 'danger');
+    this.parentOptions = this.parentRecords.map(options => (
+      {
+        id: options.id,
+        text: `${options.surname} ${options.given_name}`
       }
-    });
+    ));
+    console.log(this.parentOptions);
   }
 
-  getHostel() {
-    this.hostels.recordRetrieve().then(data => {
-      if (data.success) {
-        this.hostelOptions = data.payload.map(item => ({id: item.id, text: item.block}));
-        console.log('List of hostels  ================ \n' + JSON.stringify(this.hostelOptions) );
-      } else {
-        console.log(data.message);
-        this.notify.showNotification(data.message, 'danger');
+  getHostels() {
+    this.hostelOptions = this.hostelRecords.map(options => (
+      {
+        id: options.id,
+        text: `${options.hall} ${options.block}`
       }
-    });
+    ));
+    console.log(this.hostelOptions);
   }
 
   async onSubmit() {
@@ -156,6 +172,15 @@ export class StudentAddComponent implements OnInit {
     }
     this.loading = false;
     return;
+  }
+
+  async returnResponse(event: any) {
+    console.log(event);
+    this.notify.showNotification(event.message, event.status);
+    const results = await this.students.recordRetrieve();
+    if (results.success) {
+      this.currentRecords = results.payload;
+    }
   }
 
   goToDetail(record: any): void {
