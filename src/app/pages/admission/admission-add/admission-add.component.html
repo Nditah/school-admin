@@ -1,0 +1,178 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group">
+            <!--            <button class="btn btn-primary"> <i class="now-ui-icons ui-2_settings-90"></i> Edit Record </button>-->
+            <button class="btn btn-info pull-right" (click)="goBack()"> <i class="now-ui-icons arrows-1_minimal-left"></i> Go Back </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Add New Record</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="passport" class="control-label required"> <strong> Passport * </strong></label>
+                  <input type="file" class="form-control" formControlName="passport" id="passport">
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="surname" class="control-label required"> <strong> Surname * </strong></label>
+                  <input type="text" class="form-control" formControlName="surname" id="surname" placeholder="Surname" required>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                  <div class="form-group">
+                    <label for="given_name" class="control-label required"> <strong> Given Names * </strong></label>
+                    <input type="text" class="form-control" formControlName="given_name" id="given_name" placeholder="Given Names" required>
+                  </div>
+                </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="county_id" class="control-label"> <strong> LGA </strong></label>
+                  <ng-select class="form-control" id="county_id" formControlName="county_id" placeholder=""
+                             [items]="countyOptions"
+                             bindLabel="text"
+                             [virtualScroll]="true"
+                             bindValue="id">
+                  </ng-select>
+                </div>
+              </div>
+
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="state_id" class="control-label"> <strong> State </strong></label>
+                  <ng-select class="form-control" id="state_id" formControlName="state_id" placeholder=""
+                             [items]="stateOptions"
+                             bindLabel="text"
+                             [virtualScroll]="true"
+                             bindValue="id">
+                  </ng-select>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="birth_date" class="control-label required"> <strong> Date of Birth </strong></label>
+                  <input type="date" class="form-control" formControlName="birth_date" id="birth_date" placeholder="Date of Birth" >
+                </div>
+              </div>
+              
+            </div>
+             
+            
+            <div class="row">
+                <div class="col-md-4 pr-1">
+                    <div class="form-group">
+                      <label for="religion" class="control-label required"> <strong> Religion * </strong></label>
+                      <select formControlName="religion" id="religion" class="form-control">
+                        <option value="">CHOOSE AN OPTION</option>
+                        <option value="ISLAM">ISLAM</option>
+                        <option value="CHRISTIANITY">CHRISTIANITY</option>
+                      </select>
+                    </div>
+                  </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="denomination" class="control-label required"> <strong> Denomination * </strong></label>
+                  <select formControlName="denomination" id="denomination" class="form-control">
+                    <option value="">CHOOSE AN OPTION</option>
+                    <option value="Orthodoxy">Orthodoxy</option>
+                    <option value="Catholicism">Catholicism</option>
+                    <option value="Protestantism">Protestantism</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="last_school" class="control-label required"> <strong> Last School  </strong></label>
+                  <input type="text" class="form-control" formControlName="last_school" id="last_school" placeholder="Last School Attended" required>
+                </div>
+              </div>
+            </div>
+              
+            
+
+            <div class="row">
+              
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="last_class" class="control-label"> <strong> Last Class </strong></label>
+                  <ng-select class="form-control" id="last_class" formControlName="last_class" placeholder=""
+                             [items]="classeOptions"
+                             bindLabel="text"
+                             [virtualScroll]="true"
+                             bindValue="id">
+                  </ng-select>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="intending_class" class="control-label"> <strong> Intending Class </strong></label>
+                  <ng-select class="form-control" id="intending_class" formControlName="intending_class" placeholder=""
+                             [items]="classeOptions"
+                             bindLabel="text"
+                             [virtualScroll]="true"
+                             bindValue="id">
+                  </ng-select>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="home_address" class="control-label required"> <strong> Home Address </strong></label>
+                  <input type="text" class="form-control" formControlName="home_address" id="home_address" placeholder="Home Address" >
+                </div>
+              </div>
+  
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="father_name" class="control-label required"> <strong> Father's Name </strong></label>
+                  <input type="text" class="form-control" formControlName="father_name" id="father_name" placeholder="Father's Name">
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="mother_name" class="control-label required"> <strong> Mother's Name </strong></label>
+                  <input type="text" class="form-control" formControlName="mother_name" id="mother_name" placeholder="Mother's Name">
+                </div>
+              </div>
+              
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="phone" class="control-label required"> <strong> Phone </strong></label>
+                  <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="Phone Number" >
+                </div>
+              </div>
+             
+            
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12 text-center">
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="loading">Submit
+                  <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

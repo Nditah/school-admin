@@ -1,0 +1,365 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group">
+            <!--            <button class="btn btn-primary"> <i class="now-ui-icons ui-2_settings-90"></i> Edit Record </button>-->
+            <button class="btn btn-info pull-right" (click)="goBack()"> <i class="now-ui-icons arrows-1_minimal-left"></i> Go Back </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Add New Shipment Record</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="code" class="control-label required"> <strong> Code * </strong></label>
+                  <input type="text" class="form-control" formControlName="code" id="code" placeholder="Code" required>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="code" class="control-label required"> <strong> Name * </strong></label>
+                  <input type="text" class="form-control" formControlName="name" id="name" placeholder="Name" required>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="customer_id" class="control-label required"> <strong> Sender </strong></label>
+                  <!-- <ng-select class="form-control" id="customer_id" formControlName="sender_id" placeholder=""
+                             [items]="customerOptions"
+                             bindLabel="text"
+                             [virtualScroll]="true"
+                             bindValue="id">
+                  </ng-select> -->
+                </div>
+              </div>
+
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="customer_id" class="control-label required"> <strong> Recipient </strong></label>
+                  <!-- <ng-select class="form-control" id="recipient_id" formControlName="recipient_id" placeholder=""
+                             [items]="customerOptions"
+                             bindLabel="text"
+                             [virtualScroll]="true"
+                             bindValue="id">
+                  </ng-select> -->
+                </div>
+              </div>
+            </div>
+
+<!--            <div class="row">-->
+<!--              <div class="col-md-4 pr-1">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="recipient_type" class="control-label required"> <strong> Recipient Type * </strong></label>-->
+<!--                  <input type="text" class="form-control" formControlName="recipient_type" id="recipient_type" placeholder="Recipient Type" required>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+
+            <div class="row">
+<!--              <div class="col-md-4 pr-1">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="urgency" class="control-label required"> <strong> Urgency </strong></label>-->
+<!--                  <input type="text" class="form-control" formControlName="urgency" id="urgency" placeholder="Urgency" >-->
+<!--                </div>-->
+<!--              </div>-->
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="distance" class="control-label required"> <strong> Distance </strong></label>
+                  <input type="text" class="form-control" formControlName="distance" id="distance" placeholder="Distance" >
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="mass" class="control-label required"> <strong> Mass  </strong></label>
+                  <input type="text" class="form-control" formControlName="mass" id="mass" placeholder="Mass">
+                </div>
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="volume" class="control-label required"> <strong> Volume </strong></label>
+                  <input type="text" class="form-control" formControlName="volume" id="volume" placeholder="Volume">
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="worth" class="control-label required"> <strong> Worth  </strong></label>
+                  <input type="text" class="form-control" formControlName="worth" id="worth" placeholder="Worth" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="" class="control-label required"> <strong> Fragile Good * </strong></label>
+                  <select formControlName="is_fragile" id="is_fragile" class="form-control">
+                    <option value="">CHOOSE AN OPTION</option>
+                    <option value="true">YES</option>
+                    <option value="false">NO</option>
+                  </select>
+                  <datalist id="boolean">
+                    <option value="true">
+                    <option value="false">
+                  </datalist>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="" class="control-label required"> <strong> Perishable Good * </strong></label>
+                  <select formControlName="is_perishable" id="is_perishable" class="form-control">
+                    <option value="">CHOOSE AN OPTION</option>
+                    <option value="true">YES</option>
+                    <option value="false">NO</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="" class="control-label required"> <strong> Combustible Good *  </strong></label>
+                  <select formControlName="is_combustible" id="is_combustible" class="form-control">
+                    <option value="">CHOOSE AN OPTION</option>
+                    <option value="true">YES</option>
+                    <option value="false">NO</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="is_odiferous" class="control-label required"> <strong> Odiferous Good (Has Odour) * </strong></label>
+                  <select formControlName="is_odiferous" id="is_odiferous" class="form-control">
+                    <option value="">CHOOSE AN OPTION</option>
+                    <option value="true">YES</option>
+                    <option value="false">NO</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="" class="control-label required"> <strong> Liquid Good * </strong></label>
+                  <select formControlName="is_liquid" id="is_liquid" class="form-control">
+                    <option value="">CHOOSE AN OPTION</option>
+                    <option value="true">YES</option>
+                    <option value="false">NO</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="" class="control-label required"> <strong> Unique Good * </strong></label>
+                  <select formControlName="is_unique" id="is_unique" class="form-control">
+                    <option value="">CHOOSE AN OPTION</option>
+                    <option value="true">YES</option>
+                    <option value="false">NO</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="is_odiferous" class="control-label required"> <strong> Description *</strong></label>
+                  <input type="text" class="form-control" formControlName="description" id="description" placeholder="Description" required>
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="" class="control-label required"> <strong>  Terminal From </strong></label>
+                  <!-- <ng-select class="form-control" id="terminal_from" formControlName="terminal_from" placeholder=""
+                             [items]="terminalOptions"
+                             bindLabel="text"
+                             [virtualScroll]="true"
+                             bindValue="id">
+                  </ng-select> -->
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="" class="control-label required"> <strong>  Terminal To </strong></label>
+                  <!-- <ng-select class="form-control" id="terminal_to" formControlName="terminal_to" placeholder=""
+                             [items]="terminalOptions"
+                             bindLabel="text"
+                             [virtualScroll]="true"
+                             bindValue="id">
+                  </ng-select> -->
+                </div>
+              </div>
+<!--              <div class="col-md-4 pr-1">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="" class="control-label required"> <strong> Terminal Store * </strong></label>-->
+<!--                  <ng-select class="form-control" id="terminal_store" formControlName="terminal_store" placeholder=""-->
+<!--                             [items]="terminalOptions"-->
+<!--                             bindLabel="text"-->
+<!--                             [virtualScroll]="true"-->
+<!--                             bindValue="id">-->
+<!--                  </ng-select>-->
+<!--                </div>-->
+<!--              </div>-->
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="" class="control-label required"> <strong> Travel Hour</strong></label>
+                  <input type="text" class="form-control" formControlName="travel_hour" id="travel_hour" placeholder="Travel Hour">
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="expected_date" class="control-label required"> <strong> Estimated Arrival Date</strong></label>
+                  <input type="date" class="form-control" formControlName="expected_date" id="expected_date" placeholder="Expected Date" data-mask="(000) 000 0000">
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="expected_date" class="control-label required"> <strong> Departure Date</strong></label>
+                  <input type="date" class="form-control" formControlName="departure_date" id="departure_date" placeholder="Expected Date" data-mask="(000) 000 0000">
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="" class="control-label required"> <strong>  Billing Type * </strong></label>
+                  <select formControlName="billing_type" id="billing_type" class="form-control">
+                    <option value="">CHOOSE AN OPTION</option>
+                    <option value="PRE_PAID">PRE PAID</option>
+                    <option value="POST_PAID">POST PAID</option>
+                    <option value="DEDICATED">DEDICATED</option>
+                  </select>
+                </div>
+              </div>
+<!--              <div class="col-md-4 pr-1">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="" class="control-label required"> <strong> Cost Estimate * </strong></label>-->
+<!--                  <input type="text" class="form-control" formControlName="cost_estimate" id="cost_estimate" placeholder="cost_estimate" required>-->
+<!--                </div>-->
+<!--              </div>-->
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="is_odiferous" class="control-label required"> <strong> Payable Cost *</strong></label>
+                  <input type="text" class="form-control" formControlName="cost_payable" id="cost_payable" placeholder="Payable Cost" required>
+                </div>
+              </div>
+<!--              <div class="col-md-4 pr-1">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="" class="control-label required"> <strong>  Delivery Type </strong></label>-->
+<!--                  <input type="text" class="form-control" formControlName="delivery_type" id="delivery_type" placeholder="Delivery Type" required>-->
+<!--                </div>-->
+<!--              </div>-->
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="" class="control-label required"> <strong> Identification * </strong></label>
+                  <input type="text" class="form-control" formControlName="identification" id="identification" placeholder="Identification">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="remark" class="control-label required"> <strong> Remark</strong></label>
+                  <input type="text" class="form-control" formControlName="remark" id="remark" placeholder="Remark" required>
+                </div>
+              </div>
+<!--              <div class="col-md-4 pr-1">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="" class="control-label required"> <strong>  Recipient Confirmation </strong></label>-->
+<!--                  <input type="text" class="form-control" formControlName="recipient_confirm" id="recipient_confirm" placeholder="Recipient Confirm">-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="col-md-4 pr-1">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="" class="control-label required"> <strong> Recipient Confirmation Date </strong></label>-->
+<!--                  <input type="text" class="form-control" formControlName="recipient_confirm_date" id="recipient_confirm_date" placeholder="Recipient Confirmation Date">-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="col-md-4 pr-1">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="" class="control-label required"> <strong> Recipient Confirmation Remark </strong></label>-->
+<!--                  <input type="text" class="form-control" formControlName="recipient_confirm_remark" id="recipient_confirm_remark" placeholder="Recipient Confirmation Remark">-->
+<!--                </div>-->
+<!--              </div>-->
+            </div>
+
+            <div class="row">
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="remark" class="control-label required"> <strong> Payment Gateway</strong></label>
+                  <input type="text" list="gateway" class="form-control" formControlName="payment_gateway" id="payment_gateway" placeholder="Payment Gateway" required>
+                  <datalist id="gateway">
+                    <option value="FLUTTERWAVE">
+                    <option value="INTERSWITCH">
+                    <option value="UNIONBANK">
+                    <option value="PAYSTACK">
+                    <option value="STRIPE">
+                    <option value="PAYPAL">
+                    <option value="GOOGLE_WALLET">
+                  </datalist>
+                </div>
+              </div>
+
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="remark" class="control-label required"> <strong> Payment Method</strong></label>
+                  <input type="text" list="method" class="form-control" formControlName="payment_method" id="payment_method" placeholder="Payment Method" required>
+                  <datalist id="method">
+                    <option value="GATEWAY">
+                    <option value="POS">
+                    <option value="CASH">
+                    <option value="CHEQUE">
+                    <option value="TRANSFER">
+                    <option value="USSD">
+                  </datalist>
+                </div>
+              </div>
+
+<!--              <div class="col-md-4 pr-1">-->
+<!--                <div class="form-group">-->
+<!--                  <label for="delivery_status" class="control-label required"> <strong> Delivery Status</strong></label>-->
+<!--                  <select formControlName="delivery_status" id="delivery_status" class="form-control">-->
+<!--                    <option value="PENDING">PENDING</option>-->
+<!--                    <option value="STORED">STORED</option>-->
+<!--                    <option value="TRANSIT">TRANSIT</option>-->
+<!--                    <option value="DELIVERED">DELIVERED</option>-->
+<!--                    <option value="DISCHARGED">DISCHARGED</option>-->
+<!--                  </select>-->
+<!--                </div>-->
+<!--              </div>-->
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12 text-center">
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="loading">Submit
+                  <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

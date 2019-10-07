@@ -1,0 +1,98 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="form-group">
+            <!--            <button class="btn btn-primary"> <i class="now-ui-icons ui-2_settings-90"></i> Edit Record </button>-->
+            <button class="btn btn-info pull-right" (click)="goBack()"> <i class="now-ui-icons arrows-1_minimal-left"></i> Go Back </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Add New Record</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+          <div class="row">
+            <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="type" class="control-label required"> <strong>Type * </strong></label>
+                  <select formControlName="type" id="type" class="form-control">
+                    <option value="">CHOOSE AN OPTION</option>
+                    <option value="PAPER">PAPER</option>
+                    <option value="CBT">CBT</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div class="col-md-4 pr-1">
+                  <div class="form-group">
+                    <label for="course" class="control-label"> <strong> Course *</strong></label>
+                    <ng-select class="form-control" id="course" formControlName="course" placeholder=""
+                               [items]="courseOptions"
+                               bindLabel="text"
+                               [virtualScroll]="true"
+                               bindValue="id">
+                    </ng-select>
+                  </div>
+                </div>
+              
+                <div class="col-md-4 pr-1">
+                    <div class="form-group">
+                      <label for="student" class="control-label"> <strong> Student *</strong></label>
+                      <ng-select class="form-control" id="student" formControlName="student" placeholder=""
+                                 [items]="studentOptions"
+                                 bindLabel="text"
+                                 [virtualScroll]="true"
+                                 bindValue="id">
+                      </ng-select>
+                    </div>
+                  </div>
+              <div class="col-md-4 pr-1">
+                <div class="form-group">
+                  <label for="score" class="control-label required"> <strong> Score * </strong></label>
+                  <input type="number" class="form-control" formControlName="score" id="score">
+                </div>
+              </div>
+              <div class="col-md-4 pr-1">
+                  <div class="form-group">
+                    <label for="assessment_sitting" class="control-label"> <strong> Assessment Sitting </strong></label>
+                    <ng-select class="form-control" id="assessment_sitting" formControlName="assessment_sitting" placeholder=""
+                               [items]="assessmentsittingOptions"
+                               bindLabel="text"
+                               [virtualScroll]="true"
+                               bindValue="id">
+                    </ng-select>
+                  </div>
+                </div>
+              
+              
+            </div>
+             
+            
+            
+
+            
+
+                <div class="row">
+              <div class="col-sm-12 text-center">
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="loading">Submit
+                  <img *ngIf="loading" class="pl-3" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

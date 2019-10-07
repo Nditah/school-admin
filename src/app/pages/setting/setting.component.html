@@ -1,0 +1,55 @@
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> Settings Table</h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="searchForm" (keyup.enter)="search(searchForm.value)">
+            <div class="input-group no-border">
+              <input type="text" formControlName="searchString" class="form-control"  placeholder="Search..." >
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <i class="now-ui-icons ui-1_zoom-bold"></i>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="table-responsive"   *ngIf="currentRecords.length > 0">
+            <table class="table table-condensed table-responsive-sm">
+              <thead class="text-primary">
+              <tr>
+                <th class="text-left">SN</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Updated</th>
+                <th class="text-right">Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr  *ngFor="let record of currentRecords; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ record.name }}</td>
+                <td>{{ record.description }}</td>
+                <td>{{ record.category }}</td>
+                <td>{{ record.updated_at | date }}</td>
+
+                <td class="td-actions text-right">
+                  <button type="button" (click)="goToDetail(record)" rel="tooltip" title="View Detail" class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="View Detail">
+                    <i class="now-ui-icons tech_tv"></i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

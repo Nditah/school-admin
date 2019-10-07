@@ -1,0 +1,40 @@
+<div class="panel-header panel-header-sm">
+  </div>
+  <div class="main-content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-group">
+              <button class="btn btn-default" routerLink="/hostel/edit/{{record.id}}"> <i class="now-ui-icons ui-2_settings-90"></i> Edit Record </button>
+              <button class="btn btn-danger pull-right" (click)="goBack()"> <i class="now-ui-icons arrows-1_minimal-left"></i> Back </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Hostel Detail</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary"><th>Property</th><th>Value</th></thead>
+                  <tbody>
+                  <tr><th>Block</th><td>{{ record.block || '' }}</td></tr>
+                  <tr><th>Hall</th><td>{{ record.hall || '' }}</td></tr>
+                  <tr><th>Hostel Fees </th><td>{{ record.hostel_fees || '' }}</td></tr>
+                  <tr><th>Hostel Room</th><td>{{ record.hostel_rooms || '' }}</td></tr>
+                  <tr><th>Status</th><td>{{ record.status || '' }}</td></tr>
+                  <tr><th>Description</th><td>{{ record.description || '' }}</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

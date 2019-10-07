@@ -1,0 +1,116 @@
+
+<div class="panel-header panel-header-sm">
+</div>
+<div class="main-content">
+
+  <div class="row">
+
+      <div class="col-md-4">
+          <div class="card">
+            <div class="card-header bg-primary">
+              <h4 class="card-title text-center">
+                Add a Payroll record
+              </h4>
+            </div>
+            <div class="card-body">
+              <form action="" [formGroup]="addForm" (submit)="onSubmit()">
+                <div class="row">
+                  <div class="col-md-12">
+                    <label for=""><strong>Date: </strong></label>
+                    <input type="date" formControlName="period" id="period" class="form-control" #na style="border-radius: 0px">
+                  </div>
+                  <div class="col-md-12">
+                    <label for=""><strong>Code: </strong></label>
+                    <input type="text" formControlName="code" id="code" class="form-control" #na style="border-radius: 0px">
+                  </div>
+                  <div class="col-md-12">
+                    <label for=""><strong>School</strong></label>
+                    <select formControlName="subsidiary" id="subsidiary" class="form-control">
+                      <option value="CRECHE">CRECHE</option>
+                      <option value="NURSERY">NURSERY</option>
+                      <option value="PRIMARY">PRIMARY</option>
+                      <option value="SECONDARY">SECONDARY</option>
+                    </select>
+                  </div>
+                  <div class="col-md-12">
+                    <label for=""><strong>Voucher: </strong></label>
+                    <input type="text" formControlName="voucher" id="voucher" class="form-control" #na style="border-radius: 0px">
+                  </div>
+                  <div class="col-md-12">
+                    <label for=""><strong>Total: </strong></label>
+                    <input type="number" formControlName="total" id="total" class="form-control" #na style="border-radius: 0px">
+                  </div>
+                  <div class="col-md-12">
+                    <label for=""><strong>Pay Start: </strong></label>
+                    <input type="date" formControlName="pay_start" id="pay_start" class="form-control" #na style="border-radius: 0px">
+                  </div>
+                  <div class="col-md-12">
+                    <label for=""><strong>Remark: </strong></label>
+                    <input type="text" formControlName="remark" id="remark" class="form-control" #na style="border-radius: 0px">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <button [disabled]="addForm.invalid || loading" class="btn btn-primary btn-block">
+                      Submit <span *ngIf="loading" class="fa fa-gear spin"> </span>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">{{page_name}}</h4>
+            </div>
+            <div class="card-body">
+    
+              <app-advance-table *ngIf="currentRecords.length > 0">
+                <thead class="text-primary">
+                <tr>
+                  <th class="text-left">SN</th>
+                  <th>Period</th>
+                  <th>Code</th>
+                  <th>School</th>
+                  <th>Total</th>
+                  <th class="text-right">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr  *ngFor="let record of currentRecords; let i = index">
+                  <td>{{ i + 1 }}</td>
+                      <td>{{ record.period | date }}</td>
+                      <td>{{ record.code || '-' }}</td>
+                      <td>{{ record.subsidiary || '-' }}</td>
+                      <td>{{ record.total }}</td>
+                  <td class="td-actions text-right">
+                    <div class="btn-group btn-group-sm">
+                      <button type="button" class="btn btn-primary btn-sm btn-simple">
+                        <i class="now-ui-icons loader_gear"></i>
+                      </button>
+                      <div ngbDropdown class="dropdown btn-group" placement="bottom-right">
+                        <button class="btn btn-primary btn-sm dropdown-toggle-split" ngbDropdownToggle></button>
+                        <div ngbDropdownMenu>
+                          <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="openSidebar('view', 'view', record)">
+                            <i class="now-ui-icons tech_tv"></i> View Detail
+                          </a>
+                          <a class="dropdown-item text-primary" href="javascript:void(0)" (click)="openSidebar('form', 'edit', record)">
+                            <i class="now-ui-icons ui-2_settings-90"></i> Edit Record
+                          </a>
+                          <a class="dropdown-item text-primary" href="javascript:void(0)">
+                            <i class="now-ui-icons ui-1_simple-remove"></i> Remove
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </app-advance-table>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>

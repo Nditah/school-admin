@@ -1,0 +1,27 @@
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Classroom Detail</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary"><th>Property</th><th>Value</th></thead>
+                  <tbody>
+                    <tr><th>Name : </th><td>{{ record.name }}</td></tr>
+                    <tr><th>block : </th><td>{{ record.block }}</td></tr>
+                    <tr><th>level : </th><td>{{ record.level }}</td></tr>
+                    <tr><th>Class : </th><td>{{ record.classe.master }} {{record.classe.level}}</td></tr>
+                    <tr><th>Subsidiary : </th><td>{{ record.subsidiary }}</td></tr>
+                    <!-- <tr><th>Created : </th><td>{{ record.created_at | date }}</td></tr>
+                    <tr><th>Update : </th><td>{{ record.updated_at | date }}</td></tr> -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+

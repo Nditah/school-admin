@@ -1,0 +1,62 @@
+<div class="limiter">
+  <div class="container-login100">
+    <div class="wrap-login100">
+      <div class="login100-pic js-tilt" data-tilt>
+        <img src="../../../assets/img/img-01.png" alt="IMG">
+      </div>
+
+      <form class="login100-form validate-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <span class="login100-form-title">
+          Member Login
+        </span>
+
+        <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+          <input class="input100" type="text" formControlName="email" placeholder="Email">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+            <i class="fa fa-envelope" aria-hidden="true"></i>
+          </span>
+        </div>
+        <small
+          *ngIf="loginForm.controls.email.touched && !loginForm.controls.email.valid" class="form-text text-danger">
+          The email address is not valid
+        </small>
+
+        <div class="wrap-input100 validate-input" data-validate = "Password is required">
+          <input class="input100" type="password" formControlName="password" placeholder="Password">
+          <span class="focus-input100"></span>
+          <span class="symbol-input100">
+            <i class="fa fa-lock" aria-hidden="true"></i>
+          </span>
+        </div>
+        <small
+          *ngIf="loginForm.controls.password.touched && !loginForm.controls.password.valid" class="form-text text-danger">
+          Password is required
+        </small>
+
+        <div class="container-login100-form-btn">
+          <button class="login100-form-btn" [disabled]="!this.loginForm.valid || loading">
+            Login <span *ngIf="loading" class="ld ld-ball ld-bounce"> </span>
+          </button>
+        </div>
+
+        <div class="text-center p-t-12">
+          <span class="txt1">
+            Forgot
+          </span>
+          <a class="txt2" href="#">
+            Username / Password?
+          </a>
+        </div>
+
+        <div class="text-center p-t-136">
+          <a class="txt2" href="#">
+            Create your Account
+            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
