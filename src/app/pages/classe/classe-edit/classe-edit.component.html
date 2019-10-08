@@ -4,12 +4,13 @@
     <div class="row">
       <div class="col-md-12">
         <label for=""><strong>Name: </strong></label>
-        <input type="text" formControlName="name" id="name" class="form-control" #na style="border-radius: 0px">
+        <select formControlName="name" id="name" class="form-control">
+          <option value="R">R</option>
+          <option value="A">A</option>
+          <option value="F">F</option>
+        </select>
       </div>
-      <div class="col-md-12">
-        <label for=""><strong>Code: </strong></label>
-        <input type="text" formControlName="code" id="code" class="form-control" #na style="border-radius: 0px">
-      </div>
+
       <div class="col-md-12">
           <label for=""><strong>School</strong></label>
           <select formControlName="subsidiary" id="subsidiary" class="form-control" > <!-- (change)="onChange($event, na.value)" -->
@@ -19,10 +20,17 @@
             <option value="SECONDARY">SECONDARY</option>
           </select>
         </div>
-      <div class="col-md-12">
-        <label for=""><strong>Level: </strong></label>
-        <input type="text" formControlName="level" id="level" class="form-control" #na style="border-radius: 0px">
-      </div>
+        <div class="col-md-12">
+          <label for=""><strong>Level: </strong></label>
+          <select formControlName="level" id="level" class="form-control" #lev>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+        </div>
       <div class="col-md-12">
         <label for=""><strong>Form Teacher</strong></label>
         <appanalyst-select
@@ -45,10 +53,19 @@
           >
           </appanalyst-select>
       </div>
+
       <div class="col-md-12">
         <label for=""><strong>Classroom: </strong></label>
-        <input type="text" formControlName="classroom" id="classroom" class="form-control" #na style="border-radius: 0px">
+        <appanalyst-select
+            [items]="classroomOptions"
+            formControlName="classroom"
+            bindValue="id"
+            bindLabel="text"
+            placeholder="Select Classroom"
+          >
+          </appanalyst-select>
       </div>
+
       <div class="col-md-12">
         <label for=""><strong>Category: </strong></label>
         <input type="text" formControlName="category" id="category" class="form-control" #na style="border-radius: 0px">
