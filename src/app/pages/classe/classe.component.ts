@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { Classe, Staff, SelectOption, Student, ApiResponse } from '../../models';
-import { Classes, Staffs, Students } from '../../providers';
+import { Classe, Staff, SelectOption, Student, ApiResponse, Classroom } from '../../models';
+import { Classes, Staffs, Students, Classrooms } from '../../providers';
 import { NotificationService } from '../../services';
 import { isEqual } from '../../helpers';
 
@@ -22,6 +22,9 @@ export class ClasseComponent implements OnInit {
   studentRecords: Array<Student>;
   prevStudentRecords: Array<Student>;
   studentOptions: SelectOption[];
+  classroomRecords: Array<Classroom>;
+  prevClassroomRecords: Array<Classroom>;
+  classroomOptions: SelectOption[];
   sidebarView: string;
   sidebarContent: string;
   activeSidebar = false;
@@ -32,10 +35,12 @@ export class ClasseComponent implements OnInit {
               private notify: NotificationService,
               private _fb: FormBuilder,
               private staffs: Staffs,
-              private students: Students) {
+              private students: Students,
+              private classroooms: Classrooms) {
                 this.currentRecords = this.classes.query();
                 this.staffRecords = this.staffs.query();
                 this.studentRecords = this.students.query();
+                this.classroomRecords = this.classroooms.query();
               }
 
   ngOnInit() {
@@ -51,6 +56,11 @@ export class ClasseComponent implements OnInit {
     if (!isEqual(this.studentRecords, this.prevStudentRecords)) {
       this.prevStudentRecords = [...this.studentRecords];
       this.getStudentOptions();
+    }
+
+    if (!isEqual(this.classroomRecords, this.prevClassroomRecords)) {
+      this.prevClassroomRecords = [...this.classroomRecords];
+      this.getClassrooms();
     }
   }
 
@@ -70,12 +80,32 @@ export class ClasseComponent implements OnInit {
     this.loading = true;
     const payload = this.addForm.value;
 
-    let codeName;
-    const codeSub = payload.subsidiary.substring(0, 3).toUpperCase();
-    const codeLevel = payload.level;
-    codeName = payload.name;
+    // const codeSub = payload.subsidiary.substring(0, 3).toUpperCase();
+    // const codeLevel = payload.level;
+    // const codeName = payload.name;
+    // payload.code = codeSub + codeLevel + codeName;
 
+    let codeSub;
+    if(payload.subsidiary == 'SECONDARY' && payload.level <= 3) {
+      codeSub = 'JSS';
+    } else if(payload.subsidiary == 'SECONDARY' && payload.level > 3) {
+      codeSub = 'SS';
+    } else {
+      console.log('invalid codeSub');
+    }
 
+    let codeLevel = payload.level;
+    if(payload.subsidiary == 'SECONDARY' && payload.level == 4) {
+      codeLevel = 1;
+    } else if(payload.subsidiary == 'SECONDARY' && payload.level == 5) {
+      codeLevel = 2;
+    } else if(payload.subsidiary == 'SECONDARY' && payload.level == 6) {
+      codeLevel = 3;
+    } else {
+      console.log('invalid codeLevel');
+    }
+
+    const codeName = payload.name;
     payload.code = codeSub + codeLevel + codeName;
 
     try {
@@ -138,6 +168,16 @@ export class ClasseComponent implements OnInit {
       }
     ));
     console.log(this.studentOptions);
+  }
+
+  getClassrooms() {
+    this.classroomOptions = this.classroomRecords.map(options => (
+      {
+        id: options.id,
+        text: `${options.name} ${options.block}`
+      }
+    ));
+    console.log(this.classroomOptions);
   }
 
   async returnResponse(event: any) {
