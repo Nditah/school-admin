@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { Student, Staff, Classe, SelectOption } from '../../../models';
+import { Student, Staff, Classe, SelectOption, Classroom } from '../../../models';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Classes } from '../../../providers';
 import { isEqual, deepPropsExist } from '../../../helpers';
@@ -15,12 +15,15 @@ export class ClasseEditComponent implements OnInit {
   @Input() formType: string;
   @Input() staffRecords: Array<Staff>;
   @Input() studentRecords: Array<Student>;
+  @Input() classroomRecords: Array<Classroom>;
   @Output() returnResponse: EventEmitter<any> =  new EventEmitter();
   prevStaffRecords: Array<Staff>;
   prevStudentRecords: Array<Student>;
+  prevClassroomRecords: Array<Classroom>;
   prevRecords: Classe | null;
   staffOptions: Array<SelectOption>;
   studentOptions: Array<SelectOption>;
+  classroomOptions: Array<SelectOption>;
   editForm: FormGroup;
   loading = false;
 
@@ -48,10 +51,39 @@ export class ClasseEditComponent implements OnInit {
       this.prevStudentRecords = [...this.studentRecords];
       this.getStudentOptions();
     }
+
+    if (!isEqual(this.classroomRecords, this.prevClassroomRecords)) {
+      this.prevClassroomRecords = [...this.classroomRecords];
+      this.getClassrooms();
+    }
   }
 
   async onSubmit() {
     const payload  = this.editForm.value;
+
+    let codeSub = payload.subsidiary.substring(0, 3).toUpperCase();
+    if(payload.subsidiary == 'SECONDARY' && payload.level <= 3) {
+      codeSub = 'JSS';
+    } else if(payload.subsidiary == 'SECONDARY' && payload.level > 3) {
+      codeSub = 'SS';
+    } else {
+      console.log('invalid codeSub');
+    }
+
+    let codeLevel = payload.level;
+    if(payload.subsidiary == 'SECONDARY' && payload.level == 4) {
+      codeLevel = 1;
+    } else if(payload.subsidiary == 'SECONDARY' && payload.level == 5) {
+      codeLevel = 2;
+    } else if(payload.subsidiary == 'SECONDARY' && payload.level == 6) {
+      codeLevel = 3;
+    } else {
+      console.log('invalid codeLevel');
+    }
+
+    const codeName = payload.name;
+    payload.code = codeSub + codeLevel + codeName;
+
     try {
       const result = await this.classes.recordUpdate(this.record, payload);
       if (result.success) {
@@ -109,6 +141,16 @@ export class ClasseEditComponent implements OnInit {
       }
     ));
     console.log(this.studentOptions);
+  }
+
+  getClassrooms() {
+    this.classroomOptions = this.classroomRecords.map(options => (
+      {
+        id: options.id,
+        text: `${options.name} ${options.block}`
+      }
+    ));
+    console.log(this.classroomOptions);
   }
 
 }

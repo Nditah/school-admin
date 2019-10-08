@@ -85,7 +85,7 @@ export class ClasseComponent implements OnInit {
     // const codeName = payload.name;
     // payload.code = codeSub + codeLevel + codeName;
 
-    let codeSub;
+    let codeSub = payload.subsidiary.substring(0, 3).toUpperCase();
     if(payload.subsidiary == 'SECONDARY' && payload.level <= 3) {
       codeSub = 'JSS';
     } else if(payload.subsidiary == 'SECONDARY' && payload.level > 3) {
