@@ -28,7 +28,7 @@
             <tr>
               <th class="text-left">SN</th>
               <th>Name</th>
-              <th>Class</th>
+              <th>Email</th>
               <th>Gender</th>
               <th>School</th>
               <th class="text-right">Action</th>
@@ -38,7 +38,7 @@
             <tr  *ngFor="let record of currentRecords; let i = index">
               <td>{{ i + 1 }}</td>
                   <td>{{ record.surname }} {{ record.given_name }}</td>
-                  <td>{{ record.classe }}</td>
+                  <td>{{ record.email }}</td>
                   <td>{{ record.gender }}</td>
                   <td>{{ record.subsidiary }}</td>
               <td class="td-actions text-right">

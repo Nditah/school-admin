@@ -135,7 +135,7 @@ export class ClassroomComponent implements OnInit {
     this.classeOptions = this.classeRecords.map(options => (
       {
         id: options.id,
-        text: `${options.name} ${options.level}`
+        text: options.code
       }
     ));
     console.log(this.classeOptions);

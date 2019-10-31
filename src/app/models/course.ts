@@ -8,6 +8,7 @@ export class Course {
     title: string;
     level: string;
     code: string;
+    term: number;
     coefficient: string;
     description: string;
     classe: Classe;
@@ -33,6 +34,7 @@ export interface Course {
     title: string;
     level: string;
     code: string;
+    term: number;
     coefficient: string;
     description: string;
     classe: Classe;
